@@ -13,7 +13,7 @@
 <body>
   <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. Edit content/week01.md and run the build instead. -->
   <main class="reveal" aria-label="C프로그래밍 개요 presentation"><div class="slides">
-      <section class="title-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="title-content"><div class="eyebrow">WEEK 01</div><h1>C프로그래밍 개요</h1><p class="slide-subtitle">컴퓨터와 소통하기</p><div class="title-rule"></div><div class="title-meta"><span><strong>강사</strong> 원대희 / 성민창</span><span><strong>일시</strong> <span data-live-date>날짜 확인 중…</span> · 14:30–17:30</span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+      <section class="title-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="title-content"><div class="eyebrow">WEEK 01</div><h1>C프로그래밍 개요</h1><p class="slide-subtitle">c언어 소개, 함수 맛보기</p><div class="title-rule"></div><div class="title-meta"><span><strong>강사</strong> 원대희 / 성민창</span><span><strong>일시</strong> <span data-live-date>날짜 확인 중…</span> · 14:30–17:30</span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>강의계획 · 교과목 정보</h2></div></header><div class="slide-content">
 <table>
 <thead>
@@ -198,21 +198,22 @@
 <li>인공지능 및 제약 조건 기반 언어: Prolog, OPS5, Mercury, CVXGen, Geometry Expert 등.</li>
 </ul>
 </div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
-      <section class="two-column-slide align-left valign-center image-size-medium diagram-size-large diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>아내의 심부름</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
-<h3>아내의 심부름</h3>
+      <section class="two-column-slide align-left valign-center image-size-medium diagram-size-large diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>프로그래머의 심부름</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<h3>프로그래머의 심부름</h3>
 <p>“여보 우유 하나 사오고, 계란이 있으면 6개 사다 줘”</p>
 <p><img src="./images/week01/%EC%95%84%EB%82%B4%EC%9D%98%EC%8B%AC%EB%B6%80%EB%A6%84.png" alt="아내의심부름"></p>
 <blockquote>
-<p>&quot;여보 마트에 가서 달걀이 있다면 달걀 6개 구매 후 우유 1개를 추가로 구매하고 귀가해&quot;</p>
+<p>원래 의도 : &quot;여보 마트에 가서 달걀이 있다면 달걀 6개 구매 후 우유 1개를 추가로 구매하고 귀가해&quot;</p>
 </blockquote>
-</div><div class="column"><h3>프로그래머 남편 의식의 흐름</h3>
+</div><div class="column"><h3>프로그래머의 의식 흐름도</h3>
 <div class="diagram-container"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;25px&quot;},&quot;flowchart&quot;:{&quot;padding&quot;:20,&quot;nodeSpacing&quot;:42,&quot;rankSpacing&quot;:48}}}%%
 flowchart TB
     START([시작]) --&gt; MARKET[마트에 간다]
     MARKET --&gt; CHECK{달걀 있는가?}
     CHECK -- 예 --&gt; SIX[우유를 6개 산다]
     CHECK -- 아니오 --&gt; ONE[우유를 1개 산다]
-    SIX --&gt; END([귀가])
+    SIX --&gt; END[귀가]
+    END --&gt; END2([혼난다])
     ONE --&gt; END
 </div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="diagram-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>문제에서 프로그램 구현까지</h2></div></header><div class="slide-content">
@@ -222,9 +223,15 @@ flowchart LR
     B --&gt; C[코드 작성]
     C --&gt; D[컴파일과 실행]
     D --&gt; E{결과 확인}
-    E -- 수정 필요 --&gt; B
+    E -- 수정 필요(디버깅) --&gt; B
     E -- 완료 --&gt; F[프로그램]
-</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+</div></div><h3>디버깅(Debugging)</h3>
+<ul>
+<li>프로그램의 오류(Bug)를 찾아 수정하는 과정</li>
+<li>문법 오류 : C언어의 문법 규칙을 잘못 작성</li>
+<li>논리 오류 : 프로그램은 생성되었으나 프로그램의 결과가 의도와는 다름.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>왜 프로그래밍 언어가 필요한가?</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
 <h3>사람이 읽을 수 있는 표현</h3>
 <p>의미 있는 이름, 수식, 조건과 반복을 사용해 해결 절차를 작성.</p>
@@ -460,6 +467,56 @@ int sum(int a, int b)
 }
 </code></pre>
 </div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+      <section class="summary-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>오늘의 핵심</h2></div></header><div class="slide-content">
+<h3>프로그래밍과 C언어</h3>
+<ul>
+<li>
+<p>문제 분석 → 해결 절차 설계 → 프로그래밍 언어로 표현</p>
+</li>
+<li>
+<p>C언어의 주요 활용 분야: 운영체제, 임베디드 시스템, 실시간 제어기, 로봇 제어기</p>
+</li>
+<li>
+<p>C 프로그램의 시작점: <code>main()</code> 함수</p>
+</li>
+<li>
+<p>기본 문법 요소: <code>#include</code>, <code>return</code>, 세미콜론(<code>;</code>)</p>
+</li>
+</ul>
+<h3>작성한 코드가 실행되기까지</h3>
+<ul>
+<li>
+<p>소스 코드(<code>.c</code>) → <strong>컴파일(Compile)</strong> → 목적 파일 → <strong>링크(Link)</strong> → 실행 파일</p>
+</li>
+<li>
+<p><code>#include &lt;stdio.h&gt;</code> : 표준 입출력 함수 사용</p>
+</li>
+<li>
+<p><code>printf()</code> : 화면 출력</p>
+</li>
+<li>
+<p>주요 형식 지정자: <code>%d</code> 정수, <code>%f</code> 실수, <code>%c</code> 문자, <code>%s</code> 문자열</p>
+</li>
+</ul>
+<h3>올바른 코드 작성 방법</h3>
+<ul>
+<li>
+<p>불필요한 주석보다 <strong>목적, 의도, 제약사항, 사용 방법</strong> 중심의 주석 작성</p>
+</li>
+<li>
+<p>소스 파일: 머리말 주석을 통한 파일 정보 기록</p>
+</li>
+<li>
+<p>함수: 기능, 입력값, 반환값을 구조적으로 기록</p>
+</li>
+<li>
+<p>명확한 주석을 통한 가독성·유지보수성·재사용성 향상</p>
+</li>
+<li>
+<p>AI 코드 생성·수정 시 코드의 의도와 요구사항 전달</p>
+</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="exercise-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>통합 개발 환경(Integrated Development Environment) 설치</h2></div></header><div class="slide-content">
 <h2>IDE 소개</h2>
 <ul>
@@ -641,26 +698,6 @@ int main(void)
 </div><blockquote>
 <p>처음 실행할 때 환경 선택 창이 나타나면 <strong>MSVC: 현재 C 파일 실행 및 디버깅</strong>을 선택함. 수업용 설정 파일이 빌드와 실행 과정을 자동으로 처리함.</p>
 </blockquote>
-</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
-      <section class="summary-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>오늘의 핵심</h2></div></header><div class="slide-content">
-<h3>프로그래밍과 C언어</h3>
-<ul>
-<li>프로그래밍은 문제를 분석하고 해결 절차를 설계한 뒤, 프로그래밍 언어로 표현하는 과정임.</li>
-<li>C언어는 운영체제, 임베디드 시스템, 로봇 등 다양한 분야의 기초가 되는 언어임.</li>
-<li>C 프로그램은 <code>main()</code> 함수에서 시작하며, 각 명령문은 세미콜론(<code>;</code>)으로 끝남.</li>
-</ul>
-<h3>작성한 코드가 실행되기까지</h3>
-<ul>
-<li>소스 파일(<code>.c</code>)은 컴파일과 링크 과정을 거쳐 실행 파일(<code>.exe</code>)로 변환됨.</li>
-<li>VS Code에서 <strong>F5</strong>를 누르면 빌드와 실행이 연속으로 진행됨.</li>
-<li>오류 메시지와 터미널의 실행 결과를 확인하여 프로그램이 의도대로 동작하는지 검증함.</li>
-</ul>
-<h3>올바른 실습 방법</h3>
-<ul>
-<li>예제 코드를 직접 입력하고 작은 부분을 바꾸면서 결과를 예측함.</li>
-<li>AI 코딩 도우미의 설명과 수정안은 그대로 믿지 않고, 코드를 읽은 뒤 직접 실행하여 확인함.</li>
-<li>오류가 발생해도 실패로 여기지 않고 문제의 원인을 찾는 학습 자료로 활용함.</li>
-</ul>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>추가 내용</h1>
 <h2>AI 코딩 도우미 활용</h2>
