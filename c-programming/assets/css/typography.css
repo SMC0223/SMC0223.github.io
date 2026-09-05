@@ -1,0 +1,24 @@
+.reveal { color: var(--text-primary); font-family: var(--font-ko); font-size: 28px; }
+.reveal h1, .reveal h2, .reveal h3, .reveal p { margin: 0; text-transform: none; }
+.reveal h1, .reveal h2, .reveal h3 { color: var(--text-primary); font-family: var(--font-ko); font-weight: 700; letter-spacing: -.025em; }
+.reveal h1 { font-size: 64px; line-height: 1.12; }
+.reveal h2 { font-size: 42px; line-height: 1.2; }
+.reveal h3 { font-size: 28px; line-height: 1.7; }
+.reveal p, .reveal li { font-size: 26px; line-height: 1.55; }
+.reveal ul, .reveal ol { margin: 0; padding-left: 3em; }
+.reveal ol li { padding-left: .25em; }
+.reveal li::marker { color: var(--hy-blue); font-weight: 700; }
+.reveal li + li { margin-top: 12px; }
+.eyebrow, .section-label { color: var(--hy-blue); font-family: var(--font-en); font-size: 15px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.slide-subtitle { color: var(--text-secondary); font-size: 27px; line-height: 1.5; }
+.caption { color: var(--text-muted); font-size: 17px; }
+.placeholder { color: var(--text-secondary); }
+code { font-family: var(--font-code); }
+.reveal mark {
+  background: #fff1a8;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  color: inherit;
+  padding: .04em .18em;
+  -webkit-box-decoration-break: clone;
+}

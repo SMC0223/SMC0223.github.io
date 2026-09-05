@@ -1,0 +1,64 @@
+html, body { background: var(--bg-primary); }
+.reveal .slides { text-align: left; }
+.reveal .slides > section {
+  box-sizing: border-box;
+  height: 100%;
+  padding: var(--slide-padding-y) var(--slide-padding-x);
+}
+.slide-shell { display: grid; grid-template-rows: auto 1fr auto; gap: 28px; height: 100%; min-height: 0; }
+.slide-header { align-items: end; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; padding-bottom: 18px; }
+.slide-header-text { display: grid; gap: 8px; }
+.brand-logo, .logo-fallback { display: none; }
+.page-logo {
+  bottom: 42px;
+  height: 34px;
+  object-fit: contain;
+  position: absolute;
+  right: var(--slide-padding-x);
+  width: auto;
+}
+.slide-content { align-content: center; display: grid; min-height: 0; }
+.align-center .slide-content, .align-center .section-content { text-align: center; }
+.align-right .slide-content, .align-right .section-content { text-align: right; }
+.align-center .slide-content > img, .align-center .slide-content > p > img { margin-left: auto; margin-right: auto; }
+.align-right .slide-content > img, .align-right .slide-content > p > img { margin-left: auto; margin-right: 0; }
+.align-center .slide-content > ul, .align-center .slide-content > ol,
+.align-right .slide-content > ul, .align-right .slide-content > ol { display: inline-block; justify-self: center; text-align: left; }
+.align-right .slide-content > ul, .align-right .slide-content > ol { justify-self: end; }
+.valign-top .slide-content { align-content: start; }
+.valign-center .slide-content { align-content: center; }
+.valign-bottom .slide-content { align-content: end; }
+.title-slide.align-center .title-content { justify-items: center; max-width: none; text-align: center; }
+.title-slide.align-right .title-content { justify-items: end; margin-left: auto; text-align: right; }
+.image-size-small .slide-content img { width: 32%; }
+.image-size-medium .slide-content img { width: 52%; }
+.image-size-large .slide-content img { width: 72%; }
+.image-size-full .slide-content img { width: 100%; }
+.image-size-small .slide-content img,
+.image-size-medium .slide-content img,
+.image-size-large .slide-content img,
+.image-size-full .slide-content img { height: auto; }
+.slide-content img.md-image { display: block; height: auto; max-width: 100%; }
+.slide-content img.img-small { width: 32%; }
+.slide-content img.img-medium { width: 52%; }
+.slide-content img.img-large { width: 72%; }
+.slide-content img.img-full { width: 100%; }
+.slide-content img.img-align-left { margin-left: 0; margin-right: auto; }
+.slide-content img.img-align-center { margin-left: auto; margin-right: auto; }
+.slide-content img.img-align-right { margin-left: auto; margin-right: 0; }
+.slide-footer { align-items: center; color: var(--text-muted); display: flex; font: 500 15px var(--font-en); justify-content: space-between; letter-spacing: .04em; padding-right: 250px; }
+.title-slide .slide-shell { grid-template-rows: 1fr auto; }
+.title-slide .title-content { align-content: center; display: grid; gap: 20px; max-width: 1050px; }
+.title-slide h1 { margin-top: 8px; }
+.title-rule { background: var(--hy-blue); height: 4px; margin-top: 28px; width: 120px; }
+.title-meta { border-top: 1px solid var(--border-light); display: flex; gap: 38px; margin-top: 18px; padding-top: 20px; }
+.title-meta span { color: var(--text-secondary); font-size: 19px; }
+.title-meta strong { color: var(--hy-blue); font-weight: 700; margin-right: 8px; }
+.section-slide .slide-shell { grid-template-rows: 1fr auto; }
+.section-slide .section-content { align-content: center; display: grid; gap: 18px; }
+.section-number { color: var(--hy-blue); font: 700 22px var(--font-en); letter-spacing: .12em; }
+.section-slide h1 { max-width: 1100px; }
+.reveal .progress { color: var(--hy-blue); height: 4px; }
+.reveal .controls { color: var(--hy-blue); right: 20px; bottom: 18px; transform: scale(.72); }
+.reveal .slide-number { background: transparent; color: var(--text-muted); font: 500 14px var(--font-en); right: 76px; bottom: 18px; }
+body.overview .slide-footer { opacity: .4; }

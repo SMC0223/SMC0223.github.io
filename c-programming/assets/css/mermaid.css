@@ -1,0 +1,26 @@
+.diagram-container { align-items: center; background: #fbfcfd; border: 1px solid var(--border-light); border-radius: var(--radius-small); display: flex; justify-content: center; min-height: 430px; padding: 24px; }
+.diagram-container .mermaid { display: flex; width: 100%; }
+.diagram-container svg { height: auto; max-height: 430px; max-width: 100%; width: auto; }
+.diagram-align-left .diagram-container .mermaid { justify-content: flex-start; }
+.diagram-align-center .diagram-container .mermaid { justify-content: center; }
+.diagram-align-right .diagram-container .mermaid { justify-content: flex-end; }
+.reveal .diagram-container .nodeLabel,
+.reveal .diagram-container .nodeLabel p,
+.reveal .diagram-container .edgeLabel,
+.reveal .diagram-container .edgeLabel p {
+  font-size: inherit;
+  line-height: 1.2;
+  margin: 0;
+}
+.diagram-container .nodeLabel { padding-left: 6px; padding-right: 6px; }
+.diagram-container foreignObject { overflow: visible; }
+.diagram-fallback { color: var(--text-muted); font-size: 20px; }
+.diagram-container .mermaid-error { align-items: center; color: var(--danger); display: flex; font-size: 18px; justify-content: center; min-height: 180px; text-align: center; }
+.diagram-size-small .diagram-container { min-height: 280px; }
+.diagram-size-small .diagram-container svg { max-height: 300px; }
+.diagram-size-medium .diagram-container { min-height: 390px; }
+.diagram-size-medium .diagram-container svg { max-height: 430px; }
+.diagram-size-large .diagram-container { min-height: 500px; }
+.diagram-size-large .diagram-container svg { max-height: 550px; }
+.diagram-size-full .diagram-container { min-height: 620px; }
+.diagram-size-full .diagram-container svg { max-height: 680px; }
