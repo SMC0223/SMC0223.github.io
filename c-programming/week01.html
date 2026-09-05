@@ -371,21 +371,95 @@ int main(void) {
 </tbody>
 </table>
 <p><code>␠</code>는 공백, <code>\n</code>은 줄바꿈 문자를 나타낸다.</p>
-</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>&quot;Hello World!&quot; 문자열을 출력하시오.</p><div class="callout-note"><strong>Hint</strong><p>printf 함수 안의 글자를 바꿔보자</p></div></aside><div class="editor-workspace"><textarea class="code-editor" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 
 int main(void) {
-    printf(&quot;Hello, C!\n&quot;); // 이 부분을 수정하시오.
+    printf(&quot;Hello, C!\n&quot;); 
+    printf(&quot;%d\n&quot;,10);  
+    printf(&quot;%f\n&quot;,1.1); 
+    printf(&quot;%c\n&quot;,'A'); 
+    printf(&quot;%s\n&quot;,&quot;Hello&quot;);
+    printf(&quot;오늘의 날짜는 %d월 %d일 온도는 %f도\n&quot;,9,14,28.8) ;
     return 0;
 }</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
-      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid"><div class="column">
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 60fr) minmax(0, 40fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
 <h3>주석이란?</h3>
 <ul>
 <li>컴퓨터가 아닌 사람에게 가독성 향상 및 정보 전달을 위해 적는 문장.</li>
 <li>컴파일러는 주석을 번역하지 않음.</li>
 <li>주석 삽입은 코드의 가독성, 유지보수성 및 재사용성 향상을 위해 필수.</li>
 <li>AI를 활용하는 경우에도 주석을 넣어 효율적인 코드 생성이 가능.</li>
+<li>언어마다 주석문은 다르며 c언어의 경우 한줄 주석은 <mark>//내용</mark>, 여러줄 주석은 <mark>/* 내용 */</mark>.</li>
 </ul>
-</div><div class="column"></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+int main(void) {
+    // 주석을 작성해봅시다.
+    // 한줄 주석은 이렇게 작성합니다.
+    /* 여러줄 주석은 
+        이렇게 작성합니다.
+    */
+    printf(&quot;주석 내용은 컴파일러에서 번역하지 않는다.\n&quot;); 
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 60fr) minmax(0, 40fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>바람직한 주석 작성법</h3>
+<ul>
+<li>
+<p>모든 문장마다 주석을 작성하면 오히려 코드가 복잡하고 지저분해져 가독성을 떨어뜨릴 수 있음.</p>
+</li>
+<li>
+<p>주석은 <mark>코드만으로 알기 어려운 목적, 의도, 제약사항 및 사용 방법</mark>을 중심으로 작성.</p>
+</li>
+<li>
+<p>소스 파일의 시작 부분에는 파일 전체를 설명하는 <mark>머리말 주석(Header Comment)</mark>을 작성하는 것이 좋음.</p>
+</li>
+<li>
+<p>머리말 주석에는 다음과 같은 정보를 포함할 수 있음.</p>
+<ul>
+<li>파일에 대한 간략한 설명</li>
+<li>파일에서 구현한 주요 기능</li>
+<li>최초 작성자</li>
+<li>최초 작성일 및 최종 수정일</li>
+<li>주요 변경 내역</li>
+<li>미완성 기능 및 알려진 버그</li>
+<li>저작권 및 라이선스 정보</li>
+</ul>
+</li>
+<li>
+<p>함수에는 함수의 목적, 입력값, 반환값 등을 설명하는 주석을 작성하면 유지보수와 재사용에 유리함.</p>
+</li>
+<li>
+<p>좋은 주석은 <mark>왜 그렇게 작성되었는지를 설명</mark>하는 것이 중요함.</p>
+</li>
+</ul>
+</div><div class="column"><div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">/*
+ * File        : sum.c
+ * Description : 두 정수의 합을 계산하는 예제 프로그램
+ * Author      : 홍길동
+ * Created     : 2026-09-05
+ * Last Update : 2026-09-05
+ *
+ * Functions
+ *   - sum() : 두 정수의 합을 계산
+ *
+ * Known Issues
+ *   - 없음
+ */
+
+/**
+ * @brief 두 정수의 합을 계산하는 함수
+ *
+ * @param a 첫 번째 정수
+ * @param b 두 번째 정수
+ * @return 두 정수의 합
+ */
+int sum(int a, int b)
+{
+    return a + b;
+}
+</code></pre>
+</div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="exercise-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>통합 개발 환경(Integrated Development Environment) 설치</h2></div></header><div class="slide-content">
 <h2>IDE 소개</h2>
 <ul>
@@ -486,8 +560,9 @@ int main(void) {
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="code-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>VSCode 실행 ②</h2></div></header><div class="slide-content">
 <p><img src="./images/week01/vscode_%ED%99%94%EB%A9%B42.png" alt="VS Code에서 실습 폴더 열기"></p>
+<p><a href="./downloads/example.zip" download=""><strong>example/week01</strong></a>을 클릭하여 실습 파일을 다운로드한 뒤, ZIP 파일의 압축을 풂.</p>
 <p>상단 메뉴에서 **File → Open Folder...**를 선택함.<br>
-폴더 선택 창에서 C 소스 파일이 들어 있는 <code>example/week01</code> 폴더를 선택한 후 <strong>Select Folder</strong>를 클릭함.</p>
+폴더 선택 창에서 압축을 푼 <code>example/week01</code> 폴더를 선택한 후 <strong>Select Folder</strong>를 클릭함.</p>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="code-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>VSCode 실행 ③</h2></div></header><div class="slide-content">
 <p><img src="./images/week01/vscode_%ED%99%94%EB%A9%B43.png" alt="VS Code에서 C 소스 파일 선택"></p>
