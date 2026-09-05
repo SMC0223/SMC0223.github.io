@@ -10,6 +10,13 @@
 .reveal pre code { box-sizing: border-box; font: 21px/1.5 var(--font-code); max-height: 510px; padding: 24px; white-space: pre-wrap; word-break: normal; }
 .interactive-layout { display: grid; gap: 20px; grid-template-columns: minmax(260px, 36%) 1fr; min-height: 510px; }
 .instruction-panel { border-right: 1px solid var(--border-light); display: grid; gap: 20px; padding-right: 24px; }
+.interactive-layout.interactive-notes-top, .interactive-layout.interactive-notes-bottom, .interactive-layout.interactive-notes-none { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+.interactive-notes-top > .instruction-panel, .interactive-notes-bottom > .instruction-panel { border: 0; padding: 0; gap: 10px; }
+.interactive-notes-bottom > .editor-workspace { order: -1; }
+.interactive-compact { gap: 14px; min-width: 0; }
+.reveal .interactive-compact .instruction-panel p { font-size: 18px; line-height: 1.45; }
+.interactive-compact .callout-note { padding: 10px 14px; }
+.interactive-compact .editor-workspace { grid-template-rows: auto auto auto; }
 .editor-workspace { display: grid; gap: 14px; grid-template-rows: 1fr auto auto; min-width: 0; }
 .editor-panel { background: #17212b; border-radius: var(--radius-small); color: #b9c4ce; display: grid; font: 19px var(--font-code); place-items: center; }
 .console-grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }

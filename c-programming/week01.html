@@ -59,8 +59,8 @@
 </table>
 <h3>담당 강사</h3>
 <ul>
-<li><strong>주 강사:</strong> 원대희 · 한국생산기술연구원 수석</li>
-<li><strong>부 강사:</strong> 성민창 · 한국생산기술연구원 선임</li>
+<li>원대희 박사 · HYU-KITECH 공동학과 겸임 교수/ 한국생산기술연구원(KITECH) 수석 연구원</li>
+<li>성민창 박사 · 한국생산기술연구원(KITECH) 선임 연구원</li>
 </ul>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>교과목 개요</h2></div></header><div class="slide-content">
@@ -117,7 +117,7 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>중간고사는 컴퓨터 없이 종이에 C 코드를 직접 작성하는 필기형 코딩 시험으로 진행함.</strong></p>
+<p><strong>중간고사 : 객관식 + 서술형(c코드 작성) 문제</strong></p>
 </blockquote>
 </div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>주차별 강의계획 · 1–7주차</h2></div></header><div class="slide-content">
@@ -253,10 +253,10 @@ flowchart LR
 </ul>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content">
-<div class="interactive-layout" data-c-runner><aside class="instruction-panel"><div><h3>실습</h3><p>&quot;Hello World!&quot; 문자열을 출력하시오.</p></div><div class="callout-note"><strong>Hint</strong><p>printf 함수 안의 글자를 바꿔보자</p></div></aside><div class="editor-workspace"><textarea class="code-editor" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>&quot;Hello World!&quot; 문자열을 출력하시오.</p><div class="callout-note"><strong>Hint</strong><p>printf 함수 안의 글자를 바꿔보자</p></div></aside><div class="editor-workspace"><textarea class="code-editor" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 
 int main(void) {
-    printf(&quot;Hello, C!\n&quot;);
+    printf(&quot;Hello, C!\n&quot;); // 이 부분을 수정하시오.
     return 0;
 }</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 55fr) minmax(0, 45fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid"><div class="column">
@@ -269,48 +269,75 @@ int main(void) {
 </ul>
 <h3>main함수</h3>
 <ul>
-<li>c언어는 절차지향언어로</li>
+<li>c언어는 절차지향언어로 가장 먼저 실행되는(entry point) 함수는 main함수.</li>
+<li><mark>void</mark> : &quot;없음&quot;을 의미하는 자료형</li>
+<li><mark>int</mark> : &quot;정수&quot;를 의미하는 자료형, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup></mrow><annotation encoding="application/x-tex">2^{31}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span></span></span></span> ~ <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31}-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 까지의 정수.</li>
 </ul>
 <div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">#include &lt;stdio.h&gt;
 int main(void) {
-    printf(&quot;Hello, C!\n&quot;);
     return 0;
 }
 </code></pre>
 </div></div><div class="column"><p><img src="./images/week01/%ED%95%A8%EC%88%98%EC%84%A4%EB%AA%85.png" alt="함수 설명"></p>
 </div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
-      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
-<h3>코드 1</h3>
-<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">#include &lt;stdio.h&gt;
-int main(void) {
-    printf(&quot;Hello, C!\n&quot;);
-    return 0;
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 55fr) minmax(0, 45fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid"><div class="column">
+<h3>세미콜론(;)</h3>
+<ul>
+<li>c프로그램 초보자들이 가장 오류를 많이 일으키는 주범</li>
+<li>c언어에서 연산을 수행하는 문장 끝에는 항상 <mark>;</mark>을 붙여야 함</li>
+</ul>
+<h3>return</h3>
+<ul>
+<li>함수 종료(빠져 나옴)를 의미.</li>
+<li>return문 다음의 값을 함수 호출 영역으로 반환.</li>
+<li>출력 자료형이 <mark>void</mark>의 경우 <mark>return;</mark></li>
+</ul>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int sum_one(int a) {
+    return a+1;
 }
 </code></pre>
-</div></div><div class="column"><h3>코드 설명</h3>
-<h4><mark>#include &lt;stdio.h&gt;</mark></h4>
-<p>&quot;stdio.h&quot;라는 파일을 현재 코드에 포함.</p>
-<h4><mark>main함수</mark></h4>
-<p>c언어에서 가장 먼저 실행되는 함수</p>
-<div class="code-container code-container-light explanation-container"><div class="code-header"><span>설명</span><button class="copy-code" type="button">Copy</button></div><div class="explanation-content">int main(void){ 
-    return 0;
-    }</div></div><p><mark>int</mark>: 정수형 기본 자료형(-2^31,...-1,0,1,...,2^31-1)</p>
-<p><mark>void</mark>: 없음을 뜻하는 자료형.</p>
-<p><mark>return 0</mark>: 함수의 결과는 0이다.</p>
-<p>즉 입력은 없고 출력은 항상 0인 함수</p>
+</div><div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">void return_void(int a) {    
+    return;
+}
+</code></pre>
+</div></div><div class="column"><p><img src="./images/week01/%ED%95%A8%EC%88%98%EC%84%A4%EB%AA%85.png" alt="함수 설명"></p>
 </div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
-      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid"><div class="column">
-<h3>코드 1</h3>
-<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">#include &lt;stdio.h&gt;
-int main(void) {
-    printf(&quot;Hello, C!\n&quot;);
-    return 0;
-}
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>표준 라이브러리 포함</h3>
+<ul>
+<li>header파일 : 함수의 사용법이 적혀 있는 문서, 함수의 상세 내용은 c파일에 기술되어 있음.</li>
+<li>stdio.h : 프로그램 제작 시 자주 사용되는 표준 입출력 함수(printf,...)의 사용법이 적혀있는 파일</li>
+<li>#include &lt;stdio.h&gt; : &quot;표준 입출력 라이브러리를 사용하겠다.&quot; 라는 의미</li>
+</ul>
+</div><div class="column"><div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">#include &lt;stdio.h&gt;
 </code></pre>
-</div></div><div class="column"><h3>코드 설명</h3>
-<h4><mark>printf함수</mark></h4>
-<p>printf(&quot;문자열&quot;) 과 같이 문자열을 입력 받고 terminal에 출력.</p>
-<p>문자열 : 문자로 이루어진 배열 구조</p>
+</div><blockquote>
+<p>stdio.h 지원 함수 예시</p>
+<ul>
+<li>printf : 문자열을 화면에 출력</li>
+<li>scanf : 키보드 입력을 서식에 맞추어 받음.</li>
+<li>putchar : 문자 하나를 화면에 출력</li>
+<li>getchar : 문자 하나를 키보드로부터 입력받음.</li>
+<li>fopen/fclose : 파일을 열고/닫음.</li>
+<li>fprintf/fscanf : 파일에/로부터 데이터를 출력/입력.</li>
+<li>fgetc, getc, fgets, fputs, fread, fwrite...</li>
+</ul>
+</blockquote>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>printf 함수</h3>
+<ul>
+<li>printf(&quot;문자열&quot;) 과 같이 문자열을 입력 받고 화면에 출력.</li>
+<li>printf(&quot;%d&quot;,10) : 정수(integer)값 10을 출력</li>
+<li>printf(&quot;%f&quot;,1.1) : 실수(float)값 1.1을 출력</li>
+<li>printf(&quot;%c&quot;,'A') : 문자(character)값 A를 출력</li>
+<li>printf(&quot;%s&quot;,&quot;Hello&quot;) : 문자열(string) &quot;Hello&quot;을 출력</li>
+<li>printf(&quot;오늘의 날짜는 %d월 %d일 온도는 %f도&quot;,9,14,28.8) : 문자열(string)과 다른 자료형을 한번에 출력</li>
+</ul>
+<h3>문자열</h3>
+<ul>
+<li>문자로 이루어진 배열 구조</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -324,6 +351,7 @@ int main(void) {
 <th style="text-align:center">7</th>
 <th style="text-align:center">8</th>
 <th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
 </tr>
 </thead>
 <tbody>
@@ -338,11 +366,26 @@ int main(void) {
 <td style="text-align:center"><code>C</code></td>
 <td style="text-align:center"><code>!</code></td>
 <td style="text-align:center"><code>\n</code></td>
+<td style="text-align:center"><code>\0</code></td>
 </tr>
 </tbody>
 </table>
 <p><code>␠</code>는 공백, <code>\n</code>은 줄바꿈 문자를 나타낸다.</p>
-</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>&quot;Hello World!&quot; 문자열을 출력하시오.</p><div class="callout-note"><strong>Hint</strong><p>printf 함수 안의 글자를 바꿔보자</p></div></aside><div class="editor-workspace"><textarea class="code-editor" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;Hello, C!\n&quot;); // 이 부분을 수정하시오.
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>첫 번째 C 프로그램</h2></div></header><div class="slide-content"><div class="code-comparison-grid"><div class="column">
+<h3>주석이란?</h3>
+<ul>
+<li>컴퓨터가 아닌 사람에게 가독성 향상 및 정보 전달을 위해 적는 문장.</li>
+<li>컴파일러는 주석을 번역하지 않음.</li>
+<li>주석 삽입은 코드의 가독성, 유지보수성 및 재사용성 향상을 위해 필수.</li>
+<li>AI를 활용하는 경우에도 주석을 넣어 효율적인 코드 생성이 가능.</li>
+</ul>
+</div><div class="column"></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="exercise-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>통합 개발 환경(Integrated Development Environment) 설치</h2></div></header><div class="slide-content">
 <h2>IDE 소개</h2>
 <ul>
