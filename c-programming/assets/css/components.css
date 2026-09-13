@@ -4,6 +4,7 @@
 .two-column.ratio-60-40 { grid-template-columns: 3fr 2fr; }
 .three-column { grid-template-columns: repeat(3, 1fr); }
 .column { min-width: 0; }
+.slide-spacer { height: 1.5em; }
 .content-stack { display: grid; gap: 22px; }
 .callout { border-left: 4px solid var(--hy-blue); padding: 14px 0 14px 22px; }
 .callout-note { background: var(--bg-secondary); border: 1px solid var(--border-light); border-left: 4px solid var(--hy-silver); border-radius: var(--radius-small); padding: 18px 22px; }
@@ -30,3 +31,7 @@
 .reveal .column th, .reveal .column td, .reveal .comparison-item th, .reveal .comparison-item td { padding: 10px 8px; }
 .reveal blockquote { background: var(--hy-blue-soft); border-left: 4px solid var(--hy-blue); box-shadow: none; box-sizing: border-box; font-style: normal; margin: 20px 0 0; padding: 16px 22px; width: 100%; }
 .reveal img { max-height: 620px; object-fit: contain; }
+.reveal .lecture-reference { color: #64748b; border-left: 3px solid #cbd5e1; padding: 8px 16px; margin: 12px 0; background: transparent; }
+.reveal .lecture-reference p, .reveal .interactive-compact .lecture-reference p { font-size: 24px; line-height: 1.45; margin: 0; }
+.reveal .lecture-reference a { color: #536b86; text-decoration: underline; }
+.reveal .lecture-reference code { color: inherit; }

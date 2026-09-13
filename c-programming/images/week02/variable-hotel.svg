@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="544" viewBox="0 0 720 544" role="img" aria-labelledby="title desc">
+  <title id="title">호텔 객실로 이해하는 변수와 자료형</title>
+  <desc id="desc">호텔 전체 = 메모리, 객실 하나 = 변수. 각 객실에 단순한 사람 모양을 하나씩 배정함. 얼굴에 저장된 값을 표시: 101호 일반룸(unsigned short)은 2, 102호 스위트룸(unsigned int)은 65536, 201호 싱글룸(unsigned char)은 255. 객실 종류는 우열 없이 저장할 값의 종류를 구분.</desc>
+  <defs>
+    <g id="guest" stroke="#164b7a" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-12 45 L-22 56 M12 45 L22 56 M-7 58 L-11 67 M7 58 L11 67" fill="none" stroke-width="5"/>
+      <path d="M-13 57 L-11 44 Q0 38 11 44 L13 57Z" fill="#c9dced" stroke-width="2"/>
+      <circle cx="0" cy="23" r="22" fill="#eaf1f8" stroke-width="2"/>
+    </g>
+  </defs>
+  <rect width="720" height="544" fill="#fff"/>
+  <g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+    <path d="M48 78 L360 18 L672 78Z" fill="#eaf1f8" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="48" y="78" width="624" height="390" rx="12" fill="#f7f9fc" stroke="#abc0d4" stroke-width="2"/>
+    <text x="360" y="116" text-anchor="middle" fill="#164b7a" font-size="30" font-weight="700">호텔 전체 = 메모리(memory)</text>
+    <g fill="#164b7a" font-size="23" font-weight="700" text-anchor="middle">
+      <text x="150" y="155">호실(변수명)</text>
+      <text x="325" y="155">객실형태(자료형)</text>
+      <text x="570" y="155">사람(값)</text>
+    </g>
+    <g transform="translate(0 34)">
+    <g fill="#fff" stroke="#abc0d4" stroke-width="2">
+      <rect x="72" y="140" width="576" height="78" rx="8"/>
+      <rect x="72" y="230" width="576" height="78" rx="8"/>
+      <rect x="72" y="320" width="576" height="78" rx="8"/>
+    </g>
+    <g fill="#203449" font-size="30" font-weight="700">
+      <text x="114" y="187">101호</text>
+      <text x="114" y="277">102호</text>
+      <text x="114" y="367">201호</text>
+    </g>
+    <g fill="#405971" font-size="28">
+      <text x="279" y="175">일반룸</text>
+      <text x="279" y="199" font-size="18">unsigned short</text>
+      <text x="279" y="265">스위트룸</text>
+      <text x="279" y="289" font-size="18">unsigned int</text>
+      <text x="279" y="355">싱글룸</text>
+      <text x="279" y="379" font-size="18">unsigned char</text>
+    </g>
+    <g fill="#405971" font-size="24">
+      <text x="476" y="187">값</text>
+      <text x="476" y="277">값</text>
+      <text x="476" y="367">값</text>
+    </g>
+    <g fill="#164b7a" font-family="Consolas, monospace" font-size="22" font-weight="700" text-anchor="middle">
+      <g transform="translate(570 145)">
+        <use href="#guest"/>
+        <text y="30">2</text>
+      </g>
+      <g transform="translate(570 235)">
+        <use href="#guest"/>
+        <text y="30" font-size="16">65536</text>
+      </g>
+      <g transform="translate(570 325)">
+        <use href="#guest"/>
+        <text y="30">255</text>
+      </g>
+    </g>
+    <text x="360" y="422" text-anchor="middle" fill="#405971" font-size="24">객실 하나 = 변수(variable)</text>
+    <text x="360" y="466" text-anchor="middle" fill="#405971" font-size="24">객실 종류: 우열 없이 저장할 값의 종류를 구분</text>
+    <text x="360" y="495" text-anchor="middle" fill="#607286" font-size="22">사람 얼굴의 표시 = 객실에 저장된 값</text>
+    </g>
+  </g>
+</svg>

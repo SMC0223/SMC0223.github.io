@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="470" viewBox="0 0 1400 470" role="img" aria-labelledby="title desc">
+<title id="title">float와 double의 비트 구성과 유효숫자</title>
+<desc id="desc">5.75를 저장하는 IEEE 754 예. 위 float는 부호 1, 지수 8, 가수부 23비트. 아래 double은 부호 1, 지수 11, 가수부 52비트. 정규화된 수의 숨은 선행 1을 포함하면 각각 유효 이진수 24비트와 53비트이며, 약 6~7자리와 15~16자리의 십진 유효숫자 정밀도에 해당함. 왼쪽부터 논리적인 비트 구성으로 실제 메모리 바이트 순서와 구분함.</desc>
+<rect width="1400" height="470" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="60" y="35" font-size="33" font-weight="700" fill="#164b7a">float · 4바이트(32비트)</text>
+<text x="780" y="35" font-size="30" font-weight="700" fill="#23796f">10진 유효숫자 약 6~7자리</text>
+<rect x="60" y="60" width="19" height="44" rx="2" fill="#fde2df" stroke="#bd5c50"/><text x="69.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="80" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="89.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="100" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="109.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="120" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="129.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="140" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="149.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="160" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="169.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="180" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="189.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="200" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="209.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="220" y="60" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="229.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="240" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="249.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="260" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="269.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="280" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="289.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="300" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="309.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="320" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="329.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="340" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="349.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="360" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="369.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="380" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="389.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="400" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="409.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="420" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="429.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="440" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="449.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="460" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="469.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="480" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="489.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="500" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="509.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="520" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="529.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="540" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="549.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="560" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="569.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="580" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="589.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="600" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="609.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="620" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="629.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="640" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="649.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="660" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="669.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="680" y="60" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="689.5" y="89" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<text x="60" y="145" font-size="26" fill="#a34a40">부호 1비트</text><text x="270" y="145" font-size="26" fill="#315e97">지수 8비트</text><text x="500" y="145" font-size="26" fill="#23796f">가수부 23비트</text>
+<text x="60" y="195" font-size="27" fill="#405971">숨은 선행 1 + 가수부 23비트 = 유효 이진수 24비트</text>
+<text x="60" y="270" font-size="33" font-weight="700" fill="#164b7a">double · 8바이트(64비트)</text>
+<text x="780" y="270" font-size="30" font-weight="700" fill="#23796f">10진 유효숫자 약 15~16자리</text>
+<rect x="60" y="295" width="19" height="44" rx="2" fill="#fde2df" stroke="#bd5c50"/><text x="69.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="80" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="89.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="100" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="109.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="120" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="129.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="140" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="149.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="160" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="169.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="180" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="189.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="200" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="209.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="220" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="229.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="240" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="249.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="260" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="269.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="280" y="295" width="19" height="44" rx="2" fill="#deebfb" stroke="#668bb8"/><text x="289.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="300" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="309.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="320" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="329.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="340" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="349.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="360" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="369.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">1</text>
+<rect x="380" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="389.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="400" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="409.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="420" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="429.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="440" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="449.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="460" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="469.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="480" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="489.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="500" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="509.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="520" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="529.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="540" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="549.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="560" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="569.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="580" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="589.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="600" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="609.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="620" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="629.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="640" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="649.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="660" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="669.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="680" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="689.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="700" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="709.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="720" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="729.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="740" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="749.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="760" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="769.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="780" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="789.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="800" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="809.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="820" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="829.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="840" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="849.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="860" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="869.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="880" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="889.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="900" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="909.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="920" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="929.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="940" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="949.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="960" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="969.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="980" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="989.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1000" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1009.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1020" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1029.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1040" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1049.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1060" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1069.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1080" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1089.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1100" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1109.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1120" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1129.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1140" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1149.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1160" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1169.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1180" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1189.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1200" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1209.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1220" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1229.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1240" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1249.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1260" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1269.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1280" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1289.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1300" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1309.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<rect x="1320" y="295" width="19" height="44" rx="2" fill="#ddf1e8" stroke="#62987d"/><text x="1329.5" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="17" fill="#243b50">0</text>
+<text x="60" y="380" font-size="26" fill="#a34a40">부호 1비트</text><text x="270" y="380" font-size="26" fill="#315e97">지수 11비트</text><text x="500" y="380" font-size="26" fill="#23796f">가수부 52비트</text>
+<text x="60" y="430" font-size="27" fill="#405971">숨은 선행 1 + 가수부 52비트 = 유효 이진수 53비트</text>
+</g></svg>

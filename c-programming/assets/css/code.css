@@ -14,7 +14,7 @@
 .interactive-notes-top > .instruction-panel, .interactive-notes-bottom > .instruction-panel { border: 0; padding: 0; gap: 10px; }
 .interactive-notes-bottom > .editor-workspace { order: -1; }
 .interactive-compact { gap: 14px; min-width: 0; }
-.reveal .interactive-compact .instruction-panel p { font-size: 18px; line-height: 1.45; }
+.reveal .interactive-compact .instruction-panel p, .reveal .interactive-compact .instruction-panel li { font-size: 18px; line-height: 1.45; }
 .interactive-compact .callout-note { padding: 10px 14px; }
 .interactive-compact .editor-workspace { grid-template-rows: auto auto auto; }
 .editor-workspace { display: grid; gap: 14px; grid-template-rows: 1fr auto auto; min-width: 0; }
@@ -57,6 +57,7 @@
   width: 100%;
 }
 .code-editor:focus { outline: 3px solid rgba(14, 74, 132, .28); }
+.code-editor[rows] { align-self: start; height: auto; min-height: 0; }
 .console-input {
   background: transparent;
   border: 0;
@@ -70,3 +71,13 @@
 .runner-status[data-state="running"] { color: var(--hy-blue); }
 .runner-status[data-state="success"] { color: var(--success); }
 .runner-status[data-state="error"] { color: var(--danger); }
+.console-output .ansi-bold { font-weight: 700; }
+.console-output .ansi-underline { text-decoration: underline; }
+.console-output .ansi-color-0 { color: #17212b; }
+.console-output .ansi-color-1 { color: #b42318; }
+.console-output .ansi-color-2 { color: #18733c; }
+.console-output .ansi-color-3 { color: #855900; }
+.console-output .ansi-color-4 { color: #2456a6; }
+.console-output .ansi-color-5 { color: #8b338e; }
+.console-output .ansi-color-6 { color: #006c80; }
+.console-output .ansi-color-7 { color: #536478; }

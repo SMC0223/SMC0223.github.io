@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="275" viewBox="0 0 1200 275" role="img" aria-labelledby="title desc"><title id="title">unsigned 정수형 호텔 객실</title><desc id="desc">싱글룸 unsigned char는 8비트, 일반룸 unsigned short는 16비트, 스위트룸 unsigned int는 32비트. 칸 하나는 1비트. 일반적인 환경 기준.</desc><rect width="1200" height="275" fill="white"/><g font-family="Malgun Gothic, sans-serif" text-anchor="middle">
+<text x="198" y="30" font-size="28" font-weight="700" fill="#164b7a">싱글룸 · unsigned char</text><text x="198" y="65" font-size="25" fill="#405971">8bit = 1byte</text><path d="M74 95L198 77L322 95Z" fill="#eaf1f8"/><rect x="74" y="95" width="248" height="46" rx="6" fill="#f7f9fc" stroke="#819db8" stroke-width="2"/>
+<rect x="86" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="114" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="142" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="170" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="198" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="226" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="254" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="282" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<text x="598" y="30" font-size="28" font-weight="700" fill="#164b7a">일반룸 · unsigned short</text><text x="598" y="65" font-size="25" fill="#405971">16bit = 2byte</text><path d="M474 95L598 77L722 95Z" fill="#eaf1f8"/><rect x="474" y="95" width="248" height="72" rx="6" fill="#f7f9fc" stroke="#819db8" stroke-width="2"/>
+<rect x="486" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="514" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="542" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="570" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="598" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="626" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="654" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="682" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="486" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="514" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="542" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="570" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="598" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="626" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="654" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="682" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<text x="998" y="30" font-size="28" font-weight="700" fill="#164b7a">스위트룸 · unsigned int</text><text x="998" y="65" font-size="25" fill="#405971">32bit = 4byte</text><path d="M874 95L998 77L1122 95Z" fill="#eaf1f8"/><rect x="874" y="95" width="248" height="124" rx="6" fill="#f7f9fc" stroke="#819db8" stroke-width="2"/>
+<rect x="886" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="914" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="942" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="970" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="998" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1026" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1054" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1082" y="105" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="886" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="914" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="942" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="970" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="998" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1026" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1054" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1082" y="131" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="886" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="914" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="942" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="970" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="998" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1026" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1054" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1082" y="157" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="886" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="914" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="942" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="970" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="998" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1026" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1054" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<rect x="1082" y="183" width="24" height="22" rx="3" fill="#d6e8f7" stroke="#7598b7"/>
+<text x="600" y="262" font-size="25" fill="#164b7a">모든 객실은 unsigned · 칸 하나 = 1bit · 가로 8칸 = 1byte</text></g></svg>

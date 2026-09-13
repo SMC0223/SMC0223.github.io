@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">전구의 꺼짐과 켜짐으로 이해하는 bool</title>
+  <desc id="desc">왼쪽 회색 전구는 꺼짐이며 값 0, 오른쪽 빛나는 노란 전구는 켜짐이며 값 1. bool은 두 상태를 구분하여 저장함.</desc>
+  <defs>
+    <g id="bulb" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+      <path d="M-26 70 C-26 40 -60 28 -60 -15 C-60 -48 -33 -75 0 -75 C33 -75 60 -48 60 -15 C60 28 26 40 26 70Z" fill="var(--bulb-fill)"/>
+      <path d="M-12 68 V25 L-25 6 L-8 13 L0 4 L8 13 L25 6 L12 25 V68" fill="none"/>
+      <rect x="-27" y="74" width="54" height="18" rx="5" fill="#dce4ec"/>
+      <path d="M-22 96 H22 L12 108 H-12Z" fill="#b4c1cf"/>
+    </g>
+  </defs>
+  <rect width="800" height="480" fill="#fff"/>
+  <rect x="16" y="16" width="368" height="448" rx="18" fill="#f5f7fa" stroke="#c8d3df" stroke-width="2"/>
+  <rect x="416" y="16" width="368" height="448" rx="18" fill="#fffbef" stroke="#e4c257" stroke-width="2"/>
+  <g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+    <text x="200" y="66" fill="#405971" font-size="34" font-weight="700">꺼짐</text>
+    <text x="600" y="66" fill="#735400" font-size="34" font-weight="700">켜짐</text>
+    <circle cx="600" cy="185" r="100" fill="#fff0ac"/>
+    <g transform="translate(600 185)" stroke="#c39419" stroke-width="5" stroke-linecap="round">
+      <path d="M0 -90 V-106 M-73 -65 L-87 -78 M73 -65 L87 -78 M-88 -10 H-106 M88 -10 H106 M-76 40 L-92 50 M76 40 L92 50"/>
+    </g>
+    <use href="#bulb" transform="translate(200 185)" color="#718397" style="--bulb-fill:#e2e8ef"/>
+    <use href="#bulb" transform="translate(600 185)" color="#98700e" style="--bulb-fill:#ffda57"/>
+    <text x="200" y="391" fill="#405971" font-family="Consolas, monospace" font-size="72" font-weight="700">0</text>
+    <text x="600" y="391" fill="#735400" font-family="Consolas, monospace" font-size="72" font-weight="700">1</text>
+    <text x="200" y="438" fill="#405971" font-size="25">전구가 꺼진 상태</text>
+    <text x="600" y="438" fill="#735400" font-size="25">전구가 켜진 상태</text>
+  </g>
+</svg>

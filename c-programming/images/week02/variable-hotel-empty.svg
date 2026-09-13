@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-labelledby="title desc">
+  <title id="title">빈 101호로 이해하는 초기화하지 않은 변수</title>
+  <desc id="desc">호텔은 메모리, 101호 일반룸은 unsigned short형 변수 room101에 대응함. 사람 영역은 비워 두고 미배정으로 표시함. 빈 방은 초기값을 지정하지 않았다는 비유이며 0이나 빈 값이 저장되었다는 뜻이 아님. 함수 안의 일반 지역 변수는 값을 저장한 뒤 사용함.</desc>
+  <rect width="720" height="440" fill="#fff"/>
+  <g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+    <path d="M48 78 L360 18 L672 78Z" fill="#eaf1f8" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="48" y="78" width="624" height="260" rx="12" fill="#f7f9fc" stroke="#abc0d4" stroke-width="2"/>
+    <text x="360" y="116" text-anchor="middle" fill="#164b7a" font-size="30" font-weight="700">호텔 전체 = 메모리(memory)</text>
+    <g fill="#164b7a" font-size="23" font-weight="700" text-anchor="middle">
+      <text x="150" y="155">호실(변수명)</text>
+      <text x="325" y="155">객실형태(자료형)</text>
+      <text x="570" y="155">사람(값)</text>
+    </g>
+    <rect x="72" y="174" width="576" height="140" rx="8" fill="#fff" stroke="#abc0d4" stroke-width="2"/>
+    <g text-anchor="middle">
+      <text x="150" y="237" fill="#203449" font-size="30" font-weight="700">101호</text>
+      <text x="150" y="267" fill="#405971" font-family="Consolas, monospace" font-size="24">room101</text>
+      <text x="325" y="237" fill="#405971" font-size="28">일반룸</text>
+      <text x="325" y="267" fill="#405971" font-family="Consolas, monospace" font-size="18">unsigned short</text>
+    </g>
+    <rect x="508" y="190" width="124" height="105" rx="8" fill="#f7f9fc" stroke="#abc0d4" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="570" y="251" text-anchor="middle" fill="#607286" font-size="26">미배정</text>
+    <text x="360" y="376" text-anchor="middle" fill="#164b7a" font-size="28" font-weight="700">빈 방 선언: 공간만 마련 / 초기값 미지정</text>
+    <text x="360" y="407" text-anchor="middle" fill="#405971" font-size="23">‘빈 방’은 비유 · 0이나 ‘빈 값’이 저장된 상태가 아님</text>
+    <text x="360" y="434" text-anchor="middle" fill="#607286" font-size="22">함수 안의 일반 지역 변수 기준</text>
+  </g>
+</svg>

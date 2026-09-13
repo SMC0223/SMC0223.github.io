@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="230" viewBox="0 0 1000 230" role="img" aria-labelledby="title desc">
+<title id="title">표현식의 평가 · 연산자와 피연산자</title><desc id="desc">피연산자 3과 2 사이에 연산자 더하기를 적용함. 표현식 3 + 2를 평가하여 결과값 5를 얻음. 화살표 위에 평가(evaluate) 표시.</desc>
+<rect width="1000" height="230" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+<g fill="#edf4fb" stroke="#a4bdd4" stroke-width="2"><rect x="55" y="22" width="170" height="125" rx="18"/><rect x="430" y="22" width="170" height="125" rx="18"/></g>
+<rect x="270" y="22" width="115" height="125" rx="18" fill="#f1eafa" stroke="#b5a0cf" stroke-width="2"/>
+<rect x="770" y="22" width="175" height="125" rx="18" fill="#e5f5ef" stroke="#88bca7" stroke-width="2"/>
+<g font-size="70" font-weight="700"><text x="140" y="108" fill="#245b88">3</text><text x="328" y="108" fill="#75529e">+</text><text x="515" y="108" fill="#245b88">2</text><text x="858" y="108" fill="#237d60">5</text></g>
+<path d="M642 84H725L707 66M725 84L707 102" fill="none" stroke="#8092a3" stroke-width="6"/>
+<text x="684" y="44" font-size="22" font-weight="700" fill="#536478">평가(evaluate)</text>
+<g font-size="30" font-weight="700"><text x="140" y="193" fill="#245b88">피연산자</text><text x="328" y="193" fill="#75529e">연산자</text><text x="515" y="193" fill="#245b88">피연산자</text><text x="858" y="193" fill="#237d60">결과값</text></g>
+</g></svg>

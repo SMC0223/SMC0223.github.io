@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="590" viewBox="0 0 800 590" role="img" aria-labelledby="title desc">
+  <title id="title">분신술을 쓰는 호텔 손님과 값 복사</title>
+  <desc id="desc">얼굴에 10이 적힌 손님이 호텔 101호에 체크인함. 첫 단계: 손님이 숫자까지 똑같은 분신을 만들어 102호에 체크인시킴. 원래 손님은 101호에 남음. 둘째 단계: 101호 손님의 숫자만 20으로 바뀌고 102호 분신의 숫자는 10을 유지함. 객실은 변수, 얼굴의 숫자는 값에 대응함.</desc>
+  <defs>
+    <g id="person" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-15 57 L-30 77 M15 57 L30 77 M-9 78 L-15 98 M9 78 L15 98" fill="none"/>
+      <path d="M-18 77 L-14 53 Q0 46 14 53 L18 77Z" fill="currentColor" fill-opacity=".2"/>
+      <circle cx="0" cy="25" r="27" fill="#fff"/>
+    </g>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#7854a2"/></marker>
+  </defs>
+  <rect width="800" height="590" fill="#fff"/>
+  <g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+    <text x="40" y="48" fill="#164b7a" font-size="29" font-weight="700">① 101호 손님이 만든 분신, 102호에 체크인!</text>
+    <path d="M24 90 L400 62 L776 90Z" fill="#eaf1f8" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="24" y="90" width="752" height="196" rx="10" fill="#f7f9fc" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="40" y="95" width="280" height="185" rx="14" fill="#f5f8fc" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="480" y="95" width="280" height="185" rx="14" fill="#f8f4fc" stroke="#aa91c4" stroke-width="2"/>
+    <g font-size="25" font-weight="700" text-anchor="middle" fill="#203449">
+      <text x="180" y="132">101호 · room101</text>
+      <text x="620" y="132">102호 · room102</text>
+    </g>
+    <g fill="#405971" font-size="19" text-anchor="middle">
+      <text x="95" y="200">일반룸</text><text x="95" y="228" font-size="13">unsigned short</text>
+      <text x="715" y="200">스위트룸</text><text x="715" y="228" font-size="13">unsigned int</text>
+    </g>
+    <g transform="translate(180 157)" color="#164b7a"><use href="#person"/><text y="34" text-anchor="middle" fill="currentColor" font-family="Consolas, monospace" font-size="29" font-weight="700">10</text></g>
+    <g transform="translate(620 157)" color="#164b7a"><use href="#person"/><text y="34" text-anchor="middle" fill="currentColor" font-family="Consolas, monospace" font-size="29" font-weight="700">10</text></g>
+    <path d="M344 211 H453" fill="none" stroke="#7854a2" stroke-width="4" marker-end="url(#arrow)"/>
+    <text x="400" y="190" text-anchor="middle" fill="#7854a2" font-size="23" font-weight="700">분신술!</text>
+    <g stroke="#aa91c4" stroke-width="3" stroke-linecap="round">
+      <path d="M558 164 V180 M550 172 H566 M682 199 V215 M674 207 H690 M672 152 V164 M666 158 H678"/>
+    </g>
+    <text x="40" y="331" fill="#267263" font-size="29" font-weight="700">② 손님의 숫자가 바뀌어도 분신은 그대로</text>
+    <path d="M24 355 L400 340 L776 355Z" fill="#eaf1f8" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="24" y="355" width="752" height="191" rx="10" fill="#f7f9fc" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="40" y="355" width="280" height="185" rx="14" fill="#eff8f4" stroke="#358575" stroke-width="2"/>
+    <rect x="480" y="355" width="280" height="185" rx="14" fill="#f5f8fc" stroke="#abc0d4" stroke-width="2"/>
+    <g font-size="25" font-weight="700" text-anchor="middle" fill="#203449">
+      <text x="180" y="392">101호 · room101</text>
+      <text x="620" y="392">102호 · room102</text>
+    </g>
+    <g fill="#405971" font-size="19" text-anchor="middle">
+      <text x="95" y="460">일반룸</text><text x="95" y="488" font-size="13">unsigned short</text>
+      <text x="715" y="460">스위트룸</text><text x="715" y="488" font-size="13">unsigned int</text>
+    </g>
+    <g transform="translate(180 417)" color="#267263"><use href="#person"/><text y="34" text-anchor="middle" fill="currentColor" font-family="Consolas, monospace" font-size="29" font-weight="700">20</text></g>
+    <g transform="translate(620 417)" color="#164b7a"><use href="#person"/><text y="34" text-anchor="middle" fill="currentColor" font-family="Consolas, monospace" font-size="29" font-weight="700">10</text></g>
+    <text x="400" y="461" text-anchor="middle" fill="#405971" font-size="23" font-weight="700">각자 지냄</text>
+    <text x="400" y="578" text-anchor="middle" fill="#405971" font-size="24">객실 = 변수 / 사람 얼굴의 숫자 = 저장된 값</text>
+  </g>
+</svg>

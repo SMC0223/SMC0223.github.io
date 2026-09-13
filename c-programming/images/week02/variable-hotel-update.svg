@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="544" viewBox="0 0 720 544" role="img" aria-labelledby="title desc">
+  <title id="title">사람 교체로 이해하는 변수의 값 변경</title>
+  <desc id="desc">같은 101호 일반룸을 대입 전과 후로 나누어 표시함. 대입 전 사람의 얼굴에는 2, 대입 후 새 사람의 얼굴에는 5를 표시함. room101 = 5; 실행으로 기존 값 2를 새 값 5로 덮어씀. 변수명 room101과 자료형 unsigned short는 유지함.</desc>
+  <defs>
+    <g id="guest" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-12 45 L-22 56 M12 45 L22 56 M-7 58 L-11 67 M7 58 L11 67" fill="none" stroke-width="5"/>
+      <path d="M-13 57 L-11 44 Q0 38 11 44 L13 57Z" fill="currentColor" fill-opacity=".18" stroke-width="2"/>
+      <circle cx="0" cy="23" r="22" fill="#fff" stroke-width="2"/>
+    </g>
+  </defs>
+  <rect width="720" height="544" fill="#fff"/>
+  <g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+    <path d="M48 68 L360 12 L672 68Z" fill="#eaf1f8" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="48" y="68" width="624" height="408" rx="12" fill="#f7f9fc" stroke="#abc0d4" stroke-width="2"/>
+    <text x="360" y="103" text-anchor="middle" fill="#164b7a" font-size="30" font-weight="700">같은 객실, 새로운 사람</text>
+    <g fill="#164b7a" font-size="23" font-weight="700" text-anchor="middle">
+      <text x="150" y="139">호실(변수명)</text>
+      <text x="325" y="139">객실형태(자료형)</text>
+      <text x="570" y="139">사람(값)</text>
+    </g>
+    <rect x="72" y="155" width="576" height="112" rx="8" fill="#fff" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="72" y="343" width="576" height="112" rx="8" fill="#fff" stroke="#358575" stroke-width="2"/>
+    <g font-size="22" font-weight="700">
+      <text x="92" y="180" fill="#607286">대입 전</text>
+      <text x="92" y="368" fill="#267263">대입 후</text>
+    </g>
+    <g fill="#203449" font-size="30" font-weight="700" text-anchor="middle">
+      <text x="150" y="221">101호</text>
+      <text x="150" y="409">101호</text>
+    </g>
+    <g fill="#405971" text-anchor="middle">
+      <text x="325" y="209" font-size="28">일반룸</text>
+      <text x="325" y="235" font-size="18">unsigned short</text>
+      <text x="325" y="397" font-size="28">일반룸</text>
+      <text x="325" y="423" font-size="18">unsigned short</text>
+    </g>
+    <g font-family="Consolas, monospace" font-size="22" font-weight="700" text-anchor="middle">
+      <g transform="translate(570 172) scale(1.2)" color="#164b7a">
+        <use href="#guest"/>
+        <text y="30" fill="currentColor">2</text>
+      </g>
+      <g transform="translate(570 360) scale(1.2)" color="#267263">
+        <use href="#guest"/>
+        <text y="30" fill="currentColor">5</text>
+      </g>
+    </g>
+    <path d="M570 282 V325 M560 315 L570 325 L580 315" fill="none" stroke="#267263" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="92" y="311" fill="#164b7a" font-family="Consolas, monospace" font-size="30" font-weight="700">room101 = 5;</text>
+    <text x="360" y="311" fill="#267263" font-size="22" font-weight="700">사람 교체: 2 → 5</text>
+    <text x="360" y="507" text-anchor="middle" fill="#405971" font-size="22">호실·객실형태 유지 / 사람(값)만 교체</text>
+    <text x="360" y="536" text-anchor="middle" fill="#607286" font-size="22">같은 101호의 시간에 따른 변화 · 현재 값은 5</text>
+  </g>
+</svg>

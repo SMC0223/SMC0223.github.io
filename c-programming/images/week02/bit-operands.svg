@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="225" viewBox="0 0 1000 225" role="img" aria-labelledby="title desc">
+<title id="title">5와 3의 하위 4비트</title><desc id="desc">자리 값 8, 4, 2, 1. 5는 0101, 3은 0011. 1인 칸은 색으로 강조함.</desc>
+<rect width="1000" height="225" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle" font-size="30">
+<g fill="#536478"><text x="150" y="35">자리 값</text><text x="330" y="35">8</text><text x="500" y="35">4</text><text x="670" y="35">2</text><text x="840" y="35">1</text></g>
+<g fill="#eef2f6" stroke="#becad7" stroke-width="2"><rect x="260" y="52" width="140" height="65" rx="10"/><rect x="600" y="52" width="140" height="65" rx="10"/><rect x="260" y="138" width="140" height="65" rx="10"/><rect x="430" y="138" width="140" height="65" rx="10"/></g>
+<g fill="#286493"><rect x="430" y="52" width="140" height="65" rx="10"/><rect x="770" y="52" width="140" height="65" rx="10"/></g>
+<g fill="#21876b"><rect x="600" y="138" width="140" height="65" rx="10"/><rect x="770" y="138" width="140" height="65" rx="10"/></g>
+<g font-weight="700"><text x="150" y="96" fill="#286493">a = 5</text><text x="150" y="182" fill="#21876b">b = 3</text></g>
+<g fill="#536478"><text x="330" y="96">0</text><text x="670" y="96">0</text><text x="330" y="182">0</text><text x="500" y="182">0</text></g>
+<g fill="white" font-weight="700"><text x="500" y="96">1</text><text x="840" y="96">1</text><text x="670" y="182">1</text><text x="840" y="182">1</text></g>
+</g></svg>

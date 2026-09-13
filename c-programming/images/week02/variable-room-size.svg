@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="600" viewBox="0 0 880 600" role="img" aria-labelledby="title desc">
+  <title id="title">객실 크기와 손님으로 이해하는 자료형의 저장 공간</title>
+  <desc id="desc">마른 손님은 값 5, 덩치가 큰 손님은 값 300을 나타냄. unsigned char 객실에는 비트 칸 8개, unsigned short 객실에는 비트 칸 16개가 있음. 5는 두 객실 모두 저장 가능하지만 300은 8비트 unsigned char 범위를 벗어남. 일반적인 unsigned char 1바이트, unsigned short 2바이트 환경 기준.</desc>
+  <defs>
+    <pattern id="bits8" x="106" y="232" width="22" height="38" patternUnits="userSpaceOnUse"><rect x="1" y="1" width="20" height="36" rx="3" fill="#eaf1f8" stroke="#819db8"/></pattern>
+    <pattern id="bits16" x="88" y="466" width="22" height="38" patternUnits="userSpaceOnUse"><rect x="1" y="1" width="20" height="36" rx="3" fill="#eaf1f8" stroke="#819db8"/></pattern>
+  </defs>
+  <rect width="880" height="600" fill="white"/>
+  <g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+    <path d="M30 75 L440 14 L850 75Z" fill="#eaf1f8" stroke="#abc0d4" stroke-width="2"/>
+    <rect x="30" y="75" width="820" height="475" rx="14" fill="#f7f9fc" stroke="#abc0d4" stroke-width="2"/>
+    <text x="440" y="113" font-size="29" font-weight="700" fill="#164b7a">메모리 호텔 · 칸 하나 = 1비트</text>
+    <rect x="58" y="133" width="272" height="182" rx="12" fill="white" stroke="#819db8" stroke-width="2"/>
+    <text x="194" y="170" font-size="29" font-weight="700" fill="#164b7a">201호 · 싱글룸</text>
+    <text x="194" y="202" font-size="22" fill="#405971">unsigned char · 8칸</text>
+    <rect x="106" y="232" width="176" height="38" fill="url(#bits8)"/>
+    <text x="194" y="299" font-size="22" fill="#405971">작은 저장 공간</text>
+    <g fill="#5a91bc" stroke="#5a91bc" stroke-width="9" stroke-linecap="round">
+      <circle cx="442" cy="202" r="27" stroke="none"/>
+      <path d="M442 238V277 M442 246L416 264 M442 246L468 264 M442 277L427 303 M442 277L457 303" fill="none"/>
+    </g>
+    <text x="442" y="212" font-size="29" font-weight="700" fill="white">5</text>
+    <text x="634" y="214" font-size="29" font-weight="700" fill="#164b7a">마른 손님 · 작은 값</text>
+    <text x="634" y="251" font-size="25" fill="#405971">5는 싱글룸에 저장 가능</text>
+    <rect x="58" y="331" width="764" height="196" rx="12" fill="white" stroke="#819db8" stroke-width="2"/>
+    <text x="209" y="373" font-size="29" font-weight="700" fill="#164b7a">101호 · 일반룸</text>
+    <text x="209" y="410" font-size="25" fill="#405971">unsigned short · 16칸</text>
+    <g fill="#329d92" stroke="#329d92" stroke-width="10" stroke-linecap="round">
+      <circle cx="443" cy="369" r="29" stroke="none"/>
+      <ellipse cx="443" cy="415" rx="48" ry="28" stroke="none"/>
+      <path d="M422 433L416 448 M464 433L470 448" fill="none"/>
+    </g>
+    <text x="443" y="378" font-size="24" font-weight="700" fill="white">300</text>
+    <text x="650" y="382" font-size="27" font-weight="700" fill="#23796f">큰 손님 · 더 큰 값</text>
+    <text x="650" y="419" font-size="23" fill="#405971">300은 일반룸에 저장 가능</text>
+    <rect x="88" y="466" width="352" height="38" fill="url(#bits16)"/>
+    <text x="440" y="585" font-size="26" font-weight="700" fill="#164b7a">손님 크기 = 값에 필요한 비트 수의 비유</text>
+  </g>
+</svg>

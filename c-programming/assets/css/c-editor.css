@@ -1,0 +1,17 @@
+.c-editor-shell { position: relative; display: grid; min-width: 0; background: #17212b; border-radius: var(--radius-small); }
+.c-editor-shell .code-editor { position: relative; z-index: 1; margin: 0; white-space: pre; overflow: auto; }
+.c-editor-paint { position: absolute; inset: 0; box-sizing: border-box; white-space: pre; overflow: hidden; pointer-events: none; color: #edf3f7; text-align: left; font-variant-ligatures: none; }
+.c-editor-shell.is-highlighted .code-editor { color: transparent; -webkit-text-fill-color: transparent; caret-color: #fff; background: transparent; font-variant-ligatures: none; }
+.c-editor-shell .code-editor::selection { background: #4682b466; }
+.c-editor-shell.is-composing .code-editor { color: #edf3f7; -webkit-text-fill-color: #edf3f7; }
+.c-editor-shell.is-composing .c-editor-paint { visibility: hidden; }
+.c-editor-paint .c-token-keyword { color: #c792ea; }
+.c-editor-paint .c-token-string { color: #c3e88d; }
+.c-editor-paint .c-token-comment { color: #9aabbc; }
+.c-editor-paint .c-token-number { color: #f7b773; }
+.c-editor-paint .c-token-directive { color: #82aaff; }
+.c-editor-paint .c-token-function { color: #89ddff; }
+@media (forced-colors: active) {
+  .c-editor-shell.is-highlighted .code-editor { color: CanvasText; -webkit-text-fill-color: CanvasText; caret-color: CanvasText; }
+  .c-editor-paint { display: none; }
+}

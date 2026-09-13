@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+<title id="title">const · 처음부터 봉인 규칙이 있는 마법 객실</title>
+<desc id="desc">101호는 처음 값을 정하면 교체가 금지되는 마법 객실임. 얼굴에 10이 적힌 손님은 봉인된 객실 안에 유지되고, 20이 적힌 손님으로 교체하는 시도는 차단됨. 선언과 동시에 초기화하며 이후 대입은 불가함.</desc>
+<rect width="800" height="560" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+<path d="M35 92L280 20L525 92Z" fill="#eee9fb" stroke="#9e8ec2" stroke-width="2"/>
+<rect x="35" y="92" width="490" height="358" rx="14" fill="#f8f5ff" stroke="#9e8ec2" stroke-width="3"/>
+<text x="280" y="137" font-size="31" font-weight="700" fill="#60438b">101호 · const unsigned short</text>
+<text x="280" y="176" font-size="25" fill="#60438b">처음부터 값 교체 금지 규칙</text>
+<rect x="91" y="200" width="378" height="213" rx="8" fill="white" stroke="#9e8ec2" stroke-width="3"/>
+<g fill="#6c83b3" stroke="#6c83b3" stroke-width="17" stroke-linecap="round">
+<circle cx="280" cy="260" r="38" stroke="none"/><path d="M280 308V357 M280 319L244 345 M280 319L316 345 M280 354L259 387 M280 354L301 387" fill="none"/>
+</g>
+<text x="280" y="271" font-size="33" font-weight="700" fill="white">10</text>
+<g stroke="#80778e" stroke-width="8"><path d="M140 202V410 M207 202V410 M353 202V410 M420 202V410"/></g>
+<rect x="434" y="284" width="52" height="44" rx="8" fill="#e4b45b"/>
+<path d="M446 284V270A14 14 0 0 1 474 270V284" stroke="#bd8b37" stroke-width="7" fill="none"/>
+<g fill="#a6b0bd" stroke="#a6b0bd" stroke-width="17" stroke-linecap="round">
+<circle cx="666" cy="260" r="38" stroke="none"/><path d="M666 309V357 M666 322L632 346 M666 322L700 346 M666 355L645 387 M666 355L687 387" fill="none"/>
+</g>
+<text x="666" y="271" font-size="33" font-weight="700" fill="white">20</text>
+<text x="666" y="204" font-size="29" font-weight="700" fill="#536478">새 값으로 교체?</text>
+<path d="M624 300H548L568 286M548 300L568 314" fill="none" stroke="#a6b0bd" stroke-width="5"/>
+<path d="M562 280L597 320M597 280L562 320" stroke="#ce5961" stroke-width="8" stroke-linecap="round"/>
+<text x="666" y="435" font-size="29" font-weight="700" fill="#bc4651">교체 불가</text>
+<text x="400" y="503" font-size="30" font-weight="700" fill="#60438b">처음 값 10을 정한 뒤, 그대로 유지</text>
+<text x="400" y="542" font-size="23" fill="#536478">봉인 = const를 통한 값 변경 금지의 비유</text>
+</g></svg>

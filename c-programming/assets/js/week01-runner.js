@@ -19,6 +19,7 @@
 
     resetButton.addEventListener("click", () => {
       editor.value = initialCode;
+      editor.dispatchEvent(new Event("input", { bubbles: true }));
       input.value = initialInput;
       output.textContent = "실행 결과가 여기에 표시됩니다.";
       setStatus("실행 준비", "idle");
@@ -40,7 +41,7 @@
             source: editor.value,
             lang: "c",
             options: {
-              userArguments: "-std=c11 -O0 -Wall -Wextra",
+              userArguments: "-std=c11 -O0 -Wall -Wextra -lm",
               compilerOptions: { skipAsm: true, executorRequest: false },
               filters: { execute: true },
               executeParameters: { args: [], stdin: input.value },
@@ -75,7 +76,8 @@
           messages.push(`프로그램 종료 코드: ${execution.code}`);
         }
         messages.push(lines(execution?.stdout), lines(execution?.stderr));
-        output.textContent = messages.filter(Boolean).join("\n") || (outcome ? outcome : "프로그램이 출력 없이 종료되었습니다.");
+        const displayText = messages.filter(Boolean).join("\n") || (outcome ? outcome : "프로그램이 출력 없이 종료되었습니다.");
+        globalThis.renderCompilerAnsi(output, displayText);
         setStatus(outcome || "실행 완료", outcome ? "error" : "success");
       } catch (error) {
         let reason = "Compiler Explorer에 연결할 수 없습니다. 네트워크 또는 브라우저의 교차 출처 요청(CORS) 제한을 확인하세요.";

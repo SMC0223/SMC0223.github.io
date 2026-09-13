@@ -1,0 +1,1632 @@
+<!doctype html>
+<html lang="ko" data-asset-base=".">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="성민창"><meta name="source" content="content/week02.md">
+  <title>WEEK 02 · 변수, 자료형, 상수, 연산자</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="./assets/css/variables.css"><link rel="stylesheet" href="./assets/css/typography.css"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css"><link rel="stylesheet" href="./assets/css/mermaid.css"><link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/css/bit-lamps.css">
+  <link rel="stylesheet" href="./assets/css/c-editor.css">
+  <link rel="stylesheet" href="./assets/css/physics.css">
+  <link rel="stylesheet" href="./assets/css/robot-arm.css">
+<link rel="stylesheet" href="./assets/css/large-type.css">
+</head>
+<body>
+  <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. Edit content/week02.md and run the build instead. -->
+  <script src="./assets/js/ansi-output.js"></script>
+  <main class="reveal" aria-label="변수, 자료형, 상수, 연산자 presentation"><div class="slides">
+      <section class="title-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="title-content"><div class="eyebrow">WEEK 02</div><h1>변수, 자료형, 상수, 연산자</h1><p class="slide-subtitle"></p><div class="title-rule"></div><div class="title-meta"><span><strong>강사</strong> 성민창</span><span><strong>일시</strong> <span data-live-date>날짜 확인 중…</span> · 14:30–17:30</span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>01. 변수와 자료형</h1>
+<p>변수 : 값을 저장하기 위해 이름을 붙인 저장 공간</p>
+<p>자료형 : 자료(데이터) 값의 유형</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>변수(variable)와 자료형(type) 이해하기</h2></div></header><div class="slide-content">
+<h3>이진법</h3>
+<ul>
+<li><code>0</code>과 <code>1</code>로 수를 표현함. 각 자리의 값은 오른쪽부터 1, 2, 4, 8… 순서.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>10진수</th>
+<th>자리 값의 합</th>
+<th>이진수 표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>8 + 2 = 2³ + 2¹</td>
+<td><code>00001010</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 = 2³</td>
+<td><code>00001000</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>4 + 1 = 2² + 2⁰</td>
+<td><code>00000101</code></td>
+</tr>
+<tr>
+<td>127</td>
+<td>64 + 32 + 16 + 8 + 4 + 2 + 1</td>
+<td><code>01111111</code></td>
+</tr>
+<tr>
+<td>255</td>
+<td>128 + 64 + 32 + 16 + 8 + 4 + 2 + 1</td>
+<td><code>11111111</code></td>
+</tr>
+<tr>
+<td>65535</td>
+<td>2¹⁵ + 2¹⁴ + … + 2⁴ + 2² + 2⁰</td>
+<td><code>11111111 11111111</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>큰 값을 표현하기 위해서는 많은 수의 bit가 필요.</li>
+</ul>
+<aside class="lecture-reference">
+<p>255 이하의 예시는 1바이트(8비트), 65525 예시는 2바이트(16비트)로 표시함. 앞쪽의 0은 자리 채움용.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>변수(variable)와 자료형(type) 이해하기</h2></div></header><div class="slide-content">
+<h3>이진법으로 소수 표현하기</h3>
+<ul>
+<li>소수점 오른쪽으로 갈수록 자리 값이 **1/2, 1/4, 1/8, 1/16…**로 작아짐.</li>
+<li><code>2⁻¹ = 0.5</code>, <code>2⁻² = 0.25</code>, <code>2⁻³ = 0.125</code>. <strong>1이 있는 자리의 값을 더해 계산</strong>함.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>10진수</th>
+<th>자리 값의 합</th>
+<th>이진수 표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5</td>
+<td>1/2 = 2⁻¹</td>
+<td><code>0.1₂</code></td>
+</tr>
+<tr>
+<td>0.25</td>
+<td>1/4 = 2⁻²</td>
+<td><code>0.01₂</code></td>
+</tr>
+<tr>
+<td>0.125</td>
+<td>1/8 = 2⁻³</td>
+<td><code>0.001₂</code></td>
+</tr>
+<tr>
+<td>0.75</td>
+<td>1/2 + 1/4 = 0.5 + 0.25</td>
+<td><code>0.11₂</code></td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>1 + 1/2</td>
+<td><code>1.1₂</code></td>
+</tr>
+<tr>
+<td>5.75</td>
+<td>4 + 1 + 1/2 + 1/4</td>
+<td><code>101.11₂</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>101.11₂</code>는 <strong>정수 부분 <code>101₂</code> = 5</strong>, <strong>소수 부분 <code>0.11₂</code> = 0.75</strong>를 합친 값.</li>
+<li><code>5.76</code>은 이진수로 표현하면 소수 부분이 끝없이 반복됨.</li>
+</ul>
+<aside class="lecture-reference">
+<p>아래첨자 ₂는 이진수 표시. 표는 수를 이진법으로 나타낸 예이며, float·double의 실제 메모리 저장 형식과는 구분함.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>변수(variable)와 자료형(type) 이해하기</h2></div></header><div class="slide-content">
+<h3>CPU 호텔</h3>
+<p><img src="images/week02/hotel-bit-capacity.svg" alt="싱글룸 unsigned char는 8칸, 일반룸 unsigned short는 16칸, 스위트룸 unsigned int는 32칸으로 구성한 호텔 객실. 칸 하나는 1비트, 가로 8칸은 1바이트." class="md-image img-large img-align-center"></p>
+<ul>
+<li>싱글룸을 <code>unsigned char</code>로 사용하면 <strong>0~255(2⁸−1)</strong> 저장 가능.</li>
+<li>일반룸 <code>unsigned short</code>: <strong>16비트, 0~65,535(2¹⁶−1)</strong> 저장 가능.</li>
+<li>스위트룸 <code>unsigned int</code>: <strong>32비트, 0~4,294,967,295(2³²−1)</strong> 저장 가능.</li>
+</ul>
+<aside class="lecture-reference">
+<p>일반적인 8비트 바이트 환경 기준. 이 호텔의 정수형 객실은 모두 unsigned 사용.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>CPU 호텔: 255와 256 손님은 어느 객실로?</h2></div></header><div class="slide-content">
+<p><img src="images/week02/hotel-255-256.svg" alt="머리표 255인 손님은 싱글룸 이용 가능. 머리표 256인 손님에게 프런트 직원이 일반룸 또는 스위트룸으로 이동하도록 안내함. 싱글룸은 8비트 unsigned char 기준." class="md-image img-full img-align-center"></p>
+<ul>
+<li><strong>255 = <code>11111111</code></strong>: 8비트 싱글룸에 저장 가능.</li>
+<li><strong>256 = <code>1 00000000</code></strong>: 9비트 필요. 싱글룸 범위를 벗어나므로 일반룸 또는 스위트룸 선택.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>변수(variable)와 자료형(type) 이해하기</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>CPU 호텔</h3>
+<p><img src="images/week02/variable-hotel.svg" alt="호텔 전체 = 메모리, 객실 하나 = 변수. 101호 일반룸(unsigned short)에 2, 102호 스위트룸(unsigned int)에 65536, 201호 싱글룸(unsigned char)에 255를 저장함."></p>
+</div><div class="column"><h3>C언어</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">unsigned short room101 = 2;
+unsigned int room102 = 65536u;
+unsigned char room201 = 255;
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>호텔 비유</th>
+<th>C에서의 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>호텔 전체</td>
+<td>메모리(memory)</td>
+</tr>
+<tr>
+<td>객실 하나</td>
+<td>변수(variable)</td>
+</tr>
+<tr>
+<td>객실 번호</td>
+<td>변수명: <code>room101</code> 등</td>
+</tr>
+<tr>
+<td>객실 종류</td>
+<td>싱글룸·일반룸·스위트룸: 서로 다른 자료형</td>
+</tr>
+<tr>
+<td>객실 안의 사람</td>
+<td>값: <code>2</code>, <code>65536</code>, <code>255</code></td>
+</tr>
+</tbody>
+</table>
+<p>이 호텔은 모두 <strong>unsigned 정수형</strong> 사용. 객실마다 저장 가능한 범위가 다름.</p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>변수 값 변경: 같은 객실, 새로운 손님</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>다른 손님이 온다면?</h3>
+<p><img src="images/week02/variable-hotel-update.svg" alt="같은 101호 일반룸의 대입 전과 후. 사람 얼굴의 값이 2에서 5로 바뀜. 호실과 객실형태는 유지하고 사람, 즉 저장된 값만 교체함."></p>
+</div><div class="column"><h3>C언어에서는 이것을 '대입'이라고 함</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">unsigned short room101 = 2;  // 선언과 초기화
+room101 = 5;      // 새 값 대입
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>호텔 비유</th>
+<th>C에서의 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>같은 101호 유지</td>
+<td>변수명 <code>room101</code> 유지</td>
+</tr>
+<tr>
+<td>일반룸 유지</td>
+<td>자료형 <code>unsigned short</code> 유지</td>
+</tr>
+<tr>
+<td>사람 교체: 2 → 5</td>
+<td>기존 값을 새 값으로 덮어씀</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>=</code>: 오른쪽 값을 왼쪽 변수에 저장함.</li>
+<li>값 변경 시 자료형을 다시 쓰지 않음.</li>
+<li>대입 후 <code>room101</code>의 현재 값: <strong>5</strong></li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>대입은 값을 복사한다</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>분신술을 쓰는 손님이 호텔에 왔다!</h3>
+<p>얼굴에 <strong>10</strong>이 적힌 손님이 <strong>101호에 체크인</strong>함.</p>
+<p><img src="images/week02/variable-clone.svg" alt="분신술을 쓸 수 있는 손님이 101호에 체크인함. 얼굴의 숫자 10까지 똑같은 분신을 만들어 102호에 체크인시킴. 이후 101호 손님의 숫자만 20으로 바뀌고 102호 분신의 숫자는 10을 유지함."></p>
+</div><div class="column"><h3>분신을 만든 뒤에는 각자 지냄</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">unsigned short room101 = 10;
+unsigned int room102 = room101;
+room101 = 20;
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>손님 이야기</th>
+<th style="text-align:right">room101</th>
+<th style="text-align:right">room102</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>손님이 101호에 체크인</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">아직 선언 전</td>
+</tr>
+<tr>
+<td>분신이 102호에 체크인</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>101호 숫자만 20으로 변경</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>분신은 <strong>만들어진 순간의 숫자 10</strong>을 가짐.</li>
+<li>이후 원래 손님이 바뀌어도 <strong>분신은 그대로</strong>임.</li>
+</ul>
+<blockquote>
+<p>대입은 <strong>그 순간의 값을 복사</strong>함. 이후 두 변수는 독립적임.</p>
+</blockquote>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>변수 선언</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>호텔의 빈 방</h3>
+<p><img src="images/week02/variable-hotel-empty.svg" alt="101호 일반룸은 준비되었지만 사람은 미배정. unsigned short형 변수 room101의 초기값을 지정하지 않은 상태를 빈 방에 비유함."></p>
+</div><div class="column"><h3>빈 방 준비: 변수 선언</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">unsigned short room101;  
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>호텔 비유</th>
+<th>C에서의 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101호를 준비함</td>
+<td>변수명: <code>room101</code></td>
+</tr>
+<tr>
+<td>일반룸으로 정함</td>
+<td>자료형: <code>unsigned short</code></td>
+</tr>
+<tr>
+<td>아직 사람을 배정하지 않음</td>
+<td>초기값을 지정하지 않음</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>unsigned short room101;</code>: 정수를 저장할 공간만 마련함.</li>
+<li><code>room101 = 2;</code>: 준비된 방에 사람을 배정하듯 값 2를 저장함.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>선언·초기화·대입</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<h3>선언하면서 초기화</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int count = 10;
+count = 20;
+</code></pre>
+</div><ul>
+<li>선언: 자료형과 이름을 정합니다.</li>
+<li>초기화: 변수를 만들 때 처음 값을 줍니다.</li>
+<li>대입: 이미 있는 변수에 값을 저장합니다.</li>
+</ul>
+</div><div class="column"><h3>선언 후 대입</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int count;
+count = 10;
+</code></pre>
+</div><ul>
+<li><mark>주의</mark>초기화하지 않은 변수는 읽지(사용하지) 않습니다.</li>
+<li>값을 정한 뒤 계산이나 출력에 사용합니다.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 1: 변수 변경 전과 후 출력하기</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>실행 버튼을 눌러 변경 전 2, 변경 후 5가 출력되는지 확인.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li><code>%d</code>: 정수 값을 출력하는 자리</li>
+<li><code>\n</code>: 줄바꿈</li>
+<li><code>printf</code>: 실행되는 시점의 <code>room101</code> 값을 출력함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    unsigned short room101 = 2;
+    unsigned int room102 = 3;
+    printf(&quot;room101: %hu\n&quot;, room101);
+    printf(&quot;room102: %u\n&quot;, room102);
+
+    room102 = room101;
+    room101 = 5;
+    
+    printf(&quot;room101: %hu\n&quot;, room101);
+    printf(&quot;room102: %u\n&quot;, room102);
+
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 61fr) minmax(0, 39fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 2: 빈 방을 출력하면?</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>아직 사람을 배정하지 않은 101호</h3>
+<p><img src="images/week02/variable-hotel-empty.svg" alt="사람이 미배정된 101호 일반룸. 초기값을 지정하지 않은 지역 변수 room101을 표현함."></p>
+<ul>
+<li>초기화 전 출력: <mark>결과를 보장할 수 없음</mark>.</li>
+<li>초기화하지 않은 자동 지역 변수를 읽으면 <strong>정의되지 않은 동작</strong> 발생.</li>
+<li>흔히 ‘쓰레기값’이라고 부르지만, 특정 값의 출력 자체를 보장하지 않음.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    unsigned short room101;  // 변수 선언
+    // 초기화되지 않은 변수 사용: 잘못된 예
+    printf(&quot;room101 = %hu\n&quot;, room101);
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>자료형(Data Type)</h2></div></header><div class="slide-content">
+<h3>자료형 = CPU호텔의 방 종류 + 방 크기</h3>
+<table>
+<thead>
+<tr>
+<th>자료형(방 종류)</th>
+<th>저장할 값</th>
+<th>일반 크기(방 크기)</th>
+<th>선언과 초기화 예시</th>
+<th><code>printf</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>부호 있는 정수</td>
+<td>4바이트</td>
+<td><code>int num = 2;</code></td>
+<td><code>%d</code></td>
+</tr>
+<tr>
+<td><code>unsigned int</code></td>
+<td>부호 없는 정수</td>
+<td>4바이트</td>
+<td><code>unsigned int count = 10u;</code></td>
+<td><code>%u</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>single precision</td>
+<td>4바이트</td>
+<td><code>float temp = 23.5f;</code></td>
+<td><code>%f</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>double precision</td>
+<td>8바이트</td>
+<td><code>double e = 2.718281828459045;</code></td>
+<td><code>%f</code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>문자 코드 또는 작은 정수</td>
+<td>1바이트</td>
+<td><code>char c = 'A';</code></td>
+<td><code>%c</code></td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>0 또는 1</td>
+<td>1바이트</td>
+<td><code>bool isOpen= 0;</code></td>
+<td><code>%d</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>자료형은 &quot;스위트, 디럭스, 일반&quot; 룸 처럼 데이터의 형태(정수형, 실수형 등)를 구분한 것</li>
+<li>방들은 서로 다른 크기 형태를 가지고 있는 것처럼 자료형은 서로 다른 메모리 크기를 할당.</li>
+<li>'unsinged'는 부호가 없음을 의미</li>
+</ul>
+<aside class="lecture-reference">
+<p>표는 <strong>1바이트 = 8비트인 일반적인 PC 환경</strong> 기준.</p>
+</aside>
+<aside class="lecture-reference">
+<p>C11에서 <code>bool</code> 사용 시 <code>&lt;stdbool.h&gt;</code>를 포함해야 함.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>정수형 자료형의 종류</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>자료형</th>
+<th>일반 크기</th>
+<th>부호 있는 값의 범위</th>
+<th><code>printf</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char</code></td>
+<td>1바이트</td>
+<td>−128 ~ 127</td>
+<td><code>%hhd</code></td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td>2바이트</td>
+<td>−32,768 ~ 32,767</td>
+<td><code>%hd</code></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>4바이트</td>
+<td>−2³¹ ~ 2³¹−1 · 약 ±21억</td>
+<td><code>%d</code></td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>4 또는 8바이트</td>
+<td>4바이트: <code>int</code>와 같은 범위 / 8바이트: 아래와 같음</td>
+<td><code>%ld</code></td>
+</tr>
+<tr>
+<td><code>long long</code></td>
+<td>8바이트</td>
+<td>−2⁶³ ~ 2⁶³−1 · 약 ±922경</td>
+<td><code>%lld</code></td>
+</tr>
+</tbody>
+</table>
+<aside class="lecture-reference">
+<p>위 범위는 8비트 바이트·2의 보수 표현을 사용하는 일반적인 환경 기준.</p>
+</aside>
+<aside class="lecture-reference">
+<p>Windows의 MSVC에서는 <code>long</code>이 4바이트, 대부분의 64비트 Linux 환경에서는 8바이트.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>부호 없는 정수형 자료형의 종류</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>자료형</th>
+<th>일반 크기</th>
+<th>부호 없는 값의 범위</th>
+<th><code>printf</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unsigned char</code></td>
+<td>1바이트</td>
+<td>0 ~ 255</td>
+<td><code>%hhu</code></td>
+</tr>
+<tr>
+<td><code>unsigned short</code></td>
+<td>2바이트</td>
+<td>0 ~ 65,535</td>
+<td><code>%hu</code></td>
+</tr>
+<tr>
+<td><code>unsigned int</code></td>
+<td>4바이트</td>
+<td>0 ~ 2³²−1</td>
+<td><code>%u</code></td>
+</tr>
+<tr>
+<td><code>unsigned long</code></td>
+<td>4 또는 8바이트</td>
+<td>4바이트: 0 ~ 2³²−1 / 8바이트: 0 ~ 2⁶⁴−1</td>
+<td><code>%lu</code></td>
+</tr>
+<tr>
+<td><code>unsigned long long</code></td>
+<td>8바이트</td>
+<td>0 ~ 2⁶⁴−1</td>
+<td><code>%llu</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>부호가 없는(unsigned) 형태의 경우 더 큰 양수값을 저장 가능.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>부호가 있는 정수, 2의 보수</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<h3>1byte(8bit)로 −128 ~ 127까지 표현</h3>
+<table>
+<thead>
+<tr>
+<th>비트 표현</th>
+<th>정수 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>00000000</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>00000101</code></td>
+<td>+5</td>
+</tr>
+<tr>
+<td><code>01111111</code></td>
+<td>+127 · 최댓값</td>
+</tr>
+<tr>
+<td><code>10000000</code></td>
+<td>−128 · 최솟값</td>
+</tr>
+<tr>
+<td><code>11111011</code></td>
+<td>−5</td>
+</tr>
+<tr>
+<td><code>11111111</code></td>
+<td>−1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>맨 왼쪽 비트가 <code>0</code>: 0 또는 양수.</li>
+<li>맨 왼쪽 비트가 <code>1</code>: 음수.</li>
+</ul>
+</div><div class="column"><h3>+5를 −5로 바꾸기</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>8비트 표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① +5를 이진수로 표현</td>
+<td><code>00000101</code></td>
+</tr>
+<tr>
+<td>② 모든 비트를 뒤집음</td>
+<td><code>11111010</code></td>
+</tr>
+<tr>
+<td>③ 1을 더함 → −5</td>
+<td><code>11111011</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2의 보수: 비트를 뒤집고 1을 더함.</strong></p>
+<ul>
+<li>각 비트의 자리 값: <strong>−128, 64, 32, 16, 8, 4, 2, 1</strong>.</li>
+<li><code>11111011</code> = −128 + 64 + 32 + 16 + 8 + 2 + 1 = <strong>−5</strong>.</li>
+</ul>
+<blockquote>
+<p>8비트 <code>signed char</code>를 2의 보수로 표현하는 예. 같은 비트도 자료형에 따라 다르게 해석됨.</p>
+</blockquote>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실수형 자료형의 종류: float, double, long double</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>자료형</th>
+<th>일반 크기</th>
+<th>10진 유효숫자</th>
+<th>양의 정규화된 값 범위</th>
+<th><code>printf</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td>4바이트</td>
+<td>약 <strong>6~7자리</strong></td>
+<td>약 1.18×10⁻³⁸ ~ 3.40×10³⁸</td>
+<td><code>%f</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>8바이트</td>
+<td>약 <strong>15~16자리</strong></td>
+<td>약 2.23×10⁻³⁰⁸ ~ 1.80×10³⁰⁸</td>
+<td><code>%f</code></td>
+</tr>
+<tr>
+<td><code>long double</code></td>
+<td>환경에 따라 다름</td>
+<td><code>double</code> 이상</td>
+<td><code>double</code> 이상의 범위</td>
+<td><code>%Lf</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>float</code>: 단정밀도(single precision)</li>
+<li><code>double</code>: 배정밀도(double precision).</li>
+</ul>
+<blockquote>
+<p>정밀도는 <strong>소수점 아래 고정 자릿수가 아니라, 정수부와 소수부를 합친 유효숫자 수</strong>.</p>
+</blockquote>
+<blockquote>
+<p>c언어는 실수값을 부동소수점(Floating point)이라는 방식을 사용하여 메모리에 저장</p>
+</blockquote>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>float와 double: 비트 구성과 유효숫자</h2></div></header><div class="slide-content">
+<p><strong>같은 값 5.75 저장:</strong> <code>101.11₂ = 1.0111₂ × 2²</code></p>
+<p><img src="images/week02/floating-point-bits.svg" alt="위쪽 float 32비트와 아래쪽 double 64비트에 5.75를 저장한 모습. 부호는 빨강, 지수는 파랑, 가수부는 초록으로 구분함. float는 약 6~7자리, double은 약 15~16자리의 십진 유효숫자 정밀도." class="md-image img-full img-align-center"></p>
+<ul>
+<li><strong>부호</strong>는 양·음의 부호, <strong>지수</strong>는 값의 크기 범위, <strong>가수부</strong>는 유효숫자의 정밀도에 관여함.</li>
+<li>유효숫자는 소수점 아래 고정 자릿수가 아님. <code>123.456</code>과 <code>1.23456</code>은 모두 <strong>6자리</strong>.</li>
+<li>이러한 저장 방식을 <code>부동소수점(floating point)</code> 방식이라 함</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>float와 double: π로 이해하는 정밀도의 차이</h2></div></header><div class="slide-content">
+<h3>원주율 <strong>π = 3.14159265358979323846…</strong></h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">float pi_f = 3.14159265358979323846f; // float형은 숫자 다음에 f를 붙인다.
+double pi_d = 3.14159265358979323846;
+printf(&quot;float : %.15f\n&quot;, pi_f); // float형 값을 소수점 15자리까지 표시
+printf(&quot;double: %.15f\n&quot;, pi_d); // double형 값을 소수점 15자리까지 표시
+</code></pre>
+</div><p>출력 예 · 소수점 아래 15자리:</p>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">float : 3.141592741012573
+double: 3.141592653589793
+</code></pre>
+</div><ul>
+<li><code>float</code>는 π의 <code>3.141592</code> 뒤부터 숫자가 달라짐.</li>
+<li><code>double</code>은 <code>float</code>보다 더 낮은 소수점 자리(이진수 기준)에서 반올림하여 저장.</li>
+<li>같은 π를 저장해도 <strong><code>double</code>이 더 많은 자릿수를 정밀하게 표현</strong>함.</li>
+</ul>
+<blockquote>
+<p><strong>자료형에 따라 저장 정밀도가 다름.</strong> 출력 자릿수를 늘려도 저장 정밀도가 높아지지는 않음.</p>
+</blockquote>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>부동소수점 방식의 이해(생략)</h2></div></header><div class="slide-content">
+<p><mark>부동소수점(floating point)</mark>: 숫자의 세부 값과 소수점 위치를 나누어 표현하는 방식.</p>
+<table>
+<thead>
+<tr>
+<th>구성</th>
+<th>역할</th>
+<th><code>float</code> · 32비트</th>
+<th><code>double</code> · 64비트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>부호(sign)</td>
+<td>수의 부호 표현 · 0은 양의 부호, 1은 음의 부호</td>
+<td>1비트</td>
+<td>1비트</td>
+</tr>
+<tr>
+<td>지수(exponent)</td>
+<td>2의 거듭제곱으로 수의 크기 조절</td>
+<td>8비트</td>
+<td>11비트</td>
+</tr>
+<tr>
+<td>가수부(fraction)</td>
+<td>유효숫자의 세부 자릿수 저장</td>
+<td><strong>23비트</strong></td>
+<td><strong>52비트</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>예: 5.75 = 101.11₂ = 1.0111₂ × 2²</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">float:  0  |  10000001  |  01110000000000000000000
+       부호     지수              가수부
+</code></pre>
+</div><ul>
+<li>지수 <code>2</code>에 보정값 <code>127</code>을 더한 <code>129</code>를 저장함 → <code>10000001₂</code>.</li>
+<li>정규화된 수의 맨 앞 <code>1</code>은 생략함 → 실제 유효숫자는 <strong>24비트 / 53비트</strong>.</li>
+</ul>
+<blockquote>
+<p><strong><code>double</code>은 세부 숫자를 담는 비트가 더 많아 정밀도가 높음.</strong> π처럼 자릿수가 끝없이 이어지는 값은 공간에 맞춰 반올림하여 저장함.</p>
+</blockquote>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>char: 문자 대신 정수를 저장</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>8비트 환경에서의 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>signed char</code></td>
+<td>−128 ~ 127</td>
+</tr>
+<tr>
+<td><code>unsigned char</code></td>
+<td>0 ~ 255</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>위 두 범위 중 하나 · 환경에 따라 결정</td>
+</tr>
+</tbody>
+</table>
+<div class="slide-spacer" aria-hidden="true"></div>
+<ul>
+<li>char는 정수형 자료형으로, 문자에 대응하는 코드 값을 저장하는 데 사용함.</li>
+<li>대부분의 PC 환경은 <strong>ASCII 호환 문자 코드</strong>를 사용함. C가 ASCII 사용을 강제하지는 않음.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>ASCII 코드: 문자와 숫자를 연결하는 약속</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>대표 ASCII 코드표: 10진수 기준</h3>
+<table>
+<thead>
+<tr>
+<th>문자</th>
+<th>코드</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'\0'</code></td>
+<td>0</td>
+<td>널 문자 · 문자열의 끝</td>
+</tr>
+<tr>
+<td><code>'\n'</code></td>
+<td>10</td>
+<td>줄바꿈(LF)</td>
+</tr>
+<tr>
+<td><code>' '</code></td>
+<td>32</td>
+<td>공백</td>
+</tr>
+<tr>
+<td><code>'0'</code> ~ <code>'9'</code></td>
+<td>48 ~ 57</td>
+<td>숫자 모양의 문자</td>
+</tr>
+<tr>
+<td><code>'A'</code> ~ <code>'Z'</code></td>
+<td>65 ~ 90</td>
+<td>영문 대문자</td>
+</tr>
+<tr>
+<td><code>'a'</code> ~ <code>'z'</code></td>
+<td>97 ~ 122</td>
+<td>영문 소문자</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>ASCII는 <strong>0~127의 128개 코드</strong>를 사용함.</li>
+<li>문자 <code>'0'</code>의 코드는 <strong>48</strong>. 정수 <code>0</code>과 구분함.</li>
+</ul>
+</div><div class="column"><h3>같은 값을 문자 또는 숫자로 출력</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">char c = 'A';
+printf(&quot;문자: %c\n&quot;, c);
+printf(&quot;코드: %d\n&quot;, c);
+</code></pre>
+</div><p>ASCII 호환 환경에서의 출력:</p>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">문자: A
+코드: 65
+</code></pre>
+</div><ul>
+<li><code>%c</code>: 문자 모양으로 출력함.</li>
+<li><code>%d</code>: 문자 코드의 정수 값으로 출력함.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 3: ASCII 숫자 코드로 자신의 이니셜 출력하기</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>ASCII 표를 보고 자신 이름의 이니셜 숫자 코드를 찾아 각 변수의 0을 수정.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>대문자 <code>A</code>의 코드는 <code>65</code>. 알파벳 순서대로 코드가 1씩 증가함.</li>
+<li><code>'H'</code>처럼 문자를 직접 적지 않고, 따옴표 없는 숫자로 지정함.</li>
+<li><code>%c%c%c</code>는 세 문자를 공백 없이 차례로 출력함.</li>
+<li>초깃값 <code>0</code>은 화면에 보이지 않는 널 문자. 세 값을 바꾼 뒤 실행함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="10" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    char initial1 = 0;  // 자신의 첫번째 initial 숫자 S = 83
+    char initial2 = 0;  //  자신의 두번째 initial 숫자 M = 77
+    char initial3 = 0;  //  자신의 세번째 initial 숫자 C = 67
+
+    printf(&quot;%c%c%c\n&quot;, initial1, initial2, initial3);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>bool: 전구의 꺼짐과 켜짐을 0 또는 1로 표현</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<h3>전구의 두 가지 상태</h3>
+<p><img src="images/week02/bool-lightbulb.svg" alt="꺼진 회색 전구는 0, 켜진 노란 전구는 1. 전구의 두 상태를 bool 값에 대응함."></p>
+</div><div class="column"><h3>두 상태를 구분하는 논리형</h3>
+<table>
+<thead>
+<tr>
+<th>전구 상태</th>
+<th>저장할 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>꺼짐</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>켜짐</td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>bool</code>: <strong>0 또는 1을 저장하는 자료형</strong>.</li>
+<li>숫자를 대입하면 <strong>0은 0, 0이 아닌 값은 1</strong>로 변환됨.</li>
+<li>전구의 켜짐·꺼짐, 스위치의 눌림·안 눌림처럼 두 상태를 구분할 때 사용함.</li>
+<li>C11의 <code>bool</code>은 <code>&lt;stdbool.h&gt;</code>에서 제공하는 <code>_Bool</code>의 별칭임.</li>
+</ul>
+<blockquote>
+<p>전구의 밝기가 아니라 <strong>켜져 있는지 여부</strong>를 표현함.</p>
+</blockquote>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>변수 이름과 선언 위치</h2></div></header><div class="slide-content">
+<ul>
+<li>영문자, 숫자, 밑줄 <code>_</code> 사용 가능. 숫자로 시작할 수 없음.</li>
+<li>대소문자를 구분함. <code>score</code>와 <code>Score</code>는 다른 이름임.</li>
+<li>공백·<code>#</code>·<code>-</code> 및 <code>int</code> 같은 키워드 사용 불가.</li>
+<li><code>student_count</code>, <code>total_price</code>처럼 의미가 드러나는 이름 사용.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>잘못된 이름</th>
+<th>수정 예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>7th_val</code></td>
+<td><code>val7</code></td>
+</tr>
+<tr>
+<td><code>live_inthe#</code></td>
+<td><code>live_in_the_city</code></td>
+</tr>
+<tr>
+<td><code>kor year</code></td>
+<td><code>kor_year</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>변수는 사용하기 전에 미리 선언함.</p>
+</blockquote>
+<blockquote>
+<p>C99 이상에서는 블록 중간에도 선언 가능.</p>
+</blockquote>
+<blockquote>
+<p>밑줄로 시작하는 이름은 예약 식별자와의 충돌 가능성 때문에 사용을 피함.</p>
+</blockquote>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>C의 키워드: 이름으로 사용할 수 없는 단어</h2></div></header><div class="slide-content">
+<p>키워드: 언어가 문법적인 의미를 정해 둔 단어.</p>
+<table>
+<thead>
+<tr>
+<th>분류</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자료형</td>
+<td><code>char</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>void</code></td>
+</tr>
+<tr>
+<td>부호·속성</td>
+<td><code>signed</code>, <code>unsigned</code>, <code>const</code>, <code>volatile</code></td>
+</tr>
+<tr>
+<td>제어 흐름</td>
+<td><code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>switch</code>, <code>return</code></td>
+</tr>
+<tr>
+<td>그 밖의 예</td>
+<td><code>sizeof</code>, <code>struct</code>, <code>typedef</code>, <code>static</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>int double = 3;</code>처럼 키워드를 변수 이름으로 사용 불가.</li>
+<li><code>main</code>, <code>printf</code>, <code>scanf</code>는 키워드가 아닌 함수 이름임.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>02. 상수와 연산자</h1>
+<p>상수(constant): 코드에서 값이 고정된 데이터. 예: <code>10</code>, <code>3.14</code>, <code>'A'</code></p>
+<p>연산자( operator) : 피연산자(operand)에 특정 연산을 수행하도록 지시하는 기호</p>
+<p>표현식(expression) : 피연산자와 연산자 등으로 구성되며, 평가(evaluate)하면 하나의 값이나 결과를 얻을 수 있는 식</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>const: 처음 값을 봉인하는 마법 객실</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<p><img src="images/week02/constant-prison.svg" alt="처음부터 봉인 규칙이 있는 const 객실. 손님 10으로 초기화한 뒤 손님 20으로 교체 불가."></p>
+</div><div class="column"><h3>const: 초기화한 값을 변경 불가</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">const unsigned short room101 = 10;
+</code></pre>
+</div><ul>
+<li>선언할 때 <strong>손님 10으로 초기화</strong>함.</li>
+<li>이후 <code>room101 = 20;</code>으로 <strong>값 변경 불가</strong>.</li>
+</ul>
+<blockquote>
+<p><code>const</code>는 자료형에 붙이는 변경 제한임.</p>
+</blockquote>
+<blockquote>
+<p><code>const</code>는 숫자뿐만 아니라 다른 자료형에도 붙일 수 있음.</p>
+</blockquote>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>코드에 직접 적은 값과 이름을 붙인 고정값</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int guests = 2;
+const int MAX_GUESTS = 4;
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>구성</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2</code>, <code>4</code></td>
+<td>코드에 직접 적은 정수 상수</td>
+</tr>
+<tr>
+<td><code>guests</code></td>
+<td>저장된 값을 변경할 수 있는 변수</td>
+</tr>
+<tr>
+<td><code>MAX_GUESTS</code></td>
+<td><code>const</code>로 선언한 변경 불가 객체</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>고정값에 이름을 붙여 <strong>값의 의미를 표현</strong>함.</li>
+<li>대문자와 밑줄 사용은 관례이며 필수 문법은 아님.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 4: 봉인된(const) 객실(자료형)의 손님(값)을 바꿀 수 있을까?</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>실행 후 주석을 해제하여 const 값의 변경 가능 여부를 확인함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>처음 실행하면 10 출력.</li>
+<li>room101 = 20; 앞의 //를 지우면 컴파일 오류 발생.</li>
+<li>오류 확인 후 주석을 복구하고 초기값 10을 30으로 수정하여 다시 실행함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="9" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    const unsigned short room101 = 10;
+    // room101 = 20;
+    printf(&quot;room101: %hu\n&quot;, room101);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>표현식(Expression)</h2></div></header><div class="slide-content">
+<p><img src="images/week02/operator-operands.svg" alt="표현식 3 + 2를 평가(evaluate)하여 결과값 5를 얻음."></p>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>의미</th>
+<th><code>3 + 2</code>에서의 예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연산자</td>
+<td>계산·비교·대입 등의 동작을 나타내는 기호</td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td>피연산자</td>
+<td>연산의 대상이 되는 값이나 식</td>
+<td><code>3</code>, <code>2</code></td>
+</tr>
+<tr>
+<td>표현식(식)</td>
+<td>값·변수·연산자 등으로 구성한 표현</td>
+<td><code>3 + 2</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>평가(evaluate): 표현식을 계산하여 결과값을 얻는 과정.</strong> <code>3 + 2</code>의 평가 결과는 <code>5</code>.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>피연산자 개수에 따른 구분: 단항·이항·삼항</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th style="text-align:right">피연산자 수</th>
+<th>예시</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>단항 연산자</strong></td>
+<td style="text-align:right">1개</td>
+<td><code>-price</code></td>
+<td><code>price</code> 값의 부호를 반전</td>
+</tr>
+<tr>
+<td><strong>이항 연산자</strong></td>
+<td style="text-align:right">2개</td>
+<td><code>price * count</code></td>
+<td>두 변수에 저장된 값을 곱함</td>
+</tr>
+<tr>
+<td><strong>삼항 연산자</strong></td>
+<td style="text-align:right">3개</td>
+<td><code>조건 ? 값1 : 값2</code></td>
+<td>조건에 따라 두 값 중 하나를 선택</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>같은 기호도 쓰임에 따라 구분됨.</strong> <code>-price</code>의 <code>-</code>는 단항, <code>price - discount</code>의 <code>-</code>는 이항.</li>
+<li>C의 <strong>조건 연산자 <code>? :</code>는 삼항 연산자</strong>에 해당함.</li>
+<li><code>-price</code>는 부호를 반전한 값을 얻는 식임. <strong><code>price</code>에 저장된 값 자체는 바꾸지 않음</strong>.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>연산자의 종류: 기본 연산부터 비트 연산까지</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>기호</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대입</td>
+<td><code>=</code></td>
+<td>값을 저장</td>
+</tr>
+<tr>
+<td>산술</td>
+<td><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></td>
+<td>합·차·곱·몫·나머지 계산</td>
+</tr>
+<tr>
+<td>복합 대입</td>
+<td><code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code></td>
+<td>계산 결과를 같은 변수에 저장</td>
+</tr>
+<tr>
+<td>증감</td>
+<td><code>++</code> <code>--</code></td>
+<td>값을 1 증가·감소</td>
+</tr>
+<tr>
+<td>관계·동등 비교</td>
+<td><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>==</code> <code>!=</code></td>
+<td>두 값의 관계 비교</td>
+</tr>
+<tr>
+<td>논리</td>
+<td><code>&amp;&amp;</code> <code>||</code> <code>!</code></td>
+<td>조건을 조합·반전</td>
+</tr>
+<tr>
+<td>조건</td>
+<td><code>? :</code></td>
+<td>조건에 따라 두 값 중 하나 선택</td>
+</tr>
+<tr>
+<td>비트 논리</td>
+<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code></td>
+<td>각 비트에 논리 연산 적용</td>
+</tr>
+<tr>
+<td>비트 이동</td>
+<td><code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+<td>비트를 왼쪽·오른쪽으로 이동</td>
+</tr>
+</tbody>
+</table>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 5: 대입 연산자 =로 값 저장</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>count + 1과 count = count + 1의 차이를 확인함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>count + 1의 계산 결과는 3이지만 count 자체는 2 유지.</li>
+<li>count = count + 1은 기존 값 2에 1을 더한 뒤 3을 저장함.</li>
+<li>=는 같다는 뜻이 아니라 대입임. 두 값의 같음 비교는 == 사용.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int count = 2;
+    printf(&quot;expression: %d\n&quot;, count + 1);
+    printf(&quot;before: %d\n&quot;, count);
+    count = count + 1;
+    printf(&quot;after: %d\n&quot;, count);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 6: 산술 연산으로 주문 금액 계산</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>음료 가격 × 수량에 포장비를 더하고 할인액을 빼서 결제 금액을 계산함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>처음 결과는 7500원. 수량을 3으로 바꾸면 11500원.</li>
+<li>곱셈은 * 사용. 수학의 × 기호와 구분.</li>
+<li>수량·할인액을 바꾸기 전에 결과를 예상한 뒤 실행함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    const int PRICE = 4000;
+    int count = 2;
+    int fee = 500;
+    int discount = 1000;
+    int total = PRICE * count + fee - discount;
+    printf(&quot;total: %d\n&quot;, total);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 7: 나눗셈과 나머지로 쿠키 나누기</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>쿠키 7개를 2명에게 나눌 때 정수 몫·나머지·실수 몫을 비교함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>정수끼리 / 연산 시 소수 부분을 버림. 7 / 2의 결과는 3.</li>
+<li>%는 정수 나머지 연산. 7 % 2의 결과는 1.</li>
+<li>(double)로 한쪽을 실수형으로 변환하면 결과는 3.5. 나누는 값은 0 사용 불가.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int cookies = 7;
+    int people = 2;
+    printf(&quot;each: %d\n&quot;, cookies / people);
+    printf(&quot;left: %d\n&quot;, cookies % people);
+    printf(&quot;average: %.1f\n&quot;, (double)cookies / people);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 8: 복합 대입으로 포인트 적립과 사용</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>문장을 한 줄씩 따라가며 points의 변화를 확인함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>points += 500은 points = points + 500과 같은 효과.</li>
+<li>결과 순서: 1500 → 1200 → 2400 → 800 → 0.</li>
+<li>마지막 %= 100을 %= 300으로 수정하면 나머지는 200.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int points = 1000;
+    points += 500;
+    printf(&quot;add: %d\n&quot;, points);
+    points -= 300;
+    printf(&quot;use: %d\n&quot;, points);
+    points *= 2;
+    printf(&quot;double: %d\n&quot;, points);
+    points /= 3;
+    printf(&quot;divide: %d\n&quot;, points);
+    points %= 100;
+    printf(&quot;remainder: %d\n&quot;, points);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 9: 증감 연산자로 대기 인원 변경</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>손님 1명 도착 후 1명 입장 상황을 증감 연산자로 표현함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>waiting++는 1 증가, waiting--는 1 감소.</li>
+<li>출력 순서: 3 → 4 → 3.</li>
+<li>waiting++를 ++waiting으로 바꿔 확인함. 단독 문장에서는 최종 값이 같음.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int waiting = 3;
+    printf(&quot;start: %d\n&quot;, waiting);
+    waiting++;
+    printf(&quot;arrival: %d\n&quot;, waiting);
+    waiting--;
+    printf(&quot;entry: %d\n&quot;, waiting);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 10: 전위와 후위의 결과 비교</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>++가 앞에 있을 때와 뒤에 있을 때 식의 결과를 비교함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>++a: 증가한 값 사용. a와 first는 모두 4.</li>
+<li>b++: 증가 전 값 사용. b는 4, second는 3.</li>
+<li>같은 변수를 한 식에서 여러 번 증감하지 않음. 변경과 출력은 문장을 나누어 작성함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int a = 3;
+    int b = 3;
+    int first = ++a;
+    int second = b++;
+    printf(&quot;a: %d, first: %d\n&quot;, a, first);
+    printf(&quot;b: %d, second: %d\n&quot;, b, second);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 11: 관계 연산으로 무료 배송 기준 비교</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>주문 금액을 기준 금액과 비교하고 0 또는 1로 출력함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>조건이 맞으면 1, 맞지 않으면 0 출력.</li>
+<li>9000일 때 결과: 1, 1, 0, 0, 0, 1.</li>
+<li>total을 10000과 12000으로 바꾸어 경계값 비교. =와 == 구분.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="13" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int total = 9000;
+    const int LIMIT = 10000;
+    printf(&quot;&lt;  : %d\n&quot;, total &lt; LIMIT);
+    printf(&quot;&lt;= : %d\n&quot;, total &lt;= LIMIT);
+    printf(&quot;&gt;  : %d\n&quot;, total &gt; LIMIT);
+    printf(&quot;&gt;= : %d\n&quot;, total &gt;= LIMIT);
+    printf(&quot;== : %d\n&quot;, total == LIMIT);
+    printf(&quot;!= : %d\n&quot;, total != LIMIT);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 12: 논리 연산으로 할인 조건 조합</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>회원 여부와 쿠폰 보유 여부를 0 또는 1로 바꾸어 실행함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>&amp;&amp;: 둘 다 만족하면 1 / ||: 하나 이상 만족하면 1 / !: 만족 여부 반전.</li>
+<li>처음 출력은 0, 1, 0. 입력 조합 (0,0), (0,1), (1,0), (1,1) 비교.</li>
+<li>논리 판단에서 0은 불만족, 0이 아닌 값은 만족으로 취급함. 결과는 0 또는 1.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int member = 1;
+    int coupon = 0;
+    printf(&quot;both: %d\n&quot;, member &amp;&amp; coupon);
+    printf(&quot;either: %d\n&quot;, member || coupon);
+    printf(&quot;not member: %d\n&quot;, !member);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>논리 조건을 쓸 때: 범위와 평가 순서</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int age = 25;
+int student_age = (18 &lt;= age) &amp;&amp; (age &lt;= 24);
+</code></pre>
+</div><ul>
+<li>범위 비교는 <strong>두 비교식을 <code>&amp;&amp;</code>로 연결</strong>함.</li>
+<li><code>18 &lt; = age &lt; = 24</code>는 수학의 범위 비교처럼 동작하지 않음.</li>
+<li><code>&amp;&amp;</code>: 왼쪽이 0이면 오른쪽 평가 생략.</li>
+<li><code>||</code>: 왼쪽이 0이 아니면 오른쪽 평가 생략.</li>
+</ul>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int people = 0;
+int enough = (people != 0) &amp;&amp; (10 / people &gt;= 2);
+</code></pre>
+</div><blockquote>
+<p>왼쪽이 0이므로 나눗셈을 실행하지 않고 <code>enough</code>에 0 저장. 이를 단락 평가라고 함.</p>
+</blockquote>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 13: 조건 연산자 ? :로 배송비 선택</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>주문 금액이 10000원 이상이면 배송비 0원, 미만이면 3000원 선택.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>조건 ? 만족할 때의 값 : 만족하지 않을 때의 값.</li>
+<li>total이 9000이면 배송비 3000원, 결제 금액 12000원.</li>
+<li>total을 10000으로 바꾸면 배송비 0원. 선택된 쪽의 식만 평가함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int total = 9000;
+    int fee = (total &gt;= 10000) ? 0 : 3000;
+    printf(&quot;fee: %d\n&quot;, fee);
+    printf(&quot;payment: %d\n&quot;, total + fee);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>비트 연산: 숫자 전체에서 비트 하나씩으로</h2></div></header><div class="slide-content">
+<p><img src="images/week02/bit-operands.svg" alt="자리 값 8, 4, 2, 1에 대응하는 하위 4비트. 5는 0101, 3은 0011."></p>
+<table>
+<thead>
+<tr>
+<th>비트 논리</th>
+<th>같은 자리의 두 비트에 적용</th>
+<th>결과 · 하위 4비트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a &amp; b</code></td>
+<td>둘 다 1인 자리만 1</td>
+<td><code>0001</code> → 1</td>
+</tr>
+<tr>
+<td><code>a | b</code></td>
+<td>하나 이상 1인 자리는 1</td>
+<td><code>0111</code> → 7</td>
+</tr>
+<tr>
+<td><code>a ^ b</code></td>
+<td>서로 다른 자리만 1</td>
+<td><code>0110</code> → 6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>그림은 하위 4비트만 표시. 실제 연산은 자료형의 전체 비트에 적용함.</p>
+</blockquote>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 14: AND·OR·XOR로 같은 자리끼리 비교</h2></div></header><div class="slide-content">
+<div class="bit-lab" data-bit-lab="logic"><div class="bit-lab-toolbar"><span>숫자 칸 클릭 · 0 = 꺼짐 / 1 = 켜짐</span><button type="button" class="btn btn-secondary" data-bit-reset>초기화</button></div><div class="bit-lamp-row bit-place-values"><span>자리 값</span><div class="bit-lamp-cells"><span>128</span><span>64</span><span>32</span><span>16</span><span>8</span><span>4</span><span>2</span><span>1</span></div><span>10진수</span></div><div class="bit-lamp-row" data-bit-row="A"><div class="bit-row-label"><strong>입력 A</strong><small>클릭하여 0 ↔ 1</small></div><div class="bit-lamp-cells"><button type="button" class="bit-lamp" data-bit-input="A" data-bit="7" aria-pressed="false" aria-label="입력 A, 128 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="6" aria-pressed="false" aria-label="입력 A, 64 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="5" aria-pressed="false" aria-label="입력 A, 32 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="4" aria-pressed="false" aria-label="입력 A, 16 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="3" aria-pressed="false" aria-label="입력 A, 8 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="2" aria-pressed="false" aria-label="입력 A, 4 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="1" aria-pressed="false" aria-label="입력 A, 2 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="0" aria-pressed="false" aria-label="입력 A, 1 자리, 꺼짐">0</button></div><output class="bit-decimal" data-bit-value="A" aria-label="입력 A의 10진수 값">0</output></div><div class="bit-lamp-row" data-bit-row="B"><div class="bit-row-label"><strong>입력 B</strong><small>클릭하여 0 ↔ 1</small></div><div class="bit-lamp-cells"><button type="button" class="bit-lamp" data-bit-input="B" data-bit="7" aria-pressed="false" aria-label="입력 B, 128 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="B" data-bit="6" aria-pressed="false" aria-label="입력 B, 64 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="B" data-bit="5" aria-pressed="false" aria-label="입력 B, 32 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="B" data-bit="4" aria-pressed="false" aria-label="입력 B, 16 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="B" data-bit="3" aria-pressed="false" aria-label="입력 B, 8 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="B" data-bit="2" aria-pressed="false" aria-label="입력 B, 4 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="B" data-bit="1" aria-pressed="false" aria-label="입력 B, 2 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="B" data-bit="0" aria-pressed="false" aria-label="입력 B, 1 자리, 꺼짐">0</button></div><output class="bit-decimal" data-bit-value="B" aria-label="입력 B의 10진수 값">0</output></div><div class="bit-results"><div class="bit-lamp-row" data-bit-row="AND"><div class="bit-row-label"><strong>AND · A &amp; B</strong><small>둘 다 1이면 1</small></div><div class="bit-lamp-cells"><span class="bit-lamp" data-bit="7" aria-hidden="true">0</span><span class="bit-lamp" data-bit="6" aria-hidden="true">0</span><span class="bit-lamp" data-bit="5" aria-hidden="true">0</span><span class="bit-lamp" data-bit="4" aria-hidden="true">0</span><span class="bit-lamp" data-bit="3" aria-hidden="true">0</span><span class="bit-lamp" data-bit="2" aria-hidden="true">0</span><span class="bit-lamp" data-bit="1" aria-hidden="true">0</span><span class="bit-lamp" data-bit="0" aria-hidden="true">0</span></div><output class="bit-decimal" data-bit-value="AND" aria-label="AND · A &amp; B의 10진수 값">0</output></div><div class="bit-lamp-row" data-bit-row="OR"><div class="bit-row-label"><strong>OR · A | B</strong><small>하나 이상 1이면 1</small></div><div class="bit-lamp-cells"><span class="bit-lamp" data-bit="7" aria-hidden="true">0</span><span class="bit-lamp" data-bit="6" aria-hidden="true">0</span><span class="bit-lamp" data-bit="5" aria-hidden="true">0</span><span class="bit-lamp" data-bit="4" aria-hidden="true">0</span><span class="bit-lamp" data-bit="3" aria-hidden="true">0</span><span class="bit-lamp" data-bit="2" aria-hidden="true">0</span><span class="bit-lamp" data-bit="1" aria-hidden="true">0</span><span class="bit-lamp" data-bit="0" aria-hidden="true">0</span></div><output class="bit-decimal" data-bit-value="OR" aria-label="OR · A | B의 10진수 값">0</output></div><div class="bit-lamp-row" data-bit-row="XOR"><div class="bit-row-label"><strong>XOR · A ^ B</strong><small>서로 다르면 1</small></div><div class="bit-lamp-cells"><span class="bit-lamp" data-bit="7" aria-hidden="true">0</span><span class="bit-lamp" data-bit="6" aria-hidden="true">0</span><span class="bit-lamp" data-bit="5" aria-hidden="true">0</span><span class="bit-lamp" data-bit="4" aria-hidden="true">0</span><span class="bit-lamp" data-bit="3" aria-hidden="true">0</span><span class="bit-lamp" data-bit="2" aria-hidden="true">0</span><span class="bit-lamp" data-bit="1" aria-hidden="true">0</span><span class="bit-lamp" data-bit="0" aria-hidden="true">0</span></div><output class="bit-decimal" data-bit-value="XOR" aria-label="XOR · A ^ B의 10진수 값">0</output></div></div><p class="bit-lab-note">같은 자리끼리 연산함. 입력 A=5, B=3을 만들어 결과 1 · 7 · 6 확인.</p><span class="bit-sr-only" data-bit-summary role="status" aria-live="polite"></span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 15: NOT으로 모든 비트 반전</h2></div></header><div class="slide-content">
+<div class="bit-lab" data-bit-lab="not"><div class="bit-lab-toolbar"><span>숫자 칸 클릭 · 0 = 꺼짐 / 1 = 켜짐</span><button type="button" class="btn btn-secondary" data-bit-reset>초기화</button></div><div class="bit-lamp-row bit-place-values"><span>자리 값</span><div class="bit-lamp-cells"><span>128</span><span>64</span><span>32</span><span>16</span><span>8</span><span>4</span><span>2</span><span>1</span></div><span>10진수</span></div><div class="bit-lamp-row" data-bit-row="A"><div class="bit-row-label"><strong>입력 A</strong><small>클릭하여 0 ↔ 1</small></div><div class="bit-lamp-cells"><button type="button" class="bit-lamp" data-bit-input="A" data-bit="7" aria-pressed="false" aria-label="입력 A, 128 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="6" aria-pressed="false" aria-label="입력 A, 64 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="5" aria-pressed="false" aria-label="입력 A, 32 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="4" aria-pressed="false" aria-label="입력 A, 16 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="3" aria-pressed="false" aria-label="입력 A, 8 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="2" aria-pressed="false" aria-label="입력 A, 4 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="1" aria-pressed="false" aria-label="입력 A, 2 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="0" aria-pressed="false" aria-label="입력 A, 1 자리, 꺼짐">0</button></div><output class="bit-decimal" data-bit-value="A" aria-label="입력 A의 10진수 값">0</output></div><div class="bit-results"><div class="bit-lamp-row" data-bit-row="NOT_A"><div class="bit-row-label"><strong>NOT · ~A</strong><small>0은 1로, 1은 0으로</small></div><div class="bit-lamp-cells"><span class="bit-lamp" data-bit="7" aria-hidden="true">0</span><span class="bit-lamp" data-bit="6" aria-hidden="true">0</span><span class="bit-lamp" data-bit="5" aria-hidden="true">0</span><span class="bit-lamp" data-bit="4" aria-hidden="true">0</span><span class="bit-lamp" data-bit="3" aria-hidden="true">0</span><span class="bit-lamp" data-bit="2" aria-hidden="true">0</span><span class="bit-lamp" data-bit="1" aria-hidden="true">0</span><span class="bit-lamp" data-bit="0" aria-hidden="true">0</span></div><output class="bit-decimal" data-bit-value="NOT_A" aria-label="NOT · ~A의 10진수 값">0</output></div></div><p class="bit-lab-note">8비트 모형 · NOT 결과는 하위 8비트만 표시함. 입력 0 → 결과 255.</p><span class="bit-sr-only" data-bit-summary role="status" aria-live="polite"></span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 16: 비트 이동 &lt;&lt;와 &gt;&gt;로 자리 옮기기</h2></div></header><div class="slide-content">
+<p>오른쪽으로 <strong>1칸 이동 = 2로 나눈 정수 몫</strong>, <strong>n칸 이동 = 2ⁿ으로 나눈 정수 몫</strong>. 부호 없는 정수 기준.</p>
+<div class="bit-lab" data-bit-lab="shift"><div class="bit-lab-toolbar"><span>숫자 칸 클릭 · 0 = 꺼짐 / 1 = 켜짐</span><button type="button" class="btn btn-secondary" data-bit-reset>초기화</button></div><div class="bit-shift-controls"><span>이동 칸 수 n</span><button type="button" class="btn btn-secondary" data-shift-step="-1" aria-label="이동 칸 수 줄이기">−</button><output data-shift-count>1</output><button type="button" class="btn btn-secondary" data-shift-step="1" aria-label="이동 칸 수 늘리기">+</button><span>0~7칸 · 원래 입력에서 양쪽 결과 계산</span></div><div class="bit-lamp-row bit-place-values"><span>자리 값</span><div class="bit-lamp-cells"><span>128</span><span>64</span><span>32</span><span>16</span><span>8</span><span>4</span><span>2</span><span>1</span></div><span>10진수</span></div><div class="bit-lamp-row" data-bit-row="A"><div class="bit-row-label"><strong>입력 A</strong><small>클릭하여 0 ↔ 1</small></div><div class="bit-lamp-cells"><button type="button" class="bit-lamp" data-bit-input="A" data-bit="7" aria-pressed="false" aria-label="입력 A, 128 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="6" aria-pressed="false" aria-label="입력 A, 64 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="5" aria-pressed="false" aria-label="입력 A, 32 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="4" aria-pressed="false" aria-label="입력 A, 16 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="3" aria-pressed="false" aria-label="입력 A, 8 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="2" aria-pressed="false" aria-label="입력 A, 4 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="1" aria-pressed="false" aria-label="입력 A, 2 자리, 꺼짐">0</button><button type="button" class="bit-lamp" data-bit-input="A" data-bit="0" aria-pressed="false" aria-label="입력 A, 1 자리, 꺼짐">0</button></div><output class="bit-decimal" data-bit-value="A" aria-label="입력 A의 10진수 값">0</output></div><div class="bit-results"><div class="bit-lamp-row" data-bit-row="LEFT"><div class="bit-row-label"><strong>왼쪽 · A << n</strong><small>오른쪽 빈칸은 0</small></div><div class="bit-lamp-cells"><span class="bit-lamp" data-bit="7" aria-hidden="true">0</span><span class="bit-lamp" data-bit="6" aria-hidden="true">0</span><span class="bit-lamp" data-bit="5" aria-hidden="true">0</span><span class="bit-lamp" data-bit="4" aria-hidden="true">0</span><span class="bit-lamp" data-bit="3" aria-hidden="true">0</span><span class="bit-lamp" data-bit="2" aria-hidden="true">0</span><span class="bit-lamp" data-bit="1" aria-hidden="true">0</span><span class="bit-lamp" data-bit="0" aria-hidden="true">0</span></div><output class="bit-decimal" data-bit-value="LEFT" aria-label="왼쪽 · A << n의 10진수 값">0</output></div><div class="bit-lamp-row" data-bit-row="RIGHT"><div class="bit-row-label"><strong>오른쪽 · A >> n</strong><small>왼쪽 빈칸은 0</small></div><div class="bit-lamp-cells"><span class="bit-lamp" data-bit="7" aria-hidden="true">0</span><span class="bit-lamp" data-bit="6" aria-hidden="true">0</span><span class="bit-lamp" data-bit="5" aria-hidden="true">0</span><span class="bit-lamp" data-bit="4" aria-hidden="true">0</span><span class="bit-lamp" data-bit="3" aria-hidden="true">0</span><span class="bit-lamp" data-bit="2" aria-hidden="true">0</span><span class="bit-lamp" data-bit="1" aria-hidden="true">0</span><span class="bit-lamp" data-bit="0" aria-hidden="true">0</span></div><output class="bit-decimal" data-bit-value="RIGHT" aria-label="오른쪽 · A >> n의 10진수 값">0</output></div></div><p class="bit-division" data-bit-division aria-live="polite"></p><p class="bit-lab-note">8비트 부호 없는 모형 · 밀려난 비트는 버리고 빈칸은 0으로 채움. C의 int 전체 비트 폭과 구분함.</p><span class="bit-sr-only" data-bit-summary role="status" aria-live="polite"></span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>오른쪽 이동: 2로 계속 나누기</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>하위 8비트</th>
+<th>비트 이동</th>
+<th>정수 나눗셈</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>시작</td>
+<td><code>00001101</code></td>
+<td>13</td>
+<td>—</td>
+</tr>
+<tr>
+<td>오른쪽 1칸</td>
+<td><code>00000110</code></td>
+<td><code>13u &gt;&gt; 1</code> → 6</td>
+<td><code>13u / 2u</code> → 6</td>
+</tr>
+<tr>
+<td>오른쪽 2칸</td>
+<td><code>00000011</code></td>
+<td><code>13u &gt;&gt; 2</code> → 3</td>
+<td><code>13u / 4u</code> → 3</td>
+</tr>
+<tr>
+<td>오른쪽 3칸</td>
+<td><code>00000001</code></td>
+<td><code>13u &gt;&gt; 3</code> → 1</td>
+<td><code>13u / 8u</code> → 1</td>
+</tr>
+<tr>
+<td>오른쪽 4칸</td>
+<td><code>00000000</code></td>
+<td><code>13u &gt;&gt; 4</code> → 0</td>
+<td><code>13u / 16u</code> → 0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>한 칸씩 이동하면 <strong>13 → 6 → 3 → 1 → 0</strong>으로 변화함.</li>
+<li>홀수의 오른쪽 끝 <code>1</code>이 버려짐. <strong>6.5가 아닌 정수 몫 6</strong>을 얻음.</li>
+<li>부호 없는 정수 기준. 음수의 오른쪽 이동에 같은 규칙을 적용하지 않음.</li>
+</ul>
+<blockquote>
+<p>앞 실습에서 8·4·1 자리를 켜서 13을 만든 뒤 이동 칸 수를 늘려 확인함.</p>
+</blockquote>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 17: 괄호와 우선순위로 계산 순서 확인</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>곱셈과 덧셈의 순서를 예상하고 괄호 유무에 따른 결과를 비교함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>*는 +보다 먼저 계산. 첫 결과는 8500원.</li>
+<li>괄호로 가격과 포장비를 먼저 더하면 결과는 9000원.</li>
+<li>암기보다 괄호로 의도를 명확히 표현함. 우선순위가 모든 피연산자의 평가 순서를 정하는 것은 아님.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="10" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int price = 4000, fee = 500, count = 2;
+    printf(&quot;once: %d\n&quot;, price * count + fee);
+    printf(&quot;each: %d\n&quot;, (price + fee) * count);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>연산자 우선순위: 위쪽일수록 먼저 묶음</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>순위</th>
+<th>연산자 · 높은 순서</th>
+<th>결합 방향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>후위 <code>++</code> <code>--</code>, 호출 <code>()</code>, <code>[]</code>, <code>.</code> <code>-&gt;</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>2</td>
+<td>전위 <code>++</code> <code>--</code>, 단항 <code>+</code> <code>-</code> <code>!</code> <code>~</code>, 형 변환, <code>sizeof</code>, 단항 <code>*</code> <code>&amp;</code>, <code>_Alignof</code></td>
+<td>오른쪽 → 왼쪽</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>*</code> <code>/</code> <code>%</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>+</code> <code>-</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>==</code> <code>!=</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+</tbody>
+</table>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>연산자 우선순위: 비트·논리·대입</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>순위</th>
+<th>연산자 · 앞 표에서 이어짐</th>
+<th>결합 방향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>비트 AND <code>&amp;</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>9</td>
+<td>비트 XOR <code>^</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>10</td>
+<td>비트 OR <code>|</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>11</td>
+<td>논리 AND <code>&amp;&amp;</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>12</td>
+<td>논리 OR <code>||</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+<tr>
+<td>13</td>
+<td>조건 <code>? :</code></td>
+<td>오른쪽 → 왼쪽</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code> <code>&amp;=</code> <code>^=</code> <code>|=</code></td>
+<td>오른쪽 → 왼쪽</td>
+</tr>
+<tr>
+<td>15</td>
+<td>콤마 연산자 <code>,</code></td>
+<td>왼쪽 → 오른쪽</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>괄호로 묶은 식을 우선 처리</strong>함. 1순위의 <code>()</code>는 함수 호출을 뜻함.</li>
+<li>결합 방향은 <strong>식의 묶임</strong>을 정함. 피연산자의 실행 순서와는 구분함.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>실습 18: a &amp; b == 0의 묶임 확인</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>세 식의 결과를 예상한 뒤 실행하여 괄호의 역할을 확인함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li><code>==</code>가 <code>&amp;</code>보다 우선함. 첫 식은 <code>a &amp; (b == 0)</code>으로 해석됨.</li>
+<li>a=2, b=1일 때 출력은 0, 0, 1. 괄호를 넣은 위치에 따라 결과가 달라짐.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    unsigned char a = 2u; // 0000 0010
+    unsigned char b = 1u; // 0000 0001
+
+    printf(&quot;a &amp; b == 0  : %d\n&quot;, a &amp; b == 0);
+    printf(&quot;a &amp; (b == 0): %d\n&quot;, a &amp; (b == 0));
+    printf(&quot;(a &amp; b) == 0: %d\n&quot;, (a &amp; b) == 0);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 65fr) minmax(0, 35fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>2자유도 로봇 팔: 끝점의 x, y 구하기</h2></div></header><div class="slide-content"><div class="code-comparison-grid"><div class="column">
+<p><img src="images/week02/two_link_manipulator.svg" alt="두 링크 로봇 팔의 길이, 상대 관절 각도와 관절·끝점 좌표 수식."></p>
+</div><div class="column"><h3>각 링크의 가로·세로 성분을 더함</h3>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">l_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">l_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: 팔의 길이. 단위 <strong>m</strong>.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\theta_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: +x축 기준 각도.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\theta_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: 첫 번째 팔 기준의 <strong>상대 각도</strong>.</li>
+</ul>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>x</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>l</mi><mn>1</mn></msub><mi>cos</mi><mo>⁡</mo><msub><mi>θ</mi><mn>1</mn></msub><mo separator="true">,</mo><mspace width="1em"/><msub><mi>y</mi><mn>1</mn></msub><mo>=</mo><msub><mi>l</mi><mn>1</mn></msub><mi>sin</mi><mo>⁡</mo><msub><mi>θ</mi><mn>1</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>x</mi><mn>2</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>l</mi><mn>2</mn></msub><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>y</mi><mn>2</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>y</mi><mn>1</mn></msub><mo>+</mo><msub><mi>l</mi><mn>2</mn></msub><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+x_1 &amp;= l_1\cos\theta_1,\quad y_1 = l_1\sin\theta_1 \\[0.8em]
+x_2 &amp;= x_1 + l_2\cos(\theta_1+\theta_2) \\[0.8em]
+y_2 &amp;= y_1 + l_2\sin(\theta_1+\theta_2)
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:5.8em;vertical-align:-2.65em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.15em;"><span style="top:-5.31em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-0.71em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.15em;"><span style="top:-5.31em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-0.71em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li><strong>cos → 가로 성분</strong>, <strong>sin → 세로 성분</strong>.</li>
+<li>다음 C 실습의 <code>x</code>, <code>y</code>는 그림의 끝점 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">x_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">y_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>에 해당함.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>종합 실습 19: 2자유도 로봇 팔의 x, y 계산</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>두 관절의 각도를 바꾸어 로봇 팔 끝점의 x, y 좌표를 계산함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>θ1: +x축 기준. θ2: 첫 번째 팔 기준. 두 번째 팔의 절대 각도는 θ1 + θ2.</li>
+<li>cos, sin: &lt;math.h&gt;의 삼각함수. 입력은 라디안이므로 각도 * PI / 180.0으로 변환함.</li>
+<li>기본값 출력: x = 0.87 m, y = 1.30 m.</li>
+<li>두 각도를 0°로 변경 후 실행: x = 1.80 m, y = 0.00 m. 다음 장에서 같은 값으로 비교함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main(void) {
+    const double PI = 3.141592653589793;
+    const double L1 = 1.0, L2 = 0.8;
+    double angle1 = 30.0, angle2 = 60.0;
+    double t1 = angle1 * PI / 180.0;
+    double t2 = angle2 * PI / 180.0;
+    double x = L1 * cos(t1) + L2 * cos(t1 + t2);
+    double y = L1 * sin(t1) + L2 * sin(t1 + t2);
+    printf(&quot;x = %.2f m\n&quot;, x);
+    printf(&quot;y = %.2f m\n&quot;, y);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>시각화: 2자유도 로봇 팔의 계산값과 위치 비교</h2></div></header><div class="slide-content">
+<div class="robot-lab" data-robot-arm>
+    <div class="robot-controls"><label>L₁ (m) <input data-robot-length="1" type="number" value="1.0" min="0.1" max="2" step="0.01"></label><label>L₂ (m) <input data-robot-length="2" type="number" value="0.8" min="0.1" max="2" step="0.01"></label><button class="btn btn-secondary" data-robot-preset="30,60">C 예제 값</button><button class="btn btn-secondary" data-robot-preset="0,0">수평으로 펴기</button><button class="btn btn-secondary" data-robot-preset="90,0">수직으로 펴기</button></div>
+    <div class="robot-grid"><div>
+      <svg class="robot-scene" viewBox="0 0 720 500" role="img" aria-label="두 관절 로봇 팔과 끝점의 x, y 좌표">
+        <rect width="720" height="500" rx="16" fill="white"/>
+        <g data-robot-grid></g><circle data-robot-circle="1" cx="360" cy="250" fill="none" stroke="#b3b3b3" stroke-width="2"/><circle data-robot-circle="2" fill="none" stroke="#b3b3b3" stroke-width="2"/>
+        <path data-robot-axes d="M65 250H665M360 35V470 M655 244L665 250L655 256 M354 45L360 35L366 45" fill="none" stroke="#161616" stroke-width="2"/>
+        <text data-robot-axis-x x="670" y="256">x</text><text data-robot-axis-y x="370" y="32">y</text><text x="336" y="275">0</text>
+        <path data-robot-projection fill="none" stroke="#55839f" stroke-width="2" stroke-dasharray="6 5"/>
+        <path data-robot-extension fill="none" stroke="#171717" stroke-width="2" stroke-dasharray="5 5"/>
+        <path data-robot-link="1" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+        <path data-robot-link="2" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+        <path data-robot-arc="1" stroke="#111" stroke-width="2" fill="none"/>
+        <path data-robot-arc="2" stroke="#111" stroke-width="2" fill="none"/>
+        <circle cx="360" cy="250" r="8" fill="white" stroke="#111" stroke-width="4"/>
+        <circle data-robot-joint r="8" fill="white" stroke="#111" stroke-width="4"/>
+        <circle data-robot-tip r="2" fill="#111"/><path data-robot-gripper fill="none" stroke="#111" stroke-width="6"/><path data-robot-dimension="1" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="8 5"/><path data-robot-dimension="2" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="8 5"/><path data-robot-arrows fill="#111"/><text data-robot-angle-label="1" class="robot-svg-label"></text><text data-robot-angle-label="2" class="robot-svg-label"></text><text data-robot-elbow-label class="robot-svg-label"></text>
+        <text data-robot-link-label="1" class="robot-svg-label"></text><text data-robot-link-label="2" class="robot-svg-label"></text>
+        <text data-robot-point class="robot-svg-label"></text>
+        <text x="20" y="482" data-robot-scale></text>
+      </svg>
+      <label class="robot-angle">θ₁: +x축 기준<input type="range" data-robot-angle="1" min="-180" max="180" step="1" value="30" aria-label="θ₁: +x축 기준"><output data-robot-deg="1">30°</output></label><label class="robot-angle">θ₂: 첫 번째 팔 기준<input type="range" data-robot-angle="2" min="-180" max="180" step="1" value="60" aria-label="θ₂: 첫 번째 팔 기준"><output data-robot-deg="2">60°</output></label>
+    </div><div class="robot-evaluation">
+      <h3>관절 좌표 → 끝점 좌표</h3>
+      <p data-robot-heading></p><p data-robot-elbow></p>
+      <code>x = L1 * cos(t1)<br>  + L2 * cos(t1 + t2);</code><p data-robot-x></p>
+      <code>y = L1 * sin(t1)<br>  + L2 * sin(t1 + t2);</code><p data-robot-y></p>
+      <div class="robot-result" data-robot-result role="status" aria-live="polite"></div>
+      <p class="robot-note">회색 원: 각 관절을 중심으로 한 링크의 회전 범위<br>반시계 방향이 +각도. 두 번째 팔의 절대 각도는 θ₁ + θ₂.</p>
+    </div></div>
+    <p class="robot-note">앞 장과 같은 길이·각도를 입력하여 출력값 비교. 시각화는 같은 수식을 JavaScript로 계산하며 C 코드와 자동 연동되지 않음.</p>
+  </div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 02</div><h2>핵심 요약: 변수·자료형·상수·연산자</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>기억할 핵심</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>변수와 대입</td>
+<td>값을 저장하는 공간. 대입은 그 순간의 값을 복사함.</td>
+</tr>
+<tr>
+<td>자료형</td>
+<td>저장할 값의 종류·범위·정밀도를 정함.</td>
+</tr>
+<tr>
+<td>const</td>
+<td>처음 값을 정한 뒤 다른 값으로 변경 불가.</td>
+</tr>
+<tr>
+<td>산술·복합 대입·증감</td>
+<td>값을 계산하거나 기존 값을 갱신함.</td>
+</tr>
+<tr>
+<td>관계·논리·조건</td>
+<td>비교·논리 결과는 0 또는 1. 조건 연산자는 두 값 중 하나를 선택함.</td>
+</tr>
+<tr>
+<td>비트 연산</td>
+<td>각 비트를 조합·반전·이동함. 부호 없는 정수의 오른쪽 1칸 이동은 2로 나눈 정수 몫.</td>
+</tr>
+<tr>
+<td>우선순위와 괄호</td>
+<td>식의 묶임을 확인하고, 의도한 연산을 괄호로 명시함.</td>
+</tr>
+</tbody>
+</table>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 02</span></footer></div></section>
+  </div></main>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js"></script><script src="./assets/js/week01-runner.js"></script>
+  <script src="./assets/js/bit-lamps.js"></script>
+  <script src="./assets/js/c-editor.js"></script>
+  <script src="./assets/js/physics-model.js"></script>
+  <script src="./assets/js/physics.js"></script>
+  <script src="./assets/js/robot-arm.js"></script>
+</body></html>

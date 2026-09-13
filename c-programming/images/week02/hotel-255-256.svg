@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+<title id="title">255와 256 손님의 객실 안내</title>
+<desc id="desc">머리표 255인 손님은 8비트 unsigned char 싱글룸 이용 가능. 머리표 256인 손님에게 프런트 직원이 싱글룸은 255까지이므로 일반룸 unsigned short 또는 스위트룸 unsigned int로 가도록 안내함.</desc>
+<rect width="1400" height="520" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+<rect x="65" y="165" width="110" height="47" rx="9" fill="#397ba8"/><text x="120" y="199" font-size="34" font-weight="700" fill="white">255</text><path d="M120 212V231" stroke="#397ba8" stroke-width="4"/><circle cx="120" cy="260" r="28" fill="#397ba8"/><path d="M120 298V359M120 310L87 339M120 310L153 339M120 359L94 400M120 359L146 400" stroke="#397ba8" stroke-width="15" stroke-linecap="round" fill="none"/>
+<rect x="285" y="165" width="110" height="47" rx="9" fill="#bb7932"/><text x="340" y="199" font-size="34" font-weight="700" fill="white">256</text><path d="M340 212V231" stroke="#bb7932" stroke-width="4"/><circle cx="340" cy="260" r="28" fill="#bb7932"/><path d="M340 298V359M340 310L307 339M340 310L373 339M340 359L314 400M340 359L366 400" stroke="#bb7932" stroke-width="15" stroke-linecap="round" fill="none"/>
+<text x="120" y="438" font-size="26" fill="#397ba8">8비트로 표현 가능</text>
+<text x="340" y="438" font-size="26" fill="#986021">최소 9비트 필요</text>
+<rect x="625" y="172" width="110" height="47" rx="9" fill="#64768a"/><text x="680" y="206" font-size="34" font-weight="700" fill="white">직원</text><path d="M680 219V238" stroke="#64768a" stroke-width="4"/><circle cx="680" cy="267" r="28" fill="#64768a"/><path d="M680 305V366M680 317L647 346M680 317L713 346M680 366L654 407M680 366L706 407" stroke="#64768a" stroke-width="15" stroke-linecap="round" fill="none"/>
+<rect x="532" y="323" width="296" height="115" rx="12" fill="#edf3f8" stroke="#9cb1c6" stroke-width="3"/><text x="680" y="375" font-size="30" font-weight="700" fill="#164b7a">FRONT DESK</text><text x="680" y="413" font-size="25" fill="#405971">값에 맞는 객실 안내</text>
+<path d="M442 25H961Q978 25 978 42V136Q978 153 961 153H710L681 181L662 153H442Q425 153 425 136V42Q425 25 442 25Z" fill="#fff6de" stroke="#d4b36d" stroke-width="2"/><text x="700" y="67" font-size="28" font-weight="700" fill="#624b1b">“256 손님, 싱글룸은 255까지임!</text><text x="700" y="109" font-size="28" font-weight="700" fill="#624b1b">일반룸 또는 스위트룸으로 이동!”</text>
+<rect x="1030" y="40" width="340" height="119" rx="12" fill="#f5f9fc" stroke="#397ba8" stroke-width="3"/><text x="1200" y="83" font-size="23" font-weight="700" fill="#397ba8">싱글룸 · unsigned char</text><text x="1200" y="127" font-size="25" fill="#405971">255 가능 / 256 불가</text>
+<rect x="1030" y="190" width="340" height="119" rx="12" fill="#f5f9fc" stroke="#278774" stroke-width="3"/><text x="1200" y="233" font-size="23" font-weight="700" fill="#278774">일반룸 · unsigned short</text><text x="1200" y="277" font-size="25" fill="#405971">255와 256 모두 가능</text>
+<rect x="1030" y="340" width="340" height="119" rx="12" fill="#f5f9fc" stroke="#278774" stroke-width="3"/><text x="1200" y="383" font-size="23" font-weight="700" fill="#278774">스위트룸 · unsigned int</text><text x="1200" y="427" font-size="25" fill="#405971">255와 256 모두 가능</text>
+<path d="M852 293H937V249H1006M937 293V399H1006M993 238L1006 249L993 260M993 388L1006 399L993 410" fill="none" stroke="#278774" stroke-width="5"/>
+<text x="700" y="495" font-size="25" fill="#536478">일반적인 8비트 바이트 환경 기준 · 객실은 저장 가능한 값의 범위에 맞춰 선택</text>
+</g></svg>
