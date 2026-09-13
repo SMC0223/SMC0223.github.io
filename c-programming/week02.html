@@ -1540,11 +1540,10 @@ y_2 &amp;= y_1 + l_2\sin(\theta_1+\theta_2)
 int main(void) {
     const double PI = 3.141592653589793;
     const double L1 = 1.0, L2 = 0.8;
-    double angle1 = 30.0, angle2 = 60.0;
-    double t1 = angle1 * PI / 180.0;
-    double t2 = angle2 * PI / 180.0;
-    double x = L1 * cos(t1) + L2 * cos(t1 + t2);
-    double y = L1 * sin(t1) + L2 * sin(t1 + t2);
+    double theta1 = 0.0;
+    double theta2 = 0.0;
+    double x = L1 * cos(theta1); // 수식을 완성하시오
+    double y = 0.0; // 수식을 완성하시오
     printf(&quot;x = %.2f m\n&quot;, x);
     printf(&quot;y = %.2f m\n&quot;, y);
     return 0;
