@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 660" role="img" aria-labelledby="title desc">
+<title id="title">char부터 위로 넓어지는 자동 형 변환 단계와 일반 크기</title>
+<desc id="desc">아래부터 char, short, int, long, long long, float, double, long double. 오른쪽에 일반적인 바이트 수 표시. 일반적인 환경의 부호 있는 정수와 실수 간 산술 연산을 단순화한 그림이며 층의 너비는 바이트 수에 비례하지 않음.</desc>
+<defs><marker id="up" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#236594"/></marker></defs>
+<rect width="1400" height="660" rx="24" fill="#f6f9fc"/>
+<g font-family="Malgun Gothic, sans-serif">
+<text x="585" y="37" text-anchor="middle" font-size="26" fill="#123d66" font-weight="700">산술 연산의 공통 자료형</text>
+<text x="1115" y="37" font-size="26" fill="#123d66" font-weight="700">일반 크기</text>
+<path d="M85 520V110" stroke="#236594" stroke-width="7" marker-end="url(#up)"/>
+
+<path d="M135.0 55H1035.0L1000.0 112H170.0Z" fill="#123d66"/>
+<text x="585" y="94" text-anchor="middle" font-size="32" font-weight="700" fill="#fff">long double</text>
+<path d="M1043.0 84H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="93" font-size="27" fill="#284c68">8 / 12 / 16바이트</text>
+<path d="M175.0 117H995.0L960.0 174H210.0Z" fill="#1c527e"/>
+<text x="585" y="156" text-anchor="middle" font-size="32" font-weight="700" fill="#fff">double</text>
+<path d="M1003.0 146H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="155" font-size="27" fill="#284c68">8바이트</text>
+<path d="M215.0 179H955.0L920.0 236H250.0Z" fill="#2b719e"/>
+<text x="585" y="218" text-anchor="middle" font-size="32" font-weight="700" fill="#fff">float</text>
+<path d="M963.0 208H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="217" font-size="27" fill="#284c68">4바이트</text>
+<path d="M255.0 241H915.0L880.0 298H290.0Z" fill="#5595ba"/>
+<text x="585" y="280" text-anchor="middle" font-size="32" font-weight="700" fill="#fff">long long</text>
+<path d="M923.0 270H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="279" font-size="27" fill="#284c68">8바이트</text>
+<path d="M295.0 303H875.0L840.0 360H330.0Z" fill="#81b3cf"/>
+<text x="585" y="342" text-anchor="middle" font-size="32" font-weight="700" fill="#123d66">long</text>
+<path d="M883.0 332H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="341" font-size="27" fill="#284c68">4 또는 8바이트</text>
+<path d="M335.0 365H835.0L800.0 422H370.0Z" fill="#a3c9df"/>
+<text x="585" y="404" text-anchor="middle" font-size="32" font-weight="700" fill="#123d66">int</text>
+<path d="M843.0 394H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="403" font-size="27" fill="#284c68">4바이트</text>
+<path d="M375.0 427H795.0L760.0 484H410.0Z" fill="#c5dfed"/>
+<text x="585" y="466" text-anchor="middle" font-size="32" font-weight="700" fill="#123d66">short</text>
+<path d="M803.0 456H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="465" font-size="27" fill="#284c68">2바이트</text>
+<path d="M415.0 489H755.0L720.0 546H450.0Z" fill="#e0eef6"/>
+<text x="585" y="528" text-anchor="middle" font-size="32" font-weight="700" fill="#123d66">char</text>
+<path d="M763.0 518H1090" stroke="#b6c8d6" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="1115" y="527" font-size="27" fill="#284c68">1바이트</text>
+<text x="55" y="587" font-size="24" fill="#365772">char·short는 먼저 int로 승격함. 부호 있는 정수와 실수의 일반적인 환경 기준.</text>
+<text x="55" y="627" font-size="24" fill="#536b7f">층의 너비는 바이트 수에 비례하지 않음. 실제 크기는 sizeof로 확인.</text>
+</g></svg>

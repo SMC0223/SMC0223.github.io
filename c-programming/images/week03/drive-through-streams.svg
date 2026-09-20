@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" role="img" aria-labelledby="title desc">
+<title id="title">주문 경로가 달라도 같은 매장에서 처리하는 표준 입출력 비유</title>
+<desc id="desc">파란 차 손님의 마이크 주문과 주황 차 손님의 앱 주문이 하나의 주문 접수 통로로 합류함. 키보드나 파일을 표준 입력에 연결하여 같은 프로그램으로 처리하는 방식에 대응함. 음료 전달은 표준 출력, 재료 소진 안내는 표준 오류에 대응함.</desc>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#00754a"/></marker>
+<marker id="amber" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#a56925"/></marker>
+<g id="cup"><path d="M0 0H43L37 60H7Z" fill="#fff" stroke="#235a48" stroke-width="3"/><rect x="-4" y="-7" width="51" height="10" rx="4" fill="#24483e"/><rect y="17" width="42" height="25" rx="3" fill="#00754a"/><circle cx="21" cy="29" r="8" fill="#fff"/></g><g id="car"><path d="M0 62 30 55 63 7H160L196 55 225 66V112H0Z" fill="currentColor" stroke="#28546b" stroke-width="4"/><path d="M68 17H113V55H44Z M123 17H153L181 55H123Z" fill="#eff9ff"/><circle cx="50" cy="112" r="22" fill="#30424d"/><circle cx="180" cy="112" r="22" fill="#30424d"/><circle cx="50" cy="112" r="10" fill="#dce7ed"/><circle cx="180" cy="112" r="10" fill="#dce7ed"/><circle cx="143" cy="36" r="11" fill="#e7b99a"/></g></defs>
+<rect width="1600" height="700" fill="#fff"/>
+<g font-family="Malgun Gothic, sans-serif">
+<g font-size="29" font-weight="700" fill="#174f3c" text-anchor="middle">
+<text x="260" y="39">손님·주문 경로 변경</text><text x="950" y="39">같은 매장에서 처리</text><text x="1410" y="39">결과 전달</text>
+</g>
+<!-- Alternative input sources -->
+<rect x="15" y="68" width="500" height="227" rx="22" fill="#edf5fc"/>
+<rect x="15" y="319" width="500" height="227" rx="22" fill="#fff3e8"/>
+<text x="40" y="112" font-size="28" font-weight="700" fill="#28546b">마이크 주문</text>
+<text x="40" y="154" font-size="26" fill="#28546b">“아메리카노 2잔”</text>
+<use href="#car" transform="translate(50 171) scale(.72)" color="#8ebed9"/>
+<rect x="331" y="165" width="63" height="90" rx="8" fill="#294e42"/>
+<rect x="342" y="177" width="41" height="23" rx="4" fill="#d9efe3"/>
+<path d="M343 212H382M343 225H382M343 238H382M362 255V275" stroke="#a2c1b2" stroke-width="4"/>
+<path d="M266 207Q286 220 266 233 M282 194Q318 220 282 246" fill="none" stroke="#00754a" stroke-width="4"/>
+<text x="40" y="363" font-size="28" font-weight="700" fill="#865622">앱 주문</text>
+<text x="40" y="405" font-size="26" fill="#865622">“라테 1잔”</text>
+<use href="#car" transform="translate(50 422) scale(.72)" color="#e5ae77"/>
+<rect x="333" y="406" width="70" height="120" rx="12" fill="#294e42"/>
+<rect x="341" y="419" width="54" height="88" rx="5" fill="#fff"/>
+<use href="#cup" transform="translate(355 432) scale(.6)"/>
+<circle cx="368" cy="516" r="4" fill="#fff"/>
+<!-- Merge, one standard input -->
+<g fill="none" stroke="#00754a" stroke-width="4" marker-end="url(#arrow)">
+<path d="M516 205H556V301H587"/><path d="M516 451H556V365H587"/>
+</g>
+<rect x="594" y="254" width="151" height="157" rx="18" fill="#00754a"/>
+<g text-anchor="middle" fill="#fff"><text x="669" y="297" font-size="31" font-weight="700">stdin</text><text x="669" y="338" font-size="25">주문 접수</text><text x="669" y="377" font-size="23">표준 입력</text></g>
+<path d="M747 332H785" fill="none" stroke="#00754a" stroke-width="4" marker-end="url(#arrow)"/>
+<!-- Store -->
+<rect x="793" y="119" width="327" height="427" rx="22" fill="#f1f7f3"/>
+<rect x="809" y="210" width="295" height="223" rx="8" fill="#e5ded0"/>
+<rect x="803" y="183" width="307" height="56" rx="7" fill="#00754a"/>
+<text x="956" y="219" text-anchor="middle" font-size="26" letter-spacing="2" font-weight="700" fill="#fff">STARBUCKS</text>
+<rect x="832" y="252" width="248" height="145" rx="5" fill="#fff"/>
+<circle cx="931" cy="291" r="23" fill="#edc3a4"/>
+<path d="M905 282Q906 250 932 255Q957 255 957 282" fill="#314a40"/>
+<path d="M890 381V350Q890 317 932 317Q974 317 974 350V381" fill="#00754a"/>
+<path d="M918 319V365H947V319" fill="none" stroke="#fff" stroke-width="5"/>
+<use href="#cup" transform="translate(1004 332) scale(.75)"/>
+<rect x="820" y="383" width="273" height="16" rx="3" fill="#9c7653"/>
+<g text-anchor="middle" fill="#174f3c"><text x="956" y="471" font-size="30" font-weight="700">프로그램</text><text x="956" y="512" font-size="25">주문 확인 → 제조</text></g>
+<!-- Output -->
+<path d="M1121 332H1245" fill="none" stroke="#00754a" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="1182" y="301" font-size="25" text-anchor="middle" fill="#00754a">stdout</text>
+<rect x="1255" y="119" width="325" height="427" rx="22" fill="#f1f7f3"/>
+<rect x="1280" y="188" width="275" height="197" rx="8" fill="#e5ded0"/>
+<rect x="1280" y="188" width="275" height="47" rx="7" fill="#00754a"/>
+<text x="1417" y="220" text-anchor="middle" font-size="26" fill="#fff">음료 수령 창구</text>
+<rect x="1301" y="250" width="233" height="111" fill="#fff"/>
+<use href="#cup" x="1334" y="284"/><use href="#cup" x="1434" y="284"/>
+<rect x="1290" y="349" width="255" height="14" rx="3" fill="#9c7653"/>
+<g text-anchor="middle" fill="#174f3c"><text x="1417" y="471" font-size="30" font-weight="700">표준 출력</text><text x="1417" y="512" font-size="25">완성된 결과 전달</text></g>
+<!-- Diagnostic output -->
+<path d="M956 549V602H1056" stroke="#a56925" stroke-width="4" stroke-dasharray="7 5" fill="none" marker-end="url(#amber)"/>
+<rect x="1070" y="566" width="510" height="81" rx="15" fill="#fff3e3" stroke="#e3c297"/>
+<text x="1094" y="599" font-size="25" font-weight="700" fill="#89551e">stderr · 오류·진단 안내</text>
+<text x="1094" y="632" font-size="24" fill="#89551e">예: “재료 소진”</text>
+<text x="30" y="596" font-size="27" font-weight="700" fill="#174f3c">입력 출처가 달라도 같은 처리 과정 사용</text>
+<text x="30" y="638" font-size="25" fill="#526c60">키보드 / 파일 → stdin → 프로그램 → stdout</text>
+</g></svg>

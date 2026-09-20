@@ -38,6 +38,7 @@ html, body { background: var(--bg-primary); }
 .image-size-medium .slide-content img,
 .image-size-large .slide-content img,
 .image-size-full .slide-content img { height: auto; }
+.reveal .slide-content img { display: block; margin-left: auto; margin-right: auto; }
 .slide-content img.md-image { display: block; height: auto; max-width: 100%; }
 .slide-content img.img-small { width: 32%; }
 .slide-content img.img-medium { width: 52%; }
