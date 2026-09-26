@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="540" viewBox="0 0 1240 540" role="img" aria-labelledby="title desc">
+  <title id="title">순서도의 기본 기호</title>
+  <desc id="desc">둥근 시작·종료 기호, 직사각형 처리 기호, 평행사변형 입력·출력 기호, 마름모 판단 기호, 실행 순서를 나타내는 화살표와 각각의 역할을 설명함.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5 0 10Z" fill="#315a7d"/></marker></defs>
+  <rect x="2" y="2" width="1236" height="536" rx="16" fill="#fff" stroke="#dce4ed" stroke-width="2"/>
+  <g stroke="#e3e9ef" stroke-width="2"><path d="M20 108H1220M20 216H1220M20 324H1220M20 432H1220"/></g>
+  <g stroke="#315a7d" stroke-width="2.5" fill="#edf4fa">
+    <rect x="63" y="25" width="260" height="58" rx="29"/>
+    <rect x="63" y="133" width="260" height="58"/>
+    <path d="M86 241H345L322 299H63Z"/>
+    <path d="M193 337L344 378 193 419 42 378Z"/>
+    <path d="M65 485H318" fill="none" marker-end="url(#arrow)"/>
+  </g>
+  <g font-family="'Malgun Gothic', 'Noto Sans KR', sans-serif" font-size="29" fill="#20384e">
+    <g text-anchor="middle" font-weight="700">
+      <text x="193" y="64">시작 · 종료</text>
+      <text x="193" y="172">처리</text>
+      <text x="204" y="280">입력 · 출력</text>
+      <text x="193" y="388">판단</text>
+    </g>
+    <text x="390" y="65">프로그램의 시작점과 끝점</text>
+    <text x="390" y="173">계산·대입·동작 수행</text>
+    <text x="840" y="173" fill="#64748b">예: 가로등 켜기</text>
+    <text x="390" y="281">값을 입력받거나 결과를 출력</text>
+    <text x="940" y="281" fill="#64748b">scanf · printf</text>
+    <text x="390" y="389">조건에 따라 예 / 아니오로 분기</text>
+    <text x="390" y="497">화살표 방향으로 다음 실행 위치 이동</text>
+  </g>
+</svg>

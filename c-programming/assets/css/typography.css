@@ -14,6 +14,12 @@
 .caption { color: var(--text-muted); font-size: 17px; }
 .placeholder { color: var(--text-secondary); }
 code { font-family: var(--font-code); }
+/* Keep C operators such as >=, <= and != visible as separate characters. */
+.reveal code, .reveal pre, .reveal textarea, .reveal .c-editor-paint {
+  /* Later font shorthands (including large-type.css) must not reset these. */
+  font-variant-ligatures: none !important;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "calt" 0 !important;
+}
 .reveal mark {
   background: #fff1a8;
   border-radius: 3px;

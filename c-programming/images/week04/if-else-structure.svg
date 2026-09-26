@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" role="img" aria-labelledby="title desc">
+  <title id="title">if와 else의 구조와 실행 조건</title>
+  <desc id="desc">왼쪽에 if 조건식, 참일 때 실행할 내용, else와 거짓일 때 실행할 내용, 다음 문장을 배치함. 오른쪽 설명과 선으로 연결하여 조건식과 각 실행 영역의 역할을 표시함. 두 블록 중 하나만 실행하고 다음 문장으로 진행함.</desc>
+  <rect x="2" y="2" width="1196" height="526" rx="24" fill="#f7f9fc" stroke="#dce4ed" stroke-width="2"/>
+  <g font-family="'Malgun Gothic', 'Noto Sans KR', sans-serif">
+    <text x="38" y="43" font-size="23" font-weight="700" fill="#52667c">문법 구조</text>
+    <text x="737" y="43" font-size="23" font-weight="700" fill="#52667c">각 부분의 역할</text>
+    <rect x="138" y="65" width="231" height="49" rx="9" fill="#e5eafa"/>
+    <rect x="91" y="123" width="443" height="60" rx="10" fill="#e0f2ed"/>
+    <rect x="91" y="250" width="443" height="60" rx="10" fill="#fff0db"/>
+    <rect x="41" y="370" width="493" height="57" rx="10" fill="#e6eff8"/>
+    <g font-size="32" font-weight="700">
+      <text x="48" y="100" fill="#1c3651"><tspan fill="#175fa2">if</tspan><tspan> (</tspan></text>
+      <text x="156" y="100" fill="#4c529b">실행의 조건</text>
+      <text x="381" y="100" fill="#1c3651">) {</text>
+      <text x="111" y="163" fill="#17705b">참일 때 실행할 내용</text>
+      <text x="48" y="227" fill="#1c3651">} <tspan fill="#175fa2">else</tspan> {</text>
+      <text x="111" y="290" fill="#995810">거짓일 때 실행할 내용</text>
+      <text x="48" y="353" fill="#1c3651">}</text>
+      <text x="63" y="409" fill="#175fa2">다음 문장;</text>
+    </g>
+    <g fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M369 88H682" stroke="#7779b0"/>
+      <path d="M534 153H682" stroke="#23876d"/>
+      <path d="M534 281H682" stroke="#ba7a2a"/>
+      <path d="M534 399H682" stroke="#3577ae"/>
+      <path d="M79 126H68V180H79M79 253H68V307H79" stroke="#8a9bae"/>
+    </g>
+    <g font-size="27">
+      <circle cx="704" cy="88" r="16" fill="#535ba0"/>
+      <circle cx="704" cy="153" r="16" fill="#17705b"/>
+      <circle cx="704" cy="281" r="16" fill="#995810"/>
+      <circle cx="704" cy="399" r="16" fill="#175fa2"/>
+      <g fill="#fff" font-size="20" font-weight="700" text-anchor="middle">
+        <text x="704" y="95">1</text><text x="704" y="160">2</text>
+        <text x="704" y="288">3</text><text x="704" y="406">4</text>
+      </g>
+      <text x="737" y="97" fill="#4c529b" font-weight="700">조건식: 참 또는 거짓 판단</text>
+      <text x="737" y="162" fill="#17705b" font-weight="700">참이면 if 블록 실행</text>
+      <text x="737" y="199" fill="#52667c" font-size="25">중괄호 { } 안의 문장들을 실행함.</text>
+      <text x="737" y="290" fill="#995810" font-weight="700">거짓이면 else 블록 실행</text>
+      <text x="737" y="327" fill="#52667c" font-size="25">else에는 별도의 조건식 없음.</text>
+      <text x="737" y="408" fill="#175fa2" font-weight="700">선택한 블록 실행 후 진행</text>
+    </g>
+    <path d="M38 455H1162" stroke="#dce4ed" stroke-width="2"/>
+    <text x="600" y="497" text-anchor="middle" font-size="28" font-weight="700" fill="#1c3651">두 블록 중 하나만 실행 · else 생략 시 거짓이면 if 블록을 건너뜀</text>
+  </g>
+</svg>

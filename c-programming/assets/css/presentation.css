@@ -59,6 +59,8 @@ html, body { background: var(--bg-primary); }
 .section-slide .section-content { align-content: center; display: grid; gap: 18px; }
 .section-number { color: var(--hy-blue); font: 700 22px var(--font-en); letter-spacing: .12em; }
 .section-slide h1 { max-width: 1100px; }
+.section-content img.md-image.img-align-center { display: block; height: auto; max-width: 100%; margin-left: auto; margin-right: auto; }
+.section-content img.md-image.img-large { width: 72%; }
 .reveal .progress { color: var(--hy-blue); height: 4px; }
 .reveal .controls { color: var(--hy-blue); right: 20px; bottom: 18px; transform: scale(.72); }
 .reveal .slide-number { background: transparent; color: var(--text-muted); font: 500 14px var(--font-en); right: 76px; bottom: 18px; }

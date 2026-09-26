@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="ko" data-asset-base=".">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="성민창"><meta name="source" content="content/week04.md">
+  <title>WEEK 04 · 조건문</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="./assets/css/variables.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/typography.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css"><link rel="stylesheet" href="./assets/css/mermaid.css"><link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/css/bit-lamps.css">
+  <link rel="stylesheet" href="./assets/css/logic-review.css">
+  <link rel="stylesheet" href="./assets/css/line-tracer.css">
+  <link rel="stylesheet" href="./assets/css/c-editor.css">
+  <link rel="stylesheet" href="./assets/css/physics.css">
+  <link rel="stylesheet" href="./assets/css/robot-arm.css">
+  <link rel="stylesheet" href="./assets/css/one-link.css?v=20260920-xzero">
+<link rel="stylesheet" href="./assets/css/large-type.css">
+</head>
+<body>
+  <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. Edit content/week04.md and run the build instead. -->
+  <script src="./assets/js/ansi-output.js"></script>
+  <main class="reveal" aria-label="조건문 presentation"><div class="slides">
+      <section class="title-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="title-content"><div class="eyebrow">WEEK 04</div><h1>조건문</h1><p class="slide-subtitle">입력값에 따라 실행 흐름 선택</p><div class="title-rule"></div><div class="title-meta"><span><strong>강사</strong> 성민창</span><span><strong>일시</strong> <span data-live-date>날짜 확인 중…</span> · 14:30–17:30</span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>복습 1: printf는 값, scanf는 저장 위치</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int motor = 0;
+scanf(&quot;%d&quot;, &amp;motor);
+printf(&quot;Motor %d\n&quot;, motor);
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>구분</th>
+<th><code>scanf(&quot;%d&quot;, &amp;motor)</code></th>
+<th><code>printf(&quot;%d&quot;, motor)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>역할</td>
+<td>입력을 읽어 변수에 저장</td>
+<td>변수의 값을 출력</td>
+</tr>
+<tr>
+<td>전달 대상</td>
+<td><code>&amp;motor</code>: 변수의 주소</td>
+<td><code>motor</code>: 변수의 값</td>
+</tr>
+<tr>
+<td><code>%d</code>의 의미</td>
+<td>정수로 읽기</td>
+<td>정수로 표시</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>7</code> 입력 시 <code>motor</code>에 7 저장 → <code>Motor 7</code> 출력.</li>
+<li>두 함수 모두 <code>&lt;stdio.h&gt;</code>에 선언됨.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="quiz-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>복습 2: printf의 출력 결과 예측</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int motor = 7;
+double angle = 12.375;
+printf(&quot;Motor %04d\n&quot;, motor);
+printf(&quot;|%8.2f|\n&quot;, angle);
+printf(&quot;battery=%d%%\n&quot;, 80);
+</code></pre>
+</div><ul>
+<li>0 채움, 공백 수, <code>%</code> 기호를 포함한 세 줄의 출력 예측.</li>
+</ul>
+<details class="quiz-answer"><summary><span class="answer-show">정답 확인</span><span class="answer-hide">정답 접기</span></summary><div class="quiz-answer-body"><div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">Motor 0007
+|   12.38|
+battery=80%
+</code></pre>
+</div><ul>
+<li><code>%8.2f</code>: 최소 폭 8칸, 소수 2자리. 앞쪽 공백 3칸.</li>
+<li><code>%%</code>: <code>%</code> 하나 출력. <code>angle</code>에 저장된 값은 유지됨.</li>
+</ul>
+</div></details>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>01. 조건과 실행 흐름</h1>
+<p>순차적으로 실행되는 코드에 선택 가능한 분기를 추가</p>
+<p><img src="images/week04/choosing-a-path.svg" alt="세 갈래 길 중 파란색 길을 선택해 나아가는 휴머노이드 로봇. 조건에 따라 하나의 실행 경로를 선택함." class="md-image img-large img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>마트에 우유만 있고, 달걀은 없다.</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>순차 실행</h3>
+<blockquote>
+<p>“우유 하나 사오고,<br>
+달걀 6개 사다 줘”</p>
+</blockquote>
+<ol>
+<li>마트에 간다.</li>
+<li>우유를 구매한다.</li>
+<li>달걀을 6개 구매해야하지만 없다.</li>
+<li>마트에서 달걀 6개가 들어올 때까지 기다린다.</li>
+<li>혼난다.</li>
+</ol>
+</div><div class="comparison-item"><h3>선택 실행</h3>
+<blockquote>
+<p>“우유 하나 사오고,<br>
+달걀이 있다면 달걀 6개 사다 줘”</p>
+</blockquote>
+<ol>
+<li>마트에 간다.</li>
+<li>우유를 구매한다.</li>
+<li>달걀을 확인한다.</li>
+<li>달걀이 없으므로 집에간다.</li>
+<li>칭찬 받는다.</li>
+</ol>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>간단한 예제</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>순차 실행</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 0;
+printf(&quot;1\n&quot;);
+printf(&quot;2\n&quot;);
+printf(&quot;3\n&quot;);
+</code></pre>
+</div><ul>
+<li>출력 순서: <strong>1 → 2 → 3</strong>.</li>
+<li><code>n</code>의 값과 관계없이 모든 문장 실행.</li>
+</ul>
+</div><div class="comparison-item"><h3>선택 실행</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 0;
+printf(&quot;1\n&quot;);
+if (n &gt; 0) {
+    printf(&quot;2\n&quot;);
+}
+printf(&quot;3\n&quot;);
+</code></pre>
+</div><ul>
+<li>출력 순서: <strong>1 → 3</strong>. 조건이 거짓이므로 2 출력 생략.</li>
+<li><code>n = 1</code>로 변경하면 <strong>1 → 2 → 3</strong> 출력.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>순서도: 실행 흐름을 그림으로 표현</h2></div></header><div class="slide-content">
+<ul>
+<li><strong>도형은 명령의 종류</strong>, <strong>화살표는 실행 순서</strong>를 나타냄.</li>
+</ul>
+<p><img src="images/week04/flowchart-symbols.svg" alt="순서도의 시작·종료, 처리, 입력·출력, 판단 기호와 흐름선의 의미." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-large diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>순서도 읽기: 숫자 출력 흐름 따라가기</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<div class="diagram-container"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;25px&quot;},&quot;flowchart&quot;:{&quot;padding&quot;:20,&quot;nodeSpacing&quot;:42,&quot;rankSpacing&quot;:48}}}%%
+flowchart TD
+    N[n = 0] --&gt; P1[/1 출력/]
+    P1 --&gt; C{n &gt; 0?}
+    C --&gt;|예| P2[/2 출력/]
+    C --&gt;|아니오| P3[/3 출력/]
+    P2 --&gt; P3
+</div></div></div><div class="column"><div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 0;
+printf(&quot;1\n&quot;);
+if (n &gt; 0) {
+    printf(&quot;2\n&quot;);
+}
+printf(&quot;3\n&quot;);
+</code></pre>
+</div><ul>
+<li>판단 기호에서 <strong>예는 참, 아니오는 거짓</strong>에 해당.</li>
+<li><code>n = 0</code>이면 2 출력을 건너뛰어 <strong>1 → 3</strong> 출력.</li>
+<li><code>n = 1</code>이면 ‘예’ 경로를 따라 <strong>1 → 2 → 3</strong> 출력.</li>
+<li>두 경로는 마지막 3 출력에서 합류함.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>if와 else</h2></div></header><div class="slide-content">
+<p><img src="images/week04/if-else-structure.svg" alt="if 조건식과 참일 때 실행할 블록, else와 거짓일 때 실행할 블록을 색으로 구분한 설명 그림. 선택한 블록 실행 후 다음 문장으로 진행함." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>조건식: 실행 여부를 판단하는 식</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 3;
+if (n &gt; 0) {
+    printf(&quot;1\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li><code>n &gt; 0</code>이 <strong>조건식</strong>. 참이면 중괄호 안의 문장 실행.</li>
+<li>C에서는 <strong>0은 거짓, 0이 아닌 값은 참</strong>으로 판단.</li>
+<li>비교·논리 연산의 결과는 0 또는 1. 여러 조건은 논리 연산자로 연결 가능.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>2주차 복습: A와 B의 논리 연산</h2></div></header><div class="slide-content">
+<div class="logic-review" data-logic-review>
+    <div class="logic-tables">
+      <table class="logic-input-table" aria-label="클릭하여 변경할 입력">
+        <thead><tr><th scope="col">A</th><th scope="col">B</th></tr></thead>
+        <tbody><tr><td><button type="button" data-logic-input="A" aria-label="입력 A: 0, 클릭하여 변경" aria-pressed="false">0</button></td><td><button type="button" data-logic-input="B" aria-label="입력 B: 0, 클릭하여 변경" aria-pressed="false">0</button></td></tr></tbody>
+      </table>
+      <table class="logic-table" aria-label="논리 연산식과 결과">
+        <thead><tr><th scope="col">연산식</th><th scope="col">결과</th></tr></thead>
+        <tbody><tr><th scope="row"><code>A &amp;&amp; B</code></th><td><output data-logic-result="AND" aria-label="A &amp;&amp; B 결과">0</output></td></tr><tr><th scope="row"><code>A || B</code></th><td><output data-logic-result="OR" aria-label="A || B 결과">0</output></td></tr><tr><th scope="row"><code>A ^ B</code></th><td><output data-logic-result="XOR" aria-label="A ^ B 결과">0</output></td></tr><tr><th scope="row"><code>!A</code></th><td><output data-logic-result="NOT_A" aria-label="!A 결과">1</output></td></tr><tr><th scope="row"><code>!B</code></th><td><output data-logic-result="NOT_B" aria-label="!B 결과">1</output></td></tr><tr><th scope="row"><code>A &amp;&amp; !B</code></th><td><output data-logic-result="AND_NOT" aria-label="A &amp;&amp; !B 결과">0</output></td></tr><tr><th scope="row"><code>A || !B</code></th><td><output data-logic-result="OR_NOT" aria-label="A || !B 결과">1</output></td></tr><tr><th scope="row"><code>!A || !B</code></th><td><output data-logic-result="NOT_OR_NOT" aria-label="!A || !B 결과">1</output></td></tr></tbody>
+      </table>
+    </div>
+    <div class="logic-table-footer"><p>A·B 숫자 클릭: 0 ↔ 1</p><button type="button" class="btn btn-secondary" data-logic-reset>초기화</button></div>
+    <span class="logic-sr-only" data-logic-summary role="status" aria-live="polite"></span>
+  </div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>조건식 문제: 차단기 Y</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<p>다음 [조건]에 따라 기차가 생산 공장을 출발하여 완성품 창고로 가기 위한 차단기 Y의 조건식으로 옳은 것은? [3점]</p>
+<h3>[조건]</h3>
+<ul>
+<li>기차는 전진만 한다.</li>
+<li>철로 조작 레버 A와 B는 올리면 값은 1이 되고 바깥쪽 철로에 연결되며, 내리면 값은 0이 되고 안쪽 철로에 연결된다.</li>
+<li>생산 공장에서 완성품 창고로 가는 철길이 바르게 연결되면 차단기 Y는 1이 되고, 그렇지 않으면 0이 된다.</li>
+<li>차단기 Y가 1이면 기차가 출발하고, 그렇지 않으면 출발하지 않는다.</li>
+</ul>
+<aside class="lecture-reference">
+<p>출처: 2011년도 직업탐구 수능 문제 5번.</p>
+</aside>
+</div><div class="column"><p><img src="images/week04/train-track-original.png" alt="생산 공장, 완성품 창고, 자재 창고와 레버 A·B, 차단기 Y가 표시된 원본 철로 그림." class="md-image img-full img-align-center"></p>
+<table>
+<thead>
+<tr>
+<th>번호</th>
+<th>C 언어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td><code>Y = A || B</code></td>
+</tr>
+<tr>
+<td>②</td>
+<td><code>Y = A || !B</code></td>
+</tr>
+<tr>
+<td>③</td>
+<td><code>Y = !A || !B</code></td>
+</tr>
+<tr>
+<td>④</td>
+<td><code>Y = A &amp;&amp; B</code></td>
+</tr>
+<tr>
+<td>⑤</td>
+<td><code>Y = A &amp;&amp; !B</code></td>
+</tr>
+</tbody>
+</table>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>중괄호: 함께 실행할 문장 묶기</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 1;
+if (n &gt; 0) {
+    printf(&quot;1\n&quot;);
+    printf(&quot;2\n&quot;);
+}
+printf(&quot;3\n&quot;);
+</code></pre>
+</div><ul>
+<li><code>{ ... }</code>: 조건에 따라 함께 실행할 문장들을 하나의 블록으로 묶음.</li>
+<li><code>n = 1</code>이면 1, 2, 3 출력. <code>n = 0</code>이면 3만 출력.</li>
+<li>블록 밖의 문장은 조건과 관계없이 실행. 문장이 하나여도 중괄호 사용.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>들여쓰기: 코드의 구조를 읽기 쉽게 표현</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>들여쓰기 없는 코드</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 1;
+if (n &gt; 0) {
+printf(&quot;1\n&quot;);
+printf(&quot;2\n&quot;);
+}
+printf(&quot;3\n&quot;);
+</code></pre>
+</div><ul>
+<li>실행 가능하지만 블록 안팎을 구분하기 어려움.</li>
+<li>두 코드 모두 <strong>1, 2, 3</strong> 출력. 들여쓰기만 바꾸어도 실행 결과는 같음.</li>
+</ul>
+</div><div class="column"><h3>들여쓰기한 코드</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 1;
+if (n &gt; 0) {
+    printf(&quot;1\n&quot;);
+    printf(&quot;2\n&quot;);
+}
+printf(&quot;3\n&quot;);
+</code></pre>
+</div><ul>
+<li>수업에서는 블록 안을 <strong>공백 4칸</strong> 들여씀.</li>
+<li>같은 블록의 문장은 같은 깊이로 정렬.</li>
+<li>닫는 <code>}</code>는 해당 <code>if</code>와 같은 깊이로 정렬.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="quiz-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>Quiz: 들여쓰기만으로 묶을 수 있을까?</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 0;
+if (n &gt; 0)
+    printf(&quot;1\n&quot;);
+    printf(&quot;2\n&quot;);
+</code></pre>
+</div><details class="quiz-answer"><summary><span class="answer-show">정답 확인</span><span class="answer-hide">정답 접기</span></summary><div class="quiz-answer-body"><h3>정답: 2만 출력</h3>
+<ul>
+<li>중괄호가 없으면 <code>if</code> 바로 다음 문장 하나만 조건에 포함됨.</li>
+<li>들여쓰기는 가독성을 위한 표현이며 실행 범위를 바꾸지 않음.</li>
+<li>두 문장을 함께 제어하려면 중괄호로 묶어야 함.</li>
+</ul>
+</div></details>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="quiz-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>Quiz: 비교하려던 코드가 값을 바꾼다면?</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int mode = 0;
+if (mode = 1) {
+    printf(&quot;AUTO\n&quot;);
+}
+printf(&quot;mode=%d\n&quot;, mode);
+</code></pre>
+</div><details class="quiz-answer"><summary><span class="answer-show">정답 확인</span><span class="answer-hide">정답 접기</span></summary><div class="quiz-answer-body"><h3>정답: AUTO, mode=1 출력</h3>
+<ul>
+<li><code>=</code>는 대입. <code>mode</code>에 1을 저장하고 대입식의 값도 1이 됨.</li>
+<li>조건식이 참이므로 AUTO 출력.</li>
+<li>값의 비교가 목적이면 <code>mode == 1</code> 사용.</li>
+</ul>
+</div></details>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="quiz-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>Quiz: if 바로 뒤의 세미콜론</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int battery = 80;
+if (battery &lt; 20);
+{
+    printf(&quot;LOW\n&quot;);
+}
+</code></pre>
+</div><details class="quiz-answer"><summary><span class="answer-show">정답 확인</span><span class="answer-hide">정답 접기</span></summary><div class="quiz-answer-body"><h3>정답: LOW 출력</h3>
+<ul>
+<li><code>if</code> 바로 뒤의 <code>;</code>가 비어 있는 문장으로 처리됨.</li>
+<li>뒤의 블록은 조건문과 별개로 실행됨.</li>
+<li>조건에 따라 블록을 실행하려면 괄호 뒤의 <code>;</code> 제거.</li>
+</ul>
+</div></details>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>02. 두 갈래와 여러 갈래 선택</h1>
+<p>if–else → else if → 실행 경로 비교</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>if–else: 둘 중 한 경로 선택</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 0;
+if (n &gt; 0) {
+    printf(&quot;1\n&quot;);
+} else {
+    printf(&quot;2\n&quot;);
+}
+printf(&quot;3\n&quot;);
+</code></pre>
+</div><ul>
+<li><code>n = 0</code>이면 2, 3 출력. <code>n = 1</code>이면 1, 3 출력.</li>
+<li><code>else</code>는 조건이 거짓일 때 실행. 별도의 조건식 없음.</li>
+<li>두 블록 중 하나만 실행한 뒤 공통 문장으로 진행함.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 1: 키와 몸무게로 BMI 계산</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>몸무게(kg), 키(cm) 순서로 입력하여 BMI 계산 후 문장 출력. 두 값 모두 0보다 큰 올바른 숫자 사용.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>BMI = 몸무게(kg) / (키(m) × 키(m)). 키는 cm에서 m로 변환.</li>
+<li>60 170 → 당신은 정상입니다. / 80 170 → 당신은 비만입니다.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="17" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    double weight_kg = 0.0, height_cm = 0.0;
+    scanf(&quot;%lf %lf&quot;, &amp;weight_kg, &amp;height_cm);
+    double height_m = height_cm / 100.0;
+    double bmi_value = weight_kg / (height_m * height_m);
+    printf(&quot;당신은 &quot;);
+    if (조건문) { // 25.0 이하
+        // 실행문
+    } else {
+        // 실행문
+    }
+    printf(&quot;입니다\n&quot;);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">60 170</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 2: 입력 금액으로 배송비 결정</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>금액을 입력받아 배송비와 결제 금액을 출력함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>금액은 0~1000000원 입력. 10000원 이상은 무료, 미만은 배송비 3000원.</li>
+<li>입력 9999, 10000, 10001에서 배송비 비교.</li>
+<li>두 블록은 fee 값만 결정. 결제 금액 출력은 공통으로 실행함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="15" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int total = 0, fee = 0;
+    scanf(&quot;%d&quot;, &amp;total);
+    if (total &gt;= 10000) {
+        fee = 0;
+    } else {
+        fee = 3000;
+    }
+    printf(&quot;fee=%d\n&quot;, fee);
+    printf(&quot;payment=%d\n&quot;, total + fee);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">10000</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 3: 짝수와 홀수 판별</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>주석 위치에 if–else를 작성하여 EVEN 또는 ODD 출력.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>2로 나눈 나머지가 0이면 짝수.</li>
+<li>입력 0, 7, 8, -3으로 결과 확인.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int number = 0;
+    scanf(&quot;%d&quot;, &amp;number);
+    // 짝수이면 EVEN, 그 외에는 ODD 출력 코드 작성.
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">7</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>else if: 여러 조건을 순서대로 검사</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int battery = 20;
+if (battery &lt; 20) {
+    printf(&quot;DANGER\n&quot;);
+} else if (battery &lt; 50) {
+    printf(&quot;CAUTION\n&quot;);
+} else {
+    printf(&quot;NORMAL\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li>위에서부터 검사하여 처음 참인 블록 하나만 실행함.</li>
+<li>두 번째 조건에 도달했다면 이미 <code>battery &gt;= 20</code>인 상태.</li>
+<li>마지막 <code>else</code>는 앞의 모든 조건이 거짓일 때 실행됨.</li>
+</ul>
+<aside class="lecture-reference">
+<p>0~100 범위의 입력 기준. 현재 값 20은 CAUTION 출력. 마지막 else가 없고 모든 조건이 거짓이면 어느 블록도 실행하지 않음.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 4: 배터리 분류와 조건 검사 순서</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>세 단계 분류 코드를 완성한 뒤, 조건 블록의 순서를 바꾸어 결과 비교.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>입력 범위는 0~100. 20 미만은 DANGER, 20 이상 50 미만은 CAUTION.</li>
+<li>50 이상은 NORMAL. 입력 19, 20, 49, 50으로 경계 확인.</li>
+<li>완성 후 20 미만 블록과 50 미만 블록의 순서를 바꾸고 10 입력. 출력이 달라지는 이유 기록 후 원래 순서로 복원.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="13" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int battery = 0;
+    scanf(&quot;%d&quot;, &amp;battery);
+    // 배터리 상태 분류 코드 작성.
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">20</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>여러 if와 else if의 차이</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>독립적인 if</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int score = 95;
+if (score &gt;= 90) {
+    printf(&quot;EXCELLENT\n&quot;);
+}
+if (score &gt;= 60) {
+    printf(&quot;PASS\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li>두 조건을 각각 검사. EXCELLENT, PASS 순서로 두 줄 출력.</li>
+</ul>
+</div><div class="column"><h3>연결된 else if</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int score = 95;
+if (score &gt;= 90) {
+    printf(&quot;EXCELLENT\n&quot;);
+} else if (score &gt;= 60) {
+    printf(&quot;PASS\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li>첫 조건이 참이므로 EXCELLENT 한 줄 출력.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 5: 값 변경 후 if와 else if 비교</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>각 조건을 검사할 때의 x 값과 출력을 기록하고 실행 결과와 비교함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>원래 코드를 실행한 뒤 두 번째 if만 else if로 변경하여 다시 실행.</li>
+<li>첫 블록에서 값이 바뀐 뒤 다음 조건을 검사하는지 확인.</li>
+<li>x의 초기값을 0과 -1로도 바꾸어 비교. 비교 시 두 코드에 같은 초기값 사용.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="16" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int x = 5;
+    if (x &gt; 0) {
+        x = x - 5;
+    }
+    if (x == 0) {
+        printf(&quot;ZERO\n&quot;);
+    } else {
+        printf(&quot;NONZERO\n&quot;);
+    }
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>조건 연산자와 if–else의 연결</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int total = 8000;
+int fee = (total &gt;= 10000) ? 0 : 3000;
+</code></pre>
+</div><div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int total = 8000;
+int fee = 0;
+if (total &gt;= 10000) {
+    fee = 0;
+} else {
+    fee = 3000;
+}
+</code></pre>
+</div><ul>
+<li>두 코드는 각각 독립적인 예제. 모두 fee에 3000 저장.</li>
+<li>단순한 값 선택에는 조건 연산자 사용 가능.</li>
+<li>여러 문장을 실행하는 분기에는 <code>if–else</code> 사용.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>03. 조건의 조합과 중첩</h1>
+<p>여러 조건을 연결하고 단계별로 판단</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>논리 연산으로 범위 표현</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>판단</th>
+<th>조건식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>각도가 -90 이상 90 이하</td>
+<td><code>angle &gt;= -90 &amp;&amp; angle &lt;= 90</code></td>
+</tr>
+<tr>
+<td>각도가 -90 미만 또는 90 초과</td>
+<td><code>angle &lt; -90 || angle &gt; 90</code></td>
+</tr>
+<tr>
+<td>정지 신호가 없는 상태</td>
+<td><code>!stop</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>&amp;&amp;</code>: 양쪽 조건을 모두 만족할 때 참.</li>
+<li><code>||</code>: 하나 이상의 조건을 만족할 때 참.</li>
+<li><code>!</code>: 참·거짓을 반전함.</li>
+<li>수학의 범위 표기 <code>-90 &lt;= angle &lt;= 90</code>을 C 조건식에 그대로 사용하지 않음.</li>
+</ul>
+<aside class="lecture-reference">
+<p>연속 비교는 (-90 &lt;= angle)의 결과인 0 또는 1을 다시 90과 비교하므로 의도한 범위 검사가 되지 않음.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 6: 관절각 허용 범위 확인</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>-90도 이상 90도 이하이면 ALLOWED, 그 외에는 OUT OF RANGE 출력.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>두 비교식을 &amp;&amp;로 연결함.</li>
+<li>-91, -90, 0, 90, 91로 경계 안팎 확인.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    double angle = 0.0;
+    scanf(&quot;%lf&quot;, &amp;angle);
+    // 허용 범위 판단과 출력 코드 작성.
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">90</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>중첩 if: 앞 조건을 통과한 뒤 추가 판단</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int stop = 0, battery = 10;
+if (stop == 0) {
+    if (battery &gt;= 20) {
+        printf(&quot;RUN\n&quot;);
+    } else {
+        printf(&quot;LOW BATTERY\n&quot;);
+    }
+} else {
+    printf(&quot;EMERGENCY STOP\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li>먼저 정지 신호 확인, 정지 신호가 없을 때만 배터리 확인.</li>
+<li>현재 값은 LOW BATTERY 출력. stop은 0이면 신호 없음, 1이면 정지 신호 있음.</li>
+<li>각각의 <code>else</code>가 연결되는 <code>if</code> 확인.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 7: 모터 작동 조건과 정지 이유</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>정지 신호를 먼저 확인하고, 신호가 없으면 배터리를 확인하는 중첩 조건문 작성.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>stop은 0 또는 1, battery는 0~100 입력.</li>
+<li>0 80 → RUN, 0 10 → LOW BATTERY.</li>
+<li>1 80과 1 10 → EMERGENCY STOP.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="13" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int stop = 0, battery = 0;
+    scanf(&quot;%d %d&quot;, &amp;stop, &amp;battery);
+    // 중첩 if와 출력 코드 작성.
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">0 80</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>단락 평가: 필요한 조건까지만 확인</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int divisor = 0;
+if (divisor != 0 &amp;&amp; 10 / divisor &gt;= 2) {
+    printf(&quot;QUOTIENT &gt;= 2\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li><code>&amp;&amp;</code>는 왼쪽이 거짓이면 오른쪽 평가 생략.</li>
+<li>위 예제에서는 왼쪽이 거짓이므로 나눗셈이 실행되지 않음.</li>
+<li><code>||</code>는 왼쪽이 참이면 오른쪽 평가 생략.</li>
+<li>비트 연산자 <code>&amp;</code>, <code>|</code>에는 이 단락 평가 규칙이 적용되지 않음.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>04. switch-case 문</h1>
+<p>정수·문자 값과 일치하는 case에서 실행 시작</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>switch 기본 구조</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int mode = 2;
+switch (mode) {
+    case 1:
+        printf(&quot;MANUAL\n&quot;);
+        break;
+    case 2:
+        printf(&quot;AUTO\n&quot;);
+        break;
+    default:
+        printf(&quot;UNKNOWN MODE\n&quot;);
+        break;
+}
+</code></pre>
+</div><ul>
+<li>일치하는 <code>case</code>로 이동. 일치하는 값이 없으면 <code>default</code>로 이동.</li>
+<li><code>break</code>는 현재 <code>switch</code>를 빠져나가는 역할.</li>
+<li>현재 값 2는 AUTO 출력. default도 없고 일치하는 case도 없으면 switch 본문을 건너뜀.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>switch에서 사용할 수 있는 조건</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>사용 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>switch (식)</code></td>
+<td>정수형 식 사용. <code>char</code>도 사용 가능</td>
+</tr>
+<tr>
+<td><code>case 값:</code></td>
+<td>정수 상수식 사용. 같은 값 중복 불가</td>
+</tr>
+<tr>
+<td><code>case 'A':</code></td>
+<td>문자 상수 사용 가능</td>
+</tr>
+<tr>
+<td><code>default:</code></td>
+<td>일치하는 case가 없을 때 실행. 생략 가능</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>double</code> 값이나 문자열을 직접 비교하는 용도로 사용 불가.</li>
+<li>값의 범위는 <code>if</code>로 비교. <code>case</code>에는 <code>1</code>, <code>2</code>, <code>'A'</code>처럼 구분할 값 지정.</li>
+</ul>
+<aside class="lecture-reference">
+<p>C11 기준으로 일반적인 const int 지역 변수는 case의 정수 상수식으로 사용 불가.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 8: 운전 모드 선택과 break의 역할</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>입력별 실행 경로를 확인한 뒤 case 1의 break 유무에 따른 차이 비교.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>1 → MANUAL, 2 → AUTO, 9 → UNKNOWN.</li>
+<li>END는 switch 다음에 있으므로 세 경우 모두 출력.</li>
+<li>case 1의 break만 제거하고 1 입력. 추가로 실행된 문장을 찾은 뒤 break 복원.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="16" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int mode = 0;
+    scanf(&quot;%d&quot;, &amp;mode);
+    switch (mode) {
+        case 1: printf(&quot;MANUAL\n&quot;); break;
+        case 2: printf(&quot;AUTO\n&quot;); break;
+        default: printf(&quot;UNKNOWN\n&quot;); break;
+    }
+    printf(&quot;END\n&quot;);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">2</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>여러 case에서 같은 동작 실행</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">char command = 'S';
+switch (command) {
+    case 's':
+    case 'S':
+        printf(&quot;STOP\n&quot;);
+        break;
+    default:
+        printf(&quot;UNKNOWN\n&quot;);
+        break;
+}
+</code></pre>
+</div><ul>
+<li>소문자 s와 대문자 S를 같은 동작으로 연결함.</li>
+<li><code>case 's':</code> 다음에 바로 <code>case 'S':</code>를 배치하여 코드 공유.</li>
+<li>문자 입력에는 <code>scanf(&quot; %c&quot;, &amp;command);</code> 사용.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>if와 switch의 선택 기준</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>적합한 구성</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>크기·범위 판단</td>
+<td><code>if</code>, <code>else if</code></td>
+<td>온도가 80 이상</td>
+</tr>
+<tr>
+<td>여러 변수의 조건 조합</td>
+<td><code>if</code>와 논리 연산</td>
+<td>정지 신호 없음, 배터리 충분</td>
+</tr>
+<tr>
+<td>정수·문자 값별 분기</td>
+<td><code>switch</code></td>
+<td>메뉴 번호, 연산자 문자</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>문법의 길이보다 판단 기준이 잘 드러나는 구조 선택.</li>
+<li><code>switch</code> 안에서 <code>if</code>를 사용하여 추가 조건 검사 가능.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>05. 계산기를 만들어보자</h1>
+<p>입력 → 연산 선택과 계산 → 결과 출력</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>계산기 1: scanf로 세 값 입력</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">double value1 = 0.0, value2 = 0.0;
+double result = 0.0;
+char op = ' ';
+scanf(&quot;%lf %c %lf&quot;, &amp;value1, &amp;op, &amp;value2);
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>입력 순서</th>
+<th>저장할 변수</th>
+<th>형식 지정자</th>
+<th>입력 예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>첫 번째 값</td>
+<td><code>value1</code></td>
+<td><code>%lf</code></td>
+<td><code>10.5</code></td>
+</tr>
+<tr>
+<td>연산자</td>
+<td><code>op</code></td>
+<td><code>%c</code></td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td>두 번째 값</td>
+<td><code>value2</code></td>
+<td><code>%lf</code></td>
+<td><code>2.0</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>입력 예: <strong><code>10.5 / 2.0</code></strong>. 세 항목을 한 번의 <code>scanf</code>로 입력.</li>
+<li><code>%c</code> 앞의 공백은 입력에 남은 공백·줄바꿈을 건너뛰는 역할.</li>
+</ul>
+<aside class="lecture-reference">
+<p>이번 실습은 올바른 숫자와 +, -, *, / 입력 사용. 수는 -1000~1000 범위, 나눗셈의 두 번째 값은 절댓값 0.01 이상 사용.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>계산기 2: switch로 연산 선택</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">switch (op) {
+    case '+':
+        result = value1 + value2; break;
+    case '-':
+        result = value1 - value2; break;
+    case '*':
+        result = value1 * value2; break;
+    case '/':
+        result = value1 / value2; break;
+    default:
+        return 1;
+}
+</code></pre>
+</div></div><div class="column"><ul>
+<li>입력한 <code>op</code>와 일치하는 <code>case</code> 선택.</li>
+<li><code>'+'</code>, <code>'-'</code>, <code>'*'</code>, <code>'/'</code>는 <strong>문자 상수</strong>.</li>
+<li>계산한 값을 공통 변수 <strong><code>result</code>에 저장</strong>.</li>
+<li><code>break</code>로 switch를 빠져나와 출력 단계로 이동.</li>
+</ul>
+<aside class="lecture-reference">
+<p>코드는 main 함수 안에 배치. 지원하지 않는 연산자는 default의 return 1로 프로그램 종료.</p>
+</aside>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 9: 계산기 결과 출력</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-side" data-c-runner><aside class="instruction-panel"><p>입력과 계산 코드를 연결하고, 마지막 printf로 계산식과 결과를 소수 2자리로 출력함.</p><div class="callout-note"><strong>Hint</strong><ul>
+<li>출력 형식: 값 연산자 값 = 결과. 10.5 / 2.0 입력 시 10.50 / 2.00 = 5.25 출력.</li>
+<li>10 + 2, 10 - 2, 10 * 2로 각 연산 결과 확인. 나눗셈의 두 번째 값은 0 사용 금지.</li>
+<li>printf는 switch 밖에 한 번 배치하여 모든 연산이 공통으로 사용함.</li>
+</ul>
+</div></aside><div class="editor-workspace"><textarea class="code-editor" rows="16" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    double value1 = 0.0, value2 = 0.0;
+    double result = 0.0;
+    char op = ' ';
+    scanf(&quot;%lf %c %lf&quot;, &amp;value1, &amp;op, &amp;value2);
+    // switch case 활용하여 작성.
+    printf(&quot;%.2f %c %.2f = %.2f\n&quot;,
+           value1, op, value2, result);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">10.5 / 2.0</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>라인트레이서: 검은 선을 따라가는 로봇</h2></div></header><div class="slide-content">
+<p><img src="images/week04/line-tracer-robot.png" alt="투명 차체, 두 바퀴와 앞쪽 센서 두 개를 갖춘 교육용 라인트레이서 로봇. 흰 바닥의 검은 선을 따라 이동하는 모습." class="md-image img-medium img-align-center"></p>
+<aside class="lecture-reference">
+<p>앞쪽 센서로 선 감지 → 조건문으로 방향 판단 → 두 바퀴의 속도를 바꿔 이동.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>라인트레이서: 센서값과 주행 동작</h2></div></header><div class="slide-content">
+<ul>
+<li>앞쪽 센서 2개 사용: 검은 선 감지 시 <strong>1</strong>, 흰 바닥 감지 시 <strong>0</strong>.</li>
+<li>두 센서는 주행선 양옆의 흰 바닥에 배치. 세로 정지선에서 두 센서 모두 검은색 감지.</li>
+<li>왼쪽·오른쪽은 <strong>로봇의 진행 방향 기준</strong>.</li>
+<li><code>if</code>로 두 센서값을 직접 판단하거나, 아래처럼 2비트로 묶어 <code>switch</code>에 활용 가능.</li>
+</ul>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int sensor_bits = (left &lt;&lt; 1) | right;
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>왼쪽 센서</th>
+<th>오른쪽 센서</th>
+<th>2비트 표현</th>
+<th>sensor_bits</th>
+<th>선택 동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>00</td>
+<td>0</td>
+<td>직진</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>01</td>
+<td>1</td>
+<td>우회전</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>10</td>
+<td>2</td>
+<td>좌회전</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>11</td>
+<td>3</td>
+<td>정지선에서 정지</td>
+</tr>
+</tbody>
+</table>
+<aside class="lecture-reference">
+<p>선이 두 센서 사이에 있으면 00. 선을 완전히 벗어나도 00이 될 수 있으므로 궤적 확인 필요. 좌회전은 오른쪽 바퀴를 더 빠르게, 우회전은 왼쪽 바퀴를 더 빠르게 회전시켜 구현.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>라인트레이서: 조건에 따라 두 바퀴 속도 선택</h2></div></header><div class="slide-content">
+<ul>
+<li><strong><code>if / else if / else</code> 또는 <code>switch</code> 중 선택하여 작성</strong>.</li>
+<li>센서값에 따라 <strong>좌우 바퀴 속도를 변수에 저장</strong>.</li>
+<li>센서값이 모두 0이면 직진, 모두 1이면 두 바퀴 속도를 0으로 설정하여 정지선에서 정지.</li>
+<li>두 속도가 같으면 직진, 오른쪽이 빠르면 좌회전, 왼쪽이 빠르면 우회전.</li>
+<li>입력은 <code>left</code>, <code>right</code> 순서로 각각 <strong>0 또는 1</strong> 사용. 바퀴 속도는 <strong>0~255 정수</strong> 사용.</li>
+<li><code>if</code>는 센서값을 직접 비교 가능. <code>switch</code>는 두 값을 비트로 묶은 <code>sensor_bits</code> 활용 가능.</li>
+<li>다음 실습의 주석 위치에 속도를 선택하는 코드 작성. <code>printf</code>로 좌우 속도 두 개만 출력.</li>
+<li><strong>코드 적용 → 주행 시작 또는 랩타임 도전</strong> 순서로 결과 확인. 코드 적용 시 인터넷 연결 필요.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 10: 센서값에 따라 바퀴 속도 조절</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="line-tracer" data-line-tracer>
+    <div class="lt-controls button-row">
+      <button type="button" class="btn btn-primary" data-lt-apply>코드 적용</button>
+      <button type="button" class="btn btn-secondary" data-lt-race>랩타임 도전</button>
+      <button type="button" class="btn btn-primary" data-lt-run>주행 시작</button>
+    </div>
+    <div class="lt-lap-board"><span>현재 <strong data-lt-lap>대기</strong></span><span>최근 <strong data-lt-last>—</strong></span><span>최고 <strong data-lt-best>—</strong></span></div>
+    <div class="lt-main">
+      <svg viewBox="0 0 820 460" role="img" aria-label="두 센서로 검은 선을 따라가는 라인트레이서 로봇">
+        <rect width="820" height="460" rx="20" fill="#f4f7fb"/>
+        <path d="M230 90 H590 A140 140 0 0 1 590 370 H230 A140 140 0 0 1 230 90 Z" fill="none" stroke="#182536" stroke-width="26"/>
+        <path d="M330 58 V122" stroke="#182536" stroke-width="30"/>
+        <text x="330" y="48" text-anchor="middle" fill="#182536" font-size="19">출발 / 정지선 →</text>
+        <polyline data-lt-trail fill="none" stroke="#e87920" stroke-width="2" opacity="0.8"/>
+        <text x="410" y="215" text-anchor="middle" fill="#334155" font-size="26">검은 선 = 1 · 흰 바닥 = 0</text>
+        <text x="410" y="255" text-anchor="middle" fill="#64748b" font-size="21">로봇의 진행 방향 기준 왼쪽·오른쪽</text>
+        <g data-lt-robot>
+          <rect x="-15" y="-23" width="27" height="9" rx="3" fill="#475569"/>
+          <rect x="-15" y="14" width="27" height="9" rx="3" fill="#475569"/>
+          <rect x="-23" y="-15" width="43" height="30" rx="9" fill="#2563eb" stroke="white" stroke-width="2"/>
+          <path d="M-6 -6 L4 0 L-6 6" fill="none" stroke="white" stroke-width="3"/>
+          <circle data-lt-sensor="left" cx="19" cy="-18" r="5" stroke="white" stroke-width="2"/>
+          <circle data-lt-sensor="right" cx="19" cy="18" r="5" stroke="white" stroke-width="2"/>
+        </g>
+      </svg>
+      <div class="lt-panel">
+        <div class="lt-readings"><span>왼쪽 <output data-lt-left>1</output></span><span>오른쪽 <output data-lt-right>1</output></span></div>
+        <table><thead><tr><th>센서 좌 / 우</th><th>명령 속도 좌 / 우</th></tr></thead><tbody>
+        <tr data-lt-row="00"><td><code>0 / 0</code></td><td><code data-lt-policy="00">미적용</code></td></tr><tr data-lt-row="01"><td><code>0 / 1</code></td><td><code data-lt-policy="01">미적용</code></td></tr><tr data-lt-row="10"><td><code>1 / 0</code></td><td><code data-lt-policy="10">미적용</code></td></tr><tr data-lt-row="11"><td><code>1 / 1</code></td><td><code data-lt-policy="11">미적용</code></td></tr>
+        </tbody></table>
+        <p class="lt-command">선택 동작: <strong data-lt-command>직진</strong></p>
+        <p>현재 속도 좌 / 우: <strong data-lt-actual>0 / 0</strong></p>
+        <p data-lt-status role="status">주행 시작 또는 한 단계 선택</p>
+      </div>
+    </div>
+    <pre class="lt-apply-status" data-lt-apply-status role="status">코드 적용 대기</pre>
+  </div></div><div class="comparison-item"><div class="interactive-layout interactive-notes-none" data-c-runner data-line-tracer-source><div class="editor-workspace"><textarea class="code-editor" rows="20" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int left = 0, right = 0;
+    int left_speed = 0, right_speed = 0;
+    scanf(&quot;%d %d&quot;, &amp;left, &amp;right);
+    // 센서값에 따라 좌우 바퀴 속도를 설정하는 코드 작성.
+    // if 또는 switch 중 선택하여 사용.
+    printf(&quot;%d %d\n&quot;, left_speed, right_speed);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">1 0</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="summary-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>오늘의 핵심</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>기억할 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>조건식</td>
+<td>0은 거짓, 0이 아닌 값은 참</td>
+</tr>
+<tr>
+<td>if / if–else</td>
+<td>참일 때 실행 / 참·거짓 중 한 경로 선택</td>
+</tr>
+<tr>
+<td>else if</td>
+<td>위에서부터 검사, 처음 참인 블록 실행</td>
+</tr>
+<tr>
+<td>논리·중첩</td>
+<td>조건을 조합하거나 단계별로 판단</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>값에 맞는 case로 이동, break로 빠져나옴</td>
+</tr>
+<tr>
+<td>계산기</td>
+<td>scanf로 입력 → switch로 계산 → printf로 출력</td>
+</tr>
+<tr>
+<td>검증</td>
+<td>조건의 경계값과 각 연산의 결과 확인</td>
+</tr>
+</tbody>
+</table>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>다음 주차: 같은 판단을 여러 번 수행</h2></div></header><div class="slide-content">
+<ul>
+<li>이번 주차: 입력 한 번에 대해 실행 경로 선택.</li>
+<li>다음 주차: 입력·판단·출력을 반복하는 프로그램 작성.</li>
+<li><code>while</code>, <code>do–while</code>, <code>for</code>의 반복 조건과 종료 시점 학습.</li>
+<li>계산기를 여러 번 사용하거나 잘못된 입력을 다시 받는 흐름으로 확장.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
+  </div></main>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js"></script><script src="./assets/js/week01-runner.js"></script>
+  <script src="./assets/js/bit-lamps.js"></script>
+  <script src="./assets/js/logic-review.js"></script>
+  <script src="./assets/js/line-tracer-model.js"></script>
+  <script src="./assets/js/line-tracer-compiler.js"></script>
+  <script src="./assets/js/line-tracer.js"></script>
+  <script src="./assets/js/c-editor.js"></script>
+  <script src="./assets/js/physics-model.js"></script>
+  <script src="./assets/js/physics.js"></script>
+  <script src="./assets/js/robot-arm.js"></script>
+  <script src="./assets/js/one-link.js?v=20260920-xzero"></script>
+</body></html>

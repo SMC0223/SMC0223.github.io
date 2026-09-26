@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-labelledby="title desc">
+  <title id="title">로봇 작업으로 비교하는 순차 실행과 조건 실행</title>
+  <desc id="desc">이동 명령을 입력했을 때 왼쪽 로봇은 집기, 이동, 조립, 내려놓기를 모두 순서대로 실행. 오른쪽 로봇은 조건에 맞는 이동 작업만 실행. 조건 실행은 앞으로 배울 내용으로 표시.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="none" stroke="#8090a5" stroke-width="1.8"/></marker>
+    <marker id="greenArrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="none" stroke="#159777" stroke-width="1.8"/></marker>
+    <g id="robot" stroke="#304b68" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+      <ellipse cx="0" cy="77" rx="51" ry="8" fill="#dce5ee" stroke="none"/>
+      <path d="M-25 49 -28 68 M25 49 28 68" fill="none" stroke-width="13"/>
+      <rect x="-32" y="8" width="64" height="49" rx="19" fill="#9bd2f6"/>
+      <rect x="-13" y="24" width="26" height="15" rx="6" fill="#eaf7ff" stroke="none"/>
+      <path d="M-32 24 -46 38 -54 25 M32 24 47 12 54 21" fill="none" stroke="#304b68" stroke-width="12"/>
+      <path d="M-32 24 -46 38 -54 25 M32 24 47 12 54 21" fill="none" stroke="#91c8ef" stroke-width="6"/>
+      <path d="M0 -47 0 -57"/><circle cy="-60" r="6" fill="#ffc873"/>
+      <rect x="-43" y="-45" width="86" height="64" rx="25" fill="#b8e0fb"/>
+      <rect x="-32" y="-32" width="64" height="40" rx="15" fill="#233d58" stroke="none"/>
+      <ellipse cx="-15" cy="-14" rx="8" ry="10" fill="white" stroke="none"/>
+      <ellipse cx="15" cy="-14" rx="8" ry="10" fill="white" stroke="none"/>
+      <circle cx="-14" cy="-12" r="3.5" fill="#233d58" stroke="none"/><circle cx="16" cy="-12" r="3.5" fill="#233d58" stroke="none"/>
+      <ellipse cy="1" rx="4" ry="5" fill="#ffb6be" stroke="none"/>
+    </g>
+    <g id="part" stroke="#526c84" stroke-width="3" stroke-linejoin="round"><path d="M-19 -10 0 -20 20 -10 20 13 0 24 -19 13Z" fill="#ffdb92"/><path d="M-19 -10 0 1 20 -10 M0 1V24" fill="none"/></g>
+    <style>
+      text{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;fill:#23384e}
+      .head{font-size:37px;font-weight:800}.sub{font-size:24px;fill:#61748a}.label{font-size:30px;font-weight:700}.note{font-size:25px;font-weight:700}.small{font-size:23px}
+      .flow{fill:none;stroke:#8090a5;stroke-width:4;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="1080" fill="white"/>
+  <rect x="30" y="28" width="740" height="1024" rx="30" fill="#f4f7fb"/>
+  <rect x="800" y="28" width="770" height="1024" rx="30" fill="#f0faf6"/>
+  <text x="70" y="87" class="head">순차 실행</text>
+  <text x="70" y="126" class="sub">입력과 관계없이 모든 작업을 차례로 수행</text>
+  <text x="840" y="87" class="head">조건문을 배우면?</text>
+  <text x="840" y="126" class="sub">입력된 명령에 해당하는 작업만 선택</text>
+
+  <rect x="140" y="156" width="480" height="73" rx="18" fill="white" stroke="#aabbce" stroke-width="2"/>
+  <text x="380" y="203" class="label" text-anchor="middle">입력 명령: “이동”</text>
+  <path d="M380 234V272" class="flow"/>
+  <rect x="90" y="282" width="440" height="126" rx="20" fill="white" stroke="#bfd0e2" stroke-width="2"/>
+  <use href="#robot" transform="translate(164 337) scale(.72)"/>
+  <use href="#part" transform="translate(216 361) scale(.7)"/>
+  <text x="258" y="355" class="label">A. 부품 집기</text>
+  <text x="559" y="353" class="note">일단 집기!</text>
+  <path d="M310 414V443" class="flow"/>
+  <rect x="90" y="455" width="440" height="126" rx="20" fill="white" stroke="#bfd0e2" stroke-width="2"/>
+  <use href="#robot" transform="translate(174 510) scale(.72)"/>
+  <path d="M104 521H126 M98 534H121" stroke="#94b5d1" stroke-width="4" stroke-linecap="round"/>
+  <text x="258" y="528" class="label">B. 위치로 이동</text>
+  <text x="559" y="526" class="note">이동도 수행!</text>
+  <path d="M310 587V616" class="flow"/>
+  <rect x="90" y="628" width="440" height="126" rx="20" fill="white" stroke="#bfd0e2" stroke-width="2"/>
+  <use href="#robot" transform="translate(164 683) scale(.72)"/>
+  <path d="M207 677V708" stroke="#526c84" stroke-width="8" stroke-linecap="round"/>
+  <rect x="199" y="662" width="16" height="23" rx="5" fill="#ffbd69"/>
+  <text x="258" y="701" class="label">C. 나사 조립</text>
+  <text x="559" y="699" class="note">조립까지!</text>
+  <path d="M310 760V789" class="flow"/>
+  <rect x="90" y="801" width="440" height="126" rx="20" fill="white" stroke="#bfd0e2" stroke-width="2"/>
+  <use href="#robot" transform="translate(164 856) scale(.72)"/>
+  <use href="#part" transform="translate(216 894) scale(.6)"/>
+  <path d="M195 911H239" stroke="#526c84" stroke-width="4"/>
+  <text x="258" y="874" class="label">D. 내려놓기</text>
+  <text x="559" y="872" class="note">이것도 수행!</text>
+  <rect x="103" y="957" width="600" height="65" rx="20" fill="#fff0d8"/>
+  <text x="403" y="999" text-anchor="middle" class="note">선택 방법을 몰라서… 전부 실행!</text>
+
+  <rect x="924" y="156" width="480" height="73" rx="18" fill="white" stroke="#87bfae" stroke-width="2"/>
+  <text x="1164" y="203" class="label" text-anchor="middle">입력 명령: “이동”</text>
+  <path d="M1164 235V254H861V518H913" fill="none" stroke="#159777" stroke-width="5" marker-end="url(#greenArrow)"/>
+
+  <g opacity=".38">
+    <rect x="924" y="282" width="480" height="126" rx="20" fill="white" stroke="#a7b8b1" stroke-width="2"/>
+    <use href="#robot" transform="translate(996 337) scale(.72)"/>
+    <use href="#part" transform="translate(1048 361) scale(.7)"/>
+    <text x="1090" y="355" class="label">A. 부품 집기</text>
+  </g>
+  <rect x="924" y="455" width="480" height="126" rx="20" fill="#d8f7e9" stroke="#159777" stroke-width="4"/>
+  <use href="#robot" transform="translate(1006 510) scale(.72)"/>
+  <path d="M936 521H958 M930 534H953" stroke="#159777" stroke-width="4" stroke-linecap="round"/>
+  <text x="1090" y="528" class="label">B. 위치로 이동</text>
+  <path d="M1425 518 1439 532 1467 499" fill="none" stroke="#159777" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1448" y="568" text-anchor="middle" class="small" style="fill:#08775c;font-weight:700">선택!</text>
+  <g opacity=".38">
+    <rect x="924" y="628" width="480" height="126" rx="20" fill="white" stroke="#a7b8b1" stroke-width="2"/>
+    <use href="#robot" transform="translate(996 683) scale(.72)"/>
+    <path d="M1039 677V708" stroke="#526c84" stroke-width="8" stroke-linecap="round"/>
+    <rect x="1031" y="662" width="16" height="23" rx="5" fill="#ffbd69"/>
+    <text x="1090" y="701" class="label">C. 나사 조립</text>
+    <rect x="924" y="801" width="480" height="126" rx="20" fill="white" stroke="#a7b8b1" stroke-width="2"/>
+    <use href="#robot" transform="translate(996 856) scale(.72)"/>
+    <use href="#part" transform="translate(1048 894) scale(.6)"/>
+    <path d="M1027 911H1071" stroke="#526c84" stroke-width="4"/>
+    <text x="1090" y="874" class="label">D. 내려놓기</text>
+  </g>
+  <path d="M1490 299H1505V909H1490" fill="none" stroke="#9bb6aa" stroke-width="3"/>
+  <rect x="900" y="957" width="590" height="65" rx="20" fill="#d8f3e7"/>
+  <text x="1195" y="999" text-anchor="middle" class="note">잠시 후 배울 조건문으로 구현 가능!</text>
+</svg>

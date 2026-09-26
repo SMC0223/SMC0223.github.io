@@ -13,7 +13,7 @@
   --danger: #a43c3c;
   --font-ko: "Yoon Gothic", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
   --font-en: "Myriad Pro", "Myriad", "Helvetica Neue", Arial, sans-serif;
-  --font-code: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --font-code: Consolas, "Cascadia Mono", "Liberation Mono", Menlo, "Courier New", monospace;
   --slide-padding-x: 72px;
   --slide-padding-y: 50px;
   --radius-small: 6px;

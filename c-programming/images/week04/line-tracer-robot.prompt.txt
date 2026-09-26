@@ -1,0 +1,5 @@
+Tool: built-in image_gen
+Reference: user-supplied two-wheel educational robot product image; hardware appearance only.
+Output: line-tracer-robot.png
+
+Use case: scientific-educational. Create one clean landscape 3:2 classroom illustration of a two-wheel line-following educational robot, using the attached product image only as reference for the robot's hardware appearance, not its advertising layout. Three-quarter elevated front view, transparent acrylic chassis, two black rubber tires with yellow hubs and small geared motors, blue controller board, tidy wires, exactly two clearly visible downward-facing infrared line sensors on the front edge. Robot on a plain white floor following a thick gently curving BLACK line beneath its two front sensors. Both sensors fit over the width of the black line. Accurate polished realistic 3D educational rendering, large centered robot, white background, soft shadows, generous whitespace, clear sensor visibility. No text, labels, brand logos, mascot, watermark, red line, advertising copy or extra robots.
