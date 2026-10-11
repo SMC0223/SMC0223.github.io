@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="470" viewBox="0 0 1400 470" role="img" aria-labelledby="title desc">
+<title id="title">while의 반복 조건과 반복 실행문</title>
+<desc id="desc">while 괄호 안의 반복 조건과 중괄호 안의 반복 실행문을 구분. 조건이 참이면 본문을 수행하고 조건을 다시 검사하며, 거짓이면 반복 종료.</desc>
+<rect x="2" y="2" width="1396" height="466" rx="24" fill="#f7f9fc" stroke="#dce4ed" stroke-width="2"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="48" y="48" font-size="25" font-weight="700" fill="#52667c">문법 구조</text>
+<text x="825" y="48" font-size="25" font-weight="700" fill="#52667c">각 부분의 역할</text>
+<rect x="220" y="85" width="245" height="65" rx="10" fill="#e5eafa"/>
+<text x="56" y="130" font-size="36" font-weight="700" fill="#175fa2">while (</text>
+<text x="242" y="130" font-size="36" font-weight="700" fill="#535ba0">반복 조건</text>
+<text x="485" y="130" font-size="36" font-weight="700" fill="#1c3651">) {</text>
+<path d="M465 96H767" fill="none" stroke="#535ba0" stroke-width="2.5"/>
+<circle cx="790" cy="96" r="18" fill="#535ba0"/>
+<text x="790" y="104" text-anchor="middle" font-size="22" font-weight="700" fill="white">1</text>
+<text x="825" y="106" font-size="30" font-weight="700" fill="#535ba0">반복 조건</text>
+<text x="825" y="150" font-size="26" fill="#52667c">참이면 반복 실행문 수행</text>
+<text x="825" y="187" font-size="26" fill="#52667c">거짓이면 반복 종료</text>
+<rect x="110" y="208" width="563" height="113" rx="12" fill="#e0f2ed"/>
+<text x="142" y="253" font-size="36" font-weight="700" fill="#17705b">반복 실행문</text>
+<text x="142" y="297" font-size="26" fill="#17705b">출력, 계산, 값 변경 등을 포함</text>
+<text x="56" y="366" font-size="36" font-weight="700" fill="#1c3651">}</text>
+<path d="M673 243H767" stroke="#17705b" stroke-width="2.5"/>
+<circle cx="790" cy="243" r="18" fill="#17705b"/>
+<text x="790" y="251" text-anchor="middle" font-size="22" font-weight="700" fill="white">2</text>
+<text x="825" y="253" font-size="30" font-weight="700" fill="#17705b">반복 실행문</text>
+<text x="825" y="297" font-size="26" fill="#52667c">중괄호 안의 문장들을 순서대로 실행</text>
+<text x="825" y="334" font-size="26" fill="#52667c">실행 후 반복 조건을 다시 검사</text>
+<path d="M38 394H1362" stroke="#dce4ed" stroke-width="2"/>
+<text x="700" y="439" text-anchor="middle" font-size="29" font-weight="700" fill="#1c3651">반복 조건 검사 → 참이면 반복 실행문 수행 → 반복 조건 재검사</text>
+</g></svg>

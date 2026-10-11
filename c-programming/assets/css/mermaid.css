@@ -1,4 +1,4 @@
-.diagram-container { align-items: center; background: #fbfcfd; border: 1px solid var(--border-light); border-radius: var(--radius-small); display: flex; justify-content: center; min-height: 430px; padding: 24px; }
+.diagram-container { align-items: center; background: #fff; display: flex; justify-content: center; min-height: 430px; padding: 24px; }
 .diagram-container .mermaid { display: flex; width: 100%; }
 .diagram-container svg { height: auto; max-height: 430px; max-width: 100%; width: auto; }
 .diagram-align-left .diagram-container .mermaid { justify-content: flex-start; }
@@ -14,6 +14,23 @@
 }
 .diagram-container .nodeLabel { padding-left: 6px; padding-right: 6px; }
 .diagram-container foreignObject { overflow: visible; }
+/* Textbook flowcharts: preserve Mermaid shapes and topology, restyle the ink. */
+.diagram-container svg .node :is(rect, circle, ellipse, polygon, path) {
+  fill: #fff !important;
+  stroke: #111 !important;
+  stroke-width: 2px !important;
+  filter: drop-shadow(4px 5px 0 #999);
+}
+.diagram-container svg .flowchart-link {
+  stroke: #111 !important;
+  stroke-width: 2px !important;
+}
+.diagram-container svg marker path {
+  fill: #111 !important;
+  stroke: #111 !important;
+}
+.diagram-container svg :is(.nodeLabel, .edgeLabel) { color: #111 !important; }
+.diagram-container svg .edgeLabel :is(rect, .labelBkg) { fill: #fff !important; background: #fff !important; opacity: 1 !important; }
 .diagram-fallback { color: var(--text-muted); font-size: 20px; }
 .diagram-container .mermaid-error { align-items: center; color: var(--danger); display: flex; font-size: 18px; justify-content: center; min-height: 180px; text-align: center; }
 .diagram-size-small .diagram-container { min-height: 280px; }

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650" role="img" aria-labelledby="title desc">
+<title id="title">토끼 쌍이 가지처럼 늘어나는 피보나치 수열</title>
+<desc id="desc">위에서 아래로 한 달씩 진행하며 한 쌍, 한 쌍, 두 쌍, 세 쌍, 다섯 쌍으로 증가. 각 쌍은 파란 수컷과 분홍 암컷으로 구성. 작은 토끼는 새끼, 큰 토끼는 어른. 실선은 기존 쌍의 성장과 유지, 점선은 새끼 쌍의 탄생.</desc>
+<defs><g id="rabbit" stroke="#34475c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="-11" cy="-33" rx="7" ry="22" fill="currentColor" transform="rotate(-12 -11 -33)"/>
+<ellipse cx="11" cy="-33" rx="7" ry="22" fill="currentColor" transform="rotate(12 11 -33)"/>
+<path d="M-12-46 L-9-26 M12-46 L9-26" stroke="#ec9baf" stroke-width="4"/>
+<ellipse cy="20" rx="22" ry="24" fill="currentColor"/>
+<circle cx="22" cy="28" r="8" fill="currentColor"/>
+<ellipse cy="-3" rx="25" ry="23" fill="currentColor"/>
+<ellipse cx="-10" cy="-5" rx="2.6" ry="3.4" fill="#34475c" stroke="none"/>
+<ellipse cx="10" cy="-5" rx="2.6" ry="3.4" fill="#34475c" stroke="none"/>
+<ellipse cx="-16" cy="4" rx="5" ry="3" fill="#efa7b8" stroke="none"/>
+<ellipse cx="16" cy="4" rx="5" ry="3" fill="#efa7b8" stroke="none"/>
+<path d="M-3 2 Q0 6 3 2 M0 5 V9 M0 9 Q-5 13-8 8 M0 9 Q5 13 8 8" fill="none" stroke-width="1.7"/>
+<ellipse cx="-12" cy="40" rx="11" ry="5" fill="currentColor"/>
+<ellipse cx="12" cy="40" rx="11" ry="5" fill="currentColor"/>
+</g>
+
+<g id="adult"><use href="#rabbit" color="#acd8f5" transform="translate(-28 0) scale(.82)"/><use href="#rabbit" color="#f7bed2" transform="translate(28 0) scale(.82)"/></g>
+<g id="baby"><use href="#rabbit" color="#acd8f5" transform="translate(-21 8) scale(.57)"/><use href="#rabbit" color="#f7bed2" transform="translate(21 8) scale(.57)"/></g>
+</defs>
+<rect width="900" height="650" rx="24" fill="#fbfcfe"/>
+<path d="M250 107 L250 138" fill="none" stroke="#94a8bc" stroke-width="3" stroke-linecap="round"/>
+<path d="M250 232 L250 263" fill="none" stroke="#94a8bc" stroke-width="3" stroke-linecap="round"/>
+<path d="M250 232 L650 263" fill="none" stroke="#b5a4c5" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 7"/>
+<path d="M250 357 L90 388" fill="none" stroke="#b5a4c5" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 7"/>
+<path d="M250 357 L250 388" fill="none" stroke="#94a8bc" stroke-width="3" stroke-linecap="round"/>
+<path d="M650 357 L650 388" fill="none" stroke="#94a8bc" stroke-width="3" stroke-linecap="round"/>
+<path d="M90 482 L90 513" fill="none" stroke="#94a8bc" stroke-width="3" stroke-linecap="round"/>
+<path d="M250 482 L250 513" fill="none" stroke="#94a8bc" stroke-width="3" stroke-linecap="round"/>
+<path d="M250 482 L410 513" fill="none" stroke="#b5a4c5" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 7"/>
+<path d="M650 482 L650 513" fill="none" stroke="#94a8bc" stroke-width="3" stroke-linecap="round"/>
+<path d="M650 482 L810 513" fill="none" stroke="#b5a4c5" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 7"/>
+<use href="#baby" transform="translate(250 65)"/>
+<use href="#adult" transform="translate(250 190)"/>
+<use href="#adult" transform="translate(250 315)"/>
+<use href="#baby" transform="translate(650 315)"/>
+<use href="#baby" transform="translate(90 440)"/>
+<use href="#adult" transform="translate(250 440)"/>
+<use href="#adult" transform="translate(650 440)"/>
+<use href="#adult" transform="translate(90 565)"/>
+<use href="#adult" transform="translate(250 565)"/>
+<use href="#baby" transform="translate(410 565)"/>
+<use href="#adult" transform="translate(650 565)"/>
+<use href="#baby" transform="translate(810 565)"/>
+</svg>

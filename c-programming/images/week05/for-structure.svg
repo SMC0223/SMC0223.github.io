@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" role="img" aria-labelledby="title desc">
+<title id="title">for의 문법 구조와 각 부분의 역할</title>
+<desc id="desc">for 괄호 안에 초기화, 조건식, 증감문을 세미콜론으로 구분하여 한 줄로 표시. 중괄호 안에 실행문 배치. 실행 순서는 초기화, 조건식, 실행문, 증감문.</desc>
+<rect x="2" y="2" width="1396" height="556" rx="24" fill="#f7f9fc" stroke="#dce4ed" stroke-width="2"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="48" y="48" font-size="25" font-weight="700" fill="#52667c">문법 구조</text>
+<text x="825" y="48" font-size="25" font-weight="700" fill="#52667c">각 부분의 역할</text>
+<g font-size="34" font-weight="700">
+<text x="48" y="233" fill="#1c3651">for (</text>
+<rect x="137" y="191" width="127" height="61" rx="10" fill="#e6eff8"/>
+<text x="149" y="233" fill="#175fa2">초기화</text>
+<text x="271" y="233" fill="#1c3651">;</text>
+<rect x="297" y="191" width="127" height="61" rx="10" fill="#e5eafa"/>
+<text x="309" y="233" fill="#535ba0">조건식</text>
+<text x="431" y="233" fill="#1c3651">;</text>
+<rect x="457" y="191" width="127" height="61" rx="10" fill="#fff0db"/>
+<text x="469" y="233" fill="#995810">증감문</text>
+<text x="597" y="233" fill="#1c3651">) {</text>
+<rect x="110" y="295" width="520" height="105" rx="12" fill="#e0f2ed"/>
+<text x="142" y="340" fill="#17705b">실행문</text>
+<text x="142" y="381" font-size="26" font-weight="400" fill="#17705b">출력, 계산 등 반복할 작업</text>
+<text x="48" y="449" fill="#1c3651">}</text>
+</g>
+<circle cx="200" cy="160" r="17" fill="#175fa2"/><text x="200" y="168" text-anchor="middle" font-size="22" font-weight="700" fill="white">1</text>
+<circle cx="790" cy="95" r="18" fill="#175fa2"/><text x="790" y="103" text-anchor="middle" font-size="22" font-weight="700" fill="white">1</text>
+<text x="825" y="105" font-size="30" font-weight="700" fill="#175fa2">초기화</text><text x="825" y="144" font-size="26" fill="#52667c">반복 시작 전에 한 번 실행</text>
+<circle cx="360" cy="160" r="17" fill="#535ba0"/><text x="360" y="168" text-anchor="middle" font-size="22" font-weight="700" fill="white">2</text>
+<circle cx="790" cy="195" r="18" fill="#535ba0"/><text x="790" y="203" text-anchor="middle" font-size="22" font-weight="700" fill="white">2</text>
+<text x="825" y="205" font-size="30" font-weight="700" fill="#535ba0">조건식</text><text x="825" y="244" font-size="26" fill="#52667c">참이면 실행문 수행, 거짓이면 종료</text>
+<circle cx="520" cy="160" r="17" fill="#995810"/><text x="520" y="168" text-anchor="middle" font-size="22" font-weight="700" fill="white">3</text>
+<circle cx="790" cy="295" r="18" fill="#995810"/><text x="790" y="303" text-anchor="middle" font-size="22" font-weight="700" fill="white">3</text>
+<text x="825" y="305" font-size="30" font-weight="700" fill="#995810">증감문</text><text x="825" y="344" font-size="26" fill="#52667c">실행문 수행 후 실행 → 조건 재검사</text>
+<circle cx="675" cy="343" r="17" fill="#17705b"/><text x="675" y="351" text-anchor="middle" font-size="22" font-weight="700" fill="white">4</text>
+<circle cx="790" cy="395" r="18" fill="#17705b"/><text x="790" y="403" text-anchor="middle" font-size="22" font-weight="700" fill="white">4</text>
+<text x="825" y="405" font-size="30" font-weight="700" fill="#17705b">실행문</text><text x="825" y="444" font-size="26" fill="#52667c">중괄호 안의 문장들을 순서대로 실행</text>
+<path d="M38 493H1362" stroke="#dce4ed" stroke-width="2"/>
+<text x="700" y="536" text-anchor="middle" font-size="28" font-weight="700" fill="#1c3651">실행 순서: ① 초기화 → [② 조건식 → ④ 실행문 → ③ 증감문] 반복</text>
+</g></svg>

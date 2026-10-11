@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+<title id="title">라인트레이서의 센서 판단과 속도 설정 반복</title>
+<desc id="desc">센서값을 새로 읽어 왼쪽과 오른쪽 조합을 판단. 00은 직진 150,150, 01은 우회전 150,50, 10은 좌회전 50,150, 11은 정지 0,0. 선택한 속도를 바퀴에 적용한 뒤 다시 센서 읽기로 복귀.</desc>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 L3 4 Z" fill="#111"/></marker>
+<filter id="shadow" x="-10%" y="-10%" width="125%" height="135%"><feDropShadow dx="5" dy="6" stdDeviation="0" flood-color="#999"/></filter>
+<style>text{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;fill:#111;text-anchor:middle}.shape{fill:white;stroke:#111;stroke-width:2.5;filter:url(#shadow)}.arrow{fill:none;stroke:#111;stroke-width:2.5;marker-end:url(#arrow);stroke-linejoin:round}.label{font-size:29px}.heading{font-size:32px;font-weight:700}</style>
+</defs>
+<rect width="1600" height="820" fill="white"/>
+<path d="M800 86V126 M800 206V250" class="arrow"/>
+<path d="M800 422V459H270V505 M800 459H620V505 M800 459H970V505 M800 459H1320V505" class="arrow"/>
+<path d="M270 615V657H800 M620 615V657 M970 615V657H800 M1320 615V657H800 M800 657V687" fill="none" stroke="#111" stroke-width="2.5"/>
+<path d="M800 657V687" class="arrow"/>
+<path d="M540 733H65V166H540" class="arrow"/>
+<rect x="645" y="20" width="310" height="66" rx="33" class="shape"/>
+<text x="800" y="64" class="heading">주행 제어 시작</text>
+<path d="M575 126H1060L1025 206H540Z" class="shape"/>
+<text x="800" y="176" class="heading">왼쪽·오른쪽 센서값 새로 읽기</text>
+<path d="M800 250 1110 336 800 422 490 336Z" class="shape"/>
+<text x="800" y="329" class="heading">센서 조합 판단</text>
+<text x="800" y="370" class="label">(왼쪽, 오른쪽)</text>
+<rect x="540" y="687" width="520" height="92" class="shape"/>
+<text x="800" y="743" class="heading">설정한 속도를 좌우 바퀴에 적용</text>
+<rect x="91" y="690" width="368" height="40" fill="white"/>
+<text x="275" y="719" class="label" style="font-weight:700">다시 센서 읽기부터 반복</text>
+
+<rect x="213" y="429" width="114" height="29" fill="white"/><text x="270" y="453" class="label">0, 0</text>
+<rect x="120" y="505" width="300" height="110" class="shape"/><text x="270" y="545" class="heading">직진</text><text x="270" y="589" class="label">왼쪽 150 / 오른쪽 150</text>
+<rect x="563" y="429" width="114" height="29" fill="white"/><text x="620" y="453" class="label">0, 1</text>
+<rect x="470" y="505" width="300" height="110" class="shape"/><text x="620" y="545" class="heading">우회전</text><text x="620" y="589" class="label">왼쪽 150 / 오른쪽 50</text>
+<rect x="913" y="429" width="114" height="29" fill="white"/><text x="970" y="453" class="label">1, 0</text>
+<rect x="820" y="505" width="300" height="110" class="shape"/><text x="970" y="545" class="heading">좌회전</text><text x="970" y="589" class="label">왼쪽 50 / 오른쪽 150</text>
+<rect x="1263" y="429" width="114" height="29" fill="white"/><text x="1320" y="453" class="label">1, 1</text>
+<rect x="1170" y="505" width="300" height="110" class="shape"/><text x="1320" y="545" class="heading">정지</text><text x="1320" y="589" class="label">왼쪽 0 / 오른쪽 0</text>
+</svg>

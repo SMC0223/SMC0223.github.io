@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="680" viewBox="0 0 800 680" role="img" aria-labelledby="title desc">
+<title id="title">더하기 사이클 구현 순서도</title>
+<desc id="desc">시작 숫자 입력 후 current를 start, count를 1로 초기화. 두 자리의 합 계산, 새 숫자로 current 갱신, 시작 숫자와 같은지 검사. 같으면 count 출력 후 break로 종료. 다르면 count 증가 후 다시 숫자 변환.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#34475c"/></marker><marker id="end" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#b95c51"/></marker><filter id="shadow" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="3" dy="4" stdDeviation="0" flood-color="#a9b2bb"/></filter></defs>
+<g fill="none" stroke="#34475c" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M300 65V98"/><path d="M300 156V197"/><path d="M300 259V296"/><path d="M300 370V413"/>
+<path d="M480 458H590V514"/><path d="M660 542H740V176H300V197"/>
+</g>
+<g fill="none" stroke="#b95c51" stroke-width="3" marker-end="url(#end)"><path d="M300 503V539"/><path d="M300 591V620"/></g>
+<g fill="white" stroke="#34475c" stroke-width="2.2" filter="url(#shadow)">
+<path d="M135 15H485L465 65H115Z"/>
+<rect x="105" y="98" width="390" height="58"/>
+<rect x="105" y="197" width="390" height="62"/>
+<rect x="105" y="296" width="390" height="74"/>
+<path d="M300 413 480 458 300 503 120 458Z"/>
+<rect x="520" y="514" width="140" height="56"/>
+<path d="M190 539H430L410 591H170Z"/>
+<rect x="170" y="620" width="260" height="48" rx="24"/>
+</g>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="27" text-anchor="middle" fill="#233b53">
+<text x="300" y="49">시작 숫자 start 입력</text><text x="300" y="136">current = start, count = 1</text>
+<text x="300" y="236">현재 숫자의 두 자리 합 계산</text>
+<text x="300" y="326" font-size="24">기존 일의 자리와 합의 일의 자리</text><text x="300" y="357">새 숫자 생성 → current 갱신</text>
+<text x="300" y="467">current == start?</text><text x="519" y="446" font-size="23">거짓</text><text x="330" y="530" font-size="23" fill="#b95c51">참</text>
+<text x="590" y="551">count++</text><text x="300" y="574">count 출력</text><text x="300" y="653" fill="#b95c51">break → 반복 종료</text>
+</g></svg>

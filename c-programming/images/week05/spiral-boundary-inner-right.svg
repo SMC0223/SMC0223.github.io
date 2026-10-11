@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+<title id="title">right-- : 3 → 2의 이유</title><desc id="desc">안쪽 오른쪽 열 방문 완료 → 다음 이동 영역에서 제외. 주황색은 이번에 방문한 줄, 회색은 제외한 영역, 초록 점선은 경계 갱신 후 남은 영역.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#2075b5"/></marker></defs>
+<rect width="800" height="600" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+<text x="400" y="40" font-size="28" font-weight="700" fill="#233b53">안쪽에서 아래쪽 이동 완료</text>
+<text x="190" y="85" font-size="24" fill="#526170">이번에 방문한 줄</text><text x="610" y="85" font-size="24" fill="#526170">경계 갱신 후</text>
+<rect x="70" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="118" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="166" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="214" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="262" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="70" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="118" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="166" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="214" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="262" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="70" y="241" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="118" y="241" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="166" y="241" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="214" y="241" width="48" height="48" fill="#ffe0a3" stroke="#aab9c7"/>
+<rect x="262" y="241" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="70" y="289" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="118" y="289" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="166" y="289" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="214" y="289" width="48" height="48" fill="#ffe0a3" stroke="#aab9c7"/>
+<rect x="262" y="289" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="70" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="118" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="166" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="214" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="262" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<text x="94" y="132" font-size="18" fill="#526170">0</text>
+<text x="52" y="175" font-size="18" fill="#526170">0</text>
+<text x="142" y="132" font-size="18" fill="#526170">1</text>
+<text x="52" y="223" font-size="18" fill="#526170">1</text>
+<text x="190" y="132" font-size="18" fill="#526170">2</text>
+<text x="52" y="271" font-size="18" fill="#526170">2</text>
+<text x="238" y="132" font-size="18" fill="#526170">3</text>
+<text x="52" y="319" font-size="18" fill="#526170">3</text>
+<text x="286" y="132" font-size="18" fill="#526170">4</text>
+<text x="52" y="367" font-size="18" fill="#526170">4</text>
+<path d="M238 265L238 313" fill="none" stroke="#2075b5" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="190" y="425" font-size="28" font-weight="700" fill="#233b53">right = 3</text>
+<rect x="490" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="538" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="586" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="634" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="682" y="145" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="490" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="538" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="586" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="634" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="682" y="193" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="490" y="241" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="538" y="241" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="586" y="241" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="634" y="241" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="682" y="241" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="490" y="289" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="538" y="289" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="586" y="289" width="48" height="48" fill="#ffffff" stroke="#aab9c7"/>
+<rect x="634" y="289" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="682" y="289" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="490" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="538" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="586" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="634" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<rect x="682" y="337" width="48" height="48" fill="#dde3e9" stroke="#aab9c7"/>
+<text x="514" y="132" font-size="18" fill="#526170">0</text>
+<text x="472" y="175" font-size="18" fill="#526170">0</text>
+<text x="562" y="132" font-size="18" fill="#526170">1</text>
+<text x="472" y="223" font-size="18" fill="#526170">1</text>
+<text x="610" y="132" font-size="18" fill="#526170">2</text>
+<text x="472" y="271" font-size="18" fill="#526170">2</text>
+<text x="658" y="132" font-size="18" fill="#526170">3</text>
+<text x="472" y="319" font-size="18" fill="#526170">3</text>
+<text x="706" y="132" font-size="18" fill="#526170">4</text>
+<text x="472" y="367" font-size="18" fill="#526170">4</text>
+<rect x="541" y="244" width="90" height="90" fill="none" stroke="#198254" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="610" y="425" font-size="28" font-weight="700" fill="#198254">right = 2</text>
+<path d="M335 265H460" stroke="#2075b5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="400" y="490" font-size="30" font-weight="700" fill="#2075b5">right-- : 3 → 2</text>
+<text x="400" y="534" font-size="24" fill="#233b53">안쪽 오른쪽 열 방문 완료 → 다음 이동 영역에서 제외</text>
+<text x="400" y="575" font-size="22" fill="#526170">현재 위치 유지 · 다음 이동 전에 경계만 축소</text>
+</g></svg>

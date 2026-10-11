@@ -29,6 +29,7 @@
       runButton.disabled = true;
       resetButton.disabled = true;
       output.textContent = "컴파일 중…";
+      const executedInput = input.value;
       setStatus("Compiler Explorer에 연결 중", "running");
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 30000);
@@ -44,7 +45,7 @@
               userArguments: "-std=c11 -O0 -Wall -Wextra -lm",
               compilerOptions: { skipAsm: true, executorRequest: false },
               filters: { execute: true },
-              executeParameters: { args: [], stdin: input.value },
+              executeParameters: { args: [], stdin: executedInput },
               tools: [],
               libraries: []
             },
@@ -78,6 +79,8 @@
         messages.push(lines(execution?.stdout), lines(execution?.stderr));
         const displayText = messages.filter(Boolean).join("\n") || (outcome ? outcome : "프로그램이 출력 없이 종료되었습니다.");
         globalThis.renderCompilerAnsi(output, displayText);
+        output.dataset.stdout = outcome ? "" : lines(execution?.stdout);
+        output.dataset.executedInput = executedInput;
         setStatus(outcome || "실행 완료", outcome ? "error" : "success");
       } catch (error) {
         let reason = "Compiler Explorer에 연결할 수 없습니다. 네트워크 또는 브라우저의 교차 출처 요청(CORS) 제한을 확인하세요.";

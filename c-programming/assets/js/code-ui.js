@@ -1,7 +1,11 @@
 (function () {
   document.querySelectorAll(".copy-code").forEach((button) => {
     button.addEventListener("click", async () => {
-      const containerCode = button.closest(".code-container")?.querySelector("code, .explanation-content")?.innerText;
+      const codeElement = button.closest(".code-container")?.querySelector("code, .explanation-content");
+      const numberedLines = codeElement?.querySelectorAll(".hljs-ln-code");
+      const containerCode = numberedLines?.length
+        ? Array.from(numberedLines, (line) => line.textContent).join("\n")
+        : codeElement?.innerText;
       const comparisonCode = [...(button.closest(".code-comparison-table")?.querySelectorAll(".code-comparison-row > code") || [])]
         .map((line) => line.innerText)
         .join("\n");

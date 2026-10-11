@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="./assets/css/variables.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/typography.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css"><link rel="stylesheet" href="./assets/css/mermaid.css"><link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/katex/katex.min.css">
+  <link rel="stylesheet" href="./assets/css/variables.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/typography.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css?v=linenums-20261004"><link rel="stylesheet" href="./assets/css/mermaid.css?v=flowchart-wide-v3-20260929"><link rel="stylesheet" href="./assets/css/responsive.css">
   <link rel="stylesheet" href="./assets/css/bit-lamps.css">
   <link rel="stylesheet" href="./assets/css/logic-review.css">
   <link rel="stylesheet" href="./assets/css/line-tracer.css">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="./assets/css/physics.css">
   <link rel="stylesheet" href="./assets/css/robot-arm.css">
   <link rel="stylesheet" href="./assets/css/one-link.css?v=20260920-xzero">
+  <link rel="stylesheet" href="./assets/css/addition-cycle.css">
+  <link rel="stylesheet" href="./assets/css/spiral-grid.css">
+  <link rel="stylesheet" href="./assets/css/lowpass-filter.css">
 </head>
 <body>
   <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. Edit content/week01.md and run the build instead. -->
@@ -210,7 +213,7 @@
 <p>원래 의도 : &quot;여보 마트에 가서 달걀이 있다면 달걀 6개 구매 후 우유 1개를 추가로 구매하고 귀가해&quot;</p>
 </blockquote>
 </div><div class="column"><h3>프로그래머의 의식 흐름도</h3>
-<div class="diagram-container"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;25px&quot;},&quot;flowchart&quot;:{&quot;padding&quot;:20,&quot;nodeSpacing&quot;:42,&quot;rankSpacing&quot;:48}}}%%
+<div class="diagram-container" data-diagram-stretch="1.8"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;30px&quot;},&quot;flowchart&quot;:{&quot;htmlLabels&quot;:false,&quot;wrappingWidth&quot;:600,&quot;curve&quot;:&quot;stepBefore&quot;,&quot;padding&quot;:22,&quot;nodeSpacing&quot;:52,&quot;rankSpacing&quot;:64}}}%%
 flowchart TB
     START([시작]) --&gt; MARKET[마트에 간다]
     MARKET --&gt; CHECK{달걀 있는가?}
@@ -221,7 +224,7 @@ flowchart TB
     ONE --&gt; END
 </div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="diagram-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>문제에서 프로그램 구현까지</h2></div></header><div class="slide-content">
-<div class="diagram-container"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;20px&quot;},&quot;flowchart&quot;:{&quot;padding&quot;:14,&quot;nodeSpacing&quot;:32,&quot;rankSpacing&quot;:36}}}%%
+<div class="diagram-container" data-diagram-stretch="1.8"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;26px&quot;},&quot;flowchart&quot;:{&quot;htmlLabels&quot;:false,&quot;wrappingWidth&quot;:600,&quot;curve&quot;:&quot;stepBefore&quot;,&quot;padding&quot;:18,&quot;nodeSpacing&quot;:42,&quot;rankSpacing&quot;:52}}}%%
 flowchart LR
     A[문제 이해] --&gt; B[해결 절차 설계]
     B --&gt; C[코드 작성]
@@ -246,7 +249,7 @@ flowchart LR
 </blockquote>
 </div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
       <section class="diagram-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 01</div><h2>C 프로그램의 실행 과정</h2></div></header><div class="slide-content">
-<div class="diagram-container"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;20px&quot;},&quot;flowchart&quot;:{&quot;padding&quot;:14,&quot;nodeSpacing&quot;:32,&quot;rankSpacing&quot;:36}}}%%
+<div class="diagram-container" data-diagram-stretch="1.8"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;26px&quot;},&quot;flowchart&quot;:{&quot;htmlLabels&quot;:false,&quot;wrappingWidth&quot;:600,&quot;curve&quot;:&quot;stepBefore&quot;,&quot;padding&quot;:18,&quot;nodeSpacing&quot;:42,&quot;rankSpacing&quot;:52}}}%%
 flowchart LR
     A[소스 코드 작성 &lt;br&gt;main.c] -- 컴파일 --&gt; B[목적 파일 &lt;br&gt;main.o]
     B -- 링크 --&gt; C[실행 파일]
@@ -797,7 +800,7 @@ VS Code용 공식 확장을 설치하면 편집기 안에서 대화하며 사용
 </ul>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 01</span></footer></div></section>
   </div></main>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js"></script><script src="./assets/js/week01-runner.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js?v=flowchart-wide-v3-20260929"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js?v=linenums-20261004"></script><script src="./assets/js/week01-runner.js"></script>
   <script src="./assets/js/bit-lamps.js"></script>
   <script src="./assets/js/logic-review.js"></script>
   <script src="./assets/js/line-tracer-model.js"></script>
@@ -808,4 +811,7 @@ VS Code용 공식 확장을 설치하면 편집기 안에서 대화하며 사용
   <script src="./assets/js/physics.js"></script>
   <script src="./assets/js/robot-arm.js"></script>
   <script src="./assets/js/one-link.js?v=20260920-xzero"></script>
+  <script src="./assets/js/addition-cycle.js"></script>
+  <script src="./assets/js/spiral-grid.js"></script>
+  <script src="./assets/js/lowpass-filter.js"></script>
 </body></html>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="760" viewBox="0 0 800 760" role="img" aria-labelledby="title desc">
+<title id="title">달팽이 이동 구현 순서도</title>
+<desc id="desc">위치와 방향, 경계, 방문 횟수를 초기화한 뒤 현재 좌표 출력. 마지막 칸이면 중심 도착 후 종료. 나머지는 경계 도달 여부에 따라 경계 축소와 방향 전환 후 한 칸 이동. 방문 횟수를 증가하고 좌표 출력으로 복귀.</desc>
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#34475c"/></marker>
+<marker id="accent" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#b95c51"/></marker>
+<filter id="shadow" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="3" dy="4" stdDeviation="0" flood-color="#a9b2bb"/></filter>
+</defs>
+<g fill="none" stroke="#34475c" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M300 70V103"/><path d="M300 165V198"/><path d="M300 252V290"/>
+<path d="M300 386V432"/><path d="M300 532V598"/>
+<path d="M480 482H620V514"/><path d="M620 576V628H480"/>
+<path d="M300 658V692"/><path d="M300 746V754H40V181H300V198"/>
+</g>
+<path d="M470 338H530" fill="none" stroke="#b95c51" stroke-width="3" marker-end="url(#accent)"/>
+<g fill="white" stroke="#34475c" stroke-width="2.2" filter="url(#shadow)">
+<rect x="120" y="16" width="360" height="54" rx="27"/>
+<rect x="100" y="103" width="400" height="62"/>
+<path d="M135 198H485L465 252H115Z"/>
+<path d="M300 290 470 338 300 386 130 338Z"/>
+<path d="M300 432 480 482 300 532 120 482Z"/>
+<rect x="500" y="514" width="240" height="62"/>
+<rect x="120" y="598" width="360" height="60"/>
+<rect x="140" y="692" width="320" height="54"/>
+<rect x="530" y="311" width="230" height="54" rx="27"/>
+</g>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="27" text-anchor="middle" fill="#233b53">
+<text x="300" y="52">위치·방향·경계 초기화</text>
+<text x="300" y="143">방문 횟수 = 0</text>
+<text x="300" y="234">현재 좌표 출력</text>
+<text x="300" y="347">마지막 칸 방문?</text>
+<text x="645" y="347" fill="#b95c51">중심 도착 · 종료</text>
+<text x="300" y="491">현재 방향의 경계?</text>
+<text x="620" y="540" font-size="25">경계 축소</text>
+<text x="620" y="566" font-size="25">시계 방향 전환</text>
+<text x="300" y="637">한 칸 이동</text>
+<text x="300" y="728">방문 횟수 증가</text>
+<text x="495" y="324" font-size="23" fill="#b95c51">참</text>
+<text x="335" y="414" font-size="23">거짓</text>
+<text x="514" y="469" font-size="23">참</text>
+<text x="335" y="568" font-size="23">거짓</text>
+</g>
+</svg>

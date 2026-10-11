@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="./assets/css/variables.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/typography.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css"><link rel="stylesheet" href="./assets/css/mermaid.css"><link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/katex/katex.min.css">
+  <link rel="stylesheet" href="./assets/css/variables.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/typography.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css?v=linenums-20261004"><link rel="stylesheet" href="./assets/css/mermaid.css?v=flowchart-wide-v3-20260929"><link rel="stylesheet" href="./assets/css/responsive.css">
   <link rel="stylesheet" href="./assets/css/bit-lamps.css">
   <link rel="stylesheet" href="./assets/css/logic-review.css">
   <link rel="stylesheet" href="./assets/css/line-tracer.css">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="./assets/css/physics.css">
   <link rel="stylesheet" href="./assets/css/robot-arm.css">
   <link rel="stylesheet" href="./assets/css/one-link.css?v=20260920-xzero">
+  <link rel="stylesheet" href="./assets/css/addition-cycle.css">
+  <link rel="stylesheet" href="./assets/css/spiral-grid.css">
+  <link rel="stylesheet" href="./assets/css/lowpass-filter.css">
 <link rel="stylesheet" href="./assets/css/large-type.css">
 </head>
 <body>
@@ -109,7 +112,7 @@ battery=80%
 <li>칭찬 받는다.</li>
 </ol>
 </div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
-      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>간단한 예제</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>간단한 예제</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
 <h3>순차 실행</h3>
 <div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">int n = 0;
 printf(&quot;1\n&quot;);
@@ -140,7 +143,7 @@ printf(&quot;3\n&quot;);
 <p><img src="images/week04/flowchart-symbols.svg" alt="순서도의 시작·종료, 처리, 입력·출력, 판단 기호와 흐름선의 의미." class="md-image img-full img-align-center"></p>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
       <section class="two-column-slide align-left valign-center image-size-auto diagram-size-large diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>순서도 읽기: 숫자 출력 흐름 따라가기</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
-<div class="diagram-container"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;25px&quot;},&quot;flowchart&quot;:{&quot;padding&quot;:20,&quot;nodeSpacing&quot;:42,&quot;rankSpacing&quot;:48}}}%%
+<div class="diagram-container" data-diagram-stretch="1.8"><div class="mermaid">%%{init: {&quot;themeVariables&quot;:{&quot;fontSize&quot;:&quot;30px&quot;},&quot;flowchart&quot;:{&quot;htmlLabels&quot;:false,&quot;wrappingWidth&quot;:600,&quot;curve&quot;:&quot;stepBefore&quot;,&quot;padding&quot;:22,&quot;nodeSpacing&quot;:52,&quot;rankSpacing&quot;:64}}}%%
 flowchart TD
     N[n = 0] --&gt; P1[/1 출력/]
     P1 --&gt; C{n &gt; 0?}
@@ -861,7 +864,7 @@ int main(void) {
 <li><strong>코드 적용 → 주행 시작 또는 랩타임 도전</strong> 순서로 결과 확인. 코드 적용 시 인터넷 연결 필요.</li>
 </ul>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
-      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 10: 센서값에 따라 바퀴 속도 조절</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 55fr) minmax(0, 45fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 04</div><h2>실습 10: 센서값에 따라 바퀴 속도 조절</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
 <div class="line-tracer" data-line-tracer>
     <div class="lt-controls button-row">
       <button type="button" class="btn btn-primary" data-lt-apply>코드 적용</button>
@@ -957,7 +960,7 @@ int main(void) {
 </ul>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 04</span></footer></div></section>
   </div></main>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js"></script><script src="./assets/js/week01-runner.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js?v=flowchart-wide-v3-20260929"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js?v=linenums-20261004"></script><script src="./assets/js/week01-runner.js"></script>
   <script src="./assets/js/bit-lamps.js"></script>
   <script src="./assets/js/logic-review.js"></script>
   <script src="./assets/js/line-tracer-model.js"></script>
@@ -968,4 +971,7 @@ int main(void) {
   <script src="./assets/js/physics.js"></script>
   <script src="./assets/js/robot-arm.js"></script>
   <script src="./assets/js/one-link.js?v=20260920-xzero"></script>
+  <script src="./assets/js/addition-cycle.js"></script>
+  <script src="./assets/js/spiral-grid.js"></script>
+  <script src="./assets/js/lowpass-filter.js"></script>
 </body></html>

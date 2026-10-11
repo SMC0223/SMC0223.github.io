@@ -1,0 +1,6 @@
+.sine-integral svg { display: block; width: 100%; margin: 12px auto; }
+.si-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 16px; }
+.reveal .sine-integral p { font-size: 16px; margin-top: 12px; }
+[data-sine-integral-source] .console-panel:first-child { display: none; }
+[data-sine-integral-source] .console-grid { grid-template-columns: 1fr; }
+[data-sine-integral-source] .console-output { max-height: 60px; }

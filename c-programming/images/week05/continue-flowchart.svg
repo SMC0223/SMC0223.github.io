@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="650" viewBox="0 0 800 650" role="img" aria-labelledby="title desc">
+<title id="title">for문에서 continue의 실행 흐름</title><desc id="desc">i=1로 초기화. i가 5 이하인지 검사한 뒤 i가 3이면 printf를 생략하고 증감식 i++로 이동. 나머지는 i를 출력하고 증가한 뒤 조건 재검사.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#34475c"/></marker><marker id="accent" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#287db2"/></marker><filter id="shadow" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="3" dy="4" stdDeviation="0" flood-color="#a9b2bb"/></filter></defs>
+<g fill="none" stroke="#34475c" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M290 67V105"/><path d="M290 191V234"/><path d="M290 320V365"/><path d="M290 419V463"/><path d="M290 517V544H48V84H290V105"/>
+<path d="M450 148H747V603H450"/>
+</g>
+<g fill="none" stroke="#287db2" stroke-width="4" marker-end="url(#accent)"><path d="M450 277H521"/>
+<path d="M603 304V490H430"/></g><g fill="white" stroke="#34475c" stroke-width="2.3" filter="url(#shadow)">
+<rect x="170" y="15" width="240" height="52" rx="26"/>
+<path d="M290 105 450 148 290 191 130 148Z"/>
+<path d="M290 234 450 277 290 320 130 277Z"/>
+<path d="M165 365H435L415 419H145Z"/>
+<rect x="150" y="463" width="280" height="54"/>
+<rect x="130" y="580" width="320" height="52" rx="26"/>
+</g><rect x="521" y="250" width="164" height="54" rx="9" fill="white" stroke="#287db2" stroke-width="3"/><g font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="28" text-anchor="middle" fill="#233b53">
+<text x="290" y="50">i = 1</text><text x="290" y="158">i &lt;= 5?</text><text x="290" y="287">i == 3?</text>
+<text x="290" y="401">i 출력</text><text x="290" y="499">i++</text><text x="290" y="616">반복문 다음 문장</text>
+<text x="603" y="286" fill="#287db2" font-weight="700">continue</text>
+<text x="317" y="220" font-size="23">참</text><text x="480" y="135" font-size="23">거짓</text>
+<text x="485" y="264" fill="#287db2" font-size="23">참</text><text x="325" y="350" font-size="23">거짓</text>
+</g></svg>

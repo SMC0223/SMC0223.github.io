@@ -9,8 +9,8 @@
 .callout { border-left: 4px solid var(--hy-blue); padding: 14px 0 14px 22px; }
 .callout-note { background: var(--bg-secondary); border: 1px solid var(--border-light); border-left: 4px solid var(--hy-silver); border-radius: var(--radius-small); padding: 18px 22px; }
 .callout-important { background: var(--hy-blue-soft); border-color: var(--hy-blue); }
-.comparison-grid { display: grid; gap: 24px; grid-template-columns: 1fr 1fr; }
-.comparison-item { border-top: 3px solid var(--hy-blue); padding-top: 20px; }
+.comparison-grid { display: grid; gap: 24px; grid-template-columns: var(--comparison-columns, minmax(0, 1fr) minmax(0, 1fr)); }
+.comparison-item { border-top: 3px solid var(--hy-blue); padding-top: 20px; min-width: 0; }
 .comparison-item h3 { margin-bottom: 16px; }
 .exercise-container, .quiz-container { border: 1px solid var(--border-light); border-radius: var(--radius-medium); padding: 30px; }
 .exercise-meta { color: var(--hy-blue); font: 700 15px var(--font-en); letter-spacing: .12em; margin-bottom: 16px; }
