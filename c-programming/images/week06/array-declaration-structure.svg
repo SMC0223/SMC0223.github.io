@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="650" viewBox="0 0 1600 650" role="img" aria-labelledby="title desc">
+<title id="title">배열 선언문의 구조와 각 부분의 역할</title><desc id="desc">int scores[4] = {80, 95, 70, 85};를 자료형, 배열 이름, 원소 개수, 초기값으로 구분. 초기값은 scores[0]부터 scores[3]까지 차례로 저장.</desc>
+<rect width="1600" height="650" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="40" y="42" font-size="27" fill="#233b53" font-weight="700" text-anchor="start">선언과 초기화</text>
+<rect x="40" y="80" width="150" height="74" rx="8" fill="#e6eff8" stroke="none" stroke-width="2"/>
+<text x="115.0" y="132" font-size="46" fill="#175fa2" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">int</text>
+<path d="M115.0 159L115.0 187" stroke="#175fa2" stroke-width="3" fill="none"/>
+<text x="40" y="230" font-size="31" fill="#175fa2" font-weight="700" text-anchor="start">1. 자료형</text>
+<text x="40" y="274" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">각 원소의 종류</text>
+<text x="40" y="312" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">정수를 저장할 int형</text>
+<rect x="230" y="80" width="230" height="74" rx="8" fill="#e5eafa" stroke="none" stroke-width="2"/>
+<text x="345.0" y="132" font-size="46" fill="#535ba0" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">scores</text>
+<path d="M345.0 159L345.0 187" stroke="#535ba0" stroke-width="3" fill="none"/>
+<text x="340" y="230" font-size="31" fill="#535ba0" font-weight="700" text-anchor="start">2. 배열 이름</text>
+<text x="340" y="274" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">여러 원소를 묶어 부를 이름</text>
+<text x="340" y="312" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">이 예제의 이름은 scores</text>
+<rect x="510" y="80" width="140" height="74" rx="8" fill="#fff0db" stroke="none" stroke-width="2"/>
+<text x="580.0" y="132" font-size="46" fill="#995810" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">[4]</text>
+<path d="M580.0 159L580.0 187" stroke="#995810" stroke-width="3" fill="none"/>
+<text x="700" y="230" font-size="31" fill="#995810" font-weight="700" text-anchor="start">3. 원소 개수</text>
+<text x="700" y="274" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">대괄호 [ ] 안에 개수 지정</text>
+<text x="700" y="312" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">int형 원소 4개를 저장할 공간</text>
+<rect x="750" y="80" width="800" height="74" rx="8" fill="#e0f2ed" stroke="none" stroke-width="2"/>
+<text x="1150.0" y="132" font-size="46" fill="#17705b" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">{80, 95, 70, 85}</text>
+<path d="M1150.0 159L1150.0 187" stroke="#17705b" stroke-width="3" fill="none"/>
+<text x="1120" y="230" font-size="31" fill="#17705b" font-weight="700" text-anchor="start">4. 초기값</text>
+<text x="1120" y="274" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">중괄호 { } 안에 값을 쉼표로 구분</text>
+<text x="1120" y="312" font-size="26" fill="#233b53" font-weight="400" text-anchor="start">첫 칸부터 왼쪽 순서대로 저장</text>
+<text x="690" y="132" font-size="46" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">=</text>
+<text x="1570" y="132" font-size="46" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">;</text>
+<path d="M40 350L1560 350" stroke="#dce4ed" stroke-width="2" fill="none"/>
+<text x="40" y="394" font-size="29" fill="#233b53" font-weight="700" text-anchor="start">위 선언으로 만들어지는 배열 scores</text>
+<text x="370" y="445" font-size="27" fill="#233b53" font-weight="400" text-anchor="middle">인덱스 0</text>
+<rect x="220" y="463" width="300" height="90" rx="0" fill="#e6eff8" stroke="#396b9a" stroke-width="2"/>
+<text x="370" y="523" font-size="46" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">80</text>
+<text x="370" y="594" font-size="30" fill="#175fa2" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">scores[0]</text>
+<text x="670" y="445" font-size="27" fill="#233b53" font-weight="400" text-anchor="middle">인덱스 1</text>
+<rect x="520" y="463" width="300" height="90" rx="0" fill="#e6eff8" stroke="#396b9a" stroke-width="2"/>
+<text x="670" y="523" font-size="46" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">95</text>
+<text x="670" y="594" font-size="30" fill="#175fa2" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">scores[1]</text>
+<text x="970" y="445" font-size="27" fill="#233b53" font-weight="400" text-anchor="middle">인덱스 2</text>
+<rect x="820" y="463" width="300" height="90" rx="0" fill="#e6eff8" stroke="#396b9a" stroke-width="2"/>
+<text x="970" y="523" font-size="46" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">70</text>
+<text x="970" y="594" font-size="30" fill="#175fa2" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">scores[2]</text>
+<text x="1270" y="445" font-size="27" fill="#233b53" font-weight="400" text-anchor="middle">인덱스 3</text>
+<rect x="1120" y="463" width="300" height="90" rx="0" fill="#e6eff8" stroke="#396b9a" stroke-width="2"/>
+<text x="1270" y="523" font-size="46" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">85</text>
+<text x="1270" y="594" font-size="30" fill="#175fa2" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">scores[3]</text>
+<text x="800" y="640" font-size="28" fill="#233b53" font-weight="700" text-anchor="middle">원소 개수는 4개, 인덱스는 0부터 3까지</text>
+</g></svg>

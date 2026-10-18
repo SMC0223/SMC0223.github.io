@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="485" viewBox="0 0 1600 485" role="img" aria-labelledby="title desc">
+<title id="title">배열을 기차로 이해하기: scores의 네 칸</title>
+<desc id="desc">기차 편명 scores는 배열 이름. 같은 int형 값을 담는 객차 네 칸의 번호는 0, 1, 2, 3. 저장된 값은 각각 80, 95, 70, 85. 각 칸은 scores[0]부터 scores[3]으로 선택. 배열 이름 scores로 첫 칸의 메모리 주소 확인 가능.</desc>
+<rect width="1600" height="485" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+<path d="M20 337H1560M20 349H1560" stroke="#9bafc0" stroke-width="4"/>
+<path d="M40 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M82 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M124 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M166 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M208 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M250 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M292 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M334 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M376 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M418 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M460 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M502 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M544 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M586 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M628 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M670 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M712 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M754 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M796 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M838 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M880 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M922 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M964 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1006 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1048 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1090 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1132 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1174 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1216 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1258 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1300 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1342 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1384 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1426 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1468 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1510 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M1552 333V354" stroke="#9bafc0" stroke-width="5"/>
+<path d="M270 272h60" stroke="#657f96" stroke-width="9"/>
+<path d="M590 272h60" stroke="#657f96" stroke-width="9"/>
+<path d="M900 272h60" stroke="#657f96" stroke-width="9"/>
+<path d="M1210 272h60" stroke="#657f96" stroke-width="9"/>
+<rect x="35" y="190" width="235" height="100" rx="20" fill="#0e4a84"/>
+<rect x="170" y="95" width="100" height="105" rx="12" fill="#0e4a84"/>
+<rect x="163" y="80" width="114" height="16" rx="7" fill="#233b53"/>
+<rect x="188" y="113" width="64" height="52" rx="8" fill="#e0eefb"/>
+<rect x="60" y="133" width="40" height="57" fill="#0e4a84"/>
+<rect x="49" y="116" width="62" height="18" rx="6" fill="#233b53"/>
+<path d="M35 265 14 290H50Z" fill="#233b53"/>
+<circle cx="92" cy="310" r="23" fill="#233b53"/><circle cx="92" cy="310" r="10" fill="#c4d2de"/>
+<circle cx="218" cy="310" r="23" fill="#233b53"/><circle cx="218" cy="310" r="10" fill="#c4d2de"/>
+<text x="152" y="252" font-size="38" fill="white" font-weight="700" font-family="Consolas, monospace">scores</text>
+<text x="152" y="399" font-size="26" fill="#233b53" font-weight="700">편명 = 배열 이름</text>
+<text x="460" y="90" font-size="32" fill="#233b53" font-weight="700">0번 칸</text>
+<rect x="330" y="135" width="260" height="155" rx="18" fill="#e0eefb" stroke="#396b9a" stroke-width="3"/>
+<text x="460" y="167" font-size="26" fill="#396b9a" font-weight="400" font-family="Consolas, monospace">int</text>
+<rect x="364" y="180" width="192" height="76" rx="12" fill="white"/>
+<text x="460" y="236" font-size="51" fill="#233b53" font-weight="700">80</text>
+<circle cx="391" cy="310" r="22" fill="#233b53"/><circle cx="391" cy="310" r="9" fill="#c4d2de"/>
+<circle cx="529" cy="310" r="22" fill="#233b53"/><circle cx="529" cy="310" r="9" fill="#c4d2de"/>
+<text x="460" y="399" font-size="31" fill="#0e4a84" font-weight="700" font-family="Consolas, monospace">scores[0]</text>
+<text x="770" y="90" font-size="32" fill="#233b53" font-weight="700">1번 칸</text>
+<rect x="640" y="135" width="260" height="155" rx="18" fill="#e0eefb" stroke="#396b9a" stroke-width="3"/>
+<text x="770" y="167" font-size="26" fill="#396b9a" font-weight="400" font-family="Consolas, monospace">int</text>
+<rect x="674" y="180" width="192" height="76" rx="12" fill="white"/>
+<text x="770" y="236" font-size="51" fill="#233b53" font-weight="700">95</text>
+<circle cx="701" cy="310" r="22" fill="#233b53"/><circle cx="701" cy="310" r="9" fill="#c4d2de"/>
+<circle cx="839" cy="310" r="22" fill="#233b53"/><circle cx="839" cy="310" r="9" fill="#c4d2de"/>
+<text x="770" y="399" font-size="31" fill="#0e4a84" font-weight="700" font-family="Consolas, monospace">scores[1]</text>
+<text x="1080" y="90" font-size="32" fill="#233b53" font-weight="700">2번 칸</text>
+<rect x="950" y="135" width="260" height="155" rx="18" fill="#e0eefb" stroke="#396b9a" stroke-width="3"/>
+<text x="1080" y="167" font-size="26" fill="#396b9a" font-weight="400" font-family="Consolas, monospace">int</text>
+<rect x="984" y="180" width="192" height="76" rx="12" fill="white"/>
+<text x="1080" y="236" font-size="51" fill="#233b53" font-weight="700">70</text>
+<circle cx="1011" cy="310" r="22" fill="#233b53"/><circle cx="1011" cy="310" r="9" fill="#c4d2de"/>
+<circle cx="1149" cy="310" r="22" fill="#233b53"/><circle cx="1149" cy="310" r="9" fill="#c4d2de"/>
+<text x="1080" y="399" font-size="31" fill="#0e4a84" font-weight="700" font-family="Consolas, monospace">scores[2]</text>
+<text x="1390" y="90" font-size="32" fill="#233b53" font-weight="700">3번 칸</text>
+<rect x="1260" y="135" width="260" height="155" rx="18" fill="#e0eefb" stroke="#396b9a" stroke-width="3"/>
+<text x="1390" y="167" font-size="26" fill="#396b9a" font-weight="400" font-family="Consolas, monospace">int</text>
+<rect x="1294" y="180" width="192" height="76" rx="12" fill="white"/>
+<text x="1390" y="236" font-size="51" fill="#233b53" font-weight="700">85</text>
+<circle cx="1321" cy="310" r="22" fill="#233b53"/><circle cx="1321" cy="310" r="9" fill="#c4d2de"/>
+<circle cx="1459" cy="310" r="22" fill="#233b53"/><circle cx="1459" cy="310" r="9" fill="#c4d2de"/>
+<text x="1390" y="399" font-size="31" fill="#0e4a84" font-weight="700" font-family="Consolas, monospace">scores[3]</text>
+<text x="800" y="463" font-size="30" fill="#0e4a84" font-weight="700">배열 이름 scores로 첫 칸의 위치(메모리 주소) 확인 가능</text>
+</g></svg>

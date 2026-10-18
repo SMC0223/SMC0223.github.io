@@ -1,0 +1,297 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="860" viewBox="0 0 1600 860" role="img" aria-labelledby="title desc">
+<title id="title">5×5 달팽이 이동: 경계 갱신과 남은 영역 축소</title>
+<desc id="desc">위쪽 행, 오른쪽 열, 아래쪽 행, 왼쪽 열을 차례로 방문한 뒤 경계 갱신. top은 0에서 1, right와 bottom은 4에서 3, left는 0에서 1로 변경. 남은 영역은 5×5에서 3×3으로 축소.</desc>
+<rect width="1600" height="860" fill="white"/>
+<defs><marker id="arrow" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0 0 7 3 0 6Z" fill="#2075b5"/></marker></defs>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="42" y="42" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">① 위쪽 행 방문 완료</text>
+<text x="215" y="75" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">col</text>
+<text x="12" y="100" font-size="23" fill="#526170" font-weight="400" text-anchor="start">row</text>
+<text x="58" y="142" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="107" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="80" y="107" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="142" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">1</text>
+<rect x="134" y="107" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="142" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">2</text>
+<rect x="188" y="107" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="142" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">3</text>
+<rect x="242" y="107" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="142" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">4</text>
+<rect x="296" y="107" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="142" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">5</text>
+<text x="58" y="196" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="161" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="80" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">16</text>
+<rect x="134" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">17</text>
+<rect x="188" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">18</text>
+<rect x="242" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">19</text>
+<rect x="296" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">6</text>
+<text x="58" y="250" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="215" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="80" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">15</text>
+<rect x="134" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">24</text>
+<rect x="188" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">25</text>
+<rect x="242" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">20</text>
+<rect x="296" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">7</text>
+<text x="58" y="304" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="269" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="80" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">14</text>
+<rect x="134" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">23</text>
+<rect x="188" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">22</text>
+<rect x="242" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">21</text>
+<rect x="296" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">8</text>
+<text x="58" y="358" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="323" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="80" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">13</text>
+<rect x="134" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">12</text>
+<rect x="188" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">11</text>
+<rect x="242" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">10</text>
+<rect x="296" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">9</text>
+<rect x="83" y="164" width="264" height="210" fill="none" stroke="#17834b" stroke-width="4" stroke-dasharray="10 7"/>
+<circle cx="323" cy="134" r="23" fill="none" stroke="#2075b5" stroke-width="3"/>
+<path d="M343 149v35" fill="none" stroke="#2075b5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="390" y="133" font-size="33" fill="#2075b5" font-weight="700" text-anchor="start">top++ : 0 → 1</text>
+<text x="390" y="190" font-size="27" fill="#526170" font-weight="400" text-anchor="start">남은 영역(행×열)</text>
+<text x="390" y="233" font-size="35" fill="#17834b" font-weight="700" text-anchor="start">5×5 → 4×5</text>
+<text x="390" y="287" font-size="28" fill="#233b53" font-weight="400" text-anchor="start">다음 방향: 아래 ↓</text>
+<text x="390" y="332" font-size="26" fill="#526170" font-weight="400" text-anchor="start">방문 5칸 · 남은 20칸</text>
+<text x="215" y="404" font-size="23" fill="#233b53" font-weight="400" text-anchor="middle">top=1, bottom=4, left=0, right=4</text>
+<text x="842" y="42" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">② 오른쪽 열 방문 완료</text>
+<text x="1015" y="75" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">col</text>
+<text x="812" y="100" font-size="23" fill="#526170" font-weight="400" text-anchor="start">row</text>
+<text x="858" y="142" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="907" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="880" y="107" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="142" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">1</text>
+<rect x="934" y="107" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="142" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">2</text>
+<rect x="988" y="107" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="142" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">3</text>
+<rect x="1042" y="107" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="142" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">4</text>
+<rect x="1096" y="107" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="142" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">5</text>
+<text x="858" y="196" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="961" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="880" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">16</text>
+<rect x="934" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">17</text>
+<rect x="988" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">18</text>
+<rect x="1042" y="161" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="196" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">19</text>
+<rect x="1096" y="161" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="196" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">6</text>
+<text x="858" y="250" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="1015" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="880" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">15</text>
+<rect x="934" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">24</text>
+<rect x="988" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">25</text>
+<rect x="1042" y="215" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="250" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">20</text>
+<rect x="1096" y="215" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="250" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">7</text>
+<text x="858" y="304" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="1069" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="880" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">14</text>
+<rect x="934" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">23</text>
+<rect x="988" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">22</text>
+<rect x="1042" y="269" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="304" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">21</text>
+<rect x="1096" y="269" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="304" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">8</text>
+<text x="858" y="358" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="1123" y="97" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="880" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">13</text>
+<rect x="934" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">12</text>
+<rect x="988" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">11</text>
+<rect x="1042" y="323" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="358" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">10</text>
+<rect x="1096" y="323" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="358" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">9</text>
+<rect x="883" y="164" width="210" height="210" fill="none" stroke="#17834b" stroke-width="4" stroke-dasharray="10 7"/>
+<circle cx="1123" cy="350" r="23" fill="none" stroke="#2075b5" stroke-width="3"/>
+<path d="M1108 370h-35" fill="none" stroke="#2075b5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1190" y="133" font-size="33" fill="#2075b5" font-weight="700" text-anchor="start">right-- : 4 → 3</text>
+<text x="1190" y="190" font-size="27" fill="#526170" font-weight="400" text-anchor="start">남은 영역(행×열)</text>
+<text x="1190" y="233" font-size="35" fill="#17834b" font-weight="700" text-anchor="start">4×5 → 4×4</text>
+<text x="1190" y="287" font-size="28" fill="#233b53" font-weight="400" text-anchor="start">다음 방향: 왼쪽 ←</text>
+<text x="1190" y="332" font-size="26" fill="#526170" font-weight="400" text-anchor="start">방문 9칸 · 남은 16칸</text>
+<text x="1015" y="404" font-size="23" fill="#233b53" font-weight="400" text-anchor="middle">top=1, bottom=4, left=0, right=3</text>
+<text x="42" y="457" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">③ 아래쪽 행 방문 완료</text>
+<text x="215" y="490" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">col</text>
+<text x="12" y="515" font-size="23" fill="#526170" font-weight="400" text-anchor="start">row</text>
+<text x="58" y="557" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="107" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="80" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">1</text>
+<rect x="134" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">2</text>
+<rect x="188" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">3</text>
+<rect x="242" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">4</text>
+<rect x="296" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">5</text>
+<text x="58" y="611" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="161" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="80" y="576" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="611" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">16</text>
+<rect x="134" y="576" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="611" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">17</text>
+<rect x="188" y="576" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="611" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">18</text>
+<rect x="242" y="576" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="611" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">19</text>
+<rect x="296" y="576" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="611" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">6</text>
+<text x="58" y="665" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="215" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="80" y="630" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="665" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">15</text>
+<rect x="134" y="630" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="665" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">24</text>
+<rect x="188" y="630" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="665" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">25</text>
+<rect x="242" y="630" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="665" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">20</text>
+<rect x="296" y="630" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="665" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">7</text>
+<text x="58" y="719" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="269" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="80" y="684" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="719" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">14</text>
+<rect x="134" y="684" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="719" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">23</text>
+<rect x="188" y="684" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="719" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">22</text>
+<rect x="242" y="684" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="719" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">21</text>
+<rect x="296" y="684" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="719" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">8</text>
+<text x="58" y="773" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="323" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="80" y="738" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="107" y="773" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">13</text>
+<rect x="134" y="738" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="161" y="773" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">12</text>
+<rect x="188" y="738" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="215" y="773" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">11</text>
+<rect x="242" y="738" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="269" y="773" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">10</text>
+<rect x="296" y="738" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="323" y="773" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">9</text>
+<rect x="83" y="579" width="210" height="156" fill="none" stroke="#17834b" stroke-width="4" stroke-dasharray="10 7"/>
+<circle cx="107" cy="765" r="23" fill="none" stroke="#2075b5" stroke-width="3"/>
+<path d="M87 750v-35" fill="none" stroke="#2075b5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="390" y="548" font-size="33" fill="#2075b5" font-weight="700" text-anchor="start">bottom-- : 4 → 3</text>
+<text x="390" y="605" font-size="27" fill="#526170" font-weight="400" text-anchor="start">남은 영역(행×열)</text>
+<text x="390" y="648" font-size="35" fill="#17834b" font-weight="700" text-anchor="start">4×4 → 3×4</text>
+<text x="390" y="702" font-size="28" fill="#233b53" font-weight="400" text-anchor="start">다음 방향: 위 ↑</text>
+<text x="390" y="747" font-size="26" fill="#526170" font-weight="400" text-anchor="start">방문 13칸 · 남은 12칸</text>
+<text x="215" y="819" font-size="23" fill="#233b53" font-weight="400" text-anchor="middle">top=1, bottom=3, left=0, right=3</text>
+<text x="842" y="457" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">④ 왼쪽 열 방문 완료</text>
+<text x="1015" y="490" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">col</text>
+<text x="812" y="515" font-size="23" fill="#526170" font-weight="400" text-anchor="start">row</text>
+<text x="858" y="557" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="907" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="880" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">1</text>
+<rect x="934" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">2</text>
+<rect x="988" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">3</text>
+<rect x="1042" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">4</text>
+<rect x="1096" y="522" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="557" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">5</text>
+<text x="858" y="611" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="961" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="880" y="576" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="611" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">16</text>
+<rect x="934" y="576" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="611" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">17</text>
+<rect x="988" y="576" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="611" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">18</text>
+<rect x="1042" y="576" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="611" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">19</text>
+<rect x="1096" y="576" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="611" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">6</text>
+<text x="858" y="665" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="1015" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="880" y="630" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="665" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">15</text>
+<rect x="934" y="630" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="665" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">24</text>
+<rect x="988" y="630" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="665" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">25</text>
+<rect x="1042" y="630" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="665" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">20</text>
+<rect x="1096" y="630" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="665" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">7</text>
+<text x="858" y="719" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="1069" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="880" y="684" width="54" height="54" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="719" font-size="25" fill="#233b53" font-weight="400" text-anchor="middle">14</text>
+<rect x="934" y="684" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="719" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">23</text>
+<rect x="988" y="684" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="719" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">22</text>
+<rect x="1042" y="684" width="54" height="54" fill="#ffffff" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="719" font-size="25" fill="#8a9aa8" font-weight="400" text-anchor="middle">21</text>
+<rect x="1096" y="684" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="719" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">8</text>
+<text x="858" y="773" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="1123" y="512" font-size="24" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="880" y="738" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="907" y="773" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">13</text>
+<rect x="934" y="738" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="961" y="773" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">12</text>
+<rect x="988" y="738" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1015" y="773" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">11</text>
+<rect x="1042" y="738" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1069" y="773" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">10</text>
+<rect x="1096" y="738" width="54" height="54" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.5"/>
+<text x="1123" y="773" font-size="25" fill="#6d7c88" font-weight="400" text-anchor="middle">9</text>
+<rect x="937" y="579" width="156" height="156" fill="none" stroke="#17834b" stroke-width="4" stroke-dasharray="10 7"/>
+<circle cx="907" cy="603" r="23" fill="none" stroke="#2075b5" stroke-width="3"/>
+<path d="M922 583h35" fill="none" stroke="#2075b5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1190" y="548" font-size="33" fill="#2075b5" font-weight="700" text-anchor="start">left++ : 0 → 1</text>
+<text x="1190" y="605" font-size="27" fill="#526170" font-weight="400" text-anchor="start">남은 영역(행×열)</text>
+<text x="1190" y="648" font-size="35" fill="#17834b" font-weight="700" text-anchor="start">3×4 → 3×3</text>
+<text x="1190" y="702" font-size="28" fill="#233b53" font-weight="400" text-anchor="start">다음 방향: 오른쪽 →</text>
+<text x="1190" y="747" font-size="26" fill="#526170" font-weight="400" text-anchor="start">방문 16칸 · 남은 9칸</text>
+<text x="1015" y="819" font-size="23" fill="#233b53" font-weight="400" text-anchor="middle">top=1, bottom=3, left=1, right=3</text>
+<path d="M800 20V808M35 415H1565" stroke="#dce3e9" stroke-width="2"/>
+<text x="800" y="853" font-size="26" fill="#233b53" font-weight="400" text-anchor="middle">주황: 이번에 제외한 줄 · 회색: 앞서 제외한 영역 · 초록 점선: 남은 경계 · 칸 안 숫자: 방문 순서</text>
+</g></svg>

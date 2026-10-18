@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="550" viewBox="0 0 900 550" role="img" aria-labelledby="title desc">
+<title id="title">배열 순회: i = 3</title>
+<desc id="desc">i는 3. 조건 참. scores[3]의 값 85 출력.</desc>
+<rect width="900" height="550" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+<text x="450" y="45" font-size="38" fill="#233b53" font-weight="700" font-family="Consolas, monospace">i = 3</text>
+<text x="450" y="96" font-size="31" fill="#17705b" font-weight="700">3 &lt; 4 : 참 → 본문 실행</text>
+<text x="127.5" y="157" font-size="30" fill="#56616d" font-weight="400" font-family="Consolas, monospace">0</text>
+<rect x="20" y="177" width="215" height="100" fill="#e6eff8" stroke="#396b9a" stroke-width="2"/>
+<text x="127.5" y="242" font-size="44" fill="#233b53" font-weight="700" font-family="Consolas, monospace">80</text>
+<text x="342.5" y="157" font-size="30" fill="#56616d" font-weight="400" font-family="Consolas, monospace">1</text>
+<rect x="235" y="177" width="215" height="100" fill="#e6eff8" stroke="#396b9a" stroke-width="2"/>
+<text x="342.5" y="242" font-size="44" fill="#233b53" font-weight="700" font-family="Consolas, monospace">95</text>
+<text x="557.5" y="157" font-size="30" fill="#56616d" font-weight="400" font-family="Consolas, monospace">2</text>
+<rect x="450" y="177" width="215" height="100" fill="#e6eff8" stroke="#396b9a" stroke-width="2"/>
+<text x="557.5" y="242" font-size="44" fill="#233b53" font-weight="700" font-family="Consolas, monospace">70</text>
+<text x="772.5" y="157" font-size="30" fill="#17705b" font-weight="700" font-family="Consolas, monospace">3</text>
+<rect x="665" y="177" width="215" height="100" fill="#17705b" stroke="#17705b" stroke-width="4"/>
+<text x="772.5" y="242" font-size="44" fill="white" font-weight="700" font-family="Consolas, monospace">85</text>
+<text x="450" y="333" font-size="34" fill="#17705b" font-weight="700" font-family="Consolas, monospace">scores[3] = 85</text>
+<text x="450" y="387" font-size="28" fill="#233b53" font-weight="700">지금까지 출력</text>
+<rect x="20" y="405" width="860" height="75" rx="8" fill="#f5f7f9"/>
+<text x="450" y="455" font-size="37" fill="#233b53" font-weight="700" font-family="Consolas, monospace">80 95 70 85</text>
+<text x="450" y="530" font-size="29" fill="#233b53" font-weight="400">본문 실행 후 i++ : 3 → 4</text>
+</g></svg>

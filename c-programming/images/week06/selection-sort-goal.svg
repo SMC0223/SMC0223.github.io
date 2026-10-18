@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title"><title id="title">정렬 전의 배열과 작은 수부터 나열한 오름차순 배열</title><rect width="1600" height="560" fill="white"/><g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="350" y="55" font-size="37" fill="#233b53" font-weight="700" text-anchor="middle">정렬 전</text>
+<text x="1210" y="55" font-size="37" fill="#233b53" font-weight="700" text-anchor="middle">오름차순 정렬 후</text>
+<rect x="35" y="150" width="105" height="280" rx="6" fill="#9765b2"/>
+<text x="87.5" y="135" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<text x="87.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<rect x="160" y="262" width="105" height="168" rx="6" fill="#4775c1"/>
+<text x="212.5" y="247" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="212.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<rect x="285" y="206" width="105" height="224" rx="6" fill="#d99a29"/>
+<text x="337.5" y="191" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<text x="337.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<rect x="410" y="374" width="105" height="56" rx="6" fill="#25836d"/>
+<text x="462.5" y="359" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<text x="462.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<rect x="535" y="318" width="105" height="112" rx="6" fill="#1687a2"/>
+<text x="587.5" y="303" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="587.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<path d="M25 431H650" stroke="#8fa4b6" stroke-width="3"/>
+<rect x="895" y="374" width="105" height="56" rx="6" fill="#25836d"/>
+<text x="947.5" y="359" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<text x="947.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<rect x="1020" y="318" width="105" height="112" rx="6" fill="#1687a2"/>
+<text x="1072.5" y="303" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="1072.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<rect x="1145" y="262" width="105" height="168" rx="6" fill="#4775c1"/>
+<text x="1197.5" y="247" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="1197.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<rect x="1270" y="206" width="105" height="224" rx="6" fill="#d99a29"/>
+<text x="1322.5" y="191" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<text x="1322.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<rect x="1395" y="150" width="105" height="280" rx="6" fill="#9765b2"/>
+<text x="1447.5" y="135" font-size="38" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<text x="1447.5" y="470" font-size="26" fill="#64748b" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<path d="M885 431H1510" stroke="#8fa4b6" stroke-width="3"/>
+<path d="M704 284H838M821 271 838 284 821 297" fill="none" stroke="#657f96" stroke-width="5"/>
+<text x="800" y="535" font-size="32" fill="#233b53" font-weight="700" text-anchor="middle">숫자의 크기는 막대 높이, 같은 숫자는 같은 색으로 표시</text>
+</g></svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="650" viewBox="0 0 1600 650" role="img" aria-labelledby="title desc">
+<title id="title">한 줄의 배열에서 행과 열로 나눈 2차원 배열로</title>
+<desc id="desc">왼쪽은 값 5 4 3을 한 줄에 저장한 1차원 배열. 오른쪽은 세 줄로 배치한 3행 3열의 2차원 배열. 행 i와 열 j는 모두 0부터 2까지. 행 번호 1과 열 번호 2가 만나는 map[1][2]의 값 2를 초록색으로 표시.</desc>
+<rect width="1600" height="650" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif" text-anchor="middle">
+<text x="320" y="47" font-size="34" fill="#233b53" font-weight="700">1차원 배열: 한 줄의 칸</text>
+<text x="140" y="216" font-size="31" fill="#64748b" font-weight="400" font-family="Consolas, monospace">0</text>
+<rect x="50" y="244" width="180" height="120" fill="#e6eff8" stroke="#9bafc0" stroke-width="2"/>
+<text x="140" y="324" font-size="53" fill="#233b53" font-weight="700" font-family="Consolas, monospace">5</text>
+<text x="320" y="216" font-size="31" fill="#64748b" font-weight="400" font-family="Consolas, monospace">1</text>
+<rect x="230" y="244" width="180" height="120" fill="#e6eff8" stroke="#9bafc0" stroke-width="2"/>
+<text x="320" y="324" font-size="53" fill="#233b53" font-weight="700" font-family="Consolas, monospace">4</text>
+<text x="500" y="216" font-size="31" fill="#64748b" font-weight="400" font-family="Consolas, monospace">2</text>
+<rect x="410" y="244" width="180" height="120" fill="#e6eff8" stroke="#9bafc0" stroke-width="2"/>
+<text x="500" y="324" font-size="53" fill="#233b53" font-weight="700" font-family="Consolas, monospace">3</text>
+<text x="320" y="428" font-size="31" fill="#233b53" font-weight="700">칸 번호 하나로 위치 선택</text>
+<text x="320" y="475" font-size="28" fill="#233b53" font-weight="400">번호는 0부터 시작</text>
+<path d="M620 305H704" stroke="#657f96" stroke-width="4"/><path d="M704 305 687 294V316Z" fill="#657f96"/>
+<text x="662" y="271" font-size="25" fill="#52667c" font-weight="700">행 추가</text>
+<g transform="translate(680,0)">
+<text x="480" y="47" font-size="34" fill="#233b53" font-weight="700">2차원 배열: 3행 × 3열</text>
+<text x="480" y="98" font-size="30" fill="#535ba0" font-weight="700">열 j</text>
+<text x="88" y="147" font-size="32" fill="#175fa2" font-weight="700">행 i</text>
+<text x="280" y="147" font-size="30" fill="#535ba0" font-weight="400">0열</text>
+<text x="480" y="147" font-size="30" fill="#535ba0" font-weight="400">1열</text>
+<text x="680" y="147" font-size="30" fill="#535ba0" font-weight="700">2열</text>
+<text x="88" y="245" font-size="30" fill="#175fa2" font-weight="400">0행</text>
+<rect x="180" y="175" width="200" height="110" fill="#f5f7f9" stroke="#9bafc0" stroke-width="2"/>
+<text x="280" y="249" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">5</text>
+<rect x="380" y="175" width="200" height="110" fill="#f5f7f9" stroke="#9bafc0" stroke-width="2"/>
+<text x="480" y="249" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">4</text>
+<rect x="580" y="175" width="200" height="110" fill="#e5eafa" stroke="#9bafc0" stroke-width="2"/>
+<text x="680" y="249" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">3</text>
+<text x="88" y="355" font-size="30" fill="#175fa2" font-weight="700">1행</text>
+<rect x="180" y="285" width="200" height="110" fill="#e6eff8" stroke="#9bafc0" stroke-width="2"/>
+<text x="280" y="359" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">4</text>
+<rect x="380" y="285" width="200" height="110" fill="#e6eff8" stroke="#9bafc0" stroke-width="2"/>
+<text x="480" y="359" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">3</text>
+<rect x="580" y="285" width="200" height="110" fill="#17705b" stroke="#9bafc0" stroke-width="2"/>
+<text x="680" y="359" font-size="51" fill="white" font-weight="700" font-family="Consolas, monospace">2</text>
+<text x="88" y="465" font-size="30" fill="#175fa2" font-weight="400">2행</text>
+<rect x="180" y="395" width="200" height="110" fill="#f5f7f9" stroke="#9bafc0" stroke-width="2"/>
+<text x="280" y="469" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">3</text>
+<rect x="380" y="395" width="200" height="110" fill="#f5f7f9" stroke="#9bafc0" stroke-width="2"/>
+<text x="480" y="469" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">2</text>
+<rect x="580" y="395" width="200" height="110" fill="#e5eafa" stroke="#9bafc0" stroke-width="2"/>
+<text x="680" y="469" font-size="51" fill="#233b53" font-weight="700" font-family="Consolas, monospace">1</text>
+<rect x="180" y="285" width="600" height="110" fill="none" stroke="#175fa2" stroke-width="3"/>
+<rect x="580" y="175" width="200" height="330" fill="none" stroke="#535ba0" stroke-width="3"/>
+<rect x="580" y="285" width="200" height="110" fill="none" stroke="#17705b" stroke-width="5"/>
+<text x="480" y="579" font-family="Consolas, monospace" font-size="42" font-weight="700"><tspan fill="#233b53">map</tspan><tspan fill="#175fa2">[1]</tspan><tspan fill="#535ba0">[2]</tspan><tspan fill="#17705b"> = 2</tspan></text>
+<text x="480" y="627" font-size="28" fill="#233b53" font-weight="400">행 번호 1과 열 번호 2가 만나는 칸</text>
+</g></g></svg>

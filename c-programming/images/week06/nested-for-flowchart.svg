@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="605" viewBox="0 0 800 605" role="img" aria-label="안쪽 반복 종료 후 바깥 반복 증감. 새 행마다 col을 1로 초기화."><rect width="800" height="605" fill="white"/><defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 9 4 0 8Z" fill="#496c8d"/></marker></defs><g font-family="Malgun Gothic, Noto Sans KR, sans-serif" fill="#233b53"><g fill="none" stroke="#496c8d" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M300 62V92M300 176V210M300 262V299M300 383V419M300 471V505M300 557V579H58V278H300V299"/>
+<path d="M460 341H625V392M625 444V480H755V78H300V92"/><path d="M460 134H640V171"/>
+</g><g fill="white" stroke="#34475c" stroke-width="2.2">
+<rect x="180" y="10" width="240" height="52" rx="26"/><path d="M300 92 460 134 300 176 140 134Z"/><rect x="155" y="210" width="290" height="52"/>
+<path d="M300 299 460 341 300 383 140 341Z"/><path d="M170 419H450L430 471H150Z"/><rect x="160" y="505" width="280" height="52"/>
+<rect x="550" y="392" width="150" height="52"/><rect x="565" y="171" width="150" height="50" rx="25"/>
+</g><g text-anchor="middle" font-size="27"><text x="300" y="45">i = 1</text><text x="300" y="143">i &lt;= 3?</text><text x="300" y="244">j = 1</text><text x="300" y="351">j &lt;= 4?</text><text x="300" y="454">(i, j) 출력</text><text x="300" y="540">j++</text><text x="625" y="427">i++</text><text x="640" y="205">종료</text><text x="330" y="199" font-size="22">참</text><text x="330" y="408" font-size="22">참</text><text x="494" y="122" font-size="22">거짓</text><text x="494" y="330" font-size="22">거짓</text></g></g></svg>

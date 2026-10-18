@@ -11,6 +11,12 @@
     const resetButton = runner.querySelector("[data-reset]");
     const initialCode = editor.value;
     const initialInput = input.value;
+    const publish = (name, detail) => runner.dispatchEvent(new CustomEvent(`c-runner:${name}`, { detail }));
+    const clearExecution = () => {
+      output.dataset.stdout = "";
+      output.dataset.executedSource = "";
+      output.dataset.executedInput = "";
+    };
 
     const setStatus = (message, state) => {
       status.textContent = message;
@@ -22,6 +28,7 @@
       editor.dispatchEvent(new Event("input", { bubbles: true }));
       input.value = initialInput;
       output.textContent = "실행 결과가 여기에 표시됩니다.";
+      clearExecution();
       setStatus("실행 준비", "idle");
     });
 
@@ -30,7 +37,10 @@
       resetButton.disabled = true;
       output.textContent = "컴파일 중…";
       const executedInput = input.value;
+      const executedSource = editor.value;
+      clearExecution();
       setStatus("Compiler Explorer에 연결 중", "running");
+      publish('start', { source: executedSource, input: executedInput });
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 30000);
 
@@ -39,7 +49,7 @@
           method: "POST",
           headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify({
-            source: editor.value,
+            source: executedSource,
             lang: "c",
             options: {
               userArguments: "-std=c11 -O0 -Wall -Wextra -lm",
@@ -81,7 +91,9 @@
         globalThis.renderCompilerAnsi(output, displayText);
         output.dataset.stdout = outcome ? "" : lines(execution?.stdout);
         output.dataset.executedInput = executedInput;
+        output.dataset.executedSource = executedSource;
         setStatus(outcome || "실행 완료", outcome ? "error" : "success");
+        publish('complete', { success: !outcome, source: executedSource, input: executedInput, stdout: output.dataset.stdout });
       } catch (error) {
         let reason = "Compiler Explorer에 연결할 수 없습니다. 네트워크 또는 브라우저의 교차 출처 요청(CORS) 제한을 확인하세요.";
         if (error.name === "AbortError") reason = "Compiler Explorer 응답 대기 시간이 30초를 초과했습니다.";
@@ -90,6 +102,7 @@
         else if (error.name === "SyntaxError" || error.message === "Invalid API response") reason = "Compiler Explorer에서 올바른 실행 응답을 받지 못했습니다.";
         output.textContent = reason;
         setStatus("실행 실패", "error");
+        publish('complete', { success: false, source: executedSource, input: executedInput, stdout: "" });
       } finally {
         clearTimeout(timeout);
         runButton.disabled = false;

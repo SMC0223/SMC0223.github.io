@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img" aria-labelledby="title desc">
+<title id="title">중심 (2, 2) 도착: 25번째 좌표 출력 후 종료</title>
+<desc id="desc">중심 (2, 2) 도착. count는 25, n*n도 25이므로 break로 종료. 모든 경계값은 2를 유지하며 추가 방향 전환과 이동 없음.</desc>
+<rect width="1000" height="600" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="215" y="40" font-size="28" fill="#233b53" font-weight="700" text-anchor="middle">direction = 0 · count = 25</text>
+<text x="215" y="91" font-size="36" fill="#2075b5" font-weight="700" text-anchor="middle">row = 2, col = 2</text>
+<text x="50" y="216" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="103" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="75" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="272" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="159" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="75" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="328" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="215" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="75" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="292" width="56" height="56" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="384" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="271" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="75" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="440" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="327" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="75" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="190" y="295" width="50" height="50" fill="none" stroke="#17834b" stroke-width="4" stroke-dasharray="8 5"/>
+<circle cx="215" cy="320" r="20" fill="none" stroke="#2075b5" stroke-width="3"/>
+<text x="215" y="329" font-size="24" fill="#2075b5" font-weight="700" text-anchor="middle">25</text>
+<text x="215" y="512" font-size="26" fill="#233b53" font-weight="400" text-anchor="middle">25번째 좌표 출력</text>
+<text x="215" y="568" font-size="24" fill="#17834b" font-weight="700" text-anchor="middle">top = bottom = left = right = 2</text>
+<text x="785" y="40" font-size="28" fill="#233b53" font-weight="700" text-anchor="middle">count == n * n</text>
+<text x="785" y="91" font-size="36" fill="#17834b" font-weight="700" text-anchor="middle">break</text>
+<text x="620" y="216" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="673" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="645" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="272" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="729" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="645" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="328" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="785" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="645" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="292" width="56" height="56" fill="#e0eefb" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="384" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="841" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="645" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="440" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="897" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="645" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="760" y="295" width="50" height="50" fill="none" stroke="#17834b" stroke-width="4" stroke-dasharray="8 5"/>
+<circle cx="785" cy="320" r="20" fill="none" stroke="#2075b5" stroke-width="3"/>
+<text x="785" y="329" font-size="24" fill="#2075b5" font-weight="700" text-anchor="middle">25</text>
+<text x="785" y="512" font-size="26" fill="#233b53" font-weight="400" text-anchor="middle">경계 갱신·추가 이동 없음</text>
+<text x="785" y="568" font-size="24" fill="#17834b" font-weight="700" text-anchor="middle">top = bottom = left = right = 2</text>
+<text x="500" y="278" font-size="27" fill="#233b53" font-weight="400" text-anchor="middle">종료 검사</text>
+</g></svg>

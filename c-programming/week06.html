@@ -1,0 +1,1191 @@
+<!doctype html>
+<html lang="ko" data-asset-base=".">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="성민창"><meta name="source" content="content/week06.md">
+  <title>WEEK 06 · 중첩 반복문과 배열 기초</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="./assets/katex/katex.min.css">
+  <link rel="stylesheet" href="./assets/css/variables.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/typography.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css?v=linenums-20261004"><link rel="stylesheet" href="./assets/css/mermaid.css?v=flowchart-wide-v3-20260929"><link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/css/bit-lamps.css">
+  <link rel="stylesheet" href="./assets/css/logic-review.css">
+  <link rel="stylesheet" href="./assets/css/line-tracer.css">
+  <link rel="stylesheet" href="./assets/css/c-editor.css">
+  <link rel="stylesheet" href="./assets/css/physics.css">
+  <link rel="stylesheet" href="./assets/css/robot-arm.css">
+  <link rel="stylesheet" href="./assets/css/one-link.css?v=20260920-xzero">
+  <link rel="stylesheet" href="./assets/css/addition-cycle.css">
+  <link rel="stylesheet" href="./assets/css/spiral-grid.css">
+  <link rel="stylesheet" href="./assets/css/sort-bars.css">
+  <link rel="stylesheet" href="./assets/css/lowpass-filter.css">
+<link rel="stylesheet" href="./assets/css/large-type.css">
+</head>
+<body>
+  <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. Edit content/week06.md and run the build instead. -->
+  <script src="./assets/js/ansi-output.js"></script>
+  <main class="reveal" aria-label="중첩 반복문과 배열 기초 presentation"><div class="slides">
+      <section class="title-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="title-content"><div class="eyebrow">WEEK 06</div><h1>중첩 반복문과 배열 기초</h1><p class="slide-subtitle">반복 구조와 여러 값의 저장</p><div class="title-rule"></div><div class="title-meta"><span><strong>강사</strong> 성민창</span><span><strong>일시</strong> <span data-live-date>날짜 확인 중…</span> · 14:30–17:30</span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>복습: 5주차 마지막 실습 코드 구현</h1>
+<p>달팽이 이동: for로 방문 횟수 관리, if로 경계와 방향 갱신</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습: 달팽이 이동의 구현 순서</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="images/week05/spiral-grid-flowchart.svg" alt="달팽이 이동의 실행 흐름." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ol>
+<li>위치·방향·경계 초기화.</li>
+<li>현재 좌표 출력.</li>
+<li>마지막 칸이면 종료.</li>
+<li>방향의 끝에 도달하면 경계 축소·방향 전환.</li>
+<li>새 방향으로 한 칸 이동.</li>
+</ol>
+<ul>
+<li>입력 조건: n은 3 이상의 홀수.</li>
+<li>시작 좌표 포함 <mark>n × n칸</mark> 방문.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 75fr) minmax(0, 25fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습: 달팽이 이동 완성 코드</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="interactive-layout interactive-notes-none" data-c-runner data-spiral-source><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int n = 5;
+    int row = 0, col = 0, direction = 0;
+    int top = 0, bottom = n - 1;
+    int left = 0, right = n - 1;
+    for (int count = 1; count &lt;= n * n; count++) {
+        printf(&quot;%d %d\n&quot;, row, col);
+        if (count == n * n) {
+            break;
+        }
+        if (direction == 0 &amp;&amp; col == right) {
+            top++;
+            direction = 1;
+        } else if (direction == 1 &amp;&amp; row == bottom) {
+            right--;
+            direction = 2;
+        } else if (direction == 2 &amp;&amp; col == left) {
+            bottom--;
+            direction = 3;
+        } else if (direction == 3 &amp;&amp; row == top) {
+            left++;
+            direction = 0;
+        }
+        if (direction == 0) col++;
+        else if (direction == 1) row++;
+        else if (direction == 2) col--;
+        else row--;
+    }
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><div class="comparison-item"><div class="spiral-grid" data-spiral-grid>
+    <div class="button-row"><label>격자 크기 n <input data-size type="number" min="3" max="25" step="2" value="5"></label><button class="btn btn-primary" data-apply type="button">실행 결과 적용</button></div>
+    <p data-message role="status">실행 준비</p>
+    <div data-board class="spiral-board" aria-label="달팽이 이동 격자"></div>
+  </div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 위쪽 행 제외와 아래쪽 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">if (direction == 0
+    &amp;&amp; col == right) {
+    top++;
+    direction = 1;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"><mark>1</mark></td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">4</td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-top.svg" alt="오른쪽 이동의 판단 조건 col == right를 빨강으로 표시. top 0→1 갱신을 초록으로 표시. direction 0→1과 5×5→4×5 영역 축소." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 오른쪽 열 제외와 왼쪽 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">else if (direction == 1
+         &amp;&amp; row == bottom) {
+    right--;
+    direction = 2;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right"><mark>3</mark></td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">4</td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-right.svg" alt="아래쪽 이동의 판단 조건 row == bottom를 빨강으로 표시. right 4→3 갱신을 초록으로 표시. direction 1→2와 4×5→4×4 영역 축소." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 아래쪽 행 제외와 위쪽 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">else if (direction == 2
+         &amp;&amp; col == left) {
+    bottom--;
+    direction = 3;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right"><mark>3</mark></td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-bottom.svg" alt="왼쪽 이동의 판단 조건 col == left를 빨강으로 표시. bottom 4→3 갱신을 초록으로 표시. direction 2→3과 4×4→3×4 영역 축소." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 왼쪽 열 제외와 오른쪽 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">else if (direction == 3
+         &amp;&amp; row == top) {
+    left++;
+    direction = 0;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"><mark>1</mark></td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-left.svg" alt="위쪽 이동의 판단 조건 row == top를 빨강으로 표시. left 0→1 갱신을 초록으로 표시. direction 3→0과 3×4→3×3 영역 축소." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 안쪽 위 행 제외와 아래쪽 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">if (direction == 0
+    &amp;&amp; col == right) {
+    top++;
+    direction = 1;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right"><mark>2</mark></td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-inner-top.svg" alt="안쪽 오른쪽 이동에서 col == right로 판단. right는 3 유지, top은 1→2로 갱신, direction은 0→1로 변경." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 안쪽 오른 열 제외와 왼쪽 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">else if (direction == 1
+         &amp;&amp; row == bottom) {
+    right--;
+    direction = 2;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right"><mark>2</mark></td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-inner-right.svg" alt="안쪽 아래쪽 이동에서 row == bottom으로 판단. bottom은 3 유지, right는 3→2로 갱신, direction은 1→2로 변경." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 안쪽 아래 행 제외와 위쪽 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">else if (direction == 2
+         &amp;&amp; col == left) {
+    bottom--;
+    direction = 3;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right"><mark>2</mark></td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-inner-bottom.svg" alt="안쪽 왼쪽 이동에서 col == left로 판단. left는 1 유지, bottom은 3→2로 갱신, direction은 2→3으로 변경." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 안쪽 왼 열 제외와 중심 이동</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">else if (direction == 3
+         &amp;&amp; row == top) {
+    left++;
+    direction = 0;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">갱신 전</th>
+<th style="text-align:right">갱신 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right"><mark>2</mark></td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-inner-left.svg" alt="row == top으로 판단. top은 2 유지, left는 1→2로 갱신, direction은 3→0으로 변경. 다음 이동으로 중심 (2, 2)에 도착." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>복습 해설: 중심 좌표 출력 후 종료</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">printf(&quot;%d %d\n&quot;, row, col);
+if (count == n * n) {
+    break;
+}
+</code></pre>
+</div><table>
+<thead>
+<tr>
+<th>경계</th>
+<th style="text-align:right">도착 시</th>
+<th style="text-align:right">종료 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>right</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>left</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+</tr>
+</tbody>
+</table>
+</div><div class="comparison-item"><p><img src="images/week06/spiral-boundary-center.svg" alt="25번째 좌표 (2, 2) 출력 후 count == n*n으로 종료. 경계 갱신·추가 이동 없이 right, left, top, bottom은 모두 2 유지." class="md-image img-full img-align-center"></p>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>01. 반복문 안의 반복문</h1>
+<p>바깥 반복 한 번에, 안쪽 반복 전체 수행</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>중첩 for문의 구조</h2></div></header><div class="slide-content">
+<p><img src="images/week06/nested-for-structure.svg" alt="바깥 for는 행, 안쪽 for는 열을 변경하며 좌표를 출력하는 구조." class="md-image img-full img-align-center"></p>
+<ul>
+<li><mark>중첩 반복문</mark>: 반복문의 본문 안에 다른 반복문을 배치한 구조.</li>
+<li>반복 변수는 바깥에서부터 <mark>i → j → k 순서로 사용하는 경우가 많음</mark>.</li>
+<li>격자 출력 예시: <code>i</code>는 행, <code>j</code>는 열의 진행 상태 저장.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 52fr) minmax(0, 48fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>구구단: 한 단을 끝내고 다음 단으로</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="images/week06/gugudan-for-flowchart.svg" alt="2단부터 9단까지 출력하는 중첩 for문의 순서도. i는 단, j는 곱할 수. j가 9까지 반복한 뒤 i 증가, 다음 단에서는 j를 다시 1로 초기화." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><h3>i는 단, j는 곱할 수</h3>
+<ol>
+<li><code>i = 2</code>로 2단 시작.</li>
+<li><code>j = 1</code>부터 <code>9</code>까지 증가하며 <code>2 × j</code> 출력.</li>
+<li><code>j = 10</code>이면 안쪽 조건 거짓 → 2단 종료.</li>
+<li><code>i++</code>로 다음 단 선택, <mark>j를 다시 1로 초기화</mark>.</li>
+<li>같은 과정을 반복하여 <mark>9단까지 출력</mark>.</li>
+</ol>
+<ul>
+<li><mark>한 단의 곱셈을 모두 마친 뒤 다음 단 선택</mark>.</li>
+<li>바깥 반복은 단, 안쪽 반복은 해당 단의 곱셈 관리.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 45fr) minmax(0, 55fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실행 추적: 2단부터 9단까지</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">for (int i = 2; i &lt;= 9; i++) {
+    for (int j = 1; j &lt;= 9; j++) {
+        printf(&quot;%d x %d = %d\n&quot;,
+               i, j, i * j);
+    }
+}
+</code></pre>
+</div><ul>
+<li>한 단 안에서는 <code>i</code> 고정, <code>j</code>만 증가.</li>
+<li>2단 종료 후 <mark>i는 3, j는 다시 1</mark>.</li>
+</ul>
+</div><div class="comparison-item"><table>
+<thead>
+<tr>
+<th>출력 순서</th>
+<th style="text-align:right">i: 단</th>
+<th style="text-align:right">j: 곱할 수</th>
+<th>출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1</td>
+<td><code>2 x 1 = 2</code></td>
+</tr>
+<tr>
+<td>…</td>
+<td style="text-align:right">…</td>
+<td style="text-align:right">…</td>
+<td>중간 생략</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">9</td>
+<td><code>2 x 9 = 18</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1</td>
+<td><code>3 x 1 = 3</code></td>
+</tr>
+<tr>
+<td>…</td>
+<td style="text-align:right">…</td>
+<td style="text-align:right">…</td>
+<td>중간 생략</td>
+</tr>
+<tr>
+<td>64</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">1</td>
+<td><code>9 x 1 = 9</code></td>
+</tr>
+<tr>
+<td>72</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">9</td>
+<td><code>9 x 9 = 81</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>출력 횟수: <mark>8개 단 × 9개 항 = 72회</mark>.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>02. 반복으로 모양 만들기</h1>
+<p>행은 바깥에서, 한 줄의 문자는 안쪽에서 결정</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>별 출력 1단계: n개씩 n행 출력</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>입력 n = 5의 목표 출력</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">*****
+*****
+*****
+*****
+*****
+</code></pre>
+</div><ul>
+<li>입력 조건: 양의 정수 <code>n</code>.</li>
+<li>한 줄의 별 개수: <mark>n개</mark>.</li>
+<li>전체 줄 수: <mark>n행</mark>.</li>
+</ul>
+</div><div class="comparison-item"><h3>두 반복문의 역할</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">i를 1부터 n까지 반복
+    j를 1부터 n까지 반복
+        별 하나 출력
+    줄바꿈
+</code></pre>
+</div><ul>
+<li><code>i</code>: 출력할 행 선택.</li>
+<li><code>j</code>: 같은 행에서 별 하나씩 출력.</li>
+<li>줄바꿈: <mark>안쪽 반복이 끝난 뒤</mark>.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 1: n을 입력받아 별 정사각형 출력</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>양의 정수 n을 입력받아 별 n개씩 n행 출력. 5로 완성한 뒤 3으로 변경해 결과 비교.</p><div class="callout-note"><strong>Hint</strong><p>i와 j 모두 1부터 n까지 반복. printf(&quot;*&quot;)는 안쪽 반복, printf(&quot;\n&quot;)는 한 행 종료 후 수행.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="8" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int n = 0;
+    scanf(&quot;%d&quot;, &amp;n);
+
+    // 중첩 for문으로 별 n개씩 n행 출력.
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">5</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>별 출력 2단계: 1, 3, 5, …, n개 출력</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>입력 n = 5의 목표 출력</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">*
+***
+*****
+</code></pre>
+</div><ul>
+<li>입력 조건: <mark>양의 홀수 n</mark>.</li>
+<li>이번 줄의 별 개수: <code>i = 1, 3, 5, …, n</code>.</li>
+<li>전체 줄 수: <code>(n + 1) / 2</code>.</li>
+</ul>
+</div><div class="comparison-item"><h3>이번 줄에는 i개 출력</h3>
+<table>
+<thead>
+<tr>
+<th>바깥 변수 i</th>
+<th>안쪽 변수 j</th>
+<th style="text-align:right">출력할 별 개수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1~3</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1~5</td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>바깥 반복: <code>i = 1</code>, <code>i &lt;= n</code>, <mark>i += 2</mark>.</li>
+<li>안쪽 반복: <code>j = 1</code>, <mark>j &lt;= i</mark>, <code>j++</code>.</li>
+<li>1단계의 고정 별 개수 <code>n</code>을 현재 값 <code>i</code>로 변경.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 2: 별 개수를 두 개씩 늘려 출력</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>양의 홀수 n을 입력받아 별 1개, 3개, 5개, …, n개를 줄별로 출력. 5와 7로 결과 비교.</p><div class="callout-note"><strong>Hint</strong><p>바깥 변수 i는 1에서 시작해 2씩 증가. 각 줄에서는 j를 1부터 i까지 반복해 별 출력.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="8" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int n = 0;
+    scanf(&quot;%d&quot;, &amp;n);
+
+    // 바깥 for: 이번 줄의 별 개수를 2씩 증가.
+    // 안쪽 for: 현재 i개만큼 별 출력.
+    // 한 줄 종료 후 줄바꿈.
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">5</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>별 출력 3단계: n, n-2, …, 1개 출력</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>입력 n = 5의 목표 출력</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">*****
+***
+*
+</code></pre>
+</div><ul>
+<li>입력 조건: <mark>양의 홀수 n</mark>.</li>
+<li>이번 줄의 별 개수: <code>i = n, n-2, …, 1</code>.</li>
+<li>2단계와 같은 별 개수를 반대 순서로 출력.</li>
+</ul>
+</div><div class="comparison-item"><h3>i를 n부터 1까지 2씩 감소</h3>
+<table>
+<thead>
+<tr>
+<th>바깥 변수 i</th>
+<th>안쪽 변수 j</th>
+<th style="text-align:right">출력할 별 개수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>1~5</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1~3</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>바깥 반복: <mark>i = n</mark>, <mark>i &gt;= 1</mark>, <mark>i -= 2</mark>.</li>
+<li>안쪽 반복: <code>j = 1</code>, <code>j &lt;= i</code>, <code>j++</code> 유지.</li>
+<li>한 줄의 출력을 마친 뒤 다음 별 개수로 감소.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 3: 별 개수를 두 개씩 줄여 출력</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>양의 홀수 n을 입력받아 별 n개, n-2개, …, 1개를 줄별로 출력. 실습 2의 시작값·조건·증감 수정.</p><div class="callout-note"><strong>Hint</strong><p>바깥 변수 i는 n에서 시작해 2씩 감소. 안쪽 반복은 실습 2와 동일. i = 1인 줄도 포함.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="8" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int n = 0;
+    scanf(&quot;%d&quot;, &amp;n);
+
+    // 바깥 for: 이번 줄의 별 개수를 2씩 감소.
+    // 안쪽 for: 현재 i개만큼 별 출력.
+    // 한 줄 종료 후 줄바꿈.
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">5</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 4: 사각형 외곽만 별로 출력</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>입력: 행 6, 열 5</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">*****
+*   *
+*   *
+*   *
+*   *
+*****
+</code></pre>
+</div><ul>
+<li>입력 순서: <code>rows cols</code>, 예시 <code>6 5</code>.</li>
+<li>행·열 수는 양의 정수.</li>
+<li>첫 행·마지막 행 또는 첫 열·마지막 열이면 <mark>별 출력</mark>.</li>
+<li>내부 칸은 <mark>공백 한 칸 출력</mark>.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>행·열 수를 입력받아 사각형 테두리를 별로 출력.</p><div class="callout-note"><strong>Hint</strong><p>중첩 for문과 if·else 사용. 내부는 공백, 한 행 종료 후 줄바꿈.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="8" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int rows = 0, cols = 0;
+    scanf(&quot;%d %d&quot;, &amp;rows, &amp;cols);
+
+    // 행 i와 열 j를 반복하며 테두리·내부 구분 후 출력.
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">6 5</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 45fr) minmax(0, 55fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>무한 반복 1: 안쪽 변수 j가 진행하지 못함</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>목표: 별 5개씩 3행 출력</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">for (int i = 1; i &lt;= 3; i++) {
+    for (int j = 1; j &lt;= 5; ) {
+        printf(&quot;*&quot;);
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li>안쪽 for의 <mark>증감식 누락</mark>.</li>
+<li>본문에서 <code>j = 1</code>을 반복하는 경우도 같은 유형.</li>
+</ul>
+</div><div class="comparison-item"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th style="text-align:right">i</th>
+<th style="text-align:right">j</th>
+<th>결과·다음 동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>안쪽 초기화</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td><code>j &lt;= 5</code> 검사</td>
+</tr>
+<tr>
+<td>조건 검사</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td>참 → 별 출력</td>
+</tr>
+<tr>
+<td>별 출력 후</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td>증감 없이 조건 재검사</td>
+</tr>
+<tr>
+<td>다시 조건 검사</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td>계속 참 → 별 출력 반복</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>j</code>가 계속 1 → <mark>조건이 거짓이 되지 않음</mark>.</li>
+<li>줄바꿈과 바깥 반복의 <code>i++</code>에 도달하지 못함.</li>
+</ul>
+<details class="quiz-answer"><summary><span class="answer-show">정답 확인</span><span class="answer-hide">정답 접기</span></summary><div class="quiz-answer-body"><h3>수정: 안쪽 증감식에 j++ 추가</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-c">for (int j = 1; j &lt;= 5; j++)
+</code></pre>
+</div><ul>
+<li><code>j = 6</code>에서 안쪽 반복 종료 → 줄바꿈 → <code>i++</code>.</li>
+</ul>
+</div></details>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 45fr) minmax(0, 55fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>무한 반복 2: 안쪽에서 바깥 변수 i 변경</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>목표: 별 5개씩 3행 출력</h3>
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">for (int i = 1; i &lt;= 3; i++) {
+    for (int j = 1; j &lt;= 5; j++) {
+        printf(&quot;*&quot;);
+        i = 1;
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+</div><ul>
+<li>안쪽 본문에서 <mark>바깥 반복 변수 i를 다시 1로 변경</mark>.</li>
+</ul>
+</div><div class="comparison-item"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th style="text-align:right">i</th>
+<th>다음 동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>첫 행의 안쪽 본문</td>
+<td style="text-align:right">1</td>
+<td><code>j</code>는 5까지 증가</td>
+</tr>
+<tr>
+<td>안쪽 반복 종료 후</td>
+<td style="text-align:right">1</td>
+<td>줄바꿈</td>
+</tr>
+<tr>
+<td>바깥 증감식 i++</td>
+<td style="text-align:right">2</td>
+<td><code>i &lt;= 3</code> 참</td>
+</tr>
+<tr>
+<td>다음 행의 안쪽 본문</td>
+<td style="text-align:right">1</td>
+<td><code>i = 1</code>로 되돌림</td>
+</tr>
+<tr>
+<td>안쪽 반복 종료 후</td>
+<td style="text-align:right">1</td>
+<td>다시 줄바꿈</td>
+</tr>
+<tr>
+<td>바깥 증감식 i++</td>
+<td style="text-align:right">2</td>
+<td>같은 과정 반복</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>안쪽 반복은 정상적으로 종료 → 별 5개와 줄바꿈 반복.</li>
+<li>첫 행 이후 <code>i</code>는 <mark>본문에서 1 → 증감 후 2</mark> 반복.</li>
+</ul>
+<details class="quiz-answer"><summary><span class="answer-show">정답 확인</span><span class="answer-hide">정답 접기</span></summary><div class="quiz-answer-body"><h3>수정: 안쪽 본문의 i = 1; 삭제</h3>
+<ul>
+<li><code>j</code>의 변화는 안쪽 for, <code>i</code>의 변화는 바깥 for에서 관리.</li>
+<li><code>i = 1, 2, 3</code>의 세 행 출력 후 <code>i = 4</code>에서 종료.</li>
+</ul>
+</div></details>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>03. 배열 기초: 선언하고 for문으로 출력</h1>
+<p>기차로 배열 이해 → 자료형별 선언·초기화 → 원소 출력</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>배열: 같은 종류의 값을 싣는 기차</h2></div></header><div class="slide-content">
+<p><img src="images/week06/array-train.svg" alt="기차 편명 scores는 배열 이름. 0번부터 3번 칸에 int형 값 80, 95, 70, 85 저장. 배열 이름으로 첫 칸의 메모리 주소 확인 가능." class="md-image img-full img-align-center"></p>
+<ul>
+<li>기차 한 대처럼 <mark>같은 자료형의 여러 값을 하나의 이름으로 묶어 저장</mark>.</li>
+<li>객차 한 칸은 <mark>원소 하나</mark>, 칸 안의 숫자는 저장된 값.</li>
+<li>칸 번호는 <mark>인덱스</mark>. 4칸의 번호는 <mark>0, 1, 2, 3</mark>.</li>
+</ul>
+<aside class="lecture-reference">
+<p>메모리 주소는 값이 저장된 위치. 배열 이름과 주소의 자세한 관계는 다음 주 ‘배열과 포인터’에서 학습.</p>
+</aside>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>배열 선언: 자료형·이름·원소 개수</h2></div></header><div class="slide-content">
+<p><img src="images/week06/array-declaration-structure.svg" alt="int scores[4] = {80, 95, 70, 85};를 자료형, 배열 이름, 원소 개수, 초기값으로 구분한 선언 구조. 아래에 인덱스 0부터 3까지 값이 저장된 네 칸 표시." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>여러 자료형으로 배열 선언하기</h2></div></header><div class="slide-content">
+<p><img src="images/week06/array-declaration-types.svg" alt="int, float, double, char 배열의 선언문을 자료형, 배열 이름, 원소 개수, 초기값 순서로 나란히 정렬. 각 부분은 앞 페이지와 같은 색으로 구분." class="md-image img-full img-align-center"></p>
+<ul>
+<li>한 배열의 원소들은 <mark>모두 같은 자료형</mark>.</li>
+<li><code>float</code> 초기값은 <code>f</code> 접미사, 문자 초기값은 작은따옴표 사용.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 5: 여러 자료형의 배열 선언</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>목표: 원소 4개를 저장할 배열 준비</h3>
+<table>
+<thead>
+<tr>
+<th>자료형</th>
+<th>배열 이름</th>
+<th style="text-align:right">원소 개수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td><code>scores</code></td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td><code>temperatures</code></td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td><code>lengths</code></td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td><code>grades</code></td>
+<td style="text-align:right">4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>선언 형식: <code>자료형 배열이름[원소개수];</code></li>
+<li>배열 네 개 선언. 이번에는 출력 생략.</li>
+<li>실행 결과가 비어 있어도 정상. 컴파일 오류 유무 확인.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>표에 맞춰 네 배열 선언 후 컴파일·실행.</p><div class="callout-note"><strong>Hint</strong><p>대괄호 안에는 4, 각 선언문 끝에는 세미콜론 사용.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="10" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    // int형 scores 배열 4칸 선언.
+    // float형 temperatures 배열 4칸 선언.
+    // double형 lengths 배열 4칸 선언.
+    // char형 grades 배열 4칸 선언.
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 6: 선언한 배열의 각 칸에 값 대입</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>목표: 인덱스 0부터 3까지 값 저장</h3>
+<table>
+<thead>
+<tr>
+<th>배열 이름</th>
+<th>0번</th>
+<th>1번</th>
+<th>2번</th>
+<th>3번</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scores</code></td>
+<td>80</td>
+<td>95</td>
+<td>70</td>
+<td>85</td>
+</tr>
+<tr>
+<td><code>temperatures</code></td>
+<td>18.5f</td>
+<td>20.0f</td>
+<td>21.5f</td>
+<td>19.0f</td>
+</tr>
+<tr>
+<td><code>lengths</code></td>
+<td>0.125</td>
+<td>1.234567</td>
+<td>2.5</td>
+<td>3.141592</td>
+</tr>
+<tr>
+<td><code>grades</code></td>
+<td>'A'</td>
+<td>'B'</td>
+<td>'C'</td>
+<td>'A'</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>대입 형식: <code>배열이름[인덱스] = 값;</code></li>
+<li><mark>선언한 뒤에는 각 원소를 지정하여 값 대입</mark>.</li>
+<li>값 대입만 진행. 저장된 값의 출력은 다음 실습에서 확인.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>네 배열의 각 원소에 표의 값을 하나씩 대입.</p><div class="callout-note"><strong>Hint</strong><p>인덱스는 0부터 3까지. 문자에는 작은따옴표 사용. 배열 전체에 중괄호를 대입하는 형식은 사용 불가.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="9" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int scores[4];
+    float temperatures[4];
+    double lengths[4];
+    char grades[4];
+
+    // scores의 네 원소에 값 대입.
+    // temperatures의 네 원소에 값 대입.
+    // lengths의 네 원소에 값 대입.
+    // grades의 네 원소에 값 대입.
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 7: for문으로 배열의 값 출력</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>목표: 한 배열씩 한 줄에 출력</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">80 95 70 85
+18.5 20.0 21.5 19.0
+0.125000 1.234567 2.500000 3.141592
+A B C A
+</code></pre>
+</div><p><img src="images/week06/array-for-step-0.svg" alt="정수 배열의 첫 출력 단계. i = 0에서 scores[0]의 값 80 출력 후 i를 1로 증가." class="md-image img-full img-align-center"></p>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>배열의 값은 주어진 상태. for문과 printf로 네 배열의 값 출력.</p><div class="callout-note"><strong>Hint</strong><p>i는 0부터 3까지. 배열이름[i]와 %d, %.1f, %.6f, %c 사용. 배열 하나의 출력 종료 후 줄바꿈.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="9" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int scores[4] = {80, 95, 70, 85};
+    float temperatures[4] = {18.5f, 20.0f, 21.5f, 19.0f};
+    double lengths[4] = {0.125, 1.234567, 2.5, 3.141592};
+    char grades[4] = {'A', 'B', 'C', 'A'};
+
+    // 각 배열을 순회하는 for문과 printf 작성.
+    // 한 배열의 출력 종료 후 줄바꿈.
+
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>기출 문제: 문자 배열과 중첩 반복문의 출력</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">#include &lt;stdio.h&gt;
+void main() {
+    char Sh[] = {'#', '@', '&amp;'};
+    int a, b;
+    for (a = 1; a &lt;= 3; a++) {
+        for (b = 1; b &lt;= a; b++) {
+            printf(&quot;%c&quot;, Sh[a-b]);
+        }
+        printf(&quot;\n&quot;);
+    }
+}
+</code></pre>
+</div><aside class="lecture-reference">
+<p>출처: 2011학년도 대학수학능력시험 직업탐구 영역 「프로그래밍」 10번(2010년 시행).</p>
+</aside>
+</div><div class="comparison-item"><details class="quiz-answer"><summary><span class="answer-show">정답 확인</span><span class="answer-hide">정답 접기</span></summary><div class="quiz-answer-body"><h3>정답</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">#
+@#
+&amp;@#
+</code></pre>
+</div></div></details>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 3과 5 비교</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-007.svg" alt="3과 5 비교 직후, 7단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 최솟값 위치 변경</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-008.svg" alt="최솟값 위치 변경 직후, 8단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 1과 3 비교</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-014.svg" alt="1과 3 비교 직후, 14단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 더 작은 값 1 선택</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-015.svg" alt="더 작은 값 1 선택 직후, 15단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 원래 값 5 보관</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-021.svg" alt="원래 값 5 보관 직후, 21단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 첫 칸에 1 대입</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-022.svg" alt="첫 칸에 1 대입 직후, 22단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 보관한 5 대입</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-023.svg" alt="보관한 5 대입 직후, 23단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 같은 과정 반복 후 정렬 완료</h2></div></header><div class="slide-content">
+<p><img src="images/week06/selection-sort-line-070.svg" alt="같은 과정 반복 후 정렬 완료 직후, 70단계" class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 60fr) minmax(0, 40fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 8: 선택 정렬 직접 구현</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="interactive-layout interactive-notes-top" data-c-runner data-sort-source><aside class="instruction-panel"><p>TODO에 최솟값 탐색과 값 교환 작성. 실행 후 오른쪽 막대로 정렬 과정 확인.</p><div class="callout-note"><strong>Hint</strong><p>min은 값이 아닌 인덱스. a[j]와 a[min]을 비교. 출력 부분은 그대로 두고 TODO만 작성.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int a[5] = {5, 3, 4, 1, 2};
+
+    // 처음 배열 출력: GUI의 시작 상태.
+    for (int k = 0; k &lt; 5; k++) printf(&quot;%d &quot;, a[k]);
+    printf(&quot;\n&quot;);
+
+    for (int i = 0; i &lt; 4; i++) {
+        int min = i;
+        // TODO: j로 남은 구간을 비교하며 최솟값 위치 min 갱신.
+        // TODO: temp를 사용하여 a[i]와 a[min] 교환.
+
+        // 한 자리를 확정한 뒤 전체 배열 출력.
+        for (int k = 0; k &lt; 5; k++) printf(&quot;%d &quot;, a[k]);
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><div class="comparison-item"><div class="sort-bars" data-sort-bars data-config="{
+  &quot;initial&quot;: [
+    5,
+    3,
+    4,
+    1,
+    2
+  ],
+  &quot;colors&quot;: {
+    &quot;1&quot;: &quot;#25836d&quot;,
+    &quot;2&quot;: &quot;#1687a2&quot;,
+    &quot;3&quot;: &quot;#4775c1&quot;,
+    &quot;4&quot;: &quot;#d99a29&quot;,
+    &quot;5&quot;: &quot;#9765b2&quot;
+  }
+}
+">
+    <div class="sort-controls">
+      <button class="btn btn-primary" data-sort-apply type="button" disabled>실행 결과 적용</button>
+      <button class="btn" data-sort-play type="button" disabled aria-pressed="false">재생</button>
+      <button class="btn" data-sort-step type="button" disabled>한 단계</button>
+      <button class="btn" data-sort-rewind type="button" disabled>처음으로</button>
+      <label>속도 <select data-sort-speed aria-label="정렬 재생 속도"><option value="1600">느리게</option><option value="1000" selected>보통</option><option value="750">빠르게</option></select></label>
+    </div>
+    <p data-sort-status class="sort-status" role="status" aria-live="polite">C 코드 실행 후 출력한 배열 순서대로 막대 이동</p>
+    <svg class="sort-chart" viewBox="0 0 720 470" role="img" aria-label="숫자마다 높이와 색이 다른 정렬 막대">
+      <title>실행한 C 코드의 배열 순서를 따라 이동하는 다섯 막대</title>
+      <path d="M35 370H695" stroke="#9bafc0" stroke-width="2"/>
+      <g data-sort-slots></g><g data-sort-bars-layer></g>
+    </svg>
+    <p data-sort-array class="sort-array"></p>
+    <p data-sort-stage class="sort-stage">초기 배열</p>
+    <p class="sort-key">막대 높이 = 값 · 같은 값은 같은 색 유지<br>정렬할 값의 순서가 바뀌면 막대 위치도 함께 변경</p>
+  </div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 목표 출력</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">5 3 4 1 2
+1 3 4 5 2
+1 2 4 5 3
+1 2 3 5 4
+1 2 3 4 5
+</code></pre>
+</div><ul>
+<li>첫 줄: 정렬 전의 초기 배열.</li>
+<li>이후 네 줄: 바깥 반복 1~4회 직후의 배열. <mark>마지막 줄은 오름차순 정렬 결과</mark>.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="summary-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>오늘의 핵심: 중첩 반복문의 실행과 오류</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>기억할 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>실행 순서</td>
+<td>바깥 반복 한 번마다 안쪽 반복 전체 수행</td>
+</tr>
+<tr>
+<td>안쪽 초기화</td>
+<td>다음 바깥 반복에서 <code>j</code>를 시작값으로 다시 초기화</td>
+</tr>
+<tr>
+<td>반복 횟수</td>
+<td>구구단은 8개 단 × 9개 항 = 72회, 별 출력은 각 줄의 횟수 합산</td>
+</tr>
+<tr>
+<td>출력 위치</td>
+<td>별 하나는 안쪽 반복, 줄바꿈은 안쪽 반복 종료 후</td>
+</tr>
+<tr>
+<td>안쪽 반복 오류</td>
+<td><code>j++</code> 누락으로 <code>j</code>가 1에 머무르면 무한 반복</td>
+</tr>
+<tr>
+<td>바깥 변수 i</td>
+<td>안쪽 반복에서 <code>i</code>를 다시 초기화하지 않기</td>
+</tr>
+</tbody>
+</table>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="summary-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>오늘의 핵심: 배열 접근과 선택 정렬</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>기억할 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>배열 선언</td>
+<td>같은 자료형의 여러 값 저장. <code>int</code>, <code>float</code>, <code>double</code>, <code>char</code> 사용</td>
+</tr>
+<tr>
+<td>초기화·대입</td>
+<td>선언 시 <code>{...}</code>로 초기화, 선언 후 <code>a[i] = 값;</code>으로 원소에 대입</td>
+</tr>
+<tr>
+<td>인덱스 범위</td>
+<td>원소 N개의 인덱스는 0~N−1. 순회 조건은 <code>i &lt; N</code></td>
+</tr>
+<tr>
+<td>원소 출력</td>
+<td><code>a[i]</code>로 접근, 정수 <code>%d</code>·실수 <code>%f</code>·문자 <code>%c</code>로 출력</td>
+</tr>
+<tr>
+<td>선택 정렬</td>
+<td>남은 구간의 최솟값 위치 <code>min</code>을 찾아 현재 자리 <code>i</code>와 교환</td>
+</tr>
+<tr>
+<td>값 교환</td>
+<td>원래 값을 <code>temp</code>에 보관한 뒤 두 원소의 값 교환</td>
+</tr>
+</tbody>
+</table>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+  </div></main>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js?v=flowchart-wide-v3-20260929"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js?v=linenums-20261004"></script><script src="./assets/js/week01-runner.js"></script>
+  <script src="./assets/js/bit-lamps.js"></script>
+  <script src="./assets/js/logic-review.js"></script>
+  <script src="./assets/js/line-tracer-model.js"></script>
+  <script src="./assets/js/line-tracer-compiler.js"></script>
+  <script src="./assets/js/line-tracer.js"></script>
+  <script src="./assets/js/c-editor.js"></script>
+  <script src="./assets/js/physics-model.js"></script>
+  <script src="./assets/js/physics.js"></script>
+  <script src="./assets/js/robot-arm.js"></script>
+  <script src="./assets/js/one-link.js?v=20260920-xzero"></script>
+  <script src="./assets/js/addition-cycle.js"></script>
+  <script src="./assets/js/spiral-grid.js"></script>
+  <script src="./assets/js/sort-bars.js"></script>
+  <script src="./assets/js/lowpass-filter.js"></script>
+</body></html>

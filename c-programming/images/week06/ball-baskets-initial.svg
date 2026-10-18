@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="355" viewBox="0 0 1600 355" role="img" aria-labelledby="title desc">
+<title id="title">공 넣기: 바구니와 배열 연결</title><desc id="desc">1번부터 5번 바구니를 basket[0]부터 basket[4]에 대응. 처음에는 빈 바구니이므로 모든 값은 0.</desc>
+<rect width="1600" height="355" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="110" y="165" font-size="30" fill="#233b53" font-weight="700" text-anchor="middle">처음 상태</text>
+<text x="335" y="68" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle">1번 바구니</text>
+<path d="M240 90L258 198Q335 222 412 198L430 90Z" fill="#e6eff8" stroke="#0e4a84" stroke-width="2"/>
+<path d="M236 90H434" stroke="#0e4a84" stroke-width="5" stroke-linecap="round"/>
+<text x="335" y="166" font-size="44" fill="#64748b" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="335" y="257" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">basket[0]</text>
+<text x="595" y="68" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle">2번 바구니</text>
+<path d="M500 90L518 198Q595 222 672 198L690 90Z" fill="#e6eff8" stroke="#0e4a84" stroke-width="2"/>
+<path d="M496 90H694" stroke="#0e4a84" stroke-width="5" stroke-linecap="round"/>
+<text x="595" y="166" font-size="44" fill="#64748b" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="595" y="257" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">basket[1]</text>
+<text x="855" y="68" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle">3번 바구니</text>
+<path d="M760 90L778 198Q855 222 932 198L950 90Z" fill="#e6eff8" stroke="#0e4a84" stroke-width="2"/>
+<path d="M756 90H954" stroke="#0e4a84" stroke-width="5" stroke-linecap="round"/>
+<text x="855" y="166" font-size="44" fill="#64748b" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="855" y="257" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">basket[2]</text>
+<text x="1115" y="68" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle">4번 바구니</text>
+<path d="M1020 90L1038 198Q1115 222 1192 198L1210 90Z" fill="#e6eff8" stroke="#0e4a84" stroke-width="2"/>
+<path d="M1016 90H1214" stroke="#0e4a84" stroke-width="5" stroke-linecap="round"/>
+<text x="1115" y="166" font-size="44" fill="#64748b" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="1115" y="257" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">basket[3]</text>
+<text x="1375" y="68" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle">5번 바구니</text>
+<path d="M1280 90L1298 198Q1375 222 1452 198L1470 90Z" fill="#e6eff8" stroke="#0e4a84" stroke-width="2"/>
+<path d="M1276 90H1474" stroke="#0e4a84" stroke-width="5" stroke-linecap="round"/>
+<text x="1375" y="166" font-size="44" fill="#64748b" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="1375" y="257" font-size="28" fill="#0e4a84" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">basket[4]</text>
+<text x="800" y="333" font-size="30" fill="#233b53" font-weight="700" text-anchor="middle">바구니 번호는 1부터, 배열 인덱스는 0부터 시작. 0은 빈 바구니 표시.</text>
+</g></svg>

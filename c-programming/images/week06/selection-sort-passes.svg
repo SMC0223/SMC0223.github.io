@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="650" viewBox="0 0 1600 650" role="img" aria-labelledby="title"><title id="title">선택 정렬에서 앞자리부터 하나씩 확정되는 배열</title><rect width="1600" height="650" fill="white"/><g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="35" y="95" font-size="31" fill="#233b53" font-weight="700" text-anchor="start">처음</text>
+<rect x="310" y="40" width="170" height="80" rx="5" fill="#9765b2"/>
+<text x="395" y="95" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<rect x="520" y="40" width="170" height="80" rx="5" fill="#4775c1"/>
+<text x="605" y="95" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<rect x="730" y="40" width="170" height="80" rx="5" fill="#d99a29"/>
+<text x="815" y="95" font-size="40" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<rect x="940" y="40" width="170" height="80" rx="5" fill="#25836d"/>
+<text x="1025" y="95" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<rect x="1150" y="40" width="170" height="80" rx="5" fill="#1687a2"/>
+<text x="1235" y="95" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="35" y="210" font-size="31" fill="#233b53" font-weight="700" text-anchor="start">1회 완료</text>
+<rect x="310" y="155" width="170" height="80" rx="5" fill="#25836d"/>
+<text x="395" y="210" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<path d="M310 245H480" stroke="#17705b" stroke-width="6"/>
+<rect x="520" y="155" width="170" height="80" rx="5" fill="#4775c1"/>
+<text x="605" y="210" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<rect x="730" y="155" width="170" height="80" rx="5" fill="#d99a29"/>
+<text x="815" y="210" font-size="40" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<rect x="940" y="155" width="170" height="80" rx="5" fill="#9765b2"/>
+<text x="1025" y="210" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<rect x="1150" y="155" width="170" height="80" rx="5" fill="#1687a2"/>
+<text x="1235" y="210" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="35" y="325" font-size="31" fill="#233b53" font-weight="700" text-anchor="start">2회 완료</text>
+<rect x="310" y="270" width="170" height="80" rx="5" fill="#25836d"/>
+<text x="395" y="325" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<path d="M310 360H480" stroke="#17705b" stroke-width="6"/>
+<rect x="520" y="270" width="170" height="80" rx="5" fill="#1687a2"/>
+<text x="605" y="325" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<path d="M520 360H690" stroke="#17705b" stroke-width="6"/>
+<rect x="730" y="270" width="170" height="80" rx="5" fill="#d99a29"/>
+<text x="815" y="325" font-size="40" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<rect x="940" y="270" width="170" height="80" rx="5" fill="#9765b2"/>
+<text x="1025" y="325" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<rect x="1150" y="270" width="170" height="80" rx="5" fill="#4775c1"/>
+<text x="1235" y="325" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="35" y="440" font-size="31" fill="#233b53" font-weight="700" text-anchor="start">3회 완료</text>
+<rect x="310" y="385" width="170" height="80" rx="5" fill="#25836d"/>
+<text x="395" y="440" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<path d="M310 475H480" stroke="#17705b" stroke-width="6"/>
+<rect x="520" y="385" width="170" height="80" rx="5" fill="#1687a2"/>
+<text x="605" y="440" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<path d="M520 475H690" stroke="#17705b" stroke-width="6"/>
+<rect x="730" y="385" width="170" height="80" rx="5" fill="#4775c1"/>
+<text x="815" y="440" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<path d="M730 475H900" stroke="#17705b" stroke-width="6"/>
+<rect x="940" y="385" width="170" height="80" rx="5" fill="#9765b2"/>
+<text x="1025" y="440" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<rect x="1150" y="385" width="170" height="80" rx="5" fill="#d99a29"/>
+<text x="1235" y="440" font-size="40" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<text x="35" y="555" font-size="31" fill="#233b53" font-weight="700" text-anchor="start">4회 완료</text>
+<rect x="310" y="500" width="170" height="80" rx="5" fill="#25836d"/>
+<text x="395" y="555" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<path d="M310 590H480" stroke="#17705b" stroke-width="6"/>
+<rect x="520" y="500" width="170" height="80" rx="5" fill="#1687a2"/>
+<text x="605" y="555" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<path d="M520 590H690" stroke="#17705b" stroke-width="6"/>
+<rect x="730" y="500" width="170" height="80" rx="5" fill="#4775c1"/>
+<text x="815" y="555" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<path d="M730 590H900" stroke="#17705b" stroke-width="6"/>
+<rect x="940" y="500" width="170" height="80" rx="5" fill="#d99a29"/>
+<text x="1025" y="555" font-size="40" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<path d="M940 590H1110" stroke="#17705b" stroke-width="6"/>
+<rect x="1150" y="500" width="170" height="80" rx="5" fill="#9765b2"/>
+<text x="1235" y="555" font-size="40" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<text x="800" y="640" font-size="29" fill="#233b53" font-weight="700" text-anchor="middle">초록색 밑줄: 정렬이 확정된 앞쪽 구간. 마지막 한 칸은 자동 확정.</text>
+</g></svg>

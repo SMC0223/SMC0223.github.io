@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="535" viewBox="0 0 1600 535" role="img" aria-labelledby="title desc">
+<title id="title">여러 자료형의 배열 선언과 초기화</title><desc id="desc">int, float, double, char 배열을 같은 네 부분으로 구분. 자료형, 배열 이름, 대괄호 안의 원소 개수, 중괄호 안의 초기값 순서. 네 배열 모두 원소 네 개.</desc>
+<rect width="1600" height="535" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="35" y="43" font-size="28" fill="#175fa2" font-weight="700" text-anchor="start">1. 자료형</text>
+<path d="M35 62L185 62" stroke="#175fa2" stroke-width="3" fill="none"/>
+<text x="215" y="43" font-size="28" fill="#535ba0" font-weight="700" text-anchor="start">2. 배열 이름</text>
+<path d="M215 62L485 62" stroke="#535ba0" stroke-width="3" fill="none"/>
+<text x="560.0" y="43" font-size="28" fill="#995810" font-weight="700" text-anchor="middle">3. 원소 개수</text>
+<path d="M515 62L605 62" stroke="#995810" stroke-width="3" fill="none"/>
+<text x="675" y="43" font-size="28" fill="#17705b" font-weight="700" text-anchor="start">4. 초기값</text>
+<path d="M675 62L1540 62" stroke="#17705b" stroke-width="3" fill="none"/>
+<rect x="35" y="93" width="150" height="62" rx="8" fill="#e6eff8" stroke="none" stroke-width="2"/>
+<text x="47" y="136" font-size="31" fill="#175fa2" font-weight="700" text-anchor="start" font-family="Consolas, monospace">int</text>
+<rect x="215" y="93" width="270" height="62" rx="8" fill="#e5eafa" stroke="none" stroke-width="2"/>
+<text x="227" y="136" font-size="31" fill="#535ba0" font-weight="700" text-anchor="start" font-family="Consolas, monospace">scores</text>
+<rect x="515" y="93" width="90" height="62" rx="8" fill="#fff0db" stroke="none" stroke-width="2"/>
+<text x="527" y="136" font-size="31" fill="#995810" font-weight="700" text-anchor="start" font-family="Consolas, monospace">[4]</text>
+<rect x="675" y="93" width="865" height="62" rx="8" fill="#e0f2ed" stroke="none" stroke-width="2"/>
+<text x="687" y="136" font-size="31" fill="#17705b" font-weight="700" text-anchor="start" font-family="Consolas, monospace">{80, 95, 70, 85}</text>
+<text x="638" y="136" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">=</text>
+<text x="1562" y="136" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">;</text>
+<rect x="35" y="193" width="150" height="62" rx="8" fill="#e6eff8" stroke="none" stroke-width="2"/>
+<text x="47" y="236" font-size="31" fill="#175fa2" font-weight="700" text-anchor="start" font-family="Consolas, monospace">float</text>
+<rect x="215" y="193" width="270" height="62" rx="8" fill="#e5eafa" stroke="none" stroke-width="2"/>
+<text x="227" y="236" font-size="31" fill="#535ba0" font-weight="700" text-anchor="start" font-family="Consolas, monospace">temperatures</text>
+<rect x="515" y="193" width="90" height="62" rx="8" fill="#fff0db" stroke="none" stroke-width="2"/>
+<text x="527" y="236" font-size="31" fill="#995810" font-weight="700" text-anchor="start" font-family="Consolas, monospace">[4]</text>
+<rect x="675" y="193" width="865" height="62" rx="8" fill="#e0f2ed" stroke="none" stroke-width="2"/>
+<text x="687" y="236" font-size="31" fill="#17705b" font-weight="700" text-anchor="start" font-family="Consolas, monospace">{18.5f, 20.0f, 21.5f, 19.0f}</text>
+<text x="638" y="236" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">=</text>
+<text x="1562" y="236" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">;</text>
+<rect x="35" y="293" width="150" height="62" rx="8" fill="#e6eff8" stroke="none" stroke-width="2"/>
+<text x="47" y="336" font-size="31" fill="#175fa2" font-weight="700" text-anchor="start" font-family="Consolas, monospace">double</text>
+<rect x="215" y="293" width="270" height="62" rx="8" fill="#e5eafa" stroke="none" stroke-width="2"/>
+<text x="227" y="336" font-size="31" fill="#535ba0" font-weight="700" text-anchor="start" font-family="Consolas, monospace">lengths</text>
+<rect x="515" y="293" width="90" height="62" rx="8" fill="#fff0db" stroke="none" stroke-width="2"/>
+<text x="527" y="336" font-size="31" fill="#995810" font-weight="700" text-anchor="start" font-family="Consolas, monospace">[4]</text>
+<rect x="675" y="293" width="865" height="62" rx="8" fill="#e0f2ed" stroke="none" stroke-width="2"/>
+<text x="687" y="336" font-size="31" fill="#17705b" font-weight="700" text-anchor="start" font-family="Consolas, monospace">{0.125, 1.234567, 2.5, 3.141592}</text>
+<text x="638" y="336" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">=</text>
+<text x="1562" y="336" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">;</text>
+<rect x="35" y="393" width="150" height="62" rx="8" fill="#e6eff8" stroke="none" stroke-width="2"/>
+<text x="47" y="436" font-size="31" fill="#175fa2" font-weight="700" text-anchor="start" font-family="Consolas, monospace">char</text>
+<rect x="215" y="393" width="270" height="62" rx="8" fill="#e5eafa" stroke="none" stroke-width="2"/>
+<text x="227" y="436" font-size="31" fill="#535ba0" font-weight="700" text-anchor="start" font-family="Consolas, monospace">grades</text>
+<rect x="515" y="393" width="90" height="62" rx="8" fill="#fff0db" stroke="none" stroke-width="2"/>
+<text x="527" y="436" font-size="31" fill="#995810" font-weight="700" text-anchor="start" font-family="Consolas, monospace">[4]</text>
+<rect x="675" y="393" width="865" height="62" rx="8" fill="#e0f2ed" stroke="none" stroke-width="2"/>
+<text x="687" y="436" font-size="31" fill="#17705b" font-weight="700" text-anchor="start" font-family="Consolas, monospace">{&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;A&#x27;}</text>
+<text x="638" y="436" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">=</text>
+<text x="1562" y="436" font-size="31" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">;</text>
+<path d="M35 476L1570 476" stroke="#dce4ed" stroke-width="2" fill="none"/>
+<text x="800" y="519" font-size="30" fill="#233b53" font-weight="700" text-anchor="middle">자료형과 값이 달라도 선언문의 구조는 동일</text>
+</g></svg>

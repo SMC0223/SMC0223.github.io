@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" role="img" aria-labelledby="title desc">
+<title id="title">자료형에 따른 배열 객차 크기 비교</title>
+<desc id="desc">객차 한 칸은 원소 하나. char 배열은 원소당 1바이트, int와 float 배열은 원소당 4바이트, double 배열은 원소당 8바이트인 일반적인 환경의 예시. 객차의 가로 폭은 1 대 4 대 8 비율. 각 배열 안에서는 네 객차의 크기가 모두 같음.</desc>
+<rect width="1600" height="660" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="35" y="34" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">char 배열</text>
+<text x="1530" y="34" font-size="28" fill="#233b53" font-weight="400" text-anchor="end">원소 하나: 1바이트</text>
+<path d="M25 145H530M25 152H530" stroke="#9bafc0" stroke-width="3"/>
+<rect x="35" y="82" width="220" height="48" rx="10" fill="#0e4a84"/>
+<rect x="212" y="59" width="43" height="30" rx="5" fill="#0e4a84"/><rect x="222" y="65" width="23" height="16" rx="3" fill="#e0eefb"/>
+<rect x="53" y="65" width="17" height="20" fill="#0e4a84"/>
+<text x="145" y="114" font-size="25" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">grades</text>
+<circle cx="75" cy="137" r="9" fill="#233b53"/>
+<circle cx="220" cy="137" r="9" fill="#233b53"/>
+<path d="M255 119H310" stroke="#657f96" stroke-width="5"/>
+<rect x="310" y="78" width="32" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<text x="326.0" y="66" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="326.0" y="115" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">A</text>
+<circle cx="318" cy="137" r="7" fill="#233b53"/>
+<circle cx="334" cy="137" r="7" fill="#233b53"/>
+<path d="M342 119H366" stroke="#657f96" stroke-width="5"/>
+<rect x="366" y="78" width="32" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<text x="382.0" y="66" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<text x="382.0" y="115" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">B</text>
+<circle cx="374" cy="137" r="7" fill="#233b53"/>
+<circle cx="390" cy="137" r="7" fill="#233b53"/>
+<path d="M398 119H422" stroke="#657f96" stroke-width="5"/>
+<rect x="422" y="78" width="32" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<text x="438.0" y="66" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="438.0" y="115" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">C</text>
+<circle cx="430" cy="137" r="7" fill="#233b53"/>
+<circle cx="446" cy="137" r="7" fill="#233b53"/>
+<path d="M454 119H478" stroke="#657f96" stroke-width="5"/>
+<rect x="478" y="78" width="32" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<text x="494.0" y="66" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="494.0" y="115" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">A</text>
+<circle cx="486" cy="137" r="7" fill="#233b53"/>
+<circle cx="502" cy="137" r="7" fill="#233b53"/>
+<text x="35" y="194" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">int 배열</text>
+<text x="1530" y="194" font-size="28" fill="#233b53" font-weight="400" text-anchor="end">원소 하나: 4바이트</text>
+<path d="M25 305H914M25 312H914" stroke="#9bafc0" stroke-width="3"/>
+<rect x="35" y="242" width="220" height="48" rx="10" fill="#0e4a84"/>
+<rect x="212" y="219" width="43" height="30" rx="5" fill="#0e4a84"/><rect x="222" y="225" width="23" height="16" rx="3" fill="#e0eefb"/>
+<rect x="53" y="225" width="17" height="20" fill="#0e4a84"/>
+<text x="145" y="274" font-size="25" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">scores</text>
+<circle cx="75" cy="297" r="9" fill="#233b53"/>
+<circle cx="220" cy="297" r="9" fill="#233b53"/>
+<path d="M255 279H310" stroke="#657f96" stroke-width="5"/>
+<rect x="310" y="238" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M342 239V249M342 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M374 239V249M374 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M406 239V249M406 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="374.0" y="226" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="374.0" y="275" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">80</text>
+<circle cx="318" cy="297" r="7" fill="#233b53"/>
+<circle cx="430" cy="297" r="7" fill="#233b53"/>
+<path d="M438 279H462" stroke="#657f96" stroke-width="5"/>
+<rect x="462" y="238" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M494 239V249M494 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M526 239V249M526 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M558 239V249M558 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="526.0" y="226" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<text x="526.0" y="275" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">95</text>
+<circle cx="470" cy="297" r="7" fill="#233b53"/>
+<circle cx="582" cy="297" r="7" fill="#233b53"/>
+<path d="M590 279H614" stroke="#657f96" stroke-width="5"/>
+<rect x="614" y="238" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M646 239V249M646 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M678 239V249M678 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M710 239V249M710 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="678.0" y="226" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="678.0" y="275" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">70</text>
+<circle cx="622" cy="297" r="7" fill="#233b53"/>
+<circle cx="734" cy="297" r="7" fill="#233b53"/>
+<path d="M742 279H766" stroke="#657f96" stroke-width="5"/>
+<rect x="766" y="238" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M798 239V249M798 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M830 239V249M830 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M862 239V249M862 281V289" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="830.0" y="226" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="830.0" y="275" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">85</text>
+<circle cx="774" cy="297" r="7" fill="#233b53"/>
+<circle cx="886" cy="297" r="7" fill="#233b53"/>
+<text x="35" y="354" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">float 배열</text>
+<text x="1530" y="354" font-size="28" fill="#233b53" font-weight="400" text-anchor="end">원소 하나: 4바이트</text>
+<path d="M25 465H914M25 472H914" stroke="#9bafc0" stroke-width="3"/>
+<rect x="35" y="402" width="220" height="48" rx="10" fill="#0e4a84"/>
+<rect x="212" y="379" width="43" height="30" rx="5" fill="#0e4a84"/><rect x="222" y="385" width="23" height="16" rx="3" fill="#e0eefb"/>
+<rect x="53" y="385" width="17" height="20" fill="#0e4a84"/>
+<text x="145" y="434" font-size="25" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">temperatures</text>
+<circle cx="75" cy="457" r="9" fill="#233b53"/>
+<circle cx="220" cy="457" r="9" fill="#233b53"/>
+<path d="M255 439H310" stroke="#657f96" stroke-width="5"/>
+<rect x="310" y="398" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M342 399V409M342 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M374 399V409M374 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M406 399V409M406 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="374.0" y="386" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="374.0" y="435" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">18.5</text>
+<circle cx="318" cy="457" r="7" fill="#233b53"/>
+<circle cx="430" cy="457" r="7" fill="#233b53"/>
+<path d="M438 439H462" stroke="#657f96" stroke-width="5"/>
+<rect x="462" y="398" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M494 399V409M494 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M526 399V409M526 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M558 399V409M558 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="526.0" y="386" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<text x="526.0" y="435" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">20.0</text>
+<circle cx="470" cy="457" r="7" fill="#233b53"/>
+<circle cx="582" cy="457" r="7" fill="#233b53"/>
+<path d="M590 439H614" stroke="#657f96" stroke-width="5"/>
+<rect x="614" y="398" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M646 399V409M646 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M678 399V409M678 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M710 399V409M710 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="678.0" y="386" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="678.0" y="435" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">21.5</text>
+<circle cx="622" cy="457" r="7" fill="#233b53"/>
+<circle cx="734" cy="457" r="7" fill="#233b53"/>
+<path d="M742 439H766" stroke="#657f96" stroke-width="5"/>
+<rect x="766" y="398" width="128" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M798 399V409M798 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M830 399V409M830 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M862 399V409M862 441V449" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="830.0" y="386" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="830.0" y="435" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">19.0</text>
+<circle cx="774" cy="457" r="7" fill="#233b53"/>
+<circle cx="886" cy="457" r="7" fill="#233b53"/>
+<text x="35" y="514" font-size="32" fill="#233b53" font-weight="700" text-anchor="start">double 배열</text>
+<text x="1530" y="514" font-size="28" fill="#233b53" font-weight="400" text-anchor="end">원소 하나: 8바이트</text>
+<path d="M25 625H1426M25 632H1426" stroke="#9bafc0" stroke-width="3"/>
+<rect x="35" y="562" width="220" height="48" rx="10" fill="#0e4a84"/>
+<rect x="212" y="539" width="43" height="30" rx="5" fill="#0e4a84"/><rect x="222" y="545" width="23" height="16" rx="3" fill="#e0eefb"/>
+<rect x="53" y="545" width="17" height="20" fill="#0e4a84"/>
+<text x="145" y="594" font-size="25" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">lengths</text>
+<circle cx="75" cy="617" r="9" fill="#233b53"/>
+<circle cx="220" cy="617" r="9" fill="#233b53"/>
+<path d="M255 599H310" stroke="#657f96" stroke-width="5"/>
+<rect x="310" y="558" width="256" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M342 559V569M342 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M374 559V569M374 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M406 559V569M406 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M438 559V569M438 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M470 559V569M470 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M502 559V569M502 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M534 559V569M534 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="438.0" y="546" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<text x="438.0" y="595" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">0.125</text>
+<circle cx="318" cy="617" r="7" fill="#233b53"/>
+<circle cx="558" cy="617" r="7" fill="#233b53"/>
+<path d="M566 599H590" stroke="#657f96" stroke-width="5"/>
+<rect x="590" y="558" width="256" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M622 559V569M622 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M654 559V569M654 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M686 559V569M686 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M718 559V569M718 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M750 559V569M750 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M782 559V569M782 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M814 559V569M814 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="718.0" y="546" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<text x="718.0" y="595" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1.234567</text>
+<circle cx="598" cy="617" r="7" fill="#233b53"/>
+<circle cx="838" cy="617" r="7" fill="#233b53"/>
+<path d="M846 599H870" stroke="#657f96" stroke-width="5"/>
+<rect x="870" y="558" width="256" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M902 559V569M902 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M934 559V569M934 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M966 559V569M966 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M998 559V569M998 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1030 559V569M1030 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1062 559V569M1062 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1094 559V569M1094 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="998.0" y="546" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="998.0" y="595" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2.5</text>
+<circle cx="878" cy="617" r="7" fill="#233b53"/>
+<circle cx="1118" cy="617" r="7" fill="#233b53"/>
+<path d="M1126 599H1150" stroke="#657f96" stroke-width="5"/>
+<rect x="1150" y="558" width="256" height="52" rx="5" fill="#e0eefb" stroke="#396b9a" stroke-width="2"/>
+<path d="M1182 559V569M1182 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1214 559V569M1214 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1246 559V569M1246 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1278 559V569M1278 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1310 559V569M1310 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1342 559V569M1342 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<path d="M1374 559V569M1374 601V609" stroke="#9bafc0" stroke-width="1.5"/>
+<text x="1278.0" y="546" font-size="24" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="1278.0" y="595" font-size="27" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3.141592</text>
+<circle cx="1158" cy="617" r="7" fill="#233b53"/>
+<circle cx="1398" cy="617" r="7" fill="#233b53"/>
+</g></svg>

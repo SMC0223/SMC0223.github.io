@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img" aria-labelledby="title desc">
+<title id="title">5×5 달팽이 이동: right 갱신과 방향 1 → 2</title>
+<desc id="desc">경계 갱신 전·후의 5×5 격자 비교. 판단 조건 row == bottom. right = 4에서 right = 3로 갱신. 빨강은 판단 경계, 초록 실선은 갱신 대상 경계. 현재 방향 아래, 다음 방향 왼쪽. 남은 영역 4×5 → 4×4.</desc>
+<rect width="1000" height="600" fill="white"/>
+<defs><marker id="grid-arrow" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0 0 8 3.5 0 7Z" fill="#2075b5"/></marker></defs>
+<g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="215" y="40" font-size="28" fill="#233b53" font-weight="700" text-anchor="middle">현재: direction = 1</text>
+<text x="50" y="216" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="103" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="75" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="272" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="159" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="75" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="236" width="56" height="56" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="328" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="215" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="75" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="292" width="56" height="56" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="384" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="271" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="75" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="348" width="56" height="56" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="50" y="440" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="327" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="75" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="131" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="187" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="243" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="299" y="404" width="56" height="56" fill="#ffe0a3" stroke="#aab9c7" stroke-width="1.6"/>
+<path d="M355 236L355 460" fill="none" stroke="#17834b" stroke-width="6"/>
+<path d="M75 460L355 460" fill="none" stroke="#c43b34" stroke-width="6"/>
+<path d="M327 264L327 432" stroke="#2075b5" stroke-width="6" fill="none" marker-end="url(#grid-arrow)"/>
+<circle cx="327" cy="432" r="20" fill="none" stroke="#2075b5" stroke-width="3"/>
+<rect x="40" y="481" width="350" height="45" rx="8" fill="#fff0ee"/>
+<text x="215" y="512" font-size="26" fill="#c43b34" font-weight="700" text-anchor="middle">row == bottom</text>
+<text x="215" y="568" font-size="34" fill="#17834b" font-weight="700" text-anchor="middle">right = 4</text>
+<text x="785" y="40" font-size="28" fill="#233b53" font-weight="700" text-anchor="middle">갱신 후: direction = 2</text>
+<text x="620" y="216" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<text x="673" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">0</text>
+<rect x="645" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="180" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="272" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<text x="729" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">1</text>
+<rect x="645" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="236" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="236" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="328" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<text x="785" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">2</text>
+<rect x="645" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="292" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="292" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="384" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<text x="841" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">3</text>
+<rect x="645" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="348" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="348" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<text x="620" y="440" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<text x="897" y="165" font-size="23" fill="#526170" font-weight="400" text-anchor="middle">4</text>
+<rect x="645" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="701" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="757" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="813" y="404" width="56" height="56" fill="#ffffff" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="869" y="404" width="56" height="56" fill="#dde3e9" stroke="#aab9c7" stroke-width="1.6"/>
+<rect x="648" y="239" width="218" height="218" fill="none" stroke="#17834b" stroke-width="4" stroke-dasharray="10 7"/>
+<path d="M869 236L869 460" fill="none" stroke="#17834b" stroke-width="6"/>
+<path d="M897 432L841 432" stroke="#2075b5" stroke-width="6" fill="none" marker-end="url(#grid-arrow)"/>
+<circle cx="897" cy="432" r="20" fill="#e0eefb" stroke="#2075b5" stroke-width="3"/>
+<text x="785" y="512" font-size="25" fill="#526170" font-weight="400" text-anchor="middle">판단 경계: bottom = 4 유지</text>
+<text x="785" y="568" font-size="34" fill="#17834b" font-weight="700" text-anchor="middle">right = 3</text>
+<text x="500" y="278" font-size="27" fill="#233b53" font-weight="400" text-anchor="middle">경계 갱신</text>
+<text x="500" y="557" font-size="28" fill="#17834b" font-weight="700" text-anchor="middle">right--</text>
+</g></svg>

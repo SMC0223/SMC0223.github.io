@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="590" viewBox="0 0 1600 590" role="img" aria-labelledby="title"><title id="title">첫 자리와 최솟값 1을 교환하는 선택 정렬</title><rect width="1600" height="590" fill="white"/><g font-family="Malgun Gothic, Noto Sans KR, sans-serif">
+<text x="45" y="210" font-size="34" fill="#233b53" font-weight="700" text-anchor="start">교환 전</text>
+<text x="395" y="125" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<rect x="300" y="145" width="190" height="110" rx="7" fill="#9765b2"/>
+<text x="395" y="219" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<rect x="295" y="140" width="200" height="120" rx="9" fill="none" stroke="#233b53" stroke-width="4"/>
+<text x="625" y="125" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<rect x="530" y="145" width="190" height="110" rx="7" fill="#4775c1"/>
+<text x="625" y="219" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="855" y="125" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<rect x="760" y="145" width="190" height="110" rx="7" fill="#d99a29"/>
+<text x="855" y="219" font-size="48" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<text x="1085" y="125" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<rect x="990" y="145" width="190" height="110" rx="7" fill="#25836d"/>
+<text x="1085" y="219" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<rect x="985" y="140" width="200" height="120" rx="9" fill="none" stroke="#233b53" stroke-width="4"/>
+<text x="1315" y="125" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<rect x="1220" y="145" width="190" height="110" rx="7" fill="#1687a2"/>
+<text x="1315" y="219" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="45" y="440" font-size="34" fill="#233b53" font-weight="700" text-anchor="start">교환 후</text>
+<text x="395" y="355" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">0</text>
+<rect x="300" y="375" width="190" height="110" rx="7" fill="#25836d"/>
+<text x="395" y="449" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<rect x="295" y="370" width="200" height="120" rx="9" fill="none" stroke="#17705b" stroke-width="4"/>
+<text x="625" y="355" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">1</text>
+<rect x="530" y="375" width="190" height="110" rx="7" fill="#4775c1"/>
+<text x="625" y="449" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<text x="855" y="355" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<rect x="760" y="375" width="190" height="110" rx="7" fill="#d99a29"/>
+<text x="855" y="449" font-size="48" fill="#233b53" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<text x="1085" y="355" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">3</text>
+<rect x="990" y="375" width="190" height="110" rx="7" fill="#9765b2"/>
+<text x="1085" y="449" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">5</text>
+<rect x="985" y="370" width="200" height="120" rx="9" fill="none" stroke="#233b53" stroke-width="4"/>
+<text x="1315" y="355" font-size="29" fill="#233b53" font-weight="400" text-anchor="middle" font-family="Consolas, monospace">4</text>
+<rect x="1220" y="375" width="190" height="110" rx="7" fill="#1687a2"/>
+<text x="1315" y="449" font-size="48" fill="white" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">2</text>
+<text x="800" y="55" font-size="36" fill="#233b53" font-weight="700" text-anchor="middle">남은 구간의 가장 작은 값 1 선택</text>
+<text x="395" y="310" font-size="30" fill="#175fa2" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">i = 0</text>
+<text x="1085" y="310" font-size="30" fill="#995810" font-weight="700" text-anchor="middle" font-family="Consolas, monospace">min = 3</text>
+<text x="800" y="565" font-size="33" fill="#233b53" font-weight="700" text-anchor="middle">0번 자리와 3번 자리 교환. 첫 번째 값 1 확정.</text>
+</g></svg>
