@@ -1013,6 +1013,28 @@ void main() {
 </code></pre>
 </div></div></details>
 </div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 45fr) minmax(0, 55fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>정렬의 의미와 선택 정렬의 진행 방법</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<h3>정렬: 기준에 따라 값의 순서 재배치</h3>
+<ul>
+<li><mark>오름차순</mark>: 작은 값부터 큰 값 순서.</li>
+<li><mark>내림차순</mark>: 큰 값부터 작은 값 순서.</li>
+<li>예: <code>5 3 4 1 2</code> → <code>1 2 3 4 5</code>.</li>
+</ul>
+<h3>선택 정렬: 남은 값 중 최솟값 선택</h3>
+<ol>
+<li>정렬할 구간의 첫 위치를 i로 지정.</li>
+<li>i부터 끝까지 비교하여 최솟값 위치 탐색.</li>
+<li>최솟값과 i 위치의 값을 교환.</li>
+<li>i를 한 칸 옮겨 같은 과정 반복.</li>
+</ol>
+</div><div class="comparison-item"><h3>오름차순 정렬: 한 번에 한 자리 확정</h3>
+<p><img src="images/week06/selection-sort-overview.gif" alt="높이가 다른 막대 40개의 선택 정렬. 노란색은 비교 중인 값, 주황색은 현재 최솟값, 청록색은 정렬이 확정된 구간." class="md-image img-full img-align-center"></p>
+<ul>
+<li>앞쪽은 <mark>정렬이 끝난 구간</mark>, 뒤쪽은 탐색할 구간.</li>
+<li>최솟값이 이미 i 위치에 있으면 제자리 유지.</li>
+<li>마지막 한 자리는 자동 확정.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
       <section class="content-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>선택 정렬: 3과 5 비교</h2></div></header><div class="slide-content">
 <p><img src="images/week06/selection-sort-line-007.svg" alt="3과 5 비교 직후, 7단계" class="md-image img-full img-align-center"></p>
 </div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
