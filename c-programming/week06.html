@@ -685,30 +685,33 @@ int main(void) {
 
     return 0;
 }</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">5</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
-      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 4: 사각형 외곽만 별로 출력</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
-<h3>입력: 행 6, 열 5</h3>
-<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">*****
-*   *
-*   *
-*   *
-*   *
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>실습 4: 피보나치 수열의 항만큼 별 출력</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>입력 n = 6의 목표 출력</h3>
+<div class="code-container"><div class="code-header"><span>text</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-text">*
+*
+**
+***
 *****
+********
 </code></pre>
 </div><ul>
-<li>입력 순서: <code>rows cols</code>, 예시 <code>6 5</code>.</li>
-<li>행·열 수는 양의 정수.</li>
-<li>첫 행·마지막 행 또는 첫 열·마지막 열이면 <mark>별 출력</mark>.</li>
-<li>내부 칸은 <mark>공백 한 칸 출력</mark>.</li>
+<li>입력 n: 출력할 줄 수, 범위 <code>1~10</code>.</li>
+<li>줄별 별 개수: <mark>1, 1, 2, 3, 5, 8, …</mark>.</li>
+<li>첫 두 항은 1, 이후 항은 바로 앞 두 항의 합.</li>
+<li>바깥 반복은 n줄, 안쪽 반복은 현재 항만큼 별 출력.</li>
 </ul>
-</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>행·열 수를 입력받아 사각형 테두리를 별로 출력.</p><div class="callout-note"><strong>Hint</strong><p>중첩 for문과 if·else 사용. 내부는 공백, 한 행 종료 후 줄바꿈.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="8" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>n을 입력받아 피보나치 수열의 첫 n개 항만큼 별을 줄별로 출력. 입력 범위는 1~10.</p><div class="callout-note"><strong>Hint</strong><p>5주차의 A=1, B=0 활용. 매 줄 A개만큼 별 출력 후 줄바꿈. A = A + B, B = A - B 순서로 갱신.</p></div></aside><div class="editor-workspace"><textarea class="code-editor" rows="8" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 int main(void) {
-    int rows = 0, cols = 0;
-    scanf(&quot;%d %d&quot;, &amp;rows, &amp;cols);
+    int n = 0;
+    int A = 1, B = 0;
+    scanf(&quot;%d&quot;, &amp;n);
 
-    // 행 i와 열 j를 반복하며 테두리·내부 구분 후 출력.
+    // 바깥 for: n줄 반복.
+    // 안쪽 for: 현재 항 A개만큼 별 출력.
+    // 한 줄 종료 후 줄바꿈, 다음 항으로 갱신.
 
     return 0;
-}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">6 5</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력">6</textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 06</span></footer></div></section>
       <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 45fr) minmax(0, 55fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 06</div><h2>무한 반복 1: 안쪽 변수 j가 진행하지 못함</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
 <h3>목표: 별 5개씩 3행 출력</h3>
 <div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">for (int i = 1; i &lt;= 3; i++) {
