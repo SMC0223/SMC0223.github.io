@@ -1,0 +1,25 @@
+.joint-velocity{min-width:0}
+.jv-grid{display:grid;grid-template-columns:minmax(0,56fr) minmax(0,44fr);gap:32px;align-items:center}
+.jv-grid>div{min-width:0}
+.jv-scene{display:block;width:100%;height:630px;max-height:630px}
+.jv-scene text{fill:#111;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.jv-scene .jv-math{font:italic 24px KaTeX_Main,Georgia,"Times New Roman",serif}
+.jv-panel{display:grid;gap:14px;align-content:start}
+.jv-code-label{display:grid;gap:9px;font-size:22px;font-weight:600}
+.joint-velocity .c-editor-shell{background:#111b24;border:1px solid #9aafc1;border-radius:5px}
+.joint-velocity .c-editor-shell:has(.jv-editor[aria-invalid=true]){border-color:#a43c3c}
+.joint-velocity .jv-editor{box-sizing:border-box;display:block;width:100%;height:450px;resize:none;padding:14px 16px;border:0;border-radius:5px;background:#111b24;color:#edf1f4;font:19px/1.4 Consolas,monospace;tab-size:4;white-space:pre;overflow:auto}
+.jv-editor:disabled{opacity:.65}
+.jv-actions{display:flex;gap:9px;flex-wrap:wrap}
+.jv-actions .btn{font-size:19px;padding:10px 14px}
+.jv-constraint{align-self:center;color:var(--text-secondary);font-size:19px;line-height:1.35}
+.jv-equation{display:grid;align-items:center;min-height:150px;margin-top:8px;font-size:29px;text-align:center}
+.jv-equation .katex-display{margin:0}
+.jv-equation .katex{font-size:1.08em}
+.reveal p.jv-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.joint-velocity[data-state=error] p.jv-status{position:static;width:auto;height:auto;margin:0;clip-path:none;white-space:normal;font-size:19px;line-height:1.35;color:#a43c3c}
+@media(max-width:900px){.jv-grid{grid-template-columns:1fr}}
+.joint-velocity-flow{display:grid;grid-template-columns:minmax(0,56fr) minmax(0,44fr);gap:32px;align-items:center;min-width:0}
+.joint-velocity-flow>div{min-width:0}
+.reveal .joint-velocity-flow pre code{font:20px/1.15 Consolas,monospace;padding:14px 18px;max-height:none}
+.joint-velocity-flow .jvf-diagram img{display:block;width:100%;height:auto;max-height:720px;margin:0 auto}

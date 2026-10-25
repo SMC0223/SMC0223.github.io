@@ -1,0 +1,31 @@
+.matrix-product { width: min(100%, 1350px); margin: 14px auto 18px; }
+.matrix-product [hidden] { display: none !important; }
+.mp-step { display: grid; gap: 24px; }
+.mp-matrices { display: flex; justify-content: center; align-items: center; gap: 54px; }
+.mp-operand { display: grid; justify-items: center; gap: 12px; }
+.mp-name { font-size: 30px; }
+.mp-matrix { position: relative; padding: 5px 18px; }
+.mp-matrix::before, .mp-matrix::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 12px;
+  border: 3px solid currentColor;
+}
+.mp-matrix::before { left: 0; border-right: 0; }
+.mp-matrix::after { right: 0; border-left: 0; }
+.reveal .matrix-product table { width: 224px; table-layout: fixed; border-collapse: collapse; border-spacing: 0; margin: 0; }
+.reveal .matrix-product td { width: 112px; height: 84px; padding: 0; border: 0; text-align: center; vertical-align: middle; background: transparent; font-size: 46px; font-weight: 400; }
+.reveal .matrix-product td.mp-active { background: #dce9f5; color: #004d86; }
+.reveal .matrix-product td.mp-pending { color: #c5ccd3; }
+.mp-operator { font-size: 44px; padding-top: 50px; }
+.reveal .matrix-product .mp-selection { text-align: center; font-size: 28px; line-height: 1.5; }
+.mp-selection > span { background: #dce9f5; padding: 3px 10px; }
+.mp-calculation { font-size: 42px; text-align: center; min-height: 64px; }
+.mp-controls { display: flex; gap: 20px; justify-content: center; align-items: center; margin-top: 24px; }
+.mp-progress { color: var(--text-secondary); font-size: 24px; min-width: 70px; text-align: center; font-variant-numeric: tabular-nums; }
+.mp-controls .btn { min-width: 90px; font-size: 23px; }
+.mp-controls .btn:disabled { opacity: .35; cursor: default; }
+@media (max-width: 760px) {
+  .mp-matrices { gap: 20px; }
+  .reveal .matrix-product table { width: 160px; }
+  .reveal .matrix-product td { width: 80px; height: 64px; font-size: 36px; }
+  .mp-calculation { font-size: 34px; }
+}

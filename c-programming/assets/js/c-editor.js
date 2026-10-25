@@ -1,7 +1,7 @@
 (function () {
   const keywords = new Set(('auto break case char const continue default do double else enum extern float for goto if inline int long register restrict return short signed sizeof static struct switch typedef union unsigned void volatile while _Alignas _Alignof _Atomic _Bool _Complex _Generic _Imaginary _Noreturn _Static_assert _Thread_local bool').split(' '));
   const tokens = /\/\*[\s\S]*?(?:\*\/|$)|\/\/[^\n]*|"(?:\\[\s\S]|[^"\\])*"?|'(?:\\[\s\S]|[^'\\])*'?|^[ \t]*#[ \t]*\w+|\b(?:0[xX][\da-fA-F]+(?:\.[\da-fA-F]*)?(?:[pP][+-]?\d+)?|\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)(?:[uUlLfF]*)\b|\b[A-Za-z_]\w*\b/gm;
-  document.querySelectorAll('[data-c-runner] [data-code]').forEach((editor) => {
+  document.querySelectorAll('[data-c-runner] [data-code], [data-c-highlight]').forEach((editor) => {
     const shell = document.createElement('div');
     shell.className = 'c-editor-shell';
     const paint = document.createElement('div');
