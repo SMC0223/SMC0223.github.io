@@ -1,0 +1,24 @@
+/* Stationary code and SVG layout, shared by light and dark lecture themes. */
+.memory-view-slide .code-comparison-grid { gap: 86px; }
+.memory-view-slide .column { position: relative; }
+.memory-view-slide .column:first-child::after {
+  background: #f9bd40;
+  clip-path: polygon(0 28%, 58% 28%, 58% 0, 100% 50%, 58% 100%, 58% 72%, 0 72%);
+  content: "";
+  height: 42px;
+  position: absolute;
+  right: -66px;
+  top: 230px;
+  width: 42px;
+}
+.memory-view-slide .column > h3 { line-height: 1.25; margin: 0 0 18px; }
+.memory-view-slide .column:last-child { gap: 0; }
+.memory-view-slide .column:last-child img { height: 650px; max-height: 650px; object-fit: contain; width: 100%; }
+.memory-view-slide .code-container { min-height: 390px; }
+.memory-view-slide .column > p,
+.memory-view-slide .column li { font-size: 28px; line-height: 1.45; }
+.memory-view-slide .column > p,
+.memory-view-slide .column > ul { margin-top: 20px; }
+.memory-view-slide .column:last-child > p { margin: 0; }
+.memory-view-slide .lecture-reference { margin-top: 16px; }
+.memory-view-slide .lecture-reference p { font-size: 23px; }
