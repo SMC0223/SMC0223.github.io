@@ -12,12 +12,15 @@ int main(void) {
     if (!check_robot_links(L)) return 0; // 제공 함수: 길이 검사
     double theta[2] = {30*PI/180, 60*PI/180}; // rad
     double theta_dot[2] = {
-        /* 관절 1의 속도 */, /* 관절 2의 속도 */
+        0.2, 0.1 // 예시 관절속도
     }; // rad/s
     double J[2][2], x_dot[2];
     for (double t = 0.0; t <= end_time; t += dt) {
-        // 1. 현재 관절각도로 Jacobian 행렬 J 작성
-
+        // 1. 현재 관절각도로 Jacobian 행렬 J 계산
+        J[0][0] = -L[0]*sin(theta[0]) - L[1]*sin(theta[0] + theta[1]);
+        J[0][1] = -L[1]*sin(theta[0] + theta[1]);
+        J[1][0] = L[0]*cos(theta[0]) + L[1]*cos(theta[0] + theta[1]);
+        J[1][1] = L[1]*cos(theta[0] + theta[1]);
 
         // 2. 끝단 속도 계산: x_dot = J * theta_dot
         for (int i = 0; i < 2; i++) {
@@ -44,7 +47,7 @@ int main(void) {
     if (!check_robot_links(L)) return 0; // 제공 함수: 길이 검사
     double theta[2] = {0.0, 90*PI/180}; // rad
     double x_dot[2] = {
-        /* 로봇 끝단 x 속도 */, /* 로봇 끝단 y 속도 */
+        0.2, 0.1 // 예시 끝단속도
     }; // m/s
     double J_inv[2][2], theta_dot[2];
     for (double t = 0.0; t <= end_time; t += dt) {
@@ -53,8 +56,11 @@ int main(void) {
         if (fabs(d) < 0.0001) {
             stop_robot("singular"); break;
         }
-        // 1. 현재 관절각도로 역 Jacobian 행렬 J_inv 작성
-
+        // 1. 현재 관절각도로 역 Jacobian 행렬 J_inv 계산
+        J_inv[0][0] = L[1]*cos(theta[0] + theta[1]) / d;
+        J_inv[0][1] = L[1]*sin(theta[0] + theta[1]) / d;
+        J_inv[1][0] = -(L[0]*cos(theta[0]) + L[1]*cos(theta[0] + theta[1])) / d;
+        J_inv[1][1] = -(L[0]*sin(theta[0]) + L[1]*sin(theta[0] + theta[1])) / d;
 
         // 2. 관절속도 계산: theta_dot = J_inv * x_dot
         for (int i = 0; i < 2; i++) {

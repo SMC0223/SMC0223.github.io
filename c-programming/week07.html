@@ -862,7 +862,7 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
         </svg>
       </div>
       <div class="jv-panel">
-        <label class="jv-code-label">theta_dot에 관절속도 입력 → J 작성 후 재생<textarea class="code-editor jv-editor" data-jv-code data-c-highlight spellcheck="false" aria-label="main의 for 반복문에서 관절속도와 Jacobian을 작성하는 C 코드">#include &lt;math.h&gt;
+        <label class="jv-code-label">관절속도·Jacobian 정답 예제 → 재생으로 확인<textarea class="code-editor jv-editor" data-jv-code data-c-highlight spellcheck="false" aria-label="main의 for 반복문에서 관절속도와 Jacobian을 작성하는 C 코드">#include &lt;math.h&gt;
 #define PI 3.141592653589793
 int main(void) {
     const double dt = 0.02, end_time = 5.0; // 시간 (s)
@@ -872,12 +872,15 @@ int main(void) {
     if (!check_robot_links(L)) return 0; // 제공 함수: 길이 검사
     double theta[2] = {30*PI/180, 60*PI/180}; // rad
     double theta_dot[2] = {
-        /* 관절 1의 속도 */, /* 관절 2의 속도 */
+        0.2, 0.1 // 예시 관절속도
     }; // rad/s
     double J[2][2], x_dot[2];
     for (double t = 0.0; t &lt;= end_time; t += dt) {
-        // 1. 현재 관절각도로 Jacobian 행렬 J 작성
-
+        // 1. 현재 관절각도로 Jacobian 행렬 J 계산
+        J[0][0] = -L[0]*sin(theta[0]) - L[1]*sin(theta[0] + theta[1]);
+        J[0][1] = -L[1]*sin(theta[0] + theta[1]);
+        J[1][0] = L[0]*cos(theta[0]) + L[1]*cos(theta[0] + theta[1]);
+        J[1][1] = L[1]*cos(theta[0] + theta[1]);
 
         // 2. 끝단 속도 계산: x_dot = J * theta_dot
         for (int i = 0; i &lt; 2; i++) {
@@ -927,7 +930,7 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
  28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
 -174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z"/></svg></span></span></span><span style="top:-3.45em;"><span class="pstrut" style="height:3.45em;"></span><span class="mord"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="color:transparent;">−</span><span class="mord">0.000</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="color:transparent;">−</span><span class="mord">0.000</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.598em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.498em;"><span></span></span></span></span></span></span></span></span></span></p>
 </div>
-        <p class="jv-status" data-jv-status role="status" aria-live="polite">주석 빈칸 작성 후 재생.</p>
+        <p class="jv-status" data-jv-status role="status" aria-live="polite">정답 예제 입력됨 · 재생으로 움직임 확인.</p>
       </div>
     </div>
   </div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 07</span></footer></div></section>
@@ -1004,7 +1007,7 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
         </svg>
       </div>
       <div class="jv-panel">
-        <label class="jv-code-label">x_dot에 로봇 끝단 속도 입력 → J_inv 작성 후 재생<textarea class="code-editor jv-editor" data-jv-code data-c-highlight spellcheck="false" aria-label="로봇 끝단 속도에서 역 Jacobian으로 관절속도를 계산하는 C 코드">#include &lt;math.h&gt;
+        <label class="jv-code-label">끝단속도·역 Jacobian 정답 예제 → 재생으로 확인<textarea class="code-editor jv-editor" data-jv-code data-c-highlight spellcheck="false" aria-label="로봇 끝단 속도에서 역 Jacobian으로 관절속도를 계산하는 C 코드">#include &lt;math.h&gt;
 #define PI 3.141592653589793
 int main(void) {
     const double dt = 0.02, end_time = 2.0; // 시간 (s)
@@ -1014,17 +1017,20 @@ int main(void) {
     if (!check_robot_links(L)) return 0; // 제공 함수: 길이 검사
     double theta[2] = {0.0, 90*PI/180}; // rad
     double x_dot[2] = {
-        /* 로봇 끝단 x 속도 */, /* 로봇 끝단 y 속도 */
+        0.2, 0.1 // 예시 끝단속도
     }; // m/s
     double J_inv[2][2], theta_dot[2];
     for (double t = 0.0; t &lt;= end_time; t += dt) {
         // 역 Jacobian의 공통 분모
         double d = L[0]*L[1]*sin(theta[1]); // 공통 분모
         if (fabs(d) &lt; 0.0001) {
-            stop_robot("singular"); break;
+            stop_robot(&quot;singular&quot;); break;
         }
-        // 1. 현재 관절각도로 역 Jacobian 행렬 J_inv 작성
-
+        // 1. 현재 관절각도로 역 Jacobian 행렬 J_inv 계산
+        J_inv[0][0] = L[1]*cos(theta[0] + theta[1]) / d;
+        J_inv[0][1] = L[1]*sin(theta[0] + theta[1]) / d;
+        J_inv[1][0] = -(L[0]*cos(theta[0]) + L[1]*cos(theta[0] + theta[1])) / d;
+        J_inv[1][1] = -(L[0]*sin(theta[0]) + L[1]*sin(theta[0] + theta[1])) / d;
 
         // 2. 관절속도 계산: theta_dot = J_inv * x_dot
         for (int i = 0; i &lt; 2; i++) {
@@ -1033,7 +1039,7 @@ int main(void) {
                 theta_dot[i] += J_inv[i][j] * x_dot[j];
         }
         if (fabs(theta_dot[0]) &gt; 5 || fabs(theta_dot[1]) &gt; 5) {
-            stop_robot("rate"); break;
+            stop_robot(&quot;rate&quot;); break;
         }
         // 현재 상태로 그림·수식·속도 화살표 갱신
         show_robot_inverse(t, theta, J_inv, theta_dot, x_dot);
@@ -1077,7 +1083,7 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
  28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
 -174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z"/></svg></span></span></span><span style="top:-3.45em;"><span class="pstrut" style="height:3.45em;"></span><span class="mord"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="color:transparent;">−</span><span class="mord">0.000</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="color:transparent;">−</span><span class="mord">0.000</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.598em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.498em;"><span></span></span></span></span></span></span></span></span></span></p>
 </div>
-        <p class="jv-status" data-jv-status role="status" aria-live="polite">주석 빈칸 작성 후 재생.</p>
+        <p class="jv-status" data-jv-status role="status" aria-live="polite">정답 예제 입력됨 · 재생으로 움직임 확인.</p>
       </div>
     </div>
   </div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 07</span></footer></div></section>
