@@ -1,0 +1,582 @@
+<!doctype html>
+<html data-theme="light" lang="ko" data-asset-base=".">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="성민창"><meta name="source" content="content/week09.md">
+  <title>WEEK 09 · 함수 작성법과 지역/전역 변수</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="./assets/katex/katex.min.css">
+  <link rel="stylesheet" href="./assets/css/variables.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/typography.css?v=plain-operators-20260926"><link rel="stylesheet" href="./assets/css/presentation.css"><link rel="stylesheet" href="./assets/css/components.css"><link rel="stylesheet" href="./assets/css/code.css?v=linenums-20261004"><link rel="stylesheet" href="./assets/css/mermaid.css?v=flowchart-wide-v3-20260929"><link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/css/bit-lamps.css">
+  <link rel="stylesheet" href="./assets/css/logic-review.css">
+  <link rel="stylesheet" href="./assets/css/line-tracer.css">
+  <link rel="stylesheet" href="./assets/css/c-editor.css">
+  <link rel="stylesheet" href="./assets/css/physics.css">
+  <link rel="stylesheet" href="./assets/css/robot-arm.css">
+  <link rel="stylesheet" href="./assets/css/one-link.css?v=20260920-xzero">
+  <link rel="stylesheet" href="./assets/css/addition-cycle.css">
+  <link rel="stylesheet" href="./assets/css/spiral-grid.css">
+  <link rel="stylesheet" href="./assets/css/sort-bars.css">
+  <link rel="stylesheet" href="./assets/css/lowpass-filter.css">
+  <link rel="stylesheet" href="./assets/css/convolution-lab.css">
+<link rel="stylesheet" href="./assets/css/large-type.css">
+<link rel="stylesheet" href="./assets/css/light.css">
+</head>
+<body>
+  <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. Edit content/week09.md and run the build instead. -->
+  <script src="./assets/js/ansi-output.js"></script>
+  <main class="reveal" aria-label="함수 작성법과 지역/전역 변수 presentation"><div class="slides">
+      <section class="title-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="title-content"><div class="eyebrow">WEEK 09</div><h1>함수 작성법과 지역/전역 변수</h1><p class="slide-subtitle">기본 형태, 선언 방법, 실행 과정, 작성 실습, 지역·전역변수</p><div class="title-rule"></div><div class="title-meta"><span><strong>강사</strong> 성민창</span><span><strong>일시</strong> <span data-live-date>날짜 확인 중…</span> · 14:30–17:30</span></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>01. 함수(function)란?</h1>
+<p>수학에서 배운 함수 → C 프로그램의 함수</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>수학의 함수: 입력과 출력을 연결하는 규칙</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<p><img src="./images/week09/function-graph.svg" alt="함수 y = 2x + 1의 그래프. x = 3일 때 y = 7인 점과 좌표축까지의 점선 표시." class="md-image img-full img-align-center"></p>
+</div><div class="column"><ul>
+<li><mark>두 집합 사이의 대응관계</mark>.</li>
+<li>각 입력에는 하나의 출력이 대응됨.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y=f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>에서 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>는 입력, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span>는 출력.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="two-column-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>C의 함수: 특정 작업을 수행하는 코드 묶음</h2></div></header><div class="slide-content"><div class="two-column"><div class="column">
+<p><img src="./images/week09/function-box.svg" alt="함수 기계의 왼쪽 위 입력구로 x가 들어가고, FUNCTION f 상자에서 작업한 뒤 오른쪽 아래 출력구로 반환값 f(x)가 나오는 흐름." class="md-image img-full img-align-center"></p>
+</div><div class="column"><ul>
+<li><mark>특정 작업을 수행하는 코드에 이름을 붙인 단위</mark>.</li>
+<li>함수 이름으로 호출하면 묶어 둔 코드가 실행됨.</li>
+<li>같은 작업이 필요할 때 함수를 다시 호출하여 재사용 가능.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>02. 함수의 기본 형태</h1>
+<p>반환형 · 함수 이름 · 매개변수 · 함수 본문 · 반환문</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 58fr) minmax(0, 42fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>함수의 기본 형태 1: 반환형</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-anatomy-1.svg" alt="반환형 int 부분을 주황색 상자로 강조한 add 함수 정의." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li>반환형: 함수가 돌려줄 값의 자료형.</li>
+<li>함수 이름 앞에 작성. 위 예제의 반환형은 <code>int</code>.</li>
+<li><code>add</code>가 계산한 결과를 정수형 값으로 반환함.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 58fr) minmax(0, 42fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>함수의 기본 형태 2: 함수 이름</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-anatomy-2.svg" alt="함수 이름 add 부분을 주황색 상자로 강조한 함수 정의." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li>함수 이름: 호출할 때 사용하는 이름.</li>
+<li>위 함수의 이름은 <code>add</code>.</li>
+<li><code>add(3, 4)</code> 형태로 호출.</li>
+<li>전달하는 인자를 바꾸어 같은 함수 재사용 가능.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 58fr) minmax(0, 42fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>함수의 기본 형태 3: 매개변수</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-anatomy-3.svg" alt="매개변수 int a, int b 부분을 주황색 상자로 강조한 함수 정의." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li>매개변수: 호출할 때 전달한 값을 받아 저장하는 변수.</li>
+<li><code>int a, int b</code>처럼 각 매개변수의 자료형과 이름 작성.</li>
+<li><code>add(3, 4)</code> 호출 시 <code>a</code>에 <code>3</code>, <code>b</code>에 <code>4</code>가 전달됨.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 58fr) minmax(0, 42fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>함수의 기본 형태 4: 함수 본문</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-anatomy-4.svg" alt="여는 중괄호부터 닫는 중괄호까지의 함수 본문을 주황색 영역으로 강조한 함수 정의." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li>함수 본문: 중괄호 <code>{ }</code>로 감싼 실행 코드.</li>
+<li>함수를 호출하면 본문 안의 문장이 순서대로 실행됨.</li>
+<li>위 예제에서는 <code>return a + b;</code>로 계산과 반환 수행.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 58fr) minmax(0, 42fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>함수의 기본 형태 5: 반환문</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-anatomy-5.svg" alt="반환문 return a + b 부분을 주황색 상자로 강조한 함수 정의." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li>반환문: 계산한 값을 호출한 곳으로 돌려주는 문장.</li>
+<li><code>return a + b;</code>는 합을 계산하여 반환하고 함수 실행 종료.</li>
+<li><code>add(3, 4)</code> 호출의 반환값은 <code>7</code>.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>03. 함수의 선언법</h1>
+<p>본문을 앞에 작성 · 원형을 먼저 선언 · 호출 전에 형식 알리기</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-top image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 55fr) minmax(0, 45fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>올바른 선언법 1: 함수 본문을 main 앞에 작성</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">#include &lt;stdio.h&gt;
+int add(int a, int b) {
+    return a + b;
+}
+int main(void) {
+    int sum = add(3, 4);
+    printf(&quot;%d\n&quot;, sum);
+    return 0;
+}
+</code></pre>
+</div></div><div class="comparison-item"><ul>
+<li><code>add</code>의 본문을 <code>main</code>보다 앞에 작성.</li>
+<li>함수의 본문을 작성하면 반환형·이름·매개변수도 함께 알려짐.</li>
+<li>호출 전에 함수의 형식이 알려져 있으므로 사용 가능.</li>
+<li>별도의 함수 원형을 추가하지 않아도 호출 가능.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-top image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 55fr) minmax(0, 45fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>잘못된 선언법: 선언 없이 먼저 호출</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int sum = add(3, 4);
+    printf(&quot;%d\n&quot;, sum);
+    return 0;
+}
+int add(int a, int b) {
+    return a + b;
+}
+</code></pre>
+</div></div><div class="comparison-item"><ul>
+<li>호출 위치 앞에 <code>add</code>의 선언이 없는 상태.</li>
+<li>아래에 함수 본문을 작성해도 앞의 호출에 필요한 선언은 되지 않음.</li>
+<li>C99 이후 기준, 선언 없이 함수 호출 불가.</li>
+<li>컴파일러·설정에 따라 경고 또는 오류로 표시됨.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-top image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 55fr) minmax(0, 45fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>올바른 선언법 2: 원형을 먼저 선언</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">#include &lt;stdio.h&gt;
+int add(int a, int b);
+int main(void) {
+    int sum = add(3, 4);
+    printf(&quot;%d\n&quot;, sum);
+    return 0;
+}
+int add(int a, int b) {
+    return a + b;
+}
+</code></pre>
+</div></div><div class="comparison-item"><ul>
+<li>함수 원형: 반환형·이름·매개변수의 형식을 먼저 알리는 선언.</li>
+<li><code>int add(int a, int b);</code>처럼 본문 없이 <code>;</code>로 끝냄.</li>
+<li>함수 본문을 <code>main</code> 뒤에 작성해도 호출 전에 형식을 알 수 있음.</li>
+<li>원형과 뒤에 작성한 본문의 반환형·매개변수 자료형은 일치 필요.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 65fr) minmax(0, 35fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>두 수의 합 함수 실행 과정 1: main에서 시작</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-add-step-1.svg" alt="main 함수의 시작 줄을 주황색 화살표로 가리킨 코드 그림." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li>본문을 <code>main</code> 앞에 작성한 첫 번째 배치의 실행 과정 확인.</li>
+<li>프로그램의 실행은 <code>main</code>에서 시작함.</li>
+<li>위에 정의된 <code>add</code>는 아직 실행되지 않음. 호출할 때 실행됨.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 65fr) minmax(0, 35fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>두 수의 합 함수 실행 과정 2: add 호출</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-add-step-2.svg" alt="main의 add(3, 4) 호출 줄에서 위쪽 add 함수로 향하는 화살표. 인자 3과 4를 전달하는 흐름." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li><code>int sum = add(3, 4);</code>의 오른쪽 함수 호출을 먼저 실행.</li>
+<li><code>3</code>, <code>4</code>를 전달하여 <code>add</code>로 이동. <code>sum</code> 초기화는 반환까지 대기.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 65fr) minmax(0, 35fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>두 수의 합 함수 실행 과정 3: 함수 내부 계산</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-add-step-3.svg" alt="두 수의 합 함수 return a + b 줄을 강조한 코드와 a = 3, b = 4, a + b = 7 표시." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li>매개변수 <code>a</code>, <code>b</code>에 각각 <code>3</code>, <code>4</code>가 저장됨.</li>
+<li><code>a + b</code>를 계산하여 결과 <code>7</code>을 얻음.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 65fr) minmax(0, 35fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>두 수의 합 함수 실행 과정 4: 호출한 곳으로 반환</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-add-step-4.svg" alt="add의 return 줄에서 main의 함수 호출 위치로 돌아오는 화살표. 반환값 7 표시." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li><code>return a + b;</code>로 계산 결과 <code>7</code> 반환.</li>
+<li><code>add</code> 실행을 마치고 호출한 식의 위치로 복귀.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 65fr) minmax(0, 35fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>두 수의 합 함수 실행 과정 5: sum에 결과 저장</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-add-step-5.svg" alt="main의 int sum = add(3, 4) 줄을 강조하고 sum = 7을 표시한 코드 그림." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li><code>add(3, 4)</code>가 반환한 <code>7</code>로 <code>sum</code> 초기화.</li>
+<li>해당 문장을 마친 뒤 다음 줄로 이동.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" data-transition="none" style="--comparison-columns: minmax(0, 65fr) minmax(0, 35fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>두 수의 합 함수 실행 과정 6: 화면에 출력</h2></div></header><div class="slide-content"><div class="comparison-grid"><div class="comparison-item">
+<p><img src="./images/week09/function-add-step-6.svg" alt="printf 줄을 가리킨 화살표와 출력 결과 7이 표시된 코드 그림." class="md-image img-full img-align-center"></p>
+</div><div class="comparison-item"><ul>
+<li><code>printf</code>로 <code>sum</code>의 값 <code>7</code> 출력.</li>
+<li>이후 <code>return 0;</code>을 실행하여 <code>main</code> 종료.</li>
+</ul>
+</div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 1: 두 수의 합 함수 작성과 실행</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+// add 함수를 작성해 보자.
+
+int main(void) {
+    //int sum = add(3, 4);
+    printf(&quot;%d\n&quot;, sum);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 2: 두 수의 차를 구하는 함수 작성</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+// 두 수의 차를 구하는 subtract 함수 작성.
+
+int main(void) {
+    //int difference = subtract(7, 3);
+    printf(&quot;%d\n&quot;, difference);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 3: 세 수의 곱을 구하는 함수 작성</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+// 세 수의 곱을 구하는 multiply 함수 작성.
+
+int main(void) {
+    //int product = multiply(2, 3, 4);
+    printf(&quot;%d\n&quot;, product);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 4: 함수 선언 유무에 따른 실행 비교</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>선언 후 호출</h3>
+<div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>실행하여 출력 <code>7</code> 확인.</p></aside><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int add(int a, int b);
+int main(void) {
+    int sum = add(3, 4);
+    printf(&quot;%d\n&quot;, sum);
+    return 0;
+}
+int add(int a, int b) {
+    return a + b;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><div class="column"><h3>선언 없이 호출</h3>
+<div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>실행하여 컴파일 진단 확인. 선언 추가 후 다시 실행.</p></aside><div class="editor-workspace"><textarea class="code-editor" rows="11" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int main(void) {
+    int sum = add(3, 4);
+    printf(&quot;%d\n&quot;, sum);
+    return 0;
+}
+int add(int a, int b) {
+    return a + b;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>함수의 자료형: float 입력과 float 반환</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">float divide(float a, float b) {
+    return a / b;
+}
+</code></pre>
+</div><ul>
+<li>매개변수 <code>a</code>, <code>b</code>: <code>float</code>형 값 두 개 전달.</li>
+<li>반환형 <code>float</code>: 나눗셈 결과를 <code>float</code>형으로 반환.</li>
+<li><code>divide(7.0f, 2.0f)</code> 호출 시 <code>3.5f</code> 반환.</li>
+<li>나누는 값 <code>b</code>는 0이 아닌 값 사용.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 5: float 입력과 float 반환</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<ul>
+<li><code>divide</code>: <code>float</code> 값 두 개를 받아 나눗셈 결과를 <code>float</code>로 반환.</li>
+<li>함수 원형은 <code>main</code> 앞, 정의는 <code>main</code> 뒤에 직접 작성.</li>
+<li><code>main</code>에서 호출하고 반환값을 소수점 아래 두 자리까지 출력.</li>
+<li>나누는 값 <code>b</code>는 0이 아닌 값 사용.</li>
+</ul>
+<h3>실행 결과 확인</h3>
+<ul>
+<li><code>7.0f</code>, <code>2.0f</code> 입력 → <code>3.50</code> 출력.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+// 함수 원형 작성
+
+int main(void) {
+    float a = 7.0f;
+    float b = 2.0f;
+
+    // 나눗셈 함수 호출과 결과 출력 코드 작성
+
+    return 0;
+}
+
+// 함수 정의 작성</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>함수의 자료형: int 입력과 float 반환</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">float divide(int a, int b) {
+    return (float)a / b;
+}
+</code></pre>
+</div><ul>
+<li>매개변수 <code>a</code>, <code>b</code>: <code>int</code>형 정수 두 개 전달.</li>
+<li>반환형 <code>float</code>: 소수 부분을 포함한 결과 반환.</li>
+<li><code>divide(7, 2)</code> 호출 시 <code>3.5f</code> 반환. <code>b</code>는 0이 아닌 값 사용.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 6: int 입력과 float 반환</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<ul>
+<li><code>divide</code>: <code>int</code>형 정수 두 개를 받아 결과를 <code>float</code>로 반환.</li>
+<li>함수 원형과 정의를 직접 작성하고 <code>main</code>에서 호출.</li>
+<li>소수 부분이 유지되도록 나눗셈에 사용되는 자료형 확인.</li>
+<li>반환값을 소수점 아래 두 자리까지 출력. <code>b</code>는 0이 아닌 값 사용.</li>
+</ul>
+<h3>실행 결과 확인</h3>
+<ul>
+<li><code>7</code>, <code>2</code> 입력 → <code>3.50</code> 출력.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+// 함수 원형 작성
+
+int main(void) {
+    int a = 7;
+    int b = 2;
+
+    // 함수 호출과 float형 결과 저장·출력 코드 작성
+
+    return 0;
+}
+
+// 함수 정의 작성</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>int 입력과 char 반환: 점수에 따른 등급</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">#include &lt;stdio.h&gt;
+char grade(int score) {
+    if (score &gt;= 90) return 'A';
+    if (score &gt;= 80) return 'B';
+    if (score &gt;= 70) return 'C';
+    if (score &gt;= 60) return 'D';
+    return 'F';
+}
+int main(void) {
+    printf(&quot;%c\n&quot;, grade(85));
+    return 0;
+}
+</code></pre>
+</div><ul>
+<li><code>int</code>형 점수를 받아 <code>char</code>형 등급 반환. 점수는 0~100 범위 사용.</li>
+<li>높은 점수부터 확인하고 조건에 맞는 문자 반환 후 함수 종료.</li>
+<li><code>grade(85)</code>의 반환값은 <code>'B'</code>. <code>%c</code>로 출력한 결과: <code>B</code>.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 7: 점수를 받아 등급 문자 반환</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<ul>
+<li><code>grade</code>: <code>int</code>형 점수를 받아 <code>char</code>형 등급 반환.</li>
+<li>90점 이상 A, 80점 이상 B, 70점 이상 C, 60점 이상 D, 그 외 F.</li>
+<li><code>if</code>문으로 등급을 판정하고 반환. 점수 범위는 0~100.</li>
+<li><code>main</code>에서 호출한 뒤 반환된 문자를 출력.</li>
+</ul>
+<h3>실행 결과 확인</h3>
+<ul>
+<li><code>85</code> 입력 → <code>B</code> 출력. <code>95</code>, <code>55</code>로 바꾸어 추가 확인.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+// 함수 원형 작성
+
+int main(void) {
+    int score = 85;
+
+    // 등급 함수 호출과 문자 출력 코드 작성
+
+    return 0;
+}
+
+// 함수 정의 작성</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>입력 인자가 없는 함수</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">#include &lt;stdio.h&gt;
+int get_number(void) {
+    return 10;
+}
+int main(void) {
+    int value = get_number();
+    printf(&quot;%d\n&quot;, value);
+    return 0;
+}
+</code></pre>
+</div><ul>
+<li>매개변수 목록의 <code>(void)</code>: 호출할 때 전달하는 인자 없음.</li>
+<li><code>get_number()</code>처럼 괄호 안을 비워 호출.</li>
+<li>입력 인자 없이도 값 반환 가능. 실행 결과: <code>10</code>.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 8: 입력 인자가 없는 함수</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<ul>
+<li><code>get_number</code>: 입력 인자 없이 정수 <code>10</code>을 반환하는 함수 작성.</li>
+<li>매개변수가 없음을 함수 원형과 정의에 명시.</li>
+<li><code>main</code>에서 인자 없이 호출하고 반환값을 변수에 저장.</li>
+<li>저장한 값을 화면에 출력.</li>
+</ul>
+<h3>실행 결과 확인</h3>
+<ul>
+<li>인자 없이 호출 → <code>10</code> 출력.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+// 함수 원형 작성
+
+int main(void) {
+    // 인자 없는 함수 호출과 반환값 저장·출력 코드 작성
+
+    return 0;
+}
+
+// 함수 정의 작성</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>반환값이 없는 함수</h2></div></header><div class="slide-content">
+<div class="code-container"><div class="code-header"><span>c</span><button class="copy-code" type="button">Copy</button></div><pre><code data-line-numbers class="language-c">#include &lt;stdio.h&gt;
+void show_grade(char value) {
+    printf(&quot;%c\n&quot;, value);
+}
+int main(void) {
+    show_grade('B');
+    return 0;
+}
+</code></pre>
+</div><ul>
+<li>반환형 <code>void</code>: 호출한 곳으로 돌려주는 반환값 없음.</li>
+<li><code>show_grade('B')</code>를 호출하여 문자 <code>B</code>를 화면에 표시.</li>
+<li><mark>화면 출력과 반환값은 서로 다른 개념</mark>. 반환값 없이 작업 수행 가능.</li>
+</ul>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 9: 반환값이 없는 함수</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<ul>
+<li><code>show_grade</code>: <code>char</code>형 문자를 받아 화면에 표시하는 함수 작성.</li>
+<li>반환값이 없음을 반환형에 명시.</li>
+<li><code>main</code>에서 문자 변수를 인자로 전달하여 호출.</li>
+<li>반환값을 변수에 저장하지 않고 함수의 작업 실행.</li>
+</ul>
+<h3>실행 결과 확인</h3>
+<ul>
+<li>문자 <code>'B'</code> 전달 → <code>B</code> 표시. 화면 표시와 반환값 구분.</li>
+</ul>
+</div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+
+// 함수 원형 작성
+
+int main(void) {
+    char letter = 'B';
+
+    // 반환값 없는 함수 호출 코드 작성
+
+    return 0;
+}
+
+// 함수 정의 작성</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="section-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><div class="section-content"><h1>04. 지역변수와 전역변수</h1>
+<p>이름을 사용할 수 있는 범위 · 저장 공간이 유지되는 시간</p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>지역변수 1: main의 count 생성</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/value-copy-step-1.svg" alt="main의 int count = 3 선언 줄을 강조한 코드. main의 count는 선언 지점부터 main의 블록 끝까지 사용하는 지역변수임. 파란색 main의 count 저장 공간에 값 3이 있고 increase의 매개변수는 아직 생성되지 않은 상태." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>지역변수 2: 매개변수에 값 복사</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/value-copy-step-2.svg" alt="increase(count) 호출과 매개변수 선언을 강조한 코드. main의 count 값 3을 별도 공간의 increase 매개변수 count로 복사하는 화살표. 매개변수 count도 increase의 지역변수임. 두 변수의 값은 각각 3." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>지역변수 3: 매개변수만 변경</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/value-copy-step-3.svg" alt="count = count + 1 문장을 강조한 코드. 주황색 increase의 매개변수 count만 3에서 4로 변경되고 파란색 main의 count는 3을 유지하는 메모리 그림." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>지역변수 4: 함수 안의 값 출력</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/value-copy-step-4.svg" alt="increase 안의 printf 줄을 강조한 코드. 매개변수 count 값 4를 사용하여 increase: 4를 출력하고 main의 count 값 3은 그대로 유지되는 메모리 그림." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>지역변수 5: 함수 종료 후 main의 값</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/value-copy-step-5.svg" alt="increase 함수의 종료와 main의 printf 줄을 강조한 코드. 매개변수 count의 수명은 끝나고 main은 아직 실행 중이므로 지역변수 count의 값 3을 유지함. 최종 출력은 increase: 4 다음 main: 3." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 10: 매개변수의 값 복사 확인</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>출력 예측 후 실행. <code>increase(count);</code> 호출을 한 번 더 추가하여 두 호출의 출력 비교.</p></aside><div class="editor-workspace"><textarea class="code-editor" rows="13" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+void increase(int count) {
+    count = count + 1;
+    printf(&quot;increase: %d\n&quot;, count);
+}
+int main(void) {
+    int count = 3;
+    increase(count);
+    printf(&quot;main: %d\n&quot;, count);
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="interactive-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 11: 같은 이름의 지역변수 주소 비교</h2></div></header><div class="slide-content">
+<div class="interactive-layout interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="12" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+void show(void) {
+    int x = 20;
+    printf(&quot;show: %d, %p\n&quot;, x, (void *)&amp;x);
+}
+int main(void) {
+    int x = 10;
+    printf(&quot;main: %d, %p\n&quot;, x, (void *)&amp;x);
+    show();
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>전역변수 1: 함수 밖의 sum</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/global-memory-step-1.svg" alt="함수 밖에 선언한 전역변수 sum을 강조한 코드. 오른쪽 메모리의 고정된 저장 공간에 초기값 0 저장. 프로그램 실행 시작 전에 초기화되며 초기값 생략 시에도 0으로 초기화됨." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>전역변수 2: 첫 번째 호출</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/global-memory-step-2.svg" alt="첫 add_one 호출의 sum 증가와 printf를 강조한 코드. 오른쪽의 같은 전역 sum 저장 공간이 0에서 1로 변경되고 1 출력." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>전역변수 3: 함수 종료 후 값 유지</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/global-memory-step-3.svg" alt="add_one의 함수 종료를 강조한 코드. 오른쪽 전역 sum의 저장 공간과 값 1은 유지되며 프로그램 실행 동안 수명이 유지됨." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center" data-transition="none"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>전역변수 4: 두 번째 호출</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/global-memory-step-4.svg" alt="두 번째 add_one 호출을 강조한 코드. 오른쪽의 같은 전역 sum 값 1에 1을 더하여 2 저장. 최종 출력 순서는 1과 2." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 50fr) minmax(0, 50fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>실습 12: 지역변수와 전역변수 실행 비교</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
+<h3>지역변수: 호출마다 초기화</h3>
+<div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>두 번 호출한 출력 예측 후 실행. 호출을 한 번 더 추가하여 결과 확인.</p></aside><div class="editor-workspace"><textarea class="code-editor" rows="13" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+void add_one(void) {
+    int sum = 0;
+    sum = sum + 1;
+    printf(&quot;%d\n&quot;, sum);
+}
+int main(void) {
+    add_one();
+    add_one();
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div><div class="column"><h3>전역변수: 호출 후에도 값 유지</h3>
+<div class="interactive-layout interactive-compact interactive-notes-top" data-c-runner><aside class="instruction-panel"><p>두 번 호출한 출력 예측 후 실행. 호출을 한 번 더 추가하여 결과 확인.</p></aside><div class="editor-workspace"><textarea class="code-editor" rows="13" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
+int sum = 0;
+void add_one(void) {
+    sum = sum + 1;
+    printf(&quot;%d\n&quot;, sum);
+}
+int main(void) {
+    add_one();
+    add_one();
+    return 0;
+}</textarea><div class="console-grid"><div class="console-panel"><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="diagram-slide align-left valign-center image-size-full diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>주의사항: 변수 이름의 중복</h2></div></header><div class="slide-content">
+<p><img src="./images/week09/shadowing-memory.svg" alt="show 안의 printf가 같은 이름의 지역변수 value를 사용하여 10을 출력하는 코드. 오른쪽 메모리에서 지역변수 value의 값 10과 전역변수 value의 값 100을 서로 다른 공간에 표시. 전역변수의 값은 유지됨. 전역변수와 지역변수의 이름을 다르게 작성하도록 안내." class="md-image img-full img-align-center"></p>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+      <section class="summary-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 09</div><h2>오늘의 핵심</h2></div></header><div class="slide-content">
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>기억할 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>함수의 기본 형태</td>
+<td>반환형 · 함수 이름 · 매개변수 · 중괄호로 감싼 본문으로 구성</td>
+</tr>
+<tr>
+<td>선언과 호출</td>
+<td>호출 전에 함수 원형을 선언하거나 함수 본문을 먼저 정의</td>
+</tr>
+<tr>
+<td>실행 순서</td>
+<td>함수 호출 → 본문 실행 → 호출한 곳으로 복귀. 반환값은 <code>return</code>으로 전달</td>
+</tr>
+<tr>
+<td>입력과 반환</td>
+<td><code>int</code>·<code>float</code>·<code>char</code> 등 자료형 선택. 입력이 없으면 <code>(void)</code>, 반환값이 없으면 반환형 <code>void</code></td>
+</tr>
+<tr>
+<td>값 복사</td>
+<td>인자의 값이 매개변수에 복사됨. 매개변수를 바꾸어도 호출한 쪽 변수의 값은 유지</td>
+</tr>
+<tr>
+<td>지역변수</td>
+<td>함수·블록의 해당 범위에서 사용. 매개변수도 지역변수</td>
+</tr>
+<tr>
+<td>전역변수</td>
+<td>함수 밖에 선언. 선언이 보이는 함수들에서 공유하며, 함수 호출 후에도 값 유지</td>
+</tr>
+<tr>
+<td>이름 중복</td>
+<td>같은 이름의 지역변수가 있으면 해당 범위에서 전역변수가 가려짐</td>
+</tr>
+</tbody>
+</table>
+</div><footer class="slide-footer"><span>C Programming</span><span>WEEK 09</span></footer></div></section>
+  </div></main>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="./assets/js/mermaid-init.js?v=flowchart-wide-v3-20260929"></script><script src="./assets/js/presentation.js"></script><script src="./assets/js/code-ui.js?v=linenums-20261004"></script><script src="./assets/js/week01-runner.js"></script>
+  <script src="./assets/js/bit-lamps.js"></script>
+  <script src="./assets/js/logic-review.js"></script>
+  <script src="./assets/js/line-tracer-model.js"></script>
+  <script src="./assets/js/line-tracer-compiler.js"></script>
+  <script src="./assets/js/line-tracer.js"></script>
+  <script src="./assets/js/c-editor.js"></script>
+  <script src="./assets/js/physics-model.js"></script>
+  <script src="./assets/js/physics.js"></script>
+  <script src="./assets/js/robot-arm.js"></script>
+  <script src="./assets/js/one-link.js?v=20260920-xzero"></script>
+  <script src="./assets/js/addition-cycle.js"></script>
+  <script src="./assets/js/spiral-grid.js"></script>
+  <script src="./assets/js/sort-bars.js"></script>
+  <script src="./assets/js/lowpass-filter.js"></script>
+  <script src="./assets/js/convolution-lab.js"></script>
+</body></html>
