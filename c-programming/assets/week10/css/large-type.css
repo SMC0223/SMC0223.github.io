@@ -1,0 +1,37 @@
+/* Larger lecture typography, enabled by large-type: true in front matter. */
+.reveal { font-size: 36px; }
+.reveal h1 { font-size: 76px; }
+.reveal h2 { font-size: 52px; }
+.reveal h3 { font-size: 36px; }
+.reveal p, .reveal li { font-size: 34px; }
+.eyebrow, .section-label { font-size: 20px; }
+.slide-subtitle { font-size: 34px; }
+.caption { font-size: 22px; }
+.slide-footer { font: 500 20px var(--font-en); }
+.title-meta span { font-size: 25px; }
+.section-number { font: 700 28px var(--font-en); }
+.reveal .slide-number { font: 500 18px var(--font-en); }
+.exercise-meta { font: 700 20px var(--font-en); }
+.quiz-marker { font: 700 20px var(--font-en); }
+.summary-index { font: 700 28px var(--font-en); }
+.btn { font: 700 20px var(--font-ko); }
+.reveal table { font-size: 28px; }
+.code-header { font: 500 18px var(--font-code); }
+.explanation-content { font: 28px/1.4 var(--font-ko); }
+.reveal pre code { font: 28px/1.5 var(--font-code); }
+.reveal .interactive-compact .instruction-panel p, .reveal .interactive-compact .instruction-panel li { font-size: 24px; }
+.editor-panel { font: 25px var(--font-code); }
+.console-panel strong { font-size: 18px; }
+.console-panel span { font: 20px var(--font-code); }
+.test-result { font-size: 21px; }
+.code-comparison-heading { font: 600 20px var(--font-code); }
+.code-comparison-row code { font: 25px/1.45 var(--font-code); }
+.code-comparison-row > div { font-size: 24px; }
+.code-editor { font: 25px/1.5 var(--font-code); }
+.console-input { font: 20px var(--font-code); }
+.console-output { font: 20px/1.45 var(--font-code); }
+.reveal h3 { line-height: 1.35; }
+.reveal p, .reveal li { line-height: 1.45; }
+.reveal ul, .reveal ol { padding-left: 1.5em; }
+@media (max-width: 1100px) { .reveal h1 { font-size: 64px; } .reveal h2 { font-size: 46px; } .reveal p, .reveal li { font-size: 30px; } }
+@media (max-width: 760px) { .slide-footer { font-size: 12px; } }

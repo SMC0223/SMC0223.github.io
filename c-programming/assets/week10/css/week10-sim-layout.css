@@ -1,0 +1,16 @@
+/* Simulations share the left column with objectives and equations. */
+.reveal section:has(.week10-fk, .week10-euler-sim, .week10-spring-sim) .code-comparison-panels > .column:first-child {
+  gap: 7px;
+}
+.reveal section:has(.week10-fk, .week10-euler-sim, .week10-spring-sim) .code-comparison-panels > .column:first-child > p,
+.reveal section:has(.week10-fk, .week10-euler-sim, .week10-spring-sim) .code-comparison-panels > .column:first-child > ol li {
+  font-size: 27px;
+  line-height: 1.25;
+}
+.reveal section:has(.week10-fk, .week10-euler-sim, .week10-spring-sim) .code-comparison-panels > .column:first-child > ol {
+  margin: 0;
+}
+.reveal section:has(.week10-fk, .week10-euler-sim, .week10-spring-sim) .code-comparison-panels > .column:first-child .katex-display {
+  font-size: 0.94em;
+  margin: 0.25em 0;
+}

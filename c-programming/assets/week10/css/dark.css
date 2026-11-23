@@ -1,0 +1,48 @@
+/* Opt-in lecture theme; enabled only by theme: dark in front matter. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --hy-blue: #8fc6ff;
+  --hy-blue-dark: #bddcff;
+  --hy-blue-soft: #20324b;
+  --hy-silver: #9aacc0;
+  --bg-primary: #0f1722;
+  --bg-secondary: #192535;
+  --text-primary: #e7edf5;
+  --text-secondary: #bcc9d9;
+  --text-muted: #a2b2c7;
+  --border-light: #35465a;
+  --success: #83d7aa;
+  --danger: #ffaaa2;
+}
+:root[data-theme="dark"],
+[data-theme="dark"] body { background: var(--bg-primary); }
+[data-theme="dark"] .reveal a { color: var(--hy-blue); }
+[data-theme="dark"] .reveal mark { background: #efd18a; color: #172333; }
+[data-theme="dark"] .reveal .lecture-reference { color: var(--text-muted); border-left-color: #4b6178; }
+[data-theme="dark"] .reveal .lecture-reference a { color: #a5ceff; }
+[data-theme="dark"] .page-logo { filter: brightness(0) invert(1); opacity: .9; }
+[data-theme="dark"] .btn-primary { background: var(--hy-blue); color: #0f1722; }
+[data-theme="dark"] .btn-secondary { background: var(--bg-secondary); color: var(--hy-blue); }
+[data-theme="dark"] .btn:focus-visible,
+[data-theme="dark"] .code-editor:focus { outline-color: #8fc6ff; }
+[data-theme="dark"] .code-container,
+[data-theme="dark"] .reveal pre code,
+[data-theme="dark"] .code-editor,
+[data-theme="dark"] .editor-panel,
+[data-theme="dark"] .c-editor-shell { background: #151f2d; }
+[data-theme="dark"] .code-header,
+[data-theme="dark"] .code-comparison-heading { background: #101a27; }
+[data-theme="dark"] .code-container-light,
+[data-theme="dark"] .explanation-content,
+[data-theme="dark"] .reveal .code-container-light pre code { background: var(--bg-secondary); color: var(--text-primary); }
+[data-theme="dark"] .code-comparison-row code { background: #151f2d; }
+[data-theme="dark"] .copy-code { border-color: #60758e; color: #d6e5f5; }
+[data-theme="dark"] .console-output .ansi-color-0 { color: #d6e5f5; }
+[data-theme="dark"] .console-output .ansi-color-1 { color: #ffaaa2; }
+[data-theme="dark"] .console-output .ansi-color-2 { color: #83d7aa; }
+[data-theme="dark"] .console-output .ansi-color-3 { color: #edc177; }
+[data-theme="dark"] .console-output .ansi-color-4 { color: #8fc6ff; }
+[data-theme="dark"] .console-output .ansi-color-5 { color: #d4aff0; }
+[data-theme="dark"] .console-output .ansi-color-6 { color: #83d7ca; }
+[data-theme="dark"] .console-output .ansi-color-7 { color: #bcc9d9; }
+

@@ -1,0 +1,50 @@
+.convolution-lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  width: 100%;
+  align-items: start;
+  text-align: left;
+}
+.convolution-code { min-width: 0; }
+.reveal .convolution-lab .code-editor {
+  box-sizing: border-box;
+  width: 100%;
+  height: 530px;
+  min-height: 530px;
+  resize: none;
+  font-size: 23px;
+  line-height: 1.43;
+  padding: 16px 18px;
+  tab-size: 4;
+}
+.convolution-lab .c-editor-shell { width: 100%; }
+.convolution-lab [data-stdin][hidden],
+.convolution-lab [data-image-status][hidden],
+.convolution-lab [data-image-credit][hidden],
+.convolution-lab canvas[hidden],
+.convolution-lab [data-result-placeholder][hidden] { display: none !important; }
+.convolution-lab .button-row { gap: 12px; margin: 16px 0 10px; flex-wrap: wrap; }
+.convolution-lab .runner-status { font-size: 19px; }
+.reveal .convolution-console { font-size: 18px; margin: 8px 0 0; }
+.convolution-console summary { cursor: pointer; color: #536579; }
+.convolution-lab .console-output { width: 100%; max-height: 95px; margin: 7px 0 0; padding: 8px; font-size: 15px; white-space: pre-wrap; word-break: break-all; }
+.convolution-preview { padding-top: 4px; }
+.convolution-images { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.reveal .convolution-images figure { margin: 0; min-width: 0; }
+.reveal .convolution-images figcaption { font-size: 25px; font-weight: 700; margin: 0 0 14px; }
+.convolution-images figcaption span { display: block; margin-top: 5px; font-size: 20px; font-weight: 400; color: #536579; }
+.convolution-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8edf3;
+  border: 1px solid #c9d3df;
+  overflow: hidden;
+}
+.convolution-frame canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.convolution-frame [data-result-placeholder] { padding: 20px; color: #5d6d7d; font-size: 21px; line-height: 1.55; text-align: center; }
+.reveal .convolution-lab .convolution-image-status { font-size: 23px; line-height: 1.5; margin: 22px 0 0; }

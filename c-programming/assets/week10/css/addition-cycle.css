@@ -1,0 +1,25 @@
+.addition-cycle { border: 1px solid #d6e1eb; border-radius: 18px; padding: 22px; background: #f8fbfe; color: #233b53; }
+.cycle-controls { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
+.cycle-controls label { font-size:24px; }
+.cycle-controls input { width:100px; font:inherit; padding:7px; border:1px solid #95abc0; border-radius:7px; }
+.cycle-controls strong { margin-left:auto; font-size:26px; }
+.cycle-status { min-height:34px; margin:12px 0; font-size:24px; color:#246388; }
+.cycle-equation { display:flex; align-items:center; justify-content:space-around; gap:12px; padding:22px 12px; background:white; border-radius:14px; }
+.cycle-equation > div { text-align:center; min-width:0; }
+.cycle-label { display:block; font-size:23px; margin-bottom:12px; }
+.cycle-digits { display:flex; justify-content:center; gap:8px; }
+.cycle-digits b { display:grid; place-items:center; width:64px; height:82px; background:#edf0f5; border-radius:10px; font-size:52px; font-family:monospace; }
+.cycle-digits .cycle-ones { background:#d9eafb; color:#1b6198; }
+.cycle-digits .cycle-last { background:#ffe6bd; color:#87540c; }
+.cycle-sum { font: bold 40px/82px monospace; white-space:nowrap; }
+.cycle-arrow { font-size:40px; color:#8aa1b6; }
+.reveal .cycle-equation code { display:block; font-size:17px; margin-top:12px; background:none; }
+.reveal p.cycle-note { font-size:20px; margin:14px 0; }
+.cycle-history { display:flex; flex-wrap:wrap; gap:7px; max-height:110px; overflow:auto; padding:8px 0; }
+.cycle-history span { background:#e4edf5; border-radius:8px; padding:5px 10px; font:24px monospace; }
+.cycle-history span.is-return { background:#cdeede; color:#22664c; outline:2px solid #52a681; }
+.cycle-output { margin-top:12px; }
+.cycle-output > span { font-size:19px; color:#62798c; }
+.reveal .cycle-output pre { width:100%; box-shadow:none; background:#172838; color:#e4f0fa; font:20px/1.5 monospace; height:120px; overflow:auto; margin:7px 0 0; padding:12px; box-sizing:border-box; }
+.cycle-controls button:disabled { opacity:.5; cursor:default; }
+@media(max-width:900px) { .cycle-equation { flex-wrap:wrap; } .cycle-equation code { overflow-wrap:anywhere; } }

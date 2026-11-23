@@ -1,0 +1,9 @@
+.week10-fk { min-width: 0; width: 100%; max-width: 540px; margin: 0 auto; }
+.week10-fk-scene { display: block; width: 100%; max-height: 330px; margin: 0 auto; }
+.week10-fk-axis, .week10-fk-legend { fill: #617789; font: 12px sans-serif; }
+.reveal .week10-fk .week10-fk-value { margin: 0; font-size: 20px; text-align: center; color: #314d63; }
+.week10-fk-controls { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 4px 0; }
+.week10-fk-controls .btn { padding: 4px 10px; font-size: 19px; }
+.week10-fk-controls span { font-size: 19px; color: #526779; }
+.reveal .week10-fk .week10-fk-status { margin: 0; min-height: 1.4em; color: #526779; text-align: center; font-size: 19px; line-height: 1.3; }
+.reveal .week10-fk[data-state="error"] .week10-fk-status { color: #a43c3c; }

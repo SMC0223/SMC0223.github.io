@@ -1,0 +1,28 @@
+.sort-bars { min-width: 0; }
+.sort-controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.sort-controls .btn { padding:8px 11px; font-size:17px; }
+.sort-controls label { display:flex; align-items:center; gap:6px; font-size:17px; }
+.sort-controls select { font:inherit; padding:5px; }
+.reveal .sort-bars p { font-size:23px; line-height:1.4; }
+.reveal .sort-status { min-height:3em; margin:14px 0 0; }
+.sort-bars[data-state="error"] .sort-status { color:#a43c3c; }
+.sort-bars[data-state="success"] .sort-status { color:#17705b; }
+.sort-chart { display:block; width:100%; margin-top:10px; overflow:visible; }
+.sort-bar { transition:transform 650ms cubic-bezier(.4,0,.2,1); }
+.sort-bar rect { stroke-width:3px; stroke:transparent; }
+.sort-bar.is-moving rect { stroke:#233b53; }
+.sort-no-motion .sort-bar { transition:none; }
+.reveal .sort-array { margin-top:12px; font:700 31px/1.4 var(--font-code); text-align:center; }
+.reveal .sort-stage { margin-top:8px; text-align:center; color:#17705b; }
+.reveal .sort-key { margin-top:16px; font-size:20px; color:#52667c; }
+[data-sort-source] .editor-workspace { grid-template-columns:minmax(0,1fr) 170px; grid-template-rows:auto auto; align-items:stretch; }
+[data-sort-source] .console-grid { display:contents; }
+[data-sort-source] .c-editor-shell,[data-sort-source] .editor-workspace>.code-editor { grid-column:1; grid-row:1; min-width:0; }
+[data-sort-source] .code-editor { height:510px; font-size:21px; line-height:1.45; }
+[data-sort-source] .console-panel:first-child { display:none; }
+[data-sort-source] .console-panel:last-child { grid-column:2; grid-row:1/3; padding:10px; min-width:0; }
+[data-sort-source] .console-output { height:530px; max-height:530px; overflow:auto; font-size:18px; }
+[data-sort-source] .editor-workspace>.button-row { grid-column:1; grid-row:2; }
+[data-sort-source] .instruction-panel p { font-size:22px !important; line-height:1.4; }
+[data-sort-source] .callout-note { padding:10px 14px; }
+@media(prefers-reduced-motion:reduce) { .sort-bar { transition:none; } }

@@ -1,0 +1,17 @@
+@media (max-width: 1100px) {
+  :root { --slide-padding-x: 48px; --slide-padding-y: 38px; }
+  .reveal h1 { font-size: 54px; }
+  .reveal h2 { font-size: 38px; }
+  .reveal p, .reveal li { font-size: 23px; }
+}
+@media (max-width: 760px) {
+  :root { --slide-padding-x: 30px; --slide-padding-y: 28px; }
+  .two-column, .two-column.ratio-40-60, .two-column.ratio-60-40, .comparison-grid, .code-comparison-grid, .code-comparison-grid.code-comparison-panels, .code-comparison-heading, .code-comparison-row, .interactive-layout { grid-template-columns: 1fr; }
+  .three-column { grid-template-columns: 1fr; }
+  .instruction-panel { border-bottom: 1px solid var(--border-light); border-right: 0; padding: 0 0 18px; }
+  .page-logo { bottom: 26px; height: 26px; }
+  .slide-footer { font-size: 12px; }
+}
+@media print {
+  .reveal .controls, .reveal .progress { display: none !important; }
+}

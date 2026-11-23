@@ -1,0 +1,43 @@
+.reveal .line-tracer { text-align: left; font-size: 24px; }
+.reveal .lt-controls { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 12px 0 24px; }
+.reveal .lt-controls label { display: flex; gap: 8px; align-items: center; }
+.reveal .lt-controls input { width: 24px; height: 24px; }
+.reveal .lt-main { display: grid; grid-template-columns: 1.35fr 1fr; gap: 28px; align-items: center; }
+.reveal .lt-main svg { display: block; width: 100%; height: auto; margin: auto; }
+.reveal .lt-readings { display: flex; justify-content: space-around; gap: 16px; margin-bottom: 20px; }
+.reveal .lt-readings output { display: inline-block; min-width: 44px; text-align: center; font-size: 34px; font-weight: 700; border-radius: 8px; border: 2px solid #000; background: #fff; color: #000; }
+.reveal .lt-readings output[data-sensor-value="1"] { background: #000; color: #fff; }
+.reveal .line-tracer table { width: 100%; font-size: 24px; margin: 0; }
+.reveal .line-tracer td, .reveal .line-tracer th { padding: 10px; }
+.reveal .line-tracer code { font-size: 23px; white-space: nowrap; }
+.reveal .line-tracer tr.is-active { background: #dbeafe; color: #172554; box-shadow: inset 5px 0 #2563eb; }
+.reveal .line-tracer p { font-size: 23px; line-height: 1.45; margin: 16px 0 0; }
+.reveal .line-tracer .lt-command { font-size: 28px; }
+.reveal .line-tracer .lt-guide { margin-top: 24px; color: #64748b; }
+.reveal .line-tracer .lt-apply-status { white-space: pre-wrap; overflow: auto; max-height: 120px; width: 100%; margin: 18px 0 0; padding: 12px; box-sizing: border-box; font-size: 22px; line-height: 1.4; background: #f1f5f9; color: #182536; box-shadow: none; }
+.reveal .line-tracer button:disabled { opacity: .45; cursor: default; }
+.reveal .lt-lap-board { display: flex; gap: 36px; padding: 10px 18px; margin-bottom: 14px; background: #ecfdf5; border-radius: 10px; color: #14532d; font-variant-numeric: tabular-nums; }
+.reveal .lt-lap-board strong { margin-left: 12px; }
+.reveal .line-tracer .lt-guide { margin-top: 12px; font-size: 20px; }
+@media (max-width: 800px) { .reveal .lt-main { grid-template-columns: 1fr; } }
+
+/* Shared simulation/editor slide. Keep the track above a compact sensor panel. */
+.reveal .comparison-grid:has([data-line-tracer]) { grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); align-items: start; }
+.reveal .comparison-grid:has([data-line-tracer]) > .comparison-item { min-width: 0; }
+.reveal .comparison-grid .line-tracer { font-size: 18px; }
+.reveal .comparison-grid .lt-controls { gap: 10px; margin: 0 0 10px; }
+.reveal .comparison-grid .lt-lap-board { gap: 20px; padding: 8px 12px; }
+.reveal .comparison-grid .lt-main { grid-template-columns: 1fr; gap: 12px; }
+.reveal .comparison-grid .lt-main svg { max-height: 440px; }
+.reveal .comparison-grid .lt-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); column-gap: 14px; align-items: start; }
+.reveal .comparison-grid .lt-panel table { grid-column: 2; grid-row: 1 / span 4; font-size: 18px; }
+.reveal .comparison-grid .lt-panel > :not(table) { grid-column: 1; }
+.reveal .comparison-grid .lt-readings { margin: 0; gap: 8px; }
+.reveal .comparison-grid .lt-readings output { min-width: 32px; font-size: 26px; }
+.reveal .comparison-grid .line-tracer td, .reveal .comparison-grid .line-tracer th { padding: 7px; }
+.reveal .comparison-grid .line-tracer code { font-size: 18px; }
+.reveal .comparison-grid .line-tracer p { font-size: 18px; margin-top: 8px; }
+.reveal .comparison-grid .line-tracer .lt-apply-status { font-size: 18px; max-height: 90px; margin-top: 10px; }
+.reveal .comparison-grid [data-line-tracer-source] .code-editor { font: 21px/1.4 var(--font-code); }
+.reveal .comparison-grid [data-line-tracer-source] .editor-workspace { gap: 10px; }
+.reveal .comparison-grid [data-line-tracer-source] .console-output { font-size: 18px; }

@@ -1,0 +1,18 @@
+.logic-review { display: grid; gap: 18px; width: min(100%, 1100px); margin: 0 auto; }
+.reveal .logic-review table { table-layout: fixed; width: 100%; margin: 0; }
+.reveal .logic-review th, .reveal .logic-review td { text-align: center; vertical-align: middle; padding: 9px 16px; }
+.reveal .logic-review thead th { font-size: 28px; }
+.reveal .logic-review th[scope="row"] { background: white; color: var(--text-primary); font-weight: 400; }
+.logic-table code { font-size: 32px; }
+.logic-table output { font: 700 34px var(--font-code); color: var(--text-secondary); }
+.logic-table output.is-true { color: var(--hy-blue); }
+.logic-input-table [data-logic-input] { width: 100%; min-height: 64px; border: 2px dashed var(--hy-blue); border-radius: 4px; background: transparent; color: var(--hy-blue); cursor: pointer; font: 700 40px var(--font-code); }
+.logic-input-table [data-logic-input]:hover { background: var(--hy-blue-soft); }
+.logic-input-table [data-logic-input]:focus-visible { outline: 4px solid #e7a32c; outline-offset: 2px; }
+.logic-table-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.reveal .logic-table-footer p { color: var(--text-secondary); font-size: 24px; }
+.logic-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 760px) {
+  .reveal .logic-review th, .reveal .logic-review td { padding: 7px 10px; }
+  .logic-table code, .logic-table output { font-size: 26px; }
+}
