@@ -742,7 +742,9 @@ int main(void) {
 </div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="13" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 
 void add_offset(int values[], int count, int offset) {
-    // 반복문으로 각 관절각에 offset 더하기.
+    for (int i = 0; i &lt; count; i++) {
+        values[i] += offset;
+    }
 }
 
 int main(void) {
@@ -805,8 +807,10 @@ void forward_kinematics(const double *q,
                         double *x, double *y) {
     const double pi = 3.141592653589793; // 원주율
     // cos, sin 입력: 라디안 = 각도 * pi / 180.0.
-    // 1. x 좌표를 계산해 *x에 저장.
-    // 2. y 좌표를 계산해 *y에 저장.
+    *x = l1 * cos(q[0] * pi / 180.0)
+       + l2 * cos((q[0] + q[1]) * pi / 180.0);
+    *y = l1 * sin(q[0] * pi / 180.0)
+       + l2 * sin((q[0] + q[1]) * pi / 180.0);
 }
 int main(void) {
     double q[2] = {30.0, 60.0}; // 관절각(도)
@@ -861,12 +865,12 @@ v_{n+1} &amp;= v_n + a_n\Delta t &amp;&amp;\text{: Euler step}
     </div>
   </div></div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 void forward_dynamics(double f, double m, double *a) {
-    // 1. 가속도를 계산해 *a에 저장.
+    *a = f / m;
 }
 void euler_step(double *x, double *v,
                 double a, double dt) {
-    // 2. 현재 속도로 위치 *x 갱신.
-    // 3. 가속도로 속도 *v 갱신.
+    *x += *v * dt;
+    *v += a * dt;
 }
 int main(void) {
     const double m = 2.0, f = -4.0; // 질량(kg), 힘(N)
@@ -920,12 +924,12 @@ a &amp;= \frac{f-kx}{m} \quad :\ \text{forward dynamics}
   </div></div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 void forward_dynamics(double f, double x,
                       double m, double k, double *a) {
-    // 1. 가속도를 계산해 *a에 저장.
+    *a = (f - k * x) / m;
 }
 void euler_step(double *x, double *v,
                 double a, double dt) {
-    // 2. 현재 속도로 위치 *x 갱신.
-    // 3. 가속도로 속도 *v 갱신.
+    *x += *v * dt;
+    *v += a * dt;
 }
 int main(void) {
     const double m = 2.0;  // 질량(kg)
@@ -955,15 +959,23 @@ int main(void) {
 </div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 void matrix_add(int rows, int cols, int A[rows][cols],
                 int B[rows][cols], int C[rows][cols]) {
-    // 1. 이중 반복문으로 각 원소에 접근.
-    // 2. A와 B의 원소를 더해 C에 저장.
+    for (int i = 0; i &lt; rows; i++) {
+        for (int j = 0; j &lt; cols; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
 }
 int main(void) {
     int A[2][3] = {{1, 2, 3}, {4, 5, 6}};
     int B[2][3] = {{2, 4, 6}, {1, 3, 5}};
     int C[2][3];
-    // 3. 행·열 크기와 A, B, C를 matrix_add에 전달.
-    // 4. 결과 행렬 C 출력.
+    matrix_add(2, 3, A, B, C);
+    for (int i = 0; i &lt; 2; i++) {
+        for (int j = 0; j &lt; 3; j++) {
+            printf(&quot;%d &quot;, C[i][j]);
+        }
+        printf(&quot;\n&quot;);
+    }
     return 0;
 }</textarea><div class="console-grid console-grid-no-input"><div class="console-panel" hidden><strong>프로그램 입력</strong><textarea class="console-input" data-stdin aria-label="프로그램 입력"></textarea></div><div class="console-panel"><strong>컴파일러 출력</strong><pre class="console-output" data-output aria-live="polite">실행 결과가 여기에 표시됩니다.</pre></div></div><div class="button-row"><button class="btn btn-primary" data-run type="button">실행</button><button class="btn btn-secondary" data-reset type="button">초기화</button><span class="test-result runner-status" data-status data-state="idle">실행 준비</span></div></div></div></div></div></div><footer class="slide-footer"><span>C Programming</span><span>WEEK 10</span></footer></div></section>
       <section class="code-comparison-slide align-left valign-center image-size-auto diagram-size-medium diagram-align-center" style="--comparison-columns: minmax(0, 40fr) minmax(0, 60fr)"><div class="slide-shell"><header class="slide-header"><div class="slide-header-text"><div class="section-label">WEEK 10</div><h2>실습 14: 재귀함수로 피보나치 수 계산</h2></div></header><div class="slide-content"><div class="code-comparison-grid code-comparison-panels"><div class="column">
@@ -980,8 +992,9 @@ int main(void) {
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">F</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">F</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">F</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span></span></p>
 </div><div class="column"><div class="interactive-layout interactive-compact interactive-notes-none" data-c-runner><div class="editor-workspace"><textarea class="code-editor" rows="14" data-code aria-label="C 코드 편집기" spellcheck="false">#include &lt;stdio.h&gt;
 int fibonacci(int n) {
-    // 1. n이 0 또는 1일 때 반환값 작성.
-    // 2. 재귀 호출로 n번째 피보나치 수 계산.
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 int main(void) {
     int n = 5; // 0부터 10까지
